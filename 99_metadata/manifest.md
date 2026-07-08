@@ -7,6 +7,7 @@ Generated: 2026-06-26
 | Path | Role |
 |---|---|
 | `README.md` | Anchor source-pathway registry and package front door |
+| `loss_aggregation_discussion/` | Local symlink to cross-hazard M3-to-M4 aggregation methodology notes |
 | `00_anchor/renewable_loss_reference_source_pathways.md` | Copy of the root source-pathway registry anchor |
 | `01_pairs/solar_hail/README.md` | Deep-dive solar × hail source-pathway dossier |
 | `01_pairs/solar_hail/benchmark_number_matrix.csv` | Normalized benchmark-number table for solar × hail |

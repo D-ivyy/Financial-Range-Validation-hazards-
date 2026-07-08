@@ -19,6 +19,7 @@ Which hazard × asset pairs are strong enough for a deep dive?
 ```text
 range-validation-hazard-modeling/
   README.md                                  <-- anchor source-pathway registry
+  loss_aggregation_discussion/               <-- local symlink to M3 -> M4 aggregation methodology notes
   00_anchor/
     renewable_loss_reference_source_pathways.md
   01_pairs/
@@ -41,6 +42,35 @@ range-validation-hazard-modeling/
   99_metadata/
     bibliography.md
     manifest.md
+```
+
+## Metric-frame emphasis
+
+This package should not treat `% EL / TIV` as the only validation target. `% expected loss / TIV / year` is often the right first normalization for EAL/AAL, but range validation also needs tail and event metrics.
+
+Every benchmark row should preserve the metric frame:
+
+```text
+EAL / AAL              mean annual loss, usually % TIV / year
+OEP-PML                largest single occurrence at a return period
+AEP-PML / VaR          annual aggregate loss at a return period
+TVaR                   mean loss beyond a tail threshold
+event / claim severity one occurrence or claim, often $/MW or % TIV
+```
+
+Each metric should also carry:
+
+```text
+EP frame: OEP vs AEP
+loss basis: physical destruction vs repair spend vs insured / net loss
+denominator: installed TIV, physical value, vulnerable-stock value, or component value
+aggregation stance: no reinstatement, partial reinstatement, full reinstatement, or unknown
+```
+
+The linked local methodology folder is:
+
+```text
+loss_aggregation_discussion -> ../../work/infrasure_git_codes/Hazard_modeling/docs/extra/discussion/loss_aggregation
 ```
 
 
@@ -140,13 +170,20 @@ Use these tags consistently in future source-selection and validation files.
 | `DOLLARS_PER_MW` | Loss normalized by project capacity. |
 | `PERCENT_TIV` | Loss expressed as percent of insured value, installed value, asset value, or physical replaceable value. |
 | `AAL` | Average annual loss / annual average loss. |
-| `PML` | Probable maximum loss or return-period loss. |
+| `EAL` | Expected annual loss / mean annual loss, typically normalized as `% TIV / year`. |
+| `OEP_PML` | Occurrence-exceedance return-period loss: largest single event in a year. |
+| `AEP_PML` | Aggregate-exceedance return-period loss: total annual loss at a return period. |
+| `VAR` | Quantile of the annual aggregate loss distribution, usually equivalent to AEP-PML at a stated return period. |
+| `TVAR` | Tail value at risk: mean annual aggregate loss beyond the VaR threshold. |
+| `PML` | Probable maximum loss or return-period loss; must be labelled as OEP or AEP. |
 | `OEP_AEP` | Occurrence or aggregate exceedance probability curve or event-year loss distribution. |
 | `BI_DOWNTIME` | Business interruption, downtime, revenue loss, or generation loss. |
 | `DEDUCTIBLE_SUBLIMIT` | Deductible, sublimit, policy cap, or payout cap value. |
 | `TRIGGER_BURN` | Parametric-trigger frequency / payout burn analysis. |
 | `COMPONENT_COST` | Component-level replacement, repair, remediation, or forensic cost. |
 | `DENOMINATOR` | Exposure, capacity, TIV, physical value, project location, or asset count denominator. |
+| `LOSS_BASIS` | Whether the value is physical destruction, repair spend, gross claim, net insured loss, or revenue/BI. |
+| `REINSTATEMENT_ASSUMPTION` | Whether annual aggregation assumes no reinstatement, partial reinstatement, full reinstatement, or unknown. |
 
 ### 1.3 Evidence-use tags
 
@@ -202,6 +239,7 @@ loss dollars per MW
 loss dollars per project
 loss percent of TIV / asset value
 AAL / AEP / OEP / PML / return-period loss
+VaR / TVaR / tail conditional loss
 business interruption or downtime days
 annual revenue loss
 policy sublimit / deductible / payout cap
