@@ -1,0 +1,166 @@
+{
+  "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+  "created": "2026-06-26",
+  "source_value_workbook": "solar_wind_value_breakdown.xlsx / Summary + Solar_Map",
+  "source_damage_artifact": "DAMAGE_CURVE_LIBRARY_V2_5_IMPLEMENTATION_HARDENED_DELIVERABLE/01_cells/hail_solar/current/hail_solar__model_v1_0__docs_r5__curve_artifact.json",
+  "important_rule": "This crosswalk normalizes and reconciles denominator/grain only; it is not external validation evidence.",
+  "solar_default_basis_usd_per_MWdc": {
+    "installed_TIV": 1119999.9999999998,
+    "physical_replaceable_value": 877795.7023626668,
+    "excluded_sunk_soft_nonphysical": 242204.29763733296,
+    "physical_as_pct_installed": 78.37461628238098,
+    "excluded_as_pct_installed": 21.625383717619016
+  },
+  "hail_damage_grain": {
+    "cell_id": "hail_solar",
+    "hazard_axis": {
+      "id": "HAIL_DIAMETER_MESH_EQUIV",
+      "input_field": "mesh_diameter_mm",
+      "unit": "mm",
+      "source_units_allowed": [
+        "mm",
+        "in"
+      ],
+      "valid_range": [
+        0,
+        100
+      ],
+      "extrapolation_policy": "clamp_or_warn"
+    },
+    "failure_unit": {
+      "id": "PV_MODULE_GLASS_CELL",
+      "subsystem": "PV_ARRAY",
+      "component": "PV_MODULE",
+      "treatment": "primary_nonzero",
+      "y_axis": "module replacement damage ratio approximated by glass breakage probability",
+      "value_bucket": "PV_ARRAY_MODULE_EXPOSED",
+      "f_kind": "material_share"
+    },
+    "canonical_runtime_value_bucket": "PV_ARRAY_MODULE_EXPOSED",
+    "curve_ids": [
+      "HAIL_SOLAR_FRAGILE_THIN_GG",
+      "HAIL_SOLAR_DEFAULT_3P2_GBS",
+      "HAIL_SOLAR_HARDENED_THICKER"
+    ],
+    "max_DR_runtime_failure_unit": 1.0,
+    "direct_module_hardware_cap_usd_per_MWdc_before_exposure": 291214.85143992485,
+    "direct_module_hardware_cap_pct_installed_TIV": 26.001326021421868,
+    "direct_module_hardware_cap_pct_physical_value": 33.17569801903719
+  },
+  "normalization_buckets_usd_per_MWdc": {
+    "installed_TIV": 1119999.9999999998,
+    "physical_replaceable_value": 877795.7023626668,
+    "PV_ARRAY_module_hardware": 291214.85143992485,
+    "REPLACEMENT_FIELDWORK_unallocated": 106868.76712328767,
+    "PV_ARRAY_plus_REPLACEMENT_FIELDWORK": 398083.6185632125,
+    "MOUNTING_tracker_racking": 153263.698630137,
+    "PV_ARRAY_plus_MOUNTING_plus_REPLACEMENT_FIELDWORK": 551347.3171933495
+  },
+  "subsystem_rollup_from_value_workbook": {
+    "PV_ARRAY": {
+      "subsystem": "PV_ARRAY",
+      "installed_usd_per_kWdc": 291.21485143992487,
+      "physical_usd_per_kWdc": 291.21485143992487,
+      "installed_share": 0.26001326021421867,
+      "physical_share": 0.3317569801903719,
+      "default_installed_usd_mm": 29.121485143992487,
+      "default_physical_usd_mm": 29.121485143992487
+    },
+    "MOUNTING": {
+      "subsystem": "MOUNTING",
+      "installed_usd_per_kWdc": 153.263698630137,
+      "physical_usd_per_kWdc": 153.263698630137,
+      "installed_share": 0.13684258806262234,
+      "physical_share": 0.17460064821189467,
+      "default_installed_usd_mm": 15.3263698630137,
+      "default_physical_usd_mm": 15.3263698630137
+    },
+    "FOUNDATION": {
+      "subsystem": "FOUNDATION",
+      "installed_usd_per_kWdc": 31.12448715327472,
+      "physical_usd_per_kWdc": 31.12448715327472,
+      "installed_share": 0.02778972067256672,
+      "physical_share": 0.03545755244585994,
+      "default_installed_usd_mm": 3.112448715327472,
+      "default_physical_usd_mm": 3.112448715327472
+    },
+    "INVERTER_SYSTEM": {
+      "subsystem": "INVERTER_SYSTEM",
+      "installed_usd_per_kWdc": 39.132616410372385,
+      "physical_usd_per_kWdc": 39.132616410372385,
+      "installed_share": 0.03493983608068964,
+      "physical_share": 0.044580551380057336,
+      "default_installed_usd_mm": 3.9132616410372383,
+      "default_physical_usd_mm": 3.9132616410372383
+    },
+    "ELECTRICAL_COLLECTION": {
+      "subsystem": "ELECTRICAL_COLLECTION",
+      "installed_usd_per_kWdc": 147.02160447761193,
+      "physical_usd_per_kWdc": 108.76787313432834,
+      "installed_share": 0.13126928971215354,
+      "physical_share": 0.12391023656366708,
+      "default_installed_usd_mm": 14.702160447761193,
+      "default_physical_usd_mm": 10.876787313432835
+    },
+    "SUBSTATION": {
+      "subsystem": "SUBSTATION",
+      "installed_usd_per_kWdc": 106.50466417910448,
+      "physical_usd_per_kWdc": 106.50466417910448,
+      "installed_share": 0.09509345015991473,
+      "physical_share": 0.12133194989726824,
+      "default_installed_usd_mm": 10.650466417910447,
+      "default_physical_usd_mm": 10.650466417910447
+    },
+    "GROUNDING_LIGHTNING": {
+      "subsystem": "GROUNDING_LIGHTNING",
+      "installed_usd_per_kWdc": 8.385,
+      "physical_usd_per_kWdc": 8.385,
+      "installed_share": 0.007486607142857144,
+      "physical_share": 0.009552336582909908,
+      "default_installed_usd_mm": 0.8385,
+      "default_physical_usd_mm": 0.8385
+    },
+    "SCADA": {
+      "subsystem": "SCADA",
+      "installed_usd_per_kWdc": 1.31,
+      "physical_usd_per_kWdc": 1.31,
+      "installed_share": 0.0011696428571428574,
+      "physical_share": 0.0014923745883854479,
+      "default_installed_usd_mm": 0.131,
+      "default_physical_usd_mm": 0.131
+    },
+    "CIVIL_INFRA": {
+      "subsystem": "CIVIL_INFRA",
+      "installed_usd_per_kWdc": 31.223744292237445,
+      "physical_usd_per_kWdc": 31.223744292237445,
+      "installed_share": 0.02787834311806915,
+      "physical_share": 0.035570627890061324,
+      "default_installed_usd_mm": 3.1223744292237443,
+      "default_physical_usd_mm": 3.1223744292237443
+    },
+    "REPLACEMENT_FIELDWORK": {
+      "subsystem": "REPLACEMENT_FIELDWORK",
+      "installed_usd_per_kWdc": 106.86876712328767,
+      "physical_usd_per_kWdc": 106.86876712328767,
+      "installed_share": 0.09541854207436401,
+      "physical_share": 0.12174674224952421,
+      "default_installed_usd_mm": 10.686876712328766,
+      "default_physical_usd_mm": 10.686876712328766
+    },
+    "SUNK_SOFT_NONPHYSICAL": {
+      "subsystem": "SUNK_SOFT_NONPHYSICAL",
+      "installed_usd_per_kWdc": 203.95056629404934,
+      "physical_usd_per_kWdc": 0,
+      "installed_share": 0.18209871990540122,
+      "physical_share": 0,
+      "default_installed_usd_mm": 20.395056629404934,
+      "default_physical_usd_mm": 0
+    }
+  },
+  "comparison_guidance": [
+    "Compare M3 direct hail damage to PV_ARRAY_module_hardware unless the loss assembly explicitly allocates replacement fieldwork.",
+    "Compare gross claim severity to PV_ARRAY_plus_REPLACEMENT_FIELDWORK only when the source likely includes physical replacement labor/fieldwork.",
+    "Do not compare BI/downtime, deductible/net-of-insurance, or premium effects to M3 physical damage without a separate M4/financial layer.",
+    "If a benchmark $/MW exceeds PV_ARRAY_module_hardware, that is a grain warning, not automatic evidence that module DR should exceed 1."
+  ]
+}

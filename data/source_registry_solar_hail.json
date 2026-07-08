@@ -1,0 +1,351 @@
+[
+  {
+    "source_id": "KWH_SRA_2026_OPEN_PAGE",
+    "source_name": "kWh Analytics \u2014 Solar Risk Assessment 2026 landing page",
+    "source_type": "renewable_insurer_research_report",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "PERCENT_TIV",
+      "PML",
+      "RETURN_PERIOD",
+      "MITIGATION_STATE",
+      "SOURCE_DISCOVERY"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "SCREENING_ONLY_FOR_OPEN_PAGE"
+    ],
+    "solar_hail_use": "Open page exposes the solar-hail article title and the modeled pass/fail definition; full report values should be requested/downloaded.",
+    "has_open_numbers": "Yes: 100 MW reference project, 1-in-100 hail loss, 10% asset-value fail threshold, 13% of U.S. headline.",
+    "does_not_have_open": "Full geographic result table, by-state/county bands, all module/stow configuration results, underlying modeled AAL/PML values.",
+    "url": "https://kwhanalytics.com/industry-reports/2026-solar-risk-assessment/",
+    "retrieved": "2026-06-26",
+    "notes": "Full report download is form-gated; public page still contains the most important benchmark-threshold definition for solar hail."
+  },
+  {
+    "source_id": "KWH_SRA_2025_PDF",
+    "source_name": "kWh Analytics \u2014 Solar Risk Assessment 2025",
+    "source_type": "renewable_insurer_research_report_pdf",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "INCIDENT_SHARE",
+      "PORTFOLIO_LOSS_PATTERN",
+      "HAIL_FREQUENCY_CONTEXT"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_hail_use": "Open portfolio-loss pattern: hail dominates financial losses despite low incident count; useful for shape and peril-share sanity.",
+    "has_open_numbers": "73% of total financial losses by damage amount; 6% of loss incidents; 19% of hail-related losses in North Carolina; 23% sites with at least one partial loss in kWh database; 29% of loss sites with multiple events.",
+    "does_not_have_open": "Project-level loss ledger; denominator/TIV for each record; AAL/PML by location.",
+    "url": "https://kwhanalytics.com/wp-content/uploads/2025/06/Solar-Risk-Assessment-2025.pdf",
+    "retrieved": "2026-06-26",
+    "notes": "Very strong source for peril-share / frequency-vs-severity pattern; not a direct AAL table."
+  },
+  {
+    "source_id": "KWH_POWERMAG_RESILIENCY_CASE_2025",
+    "source_name": "kWh Analytics / POWER Magazine \u2014 Examining the Real Cost of Renewable Resiliency",
+    "source_type": "renewable_insurer_broker_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "DOLLARS_PER_MW",
+      "PERCENT_TIV",
+      "DEDUCTIBLE_SUBLIMIT",
+      "MITIGATION_STATE"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "CASE_STUDY_ONLY"
+    ],
+    "solar_hail_use": "Open modeled AAL for standard vs resilient 100-MW solar project in high hail-risk region.",
+    "has_open_numbers": "100-MW project; standard design net loss AAL $1,062,720; resilient design net loss AAL $307,790; 71% AAL reduction; standard cost $100M, resilient $115M; deductible noted as 5% of property damage value at risk with min/max terms.",
+    "does_not_have_open": "Exact site, detailed stochastic distribution, gross vs net bridge, full model assumptions.",
+    "url": "https://www.powermag.com/examining-the-real-cost-of-renewable-resiliency/",
+    "retrieved": "2026-06-26",
+    "notes": "Excellent numeric AAL anchor, but it is modeled net loss and a case study, not a ground-up claims ledger."
+  },
+  {
+    "source_id": "KWH_NEXTPOWER_TELEMATICS_2026",
+    "source_name": "kWh Analytics / Nextpower \u2014 hail-ready solar telematics program",
+    "source_type": "renewable_insurance_data_program",
+    "availability_tag": "HAS_PATHWAY_ONLY",
+    "metric_tags": [
+      "AAL",
+      "PREMIUM",
+      "MITIGATION_STATE",
+      "STOW_PERFORMANCE",
+      "TELEMATICS"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "SOURCE_DISCOVERY"
+    ],
+    "solar_hail_use": "Pathway to real stow-performance data and insurer-modeled AAL/premium deltas for advanced stow assets.",
+    "has_open_numbers": "Open statement that resilient configurations materially reduce portfolio AAL and premiums; 2024 case reference that 75\u00b0 stow reduces damage probability 87% vs 60\u00b0; kWh database size 300,000+ zero-carbon projects and $150B loss data.",
+    "does_not_have_open": "Project-level stow compliance logs, loss runs, premium deltas by asset, AAL tables.",
+    "url": "https://nextpower.com/post/press-release/kwh-analytics-data-sharing-program-hail-ready-solar",
+    "retrieved": "2026-06-26",
+    "notes": "Should be treated as an acquisition pathway rather than a published benchmark set."
+  },
+  {
+    "source_id": "AXIS_SOLAR_VS_HAIL_2025",
+    "source_name": "AXIS Global Energy \u2014 Solar vs. Hail / severe weather claims report",
+    "source_type": "renewable_insurer_claims_publication",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "CLAIM_SEVERITY",
+      "DOLLARS_PER_MW",
+      "BI_DOWNTIME",
+      "MITIGATION_STATE",
+      "MODULE_TYPE"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE"
+    ],
+    "solar_hail_use": "Best open claim-severity source found for solar hail; directly gives $/MW severity by stow/fixed-tilt/module-glass state.",
+    "has_open_numbers": "Hail = 55% of total gross NatCat/extreme-weather solar PV claim amount in U.S./Canada; global hail second most costly after strong wind; average claim severity $150k/MW successful stow, $340k/MW fixed tilt, $380k/MW failed tracker stow; heat-strengthened glass +$50k/MW vs fully tempered; NatCat/weather downtime 240 days average.",
+    "does_not_have_open": "Full claim distribution; project TIV; location-level claim table; deductible/coverage terms.",
+    "url": "https://investor.axiscapital.com/investors/press-releases/news-details/2025/AXIS-Global-Energy-Special-Report-Highlights-Extent-of-Severe-Weather-Impact-on-Solar-Technology-2025-hbZw1R8iIJ/default.aspx",
+    "retrieved": "2026-06-26",
+    "notes": "Most immediately actionable open source for $/MW event-severity bands."
+  },
+  {
+    "source_id": "AXIS_GALLAGHER_RE_RISK_INSURANCE_2026",
+    "source_name": "Risk & Insurance / Gallagher Re / AXIS \u2014 rising hail risk and solar insurability",
+    "source_type": "renewable_insurer_reinsurance_article",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "CLAIM_SEVERITY",
+      "EVENT_LOSS_AGGREGATE",
+      "MODULE_COUNT",
+      "CAPACITY"
+    ],
+    "evidence_use_tags": [
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_hail_use": "Adds global closed-claim context: module count, capacity, gross claims and geographic rank.",
+    "has_open_numbers": "Closed solar PV claims 2019\u20132025: hail 27% of NatCat/extreme-weather losses globally by total claim amount, >1M modules damaged, $342M accumulated gross claims; Texas gross claim amount order-of-magnitude greater than Nebraska; heat-strengthened glass +$50k/MW.",
+    "does_not_have_open": "Full loss run; per-project TIV; event-level capacity affected; denominators needed to avoid over-normalization.",
+    "url": "https://riskandinsurance.com/rising-hail-risk-poses-growing-threat-to-solar-farm-insurability/",
+    "retrieved": "2026-06-26",
+    "notes": "Useful corroboration and global scale; less precise than the AXIS official $/MW severity bullets."
+  },
+  {
+    "source_id": "GCUBE_HAIL_NO_2023_PUBLIC_SUMMARIES",
+    "source_name": "GCube / Tokio Marine HCC \u2014 Hail No! public summaries",
+    "source_type": "renewable_insurer_claims_publication_summary",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "CLAIM_SEVERITY",
+      "EVENT_LOSS",
+      "DOLLARS_PER_CLAIM"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_hail_use": "Open public summaries provide claim-count vs incurred-cost asymmetry and average claim size.",
+    "has_open_numbers": "Hail = about 54% of incurred costs of total solar losses while only 1.4% of claims; average hail claim about $58.4M; GCube insures >100 GW renewables in 40 countries.",
+    "does_not_have_open": "Capacity denominator per claim; TIV; project geography; full Hail No report details may require subscription/contact.",
+    "url": "https://pv-magazine-usa.com/2023/12/06/over-half-of-solar-facility-loss-claim-costs-are-due-to-hail-damage/",
+    "retrieved": "2026-06-26",
+    "notes": "The $58.4M per-claim figure is powerful but must be capacity-normalized with care."
+  },
+  {
+    "source_id": "VDE_HAIL_RISK_INTELLIGENCE",
+    "source_name": "VDE Americas \u2014 Hail Risk Intelligence / PML-AAL / PRE / Hail Atlas",
+    "source_type": "engineered_pml_aal_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "PML",
+      "OEP_AEP",
+      "P50_P90_P95",
+      "BI_DOWNTIME",
+      "RETURN_PERIOD",
+      "HAIL_SIZE",
+      "TILT_ANGLE",
+      "MODULE_TYPE",
+      "PORTFOLIO_CORRELATION"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE"
+    ],
+    "solar_hail_use": "Best gated path to comparison-ready AAL/PML and return-period hail loss numbers for solar PV.",
+    "has_open_numbers": "Product description exposes exact requested metrics: PML, AAL, downside PML, BI, return-interval curves, fixed-return-period hail size, multiple tracker tilts, sample outcome distributions, P50/P90/P95 cumulative losses, 1MW/100MW atlas scaling, portfolio PML/AAL and correlated PRE.",
+    "does_not_have_open": "Actual project/county AAL and PML values unless report/subscription is acquired.",
+    "url": "https://www.vde.com/en/vde-americas/hail-risk/hail-risk-advisory-products",
+    "retrieved": "2026-06-26",
+    "notes": "This is the cleanest source pathway for future financial-range comparison, but not open-data."
+  },
+  {
+    "source_id": "VDE_CIRRUS_NATCAT_REPORTS",
+    "source_name": "VDE Americas / Cirrus Advisers / GRC \u2014 all-natural catastrophe risk and insurability reports",
+    "source_type": "engineered_pml_aal_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "PML",
+      "HAIL",
+      "MULTI_PERIL",
+      "INSURABILITY",
+      "TECHNOLOGY_SPECIFIC"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE"
+    ],
+    "solar_hail_use": "Pathway for project-specific, technology-specific hail PML/AAL and broader NatCat comparison context.",
+    "has_open_numbers": "Open pages confirm site- and technology-specific financial loss/risk estimates based on lat/long and PV module/tracker technologies.",
+    "does_not_have_open": "Actual report values; requires transaction/client report or commercial access.",
+    "url": "https://www.vde.com/en/vde-americas/hail-risk/natural-catastrophe-risk-and-insurability-report",
+    "retrieved": "2026-06-26",
+    "notes": "Especially relevant for lender/insurance diligence contexts."
+  },
+  {
+    "source_id": "VDE_2025_STOW_SUCCESS_CASES",
+    "source_name": "VDE Americas \u2014 2025 SRA hail stow case summaries",
+    "source_type": "engineered_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "EVENT_HAIL_SIZE",
+      "WIND_GUST",
+      "MITIGATION_STATE",
+      "STOW_ANGLE",
+      "DAMAGE_OUTCOME"
+    ],
+    "evidence_use_tags": [
+      "CASE_STUDY_ONLY",
+      "MECHANISM_ONLY"
+    ],
+    "solar_hail_use": "Open stow-performance case evidence: hail sizes, stow angles, damage/no-damage outcomes.",
+    "has_open_numbers": "Radar-estimated hail 40\u201350mm, 50\u201375mm, 75\u2013100mm; all projects had 2.0mm/2.0mm dual glass; 52\u00b0 stow; two no-damage outcomes and one minor-damage outcome tied to unstowed rows / motor issue.",
+    "does_not_have_open": "Dollar loss; TIV; AAL/PML.",
+    "url": "https://www.vde.com/en/vde-americas/newsroom/250611-kwh-analytics",
+    "retrieved": "2026-06-26",
+    "notes": "Useful for sanity checking stow-conditioner behavior and damage caps, not a financial benchmark."
+  },
+  {
+    "source_id": "RENEW_RISK_SCS_SOLAR_MODEL_2026",
+    "source_name": "Renew Risk \u2014 U.S. severe convective storm model for utility-scale solar",
+    "source_type": "renewable_cat_model_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "PML",
+      "HAIL",
+      "TORNADO",
+      "WIND",
+      "TIV",
+      "BI_COST",
+      "MODULE_TYPE",
+      "STOW_ANGLE"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "SOURCE_DISCOVERY"
+    ],
+    "solar_hail_use": "Gated/partner path to cat-model solar SCS loss outputs including hail, tornado, and wind.",
+    "has_open_numbers": "Open summaries describe model scope, hail/tornado/wind coverage, glass thickness, stow angle, mechanical reliability, exposure database updated monthly with TIV and BI costs.",
+    "does_not_have_open": "Actual loss tables, event sets, AAL/PML or county bands.",
+    "url": "https://pv-magazine-usa.com/2026/05/07/renew-risk-launches-first-of-its-kind-model-to-assess-thunderstorm-risk-for-us-solar/",
+    "retrieved": "2026-06-26",
+    "notes": "Potentially very valuable if access is available; current open info is pathway-only."
+  },
+  {
+    "source_id": "JS_HELD_HAIL_DAMAGE_SOLAR_2024",
+    "source_name": "J.S. Held \u2014 hail damage to solar arrays and claims/case-study context",
+    "source_type": "forensic_adjuster_engineering_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "EVENT_LOSS",
+      "CLAIM_RANGE",
+      "FORENSIC_DAMAGE",
+      "HAIL_REPORTING_BIAS",
+      "MITIGATION_STATE"
+    ],
+    "evidence_use_tags": [
+      "CASE_STUDY_ONLY",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_hail_use": "Useful named-event/event-range and forensic pathway, including report-bias warnings.",
+    "has_open_numbers": "Midway Solar loss cited around $70\u201380M; annual hail claims $5M\u2013$80M; 2022 renewable hail damages $300\u2013400M; Pecos County hail-report undercount example.",
+    "does_not_have_open": "Clean project capacity/TIV for each claim; formal loss-run distribution; coverage terms.",
+    "url": "https://www.jsheld.com/insights/articles/hail-damage-to-solar-arrays",
+    "retrieved": "2026-06-26",
+    "notes": "Good for cap/event-severity context; event denominators should be researched before converting to $/MW."
+  },
+  {
+    "source_id": "DOE_FEMP_HAIL_MITIGATION_PV",
+    "source_name": "DOE / FEMP \u2014 Hail Damage Mitigation for PV Systems",
+    "source_type": "government_engineering_guidance",
+    "availability_tag": "NO_DIRECT_RENEWABLE_NUMBERS_FOUND",
+    "metric_tags": [
+      "DAMAGE_THRESHOLD",
+      "MITIGATION_STATE",
+      "MODULE_TYPE",
+      "STOW_PROTOCOL"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_hail_use": "Mechanism and threshold context for PV hail damage; not a financial benchmark.",
+    "has_open_numbers": "Very large hail >1.75 in / 44mm can cause significant module damage; severe hail described as greatest contributor to insured losses on solar PV systems worldwide.",
+    "does_not_have_open": "AAL, PML, claims, $/MW, %TIV.",
+    "url": "https://www.energy.gov/cmei/femp/hail-damage-mitigation-pv-systems",
+    "retrieved": "2026-06-26",
+    "notes": "Useful for damage-curve mechanism and stow protocol validation, not financial-range benchmarking."
+  },
+  {
+    "source_id": "USPVDB_V4_0_2026",
+    "source_name": "U.S. Large-Scale Solar Photovoltaic Database",
+    "source_type": "public_exposure_denominator",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "DENOMINATOR",
+      "LOCATION",
+      "BOUNDARY",
+      "CAPACITY",
+      "PANEL_TYPE",
+      "SITE_TYPE",
+      "COD"
+    ],
+    "evidence_use_tags": [
+      "DENOMINATOR_ONLY"
+    ],
+    "solar_hail_use": "Exposure denominator for CONUS/state/county solar-hail aggregation and asset-location joins.",
+    "has_open_numbers": "v4.0/April 2026; 6,611 facilities; 49 states plus DC; latest operation Q4 2025; front-of-meter PV facilities with direct-current capacity >=1 MW; array boundaries/locations and attributes.",
+    "does_not_have_open": "Losses, claims, insured values, resilience configuration for every asset.",
+    "url": "https://energy.usgs.gov/uspvdb/",
+    "retrieved": "2026-06-26",
+    "notes": "Not a benchmark by itself; required for normalizing external claims and model outputs."
+  },
+  {
+    "source_id": "EIA_860_2025_EARLY_RELEASE",
+    "source_name": "EIA-860 annual generator data",
+    "source_type": "public_exposure_denominator",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "DENOMINATOR",
+      "CAPACITY",
+      "GENERATOR",
+      "OWNER_OPERATOR",
+      "STATUS",
+      "SOLAR_DETAILS"
+    ],
+    "evidence_use_tags": [
+      "DENOMINATOR_ONLY"
+    ],
+    "solar_hail_use": "Generator-level metadata and capacity/status crosswalk; useful with USPVDB for exposure reconciliation.",
+    "has_open_numbers": "Form EIA-860 collects generator-level data for existing/planned generators at plants with >=1 MW combined nameplate capacity; 2025 early release posted June 9, 2026.",
+    "does_not_have_open": "Insurance claims, AAL/PML, damage losses.",
+    "url": "https://www.eia.gov/electricity/data/eia860/",
+    "retrieved": "2026-06-26",
+    "notes": "Critical for capacity/vintage/owner status; no direct loss numbers."
+  }
+]

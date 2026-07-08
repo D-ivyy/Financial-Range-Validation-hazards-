@@ -1,0 +1,18 @@
+{
+  "package": "range-validation-hazard-modeling",
+  "created": "2026-06-26",
+  "checks": {
+    "source_dir_exists": true,
+    "value_workbook_loaded_with_artifact_tool": true,
+    "damage_json_loaded": true,
+    "crosswalk_rows": 11,
+    "intensity_reference_rows": 12,
+    "required_files_exist": true,
+    "key_numbers": {
+      "installed_usd_per_MWdc": 1119999.9999999998,
+      "physical_usd_per_MWdc": 877795.7023626668,
+      "PV_ARRAY_hardware_usd_per_MWdc": 291214.85143992485,
+      "PV_ARRAY_plus_fieldwork_usd_per_MWdc": 398083.6185632125
+    }
+  }
+}
