@@ -1,56 +1,134 @@
 [
   {
-    "flood_depth_m": 0.0,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.03,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": 0.02,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": 0.2
+    "flood_depth_m": 0,
+    "FS_INV_DR": 0,
+    "FS_SWG_DR": 0,
+    "FS_XFMR_DR": 0,
+    "FS_COMB_DR": 0,
+    "FS_SCADA_DR": 0,
+    "FS_CABLE_DR": 0,
+    "FS_PVMOD_DR": 0,
+    "FS_FOUND_DR": 0.0
+  },
+  {
+    "flood_depth_m": 0.02,
+    "FS_INV_DR": 0.05,
+    "FS_SWG_DR": 0.1,
+    "FS_XFMR_DR": 0.03,
+    "FS_COMB_DR": 0.1,
+    "FS_SCADA_DR": 0.15,
+    "FS_CABLE_DR": 0.02,
+    "FS_PVMOD_DR": 0.05,
+    "FS_FOUND_DR": 0.0
+  },
+  {
+    "flood_depth_m": 0.05,
+    "FS_INV_DR": 0.25,
+    "FS_SWG_DR": 0.4,
+    "FS_XFMR_DR": 0.1,
+    "FS_COMB_DR": 0.35,
+    "FS_SCADA_DR": 0.45,
+    "FS_CABLE_DR": 0.05,
+    "FS_PVMOD_DR": 0.1,
+    "FS_FOUND_DR": 0.0
+  },
+  {
+    "flood_depth_m": 0.15,
+    "FS_INV_DR": 0.75,
+    "FS_SWG_DR": 0.85,
+    "FS_XFMR_DR": 0.25,
+    "FS_COMB_DR": 0.8,
+    "FS_SCADA_DR": 0.9,
+    "FS_CABLE_DR": 0.15,
+    "FS_PVMOD_DR": 0.3,
+    "FS_FOUND_DR": 0.0
+  },
+  {
+    "flood_depth_m": 0.3,
+    "FS_INV_DR": 0.95,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 0.45,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.3,
+    "FS_PVMOD_DR": 0.6,
+    "FS_FOUND_DR": 0.0
   },
   {
     "flood_depth_m": 0.5,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.32,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": 0.24,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": 0.44
+    "FS_INV_DR": 0.9833,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 0.5833,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.4,
+    "FS_PVMOD_DR": 0.7667,
+    "FS_FOUND_DR": 0.0
+  },
+  {
+    "flood_depth_m": 0.6,
+    "FS_INV_DR": 1.0,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 0.65,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.45,
+    "FS_PVMOD_DR": 0.85,
+    "FS_FOUND_DR": 0.01
   },
   {
     "flood_depth_m": 1.0,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.51,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": 0.37,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": 0.58
+    "FS_INV_DR": 1.0,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 0.8,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.55,
+    "FS_PVMOD_DR": 1.0,
+    "FS_FOUND_DR": 0.05
   },
   {
     "flood_depth_m": 1.5,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.64,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+    "FS_INV_DR": 1.0,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 0.95,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.6,
+    "FS_PVMOD_DR": 1.0,
+    "FS_FOUND_DR": 0.15
   },
   {
     "flood_depth_m": 2.0,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.74,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+    "FS_INV_DR": 1.0,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 1.0,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.65,
+    "FS_PVMOD_DR": 1.0,
+    "FS_FOUND_DR": 0.35
   },
   {
     "flood_depth_m": 3.0,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.86,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+    "FS_INV_DR": 1.0,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 1.0,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.65,
+    "FS_PVMOD_DR": 1.0,
+    "FS_FOUND_DR": 0.7
   },
   {
     "flood_depth_m": 4.0,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.94,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
-  },
-  {
-    "flood_depth_m": 5.0,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.98,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
-  },
-  {
-    "flood_depth_m": 6.0,
-    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 1.0,
-    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
-    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+    "FS_INV_DR": 1.0,
+    "FS_SWG_DR": 1.0,
+    "FS_XFMR_DR": 1.0,
+    "FS_COMB_DR": 1.0,
+    "FS_SCADA_DR": 1.0,
+    "FS_CABLE_DR": 0.65,
+    "FS_PVMOD_DR": 1.0,
+    "FS_FOUND_DR": 1.0
   }
 ]

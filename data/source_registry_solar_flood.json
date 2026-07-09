@@ -339,12 +339,12 @@
     "evidence_use_tags": [
       "MECHANISM_ONLY"
     ],
-    "solar_flood_use": "Provides the provisional depth-damage curve (North America Industrial) used on the crosswalk hazard axis as a generic proxy.",
+    "solar_flood_use": "Generic mechanism-shape reference (North America Industrial depth-damage curve). NOT used on the crosswalk hazard axis: the canonical flood_solar per-failure-unit depth->DR curve from Damage_Modeling is used there.",
     "has_open_numbers": "North America Industrial factors by flood_depth_m: 0=0.03, 0.5=0.32, 1.0=0.51, 1.5=0.64, 2.0=0.74, 3.0=0.86, 4.0=0.94, 5.0=0.98, 6.0=1.00; Residential 0=0.20/0.5=0.44/1.0=0.58; Commercial 0=0.02/0.5=0.24/1.0=0.37.",
     "does_not_have_open": "Any solar PV / BOS-specific curve; damage-to-value calibration for solar.",
     "url": "https://publications.jrc.ec.europa.eu/repository/bitstream/JRC105688/global_flood_depth-damage_functions__10042017.pdf",
     "retrieved": "2026-07-09",
-    "notes": "Chosen as the provisional crosswalk curve because it is open, global, and industrial; explicitly generic, not solar-calibrated."
+    "notes": "Retained only as generic mechanism-shape context; explicitly generic, not solar-calibrated. Superseded on the crosswalk hazard axis by the canonical flood_solar curve."
   },
   {
     "source_id": "FM_GLOBAL_DS_7106_FLOOD",

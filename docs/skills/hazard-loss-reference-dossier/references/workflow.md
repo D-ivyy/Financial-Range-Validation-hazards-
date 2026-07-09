@@ -37,7 +37,7 @@ This is where the real work is, and it must be **exhaustive** (see the Depth Man
 | R1 | Renewable insurer/broker claims publications | claim share, claim severity `$/MW`, BI/downtime | kWh Analytics, AXIS, GCube/TMHCC, Marsh, Gallagher Re, J.S. Held |
 | R2 | Engineered PML/AAL & cat-model products | modeled AAL, OEP/AEP PML, return-period loss | VDE, Cirrus, Renew Risk, Moody's RMS, Verisk/AIR, GRC |
 | R3 | Project case studies & named-event losses | single-event $ losses, resilience deltas | POWER Magazine cases, named-storm/flood case write-ups |
-| R4 | Engineering / reliability / forensic | damage mechanism, thresholds (mechanism-only) | DOE/FEMP, RETC/PVEL, national labs, forensic adjusters |
+| R4 | Engineering / reliability / forensic | damage mechanism, thresholds (mechanism-only) | DOE/FEMP, RETC/PVEL, national labs, forensic adjusters. **Also: the upstream `Damage_Modeling` derivation dossiers cite the exact public sources (DOE/FEMP, NEMA, FEMA, USACE HEC-FIA) behind each canonical curve — mine them.** |
 | R5 | Generic public loss/hazard (downgraded → secondary) | context only, never primary | NOAA Storm Events, SHELDUS, **NFIP (key for flood)**, FEMA NRI |
 | — | Exposure / denominator | asset counts, MW, TIV denominators | USPVDB, USWTDB, EIA-860 |
 
@@ -76,13 +76,30 @@ Emit `source_registry.json` (array of source objects; the pair-use key is `<pair
 
 `01_pairs/<pair>/README.md`, section order identical to `solar_hail` (`template_contract.md` §2.3): `## 0 Bottom line` → `## 1 Normalization basis` (`### 1.1` crosswalk intro) → `## 2 Quick benchmark-number matrix` (`### 2.1` severity anchor-plot, `### 2.2` AAL anchor-plot) → `## 3 Source coverage matrix` → `## 4 Source pathways in detail` → `## 5 Data request templates` → `## 6 Retrieval priority` → `## 7 Files in this pair folder`. Keep the Has/Does-not-have rhythm and fenced caveats.
 
-## Step 8 — Value/damage crosswalk
+## Step 8 — Value/damage crosswalk (mandatory Damage_Modeling consultation)
 
-This step needs internal artifacts (the value workbook + the pair's damage-curve artifact). Two cases:
+This step needs the upstream canonical artifacts in the **`Damage_Modeling`** repo (`https://github.com/aamani-ai/Damage_Modeling`) — the value workbook **and** the pair's damage-curve cell. **You MUST look in `Damage_Modeling` before deciding which case you are in.** Do not assume artifacts are missing.
 
-**A. Artifacts available:** extract the value ladder ($/MW buckets), failure-unit grain, and intensity→DR table into `value_basis_from_damage_modeling_*.json`; recast the $/MW-normalizable benchmarks onto buckets in `benchmark_value_damage_crosswalk.csv/json` with a `direct_damage_grain_comparability` verdict per row (`template_contract.md` §7 for the verdict vocabulary and mapping procedure); emit `damage_curve_intensity_reference.csv/json` for the hazard axis (flood → `flood_depth_m`; wind → `wind_speed_ms`); write `02_crosswalks/<pair>_value_damage_crosswalk.md` (sections `## 0` The rule → `## 7` Machine-readable files) and add the pair row to `02_crosswalks/README.md`.
+### 8.0 — REQUIRED first action: pull the canonical grain from `Damage_Modeling`
 
-**B. Artifacts NOT yet available:** do NOT invent value buckets or DR curves. Create the crosswalk MD with a clearly-marked `Status: PENDING_UPSTREAM_ARTIFACTS` front-matter, document the value ladder and failure-unit grain you *expect* (with placeholders labeled provisional), and list exactly which upstream artifacts are needed. Still emit the `%TIV` normalization in the benchmark matrix using the best available asset value basis. Note the gap in `HANDOFF_SUMMARY.md`.
+Clone/read `Damage_Modeling` and gather, in this order:
+
+1. **Value basis workbook** — `docs/method/value_basis/solar_wind_value_breakdown.xlsx`, `Summary` sheet. Read with an xlsx tool; copy the exact subsystem rollup ($/kWdc, % installed, % physical) verbatim. These are the canonical subsystems: PV_ARRAY, MOUNTING, FOUNDATION, INVERTER_SYSTEM, ELECTRICAL_COLLECTION, SUBSTATION, GROUNDING_LIGHTNING, SCADA, CIVIL_INFRA, REPLACEMENT_FIELDWORK, SUNK_SOFT_NONPHYSICAL.
+2. **The pair's damage-curve cell** — `docs/cells/<hazard>_<asset>/current/` (note the folder is `<hazard>_<asset>`, e.g. `flood_solar`, even though our pair slug is `<asset>_<hazard>` = `solar_flood`). Read:
+   - `<cell>__model_*__curve_artifact.json` — the runtime artifact. Extract the **failure-unit IDs**, their subsystem/component mapping, the **hazard x-axis** (id, field, unit), the **curve form**, the **f_kind**, and the **[intensity, DR] ordinates** for every failure unit.
+   - `damage_curve_records_v*_<cell>.xlsx` → **`Value_Link` sheet** — the canonical per-failure-unit value mapping (`value_id`, `failure_unit`, `subsystem`, `component`, `physical_share`, `installed_share`, `role`, `f_kind`, `cap_L_usd`). Compute `$/MWdc = installed_share × installed_TIV`.
+   - `README_<cell>_v*.md`, `<cell>_curve_derivation_dossier_v*.md`, `CELL_DOCUMENTATION_CROSSWALK_*.md` — for the read order, modeling decisions, and what the cell does/does not own.
+3. **`docs/extra/damage_curve_skill/02_design_guides/VALUE_CROSSWALK_GUIDE.md`** — the allowed value-basis labels; use them exactly.
+
+Write these canonical facts to a workspace file first (e.g. `damage_modeling_subsystems.md`), then build artifacts from it. **Never invent a failure-unit name, subsystem, or DR curve when the cell exists upstream.**
+
+### 8.A — Artifacts available (the DEFAULT when a `docs/cells/<pair>/` folder exists)
+
+Extract the value ladder ($/MW buckets) and, crucially, the **canonical failure-unit IDs + their shares + the real intensity→DR ordinates** into `value_basis_from_damage_modeling_*.json`. Recast the $/MW-normalizable benchmarks onto buckets in `benchmark_value_damage_crosswalk.csv/json` with a `direct_damage_grain_comparability` verdict per row (`template_contract.md` §7). Emit `damage_curve_intensity_reference.csv/json` using the **real** hazard-axis ordinates from the artifact (flood → `flood_depth_m` per-failure-unit DR columns; wind → `wind_speed_ms`). Write `02_crosswalks/<pair>_value_damage_crosswalk.md` (sections `## 0` The rule → `## 7` Machine-readable files) and add the pair row to `02_crosswalks/README.md`. Derived buckets are allowed only as explicit sums of canonical units.
+
+### 8.B — Artifacts genuinely NOT available (only after confirming upstream)
+
+Only valid if you looked in `Damage_Modeling` and there is **no** `docs/cells/<pair>/` cell. Then: do NOT invent value buckets or DR curves. Create the crosswalk MD with `Status: PENDING_UPSTREAM_ARTIFACTS`, document the value ladder and expected failure-unit grain (placeholders labeled provisional), and list exactly which upstream artifacts are needed. Still emit `%TIV` normalization in the benchmark matrix. Note the gap in `HANDOFF_SUMMARY.md`.
 
 **Invariant:** a `$/MW` above the failure-unit hardware cap is a grain warning, never evidence DR > 1. The crosswalk classifies comparability; it never tunes a curve.
 

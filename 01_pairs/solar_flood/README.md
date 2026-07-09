@@ -1,8 +1,9 @@
 # Solar × flood — renewable loss reference source deep dive
 
-**Version:** v0.3  
+**Version:** v0.3.1 (crosswalk resolved against canonical `Damage_Modeling` flood_solar cell)  
 **Last researched:** 2026-07-09  
 **Parent anchor:** [`../../README.md`](../../README.md)  
+**Related repos:** [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) (canonical subsystems + failure-unit damage curves) · [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling) (M0→M4 engine + RangeCompare dashboard)  
 **Purpose:** document *where to get reference numbers* for solar PV flood loss validation. This file does **not** define calibration pass/fail rules. It only organizes the usable numbers and the pathways to stronger numbers.
 
 ---
@@ -19,8 +20,9 @@ open case/event severity numbers        -> litigation totals (First Solar/Zurich
                                             without MW denominators, dominated by deductible/BI structure
 strong gated PML/AAL pathway            -> VDE NatCat inland flood, Moody's/RMS, JBA, Fathom (all gated)
 strong denominator pathway              -> USPVDB + EIA-860 + project value ledger
-provisional damage grain only           -> generic industrial depth-damage curves (JRC/HAZUS/USACE),
-                                            NOT solar-calibrated; no solar flood depth-damage artifact exists
+canonical damage grain (RESOLVED)       -> the canonical flood_solar cell in Damage_Modeling gives 8 named
+                                            failure units + real per-unit depth->DR curves (engineering-
+                                            parameterized: DOE/FEMP, NEMA, FEMA, USACE HEC-FIA)
 ```
 
 Two findings dominate this pair:
@@ -33,7 +35,9 @@ Two findings dominate this pair:
    Elevation / freeboard is the dominant mitigation knob (the flood analog of hail stow).
 ```
 
-The value ladder is reusable, so denominators are known, but the depth→DR curve is only a generic industrial proxy. This pair should be treated as **PENDING** on the damage-artifact side (see the crosswalk).
+The value ladder is reusable, so denominators are known, and the depth→DR curve is now taken from the **canonical `flood_solar` cell** in `Damage_Modeling` (8 named failure units + real per-unit depth→DR ordinates). This pair is **`RESOLVED_FROM_DAMAGE_MODELING`** on the damage-artifact side (see the crosswalk).
+
+> **Correction note (v0.3.1).** The v0.3 build invented a single `FLOOD_ELECTRICAL_BOS` bucket (~`$217,279/MWdc`, 19.4% TIV) and marked the crosswalk PENDING, mistakenly believing no solar-flood damage artifact existed. The canonical `flood_solar` cell **does** exist; the mechanism was right but the grain, IDs, and curve were non-canonical. They have been replaced with the canonical 8 failure units and real curve throughout this dossier and the crosswalk.
 
 ---
 
@@ -66,33 +70,34 @@ Important caveats:
 - AAL numbers are annualized model outputs and should not be mixed with event claim severity.
 ```
 
-### 1.1 Value/damage cross-reference added in v0.3
+### 1.1 Value/damage cross-reference (RESOLVED against canonical flood_solar)
 
-The v0.3 package adds a dedicated crosswalk:
+The package includes a dedicated crosswalk, cross-mapped onto the canonical `flood_solar` cell:
 
 ```text
 02_crosswalks/solar_flood_value_damage_crosswalk.md
 ```
 
-Why it matters — and why it is **PENDING**:
+Why it matters:
 
 ```text
-The flood failure unit is electrical/BOS/foundation grain, NOT PV module glass (the hail grain).
-No solar-specific flood depth-damage function exists publicly.
+The flood failure grain is 8 named canonical failure units, mostly electrical, NOT PV module glass (hail grain).
+The canonical flood_solar depth->DR curves come from Damage_Modeling (engineering-parameterized, public-anchored).
 Many benchmark numbers are litigation totals with no MW denominator and heavy deductible/BI content.
 ```
 
-Using the (reusable) damage-modeling value workbook, the flood electrical/BOS failure-unit bucket
-(inverter + electrical collection + foundation) is about **$217,279/MWdc**, or **19.40% of installed TIV**.
-Add substation when the transformer/switchgear is inundated and the bucket rises to about
-**$323,783/MWdc** (28.91%); add replacement fieldwork (cleanup/drying/re-termination) for a gross
-physical repair-cost bucket of about **$324,147/MWdc** (28.94%).
+Using the canonical `flood_solar` failure-unit shares (from the `Damage_Modeling` value workbook and
+curve artifact), the **primary depth-driven electrical bucket** (FS_INV + FS_SWG + FS_XFMR + FS_COMB +
+FS_SCADA) is about **$146,947/MWdc**, or **13.12% of installed TIV**. Add FS_CABLE for conduit water
+paths and FS_FOUND for scour, and include FS_PVMOD only for low-clearance / full-submersion cases; the
+full **8-unit envelope** reaches about **$538,607/MWdc** (48.09% TIV).
 
-Contrast the hail module-hardware cap of about **$291,215/MWdc** (26.00%): flood damages a *different,
-smaller* physical bucket than hail.
+Contrast the hail module-hardware cap of about **$291,215/MWdc** (26.00%): for hail a single PV_ARRAY
+unit dominates, whereas for flood the loss is spread across several *electrical* units and the modules
+are usually NOT the failure unit.
 
-So the cross-reference adds value, but only as a **normalization and comparability layer**, and only
-provisionally: the depth→DR curve is a generic industrial proxy, not a solar flood curve.
+So the cross-reference adds value as a **normalization and comparability layer**, resolved against the
+canonical `flood_solar` grain and its real per-failure-unit depth→DR curves.
 
 ---
 
@@ -133,7 +138,7 @@ Only three rows normalize to `$/MW` at all, and all three are derived / sensitiv
 | Modeled flood depth commonly treated as unsuitable for siting | FATHOM_FLOOD_HAZARD | >3 ft |  |  |  | Screening heuristic, not a loss; hazard-axis input to a damage function. |
 | FM Global critical-equipment elevation guidance | FM_GLOBAL_DS_7106_FLOOD | 1-2 ft above 500-yr MRI |  |  |  | Engineering guidance; failure unit is electrical/BOS, not module glass. |
 | IPX7 immersion survival threshold for enclosed equipment | IEC_60529_INGRESS_PROTECTION | 1 m / 30 min |  |  |  | Depth-and-duration threshold behind any solar flood damage assumption. |
-| JRC North America Industrial damage factor at 1.0 m depth | JRC_GLOBAL_FLOOD_DEPTH_DAMAGE | 0.51 damage factor |  |  |  | Generic industrial curve, NOT solar-calibrated; provisional hazard-axis anchor. |
+| JRC North America Industrial damage factor at 1.0 m depth | JRC_GLOBAL_FLOOD_DEPTH_DAMAGE | 0.51 damage factor |  |  |  | Generic industrial curve, NOT solar-calibrated; mechanism-shape reference only. Superseded on the crosswalk hazard axis by the canonical `flood_solar` per-failure-unit depth→DR curve from `Damage_Modeling`. |
 | First Street average property flood AAL (generic, non-solar) | FIRST_STREET_FLOOD_MODEL | $3,548/year |  |  |  | Residential/commercial buildings, not solar; do not treat as solar benchmark. |
 | NFIP average flood claim severity (generic, non-solar) | NFIP_CLAIMS_STATISTICS | ~$68,000/claim |  |  |  | Building/contents flood claims, not solar; generic magnitude context only. |
 
@@ -159,7 +164,7 @@ Moody's/RMS windstorm AAL delta (same site)                -> +2%    (contrast p
 USACE +1 ft freeboard AAL reduction (generic building)     -> -82%   (mitigation knob, non-solar)
 ```
 
-There is no `%/yr` bar to plot because no absolute solar-flood AAL is open. This is the single largest gap for the pair, and it is why the crosswalk is `PENDING_UPSTREAM_ARTIFACTS`.
+There is no `%/yr` bar to plot because no absolute solar-flood AAL is open. This is the single largest **benchmark** gap for the pair (the crosswalk itself is `RESOLVED_FROM_DAMAGE_MODELING` on the damage-curve side; the gap is on the open absolute-AAL benchmark side).
 
 ---
 
@@ -181,9 +186,9 @@ There is no `%/yr` bar to plot because no absolute solar-flood AAL is open. This
 | FATHOM_FLOOD_HAZARD | HAS_GATED_NUMBERS | Global flood hazard depths/return periods; >3 ft siting-unsuitability heuristic. | Loss dollars; solar damage function. | Hazard-axis (depth/return-period) input; source-discovery/mechanism. |
 | JBA_FLOOD_MODEL | HAS_GATED_NUMBERS | Flood AAL capability and depth-damage functions. | Open solar-specific values. | Gated hazard + depth-damage pathway. |
 | FIRST_STREET_FLOOD_MODEL | HAS_OPEN_NUMBERS | Generic property flood AAL (~$3,548/yr) and PML framing at national scale. | Solar-specific losses; per-MW. | Generic AAL magnitude context; explicitly non-solar. |
-| FEMA_HAZUS_FLOOD_CURVES | HAS_OPEN_NUMBERS | Open generic depth-damage curves (building/industrial). | Solar failure-unit calibration. | Mechanism/provisional proxy for the depth→DR hazard axis. |
+| FEMA_HAZUS_FLOOD_CURVES | HAS_OPEN_NUMBERS | Open generic depth-damage curves (building/industrial). | Solar failure-unit calibration. | Generic mechanism-shape reference only; the canonical `flood_solar` per-failure-unit curve is used on the crosswalk hazard axis. |
 | USACE_FREEBOARD_DEPTH_DAMAGE | HAS_OPEN_NUMBERS | Generic depth-damage curves; +1 ft freeboard cuts AAL ~82%; DIP shift ~86.3%. | Solar-specific curves; absolute solar AAL. | Mitigation-knob (freeboard/elevation) evidence; generic curves only. |
-| JRC_GLOBAL_FLOOD_DEPTH_DAMAGE | HAS_OPEN_NUMBERS | JRC North America Industrial/Commercial/Residential depth-damage curves; industrial DR 0.51 at 1.0 m. | Solar-calibrated curve. | Provisional generic-industrial proxy on the crosswalk hazard axis. |
+| JRC_GLOBAL_FLOOD_DEPTH_DAMAGE | HAS_OPEN_NUMBERS | JRC North America Industrial/Commercial/Residential depth-damage curves; industrial DR 0.51 at 1.0 m. | Solar-calibrated curve. | Generic mechanism-shape reference only; superseded on the crosswalk hazard axis by the canonical `flood_solar` per-failure-unit depth→DR curve. |
 | FM_GLOBAL_DS_7106_FLOOD | HAS_OPEN_NUMBERS | Critical-equipment elevation 1-2 ft above 500-yr MRI; scour ~7 ft/s velocity guidance. | Loss dollars; per-MW. | Mitigation-threshold and failure-unit (electrical/BOS/foundation) mechanism. |
 | RENEW_RISK_NO_FLOOD_PRODUCT | NO_PRODUCT_FOUND | Confirmation that Renew Risk's SCS solar model does not cover flood. | Any flood numbers. | Documents a dead-end so it is not re-searched. |
 | FIRSTSOLAR_ZURICH_LITIGATION_2023 | HAS_OPEN_NUMBERS | Asserted $10,146,341.29; five per-event amounts (~$4.92M sum); $2.5M per-event deductible; $600k paid; ~13 ft depth; >$141.9M value in place. | MW capacity to normalize; clean gross/net bridge. | Best open event-severity + deductible-structure case; primary candidate if MW is recovered. |
@@ -321,8 +326,10 @@ Why this matters:
 
 ```text
 It confirms the flood failure unit directly: the loss concentrated in power electronics (PCS/inverters),
-not in standing modules. The derived $43,478/MW sits neatly inside the FLOOD_ELECTRICAL_BOS bucket
-(~20% of that bucket), consistent with partial inundation of a subset of PCS.
+not in standing modules. The derived $43,478/MW sits at ~29.6% of the canonical PRIMARY depth-driven
+electrical bucket (~$146,947/MWdc) and ~8.1% of the all-8-unit envelope; it exceeds FS_INV alone
+(134.6%), correctly flagging that more than the inverters were involved (a grain warning, not DR>1),
+consistent with partial inundation of a subset of PCS.
 Avoided loss is NOT incurred damage, and the source dollars are internally inconsistent.
 ```
 
@@ -384,7 +391,7 @@ Ask VDE / JBA / Fathom for a solar flood benchmark export in non-client-confiden
 
 ---
 
-### 4.7 Generic depth-damage curves (JRC / HAZUS / USACE / FM Global / IEC) — provisional mechanism only
+### 4.7 Generic depth-damage curves (JRC / HAZUS / USACE / FM Global / IEC) — generic mechanism-shape only (superseded by canonical curve)
 
 **Source IDs:** `JRC_GLOBAL_FLOOD_DEPTH_DAMAGE`, `FEMA_HAZUS_FLOOD_CURVES`, `USACE_FREEBOARD_DEPTH_DAMAGE`, `FM_GLOBAL_DS_7106_FLOOD`, `IEC_60529_INGRESS_PROTECTION`  
 **Status:** `HAS_OPEN_NUMBERS`  
@@ -403,9 +410,12 @@ Critical caveat:
 
 ```text
 These are GENERIC building/industrial depth-damage ratios and engineering thresholds, NOT solar
-failure-unit DRs. They may only bound the shape of the crosswalk hazard axis. They must NOT be used
-to tune a solar flood curve. The correct solar failure unit is electrical/BOS, whose vulnerability
-depends on equipment elevation and IP rating, not on building-style depth curves.
+failure-unit DRs. They are retained only as mechanism-shape context. The crosswalk hazard axis now
+uses the CANONICAL flood_solar per-failure-unit depth->DR curve from Damage_Modeling (public-source-
+anchored: DOE/FEMP, NEMA, FEMA, USACE HEC-FIA), not these generic curves. They must NOT be used to
+tune a solar flood curve. The correct solar failure units are electrical/BOS (FS_INV/FS_SWG/FS_XFMR/
+FS_COMB/FS_SCADA/FS_CABLE) plus conditional FS_FOUND/FS_PVMOD, whose vulnerability depends on
+equipment elevation and IP rating, not on building-style depth curves.
 ```
 
 ---
@@ -538,7 +548,7 @@ For the electrical/BOS failure unit:
 |---|---|---|
 | P0 | VDE NatCat inland-flood sample AAL/PML export | best path to comparison-ready solar-specific flood AAL/PML by geography/design |
 | P0 | Moody's/RMS absolute AAL behind the +230% delta | converts the relative flood-AAL delta into absolute $/MW |
-| P0 | A purpose-built solar flood depth-damage artifact | replaces the generic industrial proxy on the crosswalk hazard axis |
+| P1 | Empirical claims/forensic data by failure unit | tightens the canonical `flood_solar` engineering depth→DR ordinates (already RESOLVED) with real loss data |
 | P1 | First Solar/Zurich + South Alexander case files with MW capacity | turns litigation totals into normalizable $/MW event severity |
 | P1 | JBA / Fathom hazard + depth-damage export | provides the depth/return-period/duration hazard axis |
 | P1 | DEPCOM / Valdora primary-source verification | firms up avoided-loss and zero-loss anchors and the electrical/BOS failure unit |
@@ -553,9 +563,9 @@ README.md                            <-- this dossier
 benchmark_number_matrix.csv          <-- normalized benchmark rows (blanks where no MW denominator)
 source_matrix.csv                    <-- source × metric coverage matrix (flood columns added)
 source_registry.json                 <-- machine-readable source-pathway records
-damage_curve_intensity_reference.csv <-- PROVISIONAL generic-industrial depth->DR proxy (JRC), NOT solar-calibrated
-benchmark_value_damage_crosswalk.csv <-- benchmark rows recast onto FLOOD_ELECTRICAL_BOS buckets
-value_basis_from_damage_modeling.json<-- provisional value basis + re-rolled flood failure-unit bucket
+damage_curve_intensity_reference.csv <-- CANONICAL flood_solar per-failure-unit depth->DR lookup (from Damage_Modeling curve artifact)
+benchmark_value_damage_crosswalk.csv <-- benchmark rows recast onto canonical failure-unit buckets (primary electrical / all-8)
+value_basis_from_damage_modeling.json<-- canonical value ladder + 8 flood failure units (FS_*) with shares/$-per-MWdc
 ```
 
 The package-level copies live under `../../data/`.

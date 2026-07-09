@@ -306,7 +306,7 @@
 - **Retrieved:** 2026-07-09
 - **Has:** 196 curves / 33 occupancy classes; haz_fl_dept coverage grid −4 to +24 ft; industrial/commercial occupancy curves usable as coarse solar-BOS proxy.
 - **Does not have:** Any solar PV / BOS / inverter-specific curve.
-- **Notes:** Generic curves only; label as generic-industrial proxy wherever used for solar.
+- **Notes:** Generic curves only; mechanism-shape reference. Superseded on the crosswalk hazard axis by the canonical flood_solar per-failure-unit depth->DR curve from Damage_Modeling.
 
 ## USACE_FREEBOARD_DEPTH_DAMAGE
 - **Name:** USACE — depth-damage curves and freeboard AAL reduction guidance
@@ -326,7 +326,7 @@
 - **Retrieved:** 2026-07-09
 - **Has:** North America Industrial factors by flood_depth_m: 0=0.03, 0.5=0.32, 1.0=0.51, 1.5=0.64, 2.0=0.74, 3.0=0.86, 4.0=0.94, 5.0=0.98, 6.0=1.00; Residential 0=0.20/0.5=0.44/1.0=0.58; Commercial 0=0.02/0.5=0.24/1.0=0.37.
 - **Does not have:** Any solar PV / BOS-specific curve; damage-to-value calibration for solar.
-- **Notes:** Chosen as the provisional crosswalk curve because it is open, global, and industrial; explicitly generic, not solar-calibrated.
+- **Notes:** Retained only as generic mechanism-shape context; explicitly generic, not solar-calibrated. Superseded on the crosswalk hazard axis by the canonical flood_solar curve.
 
 ## FM_GLOBAL_DS_7106_FLOOD
 - **Name:** FM Global — Data Sheets 7-106 / 1-40 (solar & flood property protection)

@@ -35,6 +35,22 @@ This skill produces **deep, exhaustive research dossiers** on the level of the `
 
 If time or tokens are tight, go **narrower in scope (fewer pairs) but never shallower in depth**. Depth is the product.
 
+## Canonical grain mandate — ALWAYS consult Damage_Modeling first (non-negotiable)
+
+The deep research and the crosswalk are only useful if they map onto the **canonical subsystem breakdown and damage curves** maintained in the upstream **`Damage_Modeling`** repo (`https://github.com/aamani-ai/Damage_Modeling`). This is the single source of truth for the value ladder, the subsystem rollup, the named **failure units**, and the **intensity → damage-ratio (DR) curves** for each hazard × asset cell. **Never invent a failure-unit bucket, a subsystem name, or a DR curve when a canonical one exists upstream.** Doing so silently breaks the cross-map the whole package exists to support.
+
+**Before writing ANY crosswalk artifact you MUST:**
+
+1. **Locate the value basis workbook.** `docs/method/value_basis/solar_wind_value_breakdown.xlsx` (Summary sheet) is the canonical subsystem rollup ($/kWdc, % installed, % physical) for solar/wind. Read it with an xlsx tool and copy the exact subsystem shares — do not re-derive or approximate them.
+2. **Locate the pair's damage-curve cell.** `docs/cells/<hazard>_<asset>/current/` (e.g. `docs/cells/flood_solar/current/`) holds, per cell: `README_<cell>_v*.md`, `<cell>__model_*__curve_artifact.json` (the machine-readable runtime artifact), `<cell>_curve_derivation_dossier_v*.md`, `damage_curve_records_v*_<cell>.xlsx`, and `<cell>_damage_code_metadata_spec_v*.md`. **Read the curve_artifact.json and the workbook's `Value_Link` sheet.** They give you: the exact **failure-unit IDs** (e.g. `FS_INV`, `FS_SWG`, `FS_XFMR`, `FS_COMB`, `FS_SCADA`, `FS_CABLE`, `FS_FOUND`, `FS_PVMOD`), their subsystem/component mapping, their per-failure-unit value shares/`$/MWdc`, the **hazard x-axis** (e.g. flood `FLOOD_LOCAL_DEPTH_COMPONENT_DATUM`, unit m), the **curve form** (flood = piecewise_linear/state; hail = logistic-ish), the **f_kind** (flood = geometry/elevation, NOT material/BOM share), and the real **[intensity, DR] ordinates**.
+3. **Cross-map onto those canonical IDs.** The pair's `value_basis_from_damage_modeling_*.json`, `benchmark_value_damage_crosswalk.*`, `damage_curve_intensity_reference.*`, and the `02_crosswalks/<pair>_value_damage_crosswalk.md` MUST use the upstream failure-unit IDs, subsystem names, value shares, and DR ordinates verbatim. Derived buckets (e.g. "primary depth-driven electrical" = INV+SWG+XFMR+COMB+SCADA) are allowed **only** as explicit sums of canonical units, with the sum shown.
+4. **Check the `CELL_DOCUMENTATION_CROSSWALK` and `VALUE_CROSSWALK_GUIDE`.** `docs/extra/damage_curve_skill/02_design_guides/VALUE_CROSSWALK_GUIDE.md` defines the allowed value-basis labels (`installed_TIV`, `physical_replaceable_value`, `failure_unit_value`, `exposed_failure_unit_value`, `insured_value`, `gross_claim`, `net_claim_after_deductible`, `business_interruption`, `unknown`) — use these exact labels.
+5. **Respect what the cell does NOT own.** Damage cells own **severity curves only**. EAL / PML / VaR / TVaR are explicitly downstream (owned by the hazard catalog / financial model). Never fabricate a tail metric from a damage curve.
+
+**`PENDING_UPSTREAM_ARTIFACTS` is only valid after you have actually looked in `Damage_Modeling` and confirmed the cell does not exist.** If the cell exists (a `docs/cells/<pair>/` folder with a curve artifact), the crosswalk is **Case A (artifacts available)** and must be fully resolved — never left PENDING. Assuming an artifact is missing without checking upstream is a failed run.
+
+**Related repos (link these across the package):** `Damage_Modeling` (canonical subsystems + damage curves) and `Hazard_Modeling` (`https://github.com/aamani-ai/Hazard_Modeling`, the M0→M4 modeling engine + compare dashboard's RangeCompare view that consumes these ranges). Reference both in the root README, the anchor, and any crosswalk that relies on their artifacts.
+
 ## The Golden Rule
 
 > A source that has a number is **not** automatically a benchmark. A source becomes a benchmark only after its **denominator, coverage basis, peril coding, asset class, geography, and loss basis** are understood.

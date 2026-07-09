@@ -556,6 +556,30 @@ Hazard axis:                            mesh_diameter_mm, valid 0–100, clamp_o
 Module archetype curve IDs:             HAIL_SOLAR_FRAGILE_THIN_GG, HAIL_SOLAR_DEFAULT_3P2_GBS, HAIL_SOLAR_HARDENED_THICKER
 ```
 
+## Appendix A2 — Canonical flood_solar failure units (from `Damage_Modeling`, worked example)
+
+Worked example of a **Case A** cross-map: the `flood_solar` cell exists upstream (`Damage_Modeling/docs/cells/flood_solar/current/`), so the crosswalk must use these canonical failure-unit IDs, shares, and $/MWdc — never an invented single bucket. `$/MWdc = installed_share × $1,120,000`.
+
+```
+failure_unit  subsystem/component                     role                 %inst TIV   $/MWdc(inst)   f_kind
+FS_INV        INVERTER_SYSTEM / INVERTER              primary               2.884%      $ 32,306      geometry/elevation
+FS_SWG        SUBSTATION / SWITCHGEAR                 primary               6.106%      $ 68,385      geometry/elevation
+FS_XFMR       SUBSTATION / TRANSFORMER_MAIN           primary               3.404%      $ 38,119      geometry/elevation
+FS_COMB       INVERTER_SYSTEM / COMBINER_BOX+DC_PROT  primary/secondary     0.609%      $  6,826      geometry/elevation
+FS_SCADA      SCADA / MONITORING_SYSTEM               secondary             0.117%      $  1,310      geometry/elevation
+FS_CABLE      ELECTRICAL_COLLECTION / CABLE_AC+DC     conditional/secondary 6.189%      $ 69,320      geometry/pathway
+FS_FOUND      FOUNDATION / FOUNDATION_BASE            conditional/secondary 2.779%      $ 31,124      velocity/scour
+FS_PVMOD      PV_ARRAY / PV_MODULE                    conditional/secondary 26.001%     $291,215      geometry/elevation
+
+Derived buckets (explicit sums of canonical units only):
+  PRIMARY depth-driven electrical (INV+SWG+XFMR+COMB+SCADA) = 13.120% inst = $146,947/MWdc
+  ALL 8 flood failure-units                                 = 48.090% inst = $538,607/MWdc
+
+Hazard x-axis: FLOOD_LOCAL_DEPTH_COMPONENT_DATUM, h_i=max(0,WSE−z_i_crit), unit m (secondary: FLOOD_VELOCITY_SCOUR_PROXY)
+Curve form:    piecewise_linear / state (threshold-like, NOT logistic)
+Owns:          severity curves only — EAL/PML/VaR/TVaR are downstream, NOT in this cell
+```
+
 ## Appendix B — The 15 solar_hail sources (ID → availability → primary use)
 
 ```

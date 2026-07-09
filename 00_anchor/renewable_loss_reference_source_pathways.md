@@ -6,7 +6,8 @@
 
 **Last researched:** 2026-07-09  
 **Prepared for:** Damage Modeling / Hazard Modeling interface  
-**Recommended home:** `docs/validation/renewable_loss_reference_source_pathways.md`
+**Recommended home:** `docs/validation/renewable_loss_reference_source_pathways.md`  
+**Related repos:** [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) — the canonical subsystem breakdown, value ladder, and per-hazard failure-unit damage curves every pair crosswalk in this package cross-maps onto (always consult its `docs/method/value_basis/solar_wind_value_breakdown.xlsx` Summary sheet and the relevant `docs/cells/<hazard>_<asset>/current/` curve artifact before writing a crosswalk) · [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling) — the M0→M4 modeling engine + compare dashboard (RangeCompare view) that consumes these validation ranges
 
 ---
 
@@ -155,7 +156,7 @@ GRAY   = generic-only public context exists; not enough for renewable validation
 | Hazard × asset cell | Renewable-specific claims publications | Engineered / cat-model PML-AAL path | Event / case-study path | Parametric / trigger path | Engineering / component path | Current status |
 |---|---|---|---|---|---|---|
 | `solar_hail` | **GREEN** — kWh, AXIS, GCube/TMHCC, Marsh, J.S. Held | **GREEN/YELLOW** — VDE Hail Risk, VDE/Cirrus, Renew Risk | **GREEN** — Midway, Fighting Jays, VDE stow case | **YELLOW** — Descartes, VDE PREP, weather-trigger products | **GREEN** — DOE/FEMP, RETC/PVEL/Kiwa/GroundWork | **Strongest V1 candidate** |
-| `solar_flood` | **RED/YELLOW** — no broad open solar flood claims database found; broker/insurer loss runs likely | **YELLOW** — VDE/Cirrus all-cat reports; Moody's solar-farm flood/wind case; Fathom renewable flood assessments | **ORANGE** — storm / hurricane / flooded-equipment cases exist but sparse | **YELLOW** — parametric flood could be sourced but not solar-specific by default | **GREEN** — DOE/FEMP flood PV guidance; component replacement logic | **Dossier built in v0.3 (`01_pairs/solar_flood`); isolated flood-only $/MW severity confirmed scarce; crosswalk `PENDING_UPSTREAM_ARTIFACTS`** |
+| `solar_flood` | **RED/YELLOW** — no broad open solar flood claims database found; broker/insurer loss runs likely | **YELLOW** — VDE/Cirrus all-cat reports; Moody's solar-farm flood/wind case; Fathom renewable flood assessments | **ORANGE** — storm / hurricane / flooded-equipment cases exist but sparse | **YELLOW** — parametric flood could be sourced but not solar-specific by default | **GREEN** — DOE/FEMP flood PV guidance; component replacement logic | **Dossier built in v0.3, resolved v0.3.1 (`01_pairs/solar_flood`); isolated flood-only $/MW severity confirmed scarce; crosswalk `RESOLVED_FROM_DAMAGE_MODELING` against the canonical `flood_solar` cell** |
 | `solar_strong_wind` | **YELLOW** — AXIS notes strong wind ranking; RETC says high wind is frequent for fielded solar; Alpine/adjuster sources | **YELLOW** — Renew Risk U.S. SCS model, VDE/Cirrus severe convective / named windstorm, Verisk SCS if exposure coding is renewable-aware | **ORANGE** — hurricane / straight-line-wind case material, but financial values sparse | **YELLOW** — wind/hail co-probability and storm-response triggers | **GREEN** — FEMP / NREL storm-resilience engineering, tracker/racking studies | **Partial; source path credible but not as strong as hail** |
 | `solar_tornado` | **RED/ORANGE** — scattered mentions of rows damaged, no robust open loss series | **YELLOW** — Renew Risk SCS and Verisk SCS can model tornado, but direct solar tornado numbers likely gated | **ORANGE** — individual event news / adjuster files possible | **YELLOW** — parametric SCS products may include tornado | **YELLOW** — debris / wind engineering exists, but not financial | **Weak; pathway exists mostly through SCS models and private claims** |
 | `solar_hurricane` | **YELLOW** — GCube/PF summaries say hurricanes are material in U.S. renewables; solar ranking available but aggregate values limited | **YELLOW** — VDE/Cirrus named windstorm; Moody's/RMS windstorm; Renew Risk hurricane products | **ORANGE** — Hurricane Maria / Caribbean solar resilience cases | **YELLOW** — parametric wind/rain products possible | **GREEN** — DOE/FEMP storm-resilience and wind-driven-rain mechanisms | **Moderate, but peril splitting required** |
@@ -1401,10 +1402,15 @@ how repeated losses are represented
 > - The most reliable open dollars are litigation totals (First Solar/Zurich asserted ~$10.1M;
 >   South Alexander/Markel ~$1.1M) that LACK a MW denominator and are dominated by per-event
 >   flood deductibles and BI structure.
-> - The flood failure unit is electrical / balance-of-system (inverter/PCS, collection/cabling,
->   foundation), NOT PV module glass. Standing modules above the waterline are generally not the loss.
-> - No solar-specific flood depth-damage function exists publicly. The crosswalk is therefore
->   PENDING_UPSTREAM_ARTIFACTS and uses generic industrial curves (JRC/HAZUS/USACE) as a labeled proxy.
+> - The flood failure grain is the canonical 8 named flood_solar failure units (FS_INV, FS_SWG,
+>   FS_XFMR, FS_COMB, FS_SCADA, FS_CABLE, FS_FOUND, FS_PVMOD) — mostly electrical / balance-of-system,
+>   NOT PV module glass. Standing modules above the waterline are generally not the loss.
+> - CORRECTION (v0.3.1): the canonical flood_solar damage cell DOES exist in Damage_Modeling. The
+>   crosswalk is RESOLVED_FROM_DAMAGE_MODELING and uses the real per-failure-unit depth->DR curve
+>   (public-source-anchored engineering parameterization: DOE/FEMP, NEMA, FEMA, USACE HEC-FIA).
+>   The primary depth-driven electrical bucket (INV+SWG+XFMR+COMB+SCADA) is ~$146,947/MWdc (13.12% TIV);
+>   the all-8-unit envelope is ~$538,607/MWdc (48.09% TIV). The earlier PENDING_UPSTREAM_ARTIFACTS
+>   status and the invented ~$217,279/MWdc FLOOD_ELECTRICAL_BOS bucket were wrong and have been removed.
 > - Elevation/freeboard is the dominant mitigation knob (flood analog of hail stow): USACE generic
 >   curves show +1 ft freeboard cuts AAL ~82%, and Valdora is a real zero-loss confirmation.
 > ```

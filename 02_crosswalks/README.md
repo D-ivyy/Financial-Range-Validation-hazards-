@@ -20,4 +20,4 @@ Current crosswalks:
 | Pair | File | Status |
 |---|---|---|
 | `solar_hail` | [`solar_hail_value_damage_crosswalk.md`](solar_hail_value_damage_crosswalk.md) | built in v0.2 |
-| `solar_flood` | [`solar_flood_value_damage_crosswalk.md`](solar_flood_value_damage_crosswalk.md) | built in v0.3 — `PENDING_UPSTREAM_ARTIFACTS` (no solar flood depth-damage curve exists; flood failure unit is electrical/BOS, not module glass; depth→DR is a generic industrial proxy) |
+| `solar_flood` | [`solar_flood_value_damage_crosswalk.md`](solar_flood_value_damage_crosswalk.md) | built v0.3, resolved v0.3.1 — `RESOLVED_FROM_DAMAGE_MODELING` (uses the canonical `flood_solar` cell: 8 named failure units FS_INV…FS_PVMOD + real depth→DR ordinates from `Damage_Modeling`) |

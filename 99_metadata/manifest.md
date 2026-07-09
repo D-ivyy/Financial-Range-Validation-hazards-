@@ -69,4 +69,4 @@ data/solar_flood_value_basis_from_damage_modeling.json
 VALIDATION_REPORT_v0_3.md
 ```
 
-The solar_flood crosswalk is `PENDING_UPSTREAM_ARTIFACTS` — no solar-specific flood depth-damage artifact exists; the depth→DR reference is a generic-industrial proxy and the flood failure unit is electrical/BOS/foundation, not PV module glass.
+The solar_flood crosswalk is `RESOLVED_FROM_DAMAGE_MODELING` (v0.3.1) — it uses the canonical `flood_solar` cell from `Damage_Modeling`: 8 named failure units (FS_INV, FS_SWG, FS_XFMR, FS_COMB, FS_SCADA, FS_CABLE, FS_FOUND, FS_PVMOD) with per-unit value shares and the real piecewise-linear depth→DR ordinates. Related repos: [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling), [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling).

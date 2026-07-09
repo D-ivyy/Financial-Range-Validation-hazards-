@@ -541,7 +541,7 @@
     "basis_confidence": "low-medium",
     "source_status": "open (generic proxy)",
     "useful_for": "depth-damage curve anchor",
-    "caveats": "Generic industrial curve, NOT solar-calibrated; used provisionally on the crosswalk hazard axis."
+    "caveats": "Generic industrial curve, NOT solar-calibrated; mechanism-shape reference only. Superseded on the crosswalk hazard axis by the canonical flood_solar per-failure-unit depth->DR curve from Damage_Modeling."
   },
   {
     "benchmark_id": "FIRST_STREET_GENERIC_AVG_AAL",

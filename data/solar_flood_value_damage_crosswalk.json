@@ -8,11 +8,11 @@
     "normalized_usd_per_MWdc": 43478.260869565216,
     "pct_installed_TIV": 3.881987577639752,
     "pct_physical_replaceable_value": 4.953118448010115,
-    "pct_FLOOD_ELECTRICAL_BOS_bucket": 20.010364228283763,
-    "pct_FLOOD_ELECTRICAL_BOS_plus_substation": 13.42819446576595,
-    "pct_FLOOD_ELECTRICAL_BOS_plus_fieldwork": 13.413111068501888,
-    "direct_damage_grain_comparability": "capacity-denominator-sensitive-and-avoided-loss",
-    "interpretation": "Avoided loss (not incurred damage) divided by nameplate MW; sits inside the electrical/BOS failure-unit bucket, consistent with flood damaging PCS/inverters rather than modules. Source dollars are self-inconsistent."
+    "pct_PRIMARY_electrical_bucket": 29.58765939400363,
+    "pct_ALL_8_flood_failure_units": 8.072357502646629,
+    "pct_FS_INV_INVERTER": 134.58109252300795,
+    "direct_damage_grain_comparability": "requires-failure-unit-allocation",
+    "interpretation": "Avoided loss (not incurred damage) per nameplate MW; falls inside the ALL-8 flood failure-unit envelope and near 30% of the primary electrical bucket, consistent with flood damaging PCS/inverters/switchgear rather than modules."
   },
   {
     "benchmark_id": "VDE_AXIS_FLOOD_PER_MW_SENSITIVITY",
@@ -23,11 +23,11 @@
     "normalized_usd_per_MWdc": 32.608695652173914,
     "pct_installed_TIV": 0.0029114906832298144,
     "pct_physical_replaceable_value": 0.0037148388360075868,
-    "pct_FLOOD_ELECTRICAL_BOS_bucket": 0.015007773171212824,
-    "pct_FLOOD_ELECTRICAL_BOS_plus_substation": 0.010071145849324462,
-    "pct_FLOOD_ELECTRICAL_BOS_plus_fieldwork": 0.010059833301376416,
+    "pct_PRIMARY_electrical_bucket": 0.02219074454550272,
+    "pct_ALL_8_flood_failure_units": 0.006054268126984972,
+    "pct_FS_INV_INVERTER": 0.10093581939225596,
     "direct_damage_grain_comparability": "portfolio-aggregate-only",
-    "interpretation": "13-year portfolio aggregate spread over 92 GW DC; near-zero per MW. Confirms flood is a rare, small-share peril for solar in aggregate, not a per-event severity."
+    "interpretation": "13-year portfolio aggregate spread over 92 GW DC; near-zero per MW. Confirms flood is a rare, small-share peril in aggregate, not a per-event severity."
   },
   {
     "benchmark_id": "VALDORA_ZERO_LOSS_PER_MW",
@@ -38,10 +38,10 @@
     "normalized_usd_per_MWdc": 0.0,
     "pct_installed_TIV": 0.0,
     "pct_physical_replaceable_value": 0.0,
-    "pct_FLOOD_ELECTRICAL_BOS_bucket": 0.0,
-    "pct_FLOOD_ELECTRICAL_BOS_plus_substation": 0.0,
-    "pct_FLOOD_ELECTRICAL_BOS_plus_fieldwork": 0.0,
+    "pct_PRIMARY_electrical_bucket": 0.0,
+    "pct_ALL_8_flood_failure_units": 0.0,
+    "pct_FS_INV_INVERTER": 0.0,
     "direct_damage_grain_comparability": "measured-zero-lower-bound",
-    "interpretation": "Genuine measured zero (not N/A): a well-elevated site took a major flood with no physical damage. Anchors the lower bound of the flood damage range."
+    "interpretation": "Genuine measured zero: a well-elevated site took a major flood with no physical damage. Anchors the lower bound of the flood damage range."
   }
 ]

@@ -56,7 +56,7 @@ Solar × flood is now the second deep-dive pair. See `01_pairs/solar_flood/READM
 
 | Source | Open number | On the value ladder |
 |---|---|---|
-| DEPCOM flood response case | avoided loss `~$43,478/MW` (92 MW) | 3.88% installed TIV; 20.0% of FLOOD_ELECTRICAL_BOS |
+| DEPCOM flood response case | avoided loss `~$43,478/MW` (92 MW) | 3.88% installed TIV; 29.6% of the PRIMARY electrical failure-unit bucket |
 | VDE/AXIS peril-mix | `~$32.61/MW` (13-yr portfolio aggregate) | 0.003% installed TIV — near zero per MW |
 | Valdora 15 MW | `$0/MW` measured physical damage | genuine measured zero; well-elevated site, major flood, no damage |
 
@@ -70,17 +70,21 @@ lack a MW denominator and are dominated by deductible/BI structure. We say this 
 rather than manufacturing a severity.
 ```
 
-### Crosswalk is PENDING
+### Crosswalk is RESOLVED against Damage_Modeling (v0.3.1)
 
 ```text
-02_crosswalks/solar_flood_value_damage_crosswalk.md is PENDING_UPSTREAM_ARTIFACTS.
+02_crosswalks/solar_flood_value_damage_crosswalk.md is RESOLVED_FROM_DAMAGE_MODELING.
 - The value ladder is reusable (peril-agnostic), so denominators are known.
-- But no solar-specific flood depth-damage function exists publicly.
-- The flood failure unit is electrical/BOS/foundation (FLOOD_ELECTRICAL_BOS ~$217,279/MWdc,
-  19.4% of installed TIV), NOT PV module glass.
-- The depth->DR table is a generic industrial proxy (JRC North America Industrial), NOT
-  solar-calibrated, and must not be used to tune a solar flood curve.
+- The canonical flood_solar cell in Damage_Modeling DOES exist and is used here verbatim.
+- The flood grain is 8 named failure units (mostly electrical): FS_INV, FS_SWG, FS_XFMR,
+  FS_COMB, FS_SCADA, FS_CABLE, FS_FOUND, FS_PVMOD — NOT PV module glass.
+- Derived buckets: PRIMARY depth-driven electrical (INV+SWG+XFMR+COMB+SCADA) ~$146,947/MWdc
+  (13.12% TIV); ALL 8 failure units ~$538,607/MWdc (48.09% TIV).
+- The depth->DR table now uses the REAL piecewise-linear ordinates from the flood_solar curve
+  artifact (public-source-anchored engineering parameterization, NOT claims-calibrated).
 - Elevation / freeboard is the dominant mitigation knob (USACE: +1 ft freeboard cuts AAL ~82%).
+- NOTE: v0.3 originally invented a single FLOOD_ELECTRICAL_BOS bucket (~$217,279/MWdc) and marked
+  the crosswalk PENDING; v0.3.1 corrects this to the canonical grain.
 ```
 
 ### Output files
@@ -90,6 +94,6 @@ rather than manufacturing a severity.
 01_pairs/solar_flood/benchmark_number_matrix.csv — 34-row numeric table (3 rows normalize to $/MW)
 01_pairs/solar_flood/source_matrix.csv — 32-source coverage matrix
 01_pairs/solar_flood/source_registry.json — 32-source registry
-02_crosswalks/solar_flood_value_damage_crosswalk.md — PENDING crosswalk
+02_crosswalks/solar_flood_value_damage_crosswalk.md — RESOLVED crosswalk (canonical flood_solar grain)
 data/*_solar_flood.* — package-level copies
 ```
