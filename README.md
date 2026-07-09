@@ -5,6 +5,22 @@
 **Project:** Damage Modeling / Hazard Modeling validation interface  
 **Related repos:** [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) — canonical subsystem breakdown, value ladder, and per-hazard failure-unit damage curves (the source of truth this package cross-maps onto) · [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling) — the M0→M4 modeling engine + compare dashboard (RangeCompare view) that consumes these validation ranges  
 
+## Dashboard
+
+A read-only review + interpretation-correctness web app lives in [`dashboard/`](dashboard/). It
+scans this repo at request time and serves the package's own artifacts (CSV/JSON) as JSON, then
+renders 7 pair-aware views (overview, coverage matrix, benchmark explorer, value ladder, damage
+curve, crosswalk, correctness flags). It hardcodes no numbers and defines no pass/fail bands — it
+is a normalization/review layer, not a calibration harness. Run it with:
+
+```bash
+cd dashboard && pip install -r requirements.txt && uvicorn main:app --port 8000
+```
+
+Then open <http://localhost:8000>. See [`dashboard/README.md`](dashboard/README.md) for details.
+
+---
+
 This folder is the validation-source counterpart to the damage-modeling library. It is not a calibration harness yet. Its job is to answer:
 
 ```text

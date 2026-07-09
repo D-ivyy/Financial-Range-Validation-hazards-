@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Range-Validation Review Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-main">
+      <h1>Range-Validation Review <span class="muted">/ hazard × asset loss-reference</span></h1>
+      <div class="meta-line" id="meta-line">loading…</div>
+    </div>
+    <div class="topbar-links" id="repo-links"></div>
+  </header>
+
+  <div class="disclaimer" id="disclaimer" role="note">loading epistemic rule…</div>
+
+  <nav class="tabs" id="tabs" aria-label="views"></nav>
+
+  <div class="pair-bar" id="pair-bar">
+    <label for="pair-select">Pair</label>
+    <select id="pair-select"></select>
+    <span class="pair-status" id="pair-status"></span>
+  </div>
+
+  <main id="view" class="view"></main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
