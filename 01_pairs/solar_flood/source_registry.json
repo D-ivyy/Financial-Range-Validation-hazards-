@@ -1,0 +1,656 @@
+[
+  {
+    "source_id": "NREL_VERISK_PV_INSURANCE_2020",
+    "source_name": "NREL / kWh Analytics / Verisk — Photovoltaic (PV) Insurance Claims analysis (Technical Report NREL/TP-5C00-78588)",
+    "source_type": "renewable_insurer_claims_publication",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SEVERITY",
+      "CLAIM_SHARE",
+      "DOLLARS_PER_CLAIM",
+      "PERIL_MIX"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Only open PV-specific claims dataset with a Flood/Water peril group; gives per-claim severity and count context for water-related solar damage.",
+    "has_open_numbers": "15,128 claims 2014–2019; $60.8M solar item value; >$1.2B total insured value in study. Flood/Water group reported per-claim statistics, but the published table has a column-alignment ambiguity: reading A avg $2,020 / median $1,210 / max $26,103 / stdev $2,839 (n=197); reading B avg $5,288 / median $2,358 / max $94,921 / stdev $12,143 (n=79).",
+    "does_not_have_open": "Per-MW normalization, project TIV, capacity per claim, unambiguous flood column; original PDF table must be visually re-checked before either reading is trusted.",
+    "url": "https://docs.nrel.gov/docs/fy21osti/78588.pdf",
+    "retrieved": "2026-07-09",
+    "notes": "Both column readings must be carried forward and flagged; do not silently pick one. Most concrete open PV flood-claim severity source found."
+  },
+  {
+    "source_id": "BMS_GCUBE_AUSTRALIA_2021",
+    "source_name": "BMS Group / GCube — Australian renewables claims review",
+    "source_type": "renewable_insurer_broker_claims_summary",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "PERIL_MIX",
+      "NATCAT_SHARE"
+    ],
+    "evidence_use_tags": [
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Peril-mix share for solar where NatCat (including flood) is broken out relative to wind and contractor error.",
+    "has_open_numbers": "NatCat (incl. flood) ≈ 22% of solar claims quantum vs ≈ 10% for wind; contractor error ≈ 68% of solar claims; solar external-peril share ≈ 72%.",
+    "does_not_have_open": "Flood-only isolation from the NatCat bucket; $/MW; TIV; per-project denominators.",
+    "url": "https://publications.bmsgroup.com/view/424753",
+    "retrieved": "2026-07-09",
+    "notes": "NatCat bucket bundles flood with other perils; usable only as peril-share context, not a flood-only benchmark."
+  },
+  {
+    "source_id": "GCUBE_ARRESTED_DEVELOPMENT_2023",
+    "source_name": "GCube — Arrested Development (construction-phase renewables claims report)",
+    "source_type": "renewable_insurer_claims_publication",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "CLAIM_SEVERITY_MULTIPLIER",
+      "EVENT_LOSS_AGGREGATE"
+    ],
+    "evidence_use_tags": [
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Construction-phase (CAR/DSU) flood frequency-vs-severity shape for wind+solar combined.",
+    "has_open_numbers": "Flooding / heavy rainfall = 18% of weather-related construction claims by frequency but 46% by cost (≈ 2.6x severity multiplier); >$1B combined CAR + DSU claims in scope.",
+    "does_not_have_open": "Solar-only split (wind+solar combined); $/MW; operational-phase applicability; TIV.",
+    "url": "https://www.gcube-insurance.com/reports/arrested-development/",
+    "retrieved": "2026-07-09",
+    "notes": "Strong flood severity-multiplier signal, but construction-phase and mixed-technology; label accordingly."
+  },
+  {
+    "source_id": "AXIS_HAEE_LEGACY_2016",
+    "source_name": "AXIS / HAEE — legacy renewable energy severity bucket guidance",
+    "source_type": "renewable_insurer_claims_publication",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SEVERITY",
+      "EVENT_LOSS",
+      "BI_CBI"
+    ],
+    "evidence_use_tags": [
+      "CASE_STUDY_ONLY",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Qualitative severity-bucket scale and a named solar CBI flood-adjacent loss for order-of-magnitude context.",
+    "has_open_numbers": "Severity buckets cited at USD 250k / 1M / 5M / 10M+; Puerto Rico solar contingent business interruption loss ≈ $20M.",
+    "does_not_have_open": "Per-MW normalization; flood-only isolation; project TIV; distribution.",
+    "url": "https://www.axiscapital.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Legacy qualitative buckets only; CBI figure is order-of-magnitude, not a normalized benchmark."
+  },
+  {
+    "source_id": "SWISSRE_CATCHING_THE_SUN_2024",
+    "source_name": "Swiss Re — Catching the Sun (solar PV NatCat claims study)",
+    "source_type": "renewable_insurer_claims_publication",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "PERIL_MIX",
+      "SOURCE_DISCOVERY"
+    ],
+    "evidence_use_tags": [
+      "SCREENING_ONLY",
+      "SOURCE_DISCOVERY"
+    ],
+    "solar_flood_use": "Confirms peril hierarchy for solar PV but does not break out a flood share in the open material.",
+    "has_open_numbers": "Hail cited as 3% of claims but ≈ 60% of losses; no open flood-specific percentage.",
+    "does_not_have_open": "Any flood-only claim share or $/MW; flood is not separately quantified in open excerpts.",
+    "url": "https://www.swissre.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Negative for flood in the open material; treat as pathway/screening source for a fuller gated study."
+  },
+  {
+    "source_id": "MARSH_RENEWABLE_CLAIMS_2024",
+    "source_name": "Marsh — renewable energy property claims context (storm/hail dominance)",
+    "source_type": "renewable_insurer_broker_claims_summary",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "PERIL_MIX"
+    ],
+    "evidence_use_tags": [
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Bundled storm-peril share that implicitly caps a residual flood share for solar PV claim values.",
+    "has_open_numbers": "Storm + hail together ≈ 80% of solar PV claim values; flood falls in the residual not separately broken out.",
+    "does_not_have_open": "Flood-only isolation; $/MW; TIV; denominators.",
+    "url": "https://www.marsh.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Flood is inside the residual band; usable only to bound, not to quantify, flood share."
+  },
+  {
+    "source_id": "GCUBE_HAIL_OR_HIGH_WATER_2023",
+    "source_name": "GCube — Hail or High Water (peril-dominance commentary)",
+    "source_type": "renewable_insurer_claims_publication_summary",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "PERIL_MIX",
+      "QUALITATIVE"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Qualitative signal that for solar the dominant catastrophic peril is not flood (wildfire/hail lead), while wind portfolios are more flood-exposed.",
+    "has_open_numbers": "Qualitative only: solar loss profile wildfire/hail-dominant; wind loss profile flood-dominant.",
+    "does_not_have_open": "Any numeric flood share or severity for solar.",
+    "url": "https://www.gcube-insurance.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Negative/contextual finding; explains why isolated solar flood $/MW is genuinely scarce."
+  },
+  {
+    "source_id": "ALLIANZ_GREENING_CLAIMS_2025",
+    "source_name": "Allianz Commercial — greening/renewables claims trends",
+    "source_type": "renewable_insurer_claims_publication",
+    "availability_tag": "HAS_PATHWAY_ONLY",
+    "metric_tags": [
+      "EVENT_LOSS",
+      "NAMED_EVENT",
+      "SOURCE_DISCOVERY"
+    ],
+    "evidence_use_tags": [
+      "SOURCE_DISCOVERY"
+    ],
+    "solar_flood_use": "Names solar flood loss events (Australia, Germany, UAE) as trend markers without dollar figures.",
+    "has_open_numbers": "Named flood events affecting solar in AU / DE / UAE; no per-event or per-MW dollar figures.",
+    "does_not_have_open": "Any dollar loss, capacity, or TIV.",
+    "url": "https://commercial.allianz.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Pathway/trend evidence only; acquire underlying loss runs to quantify."
+  },
+  {
+    "source_id": "MOODYS_RMS_SOLAR_FARM_FLOOD_CASE",
+    "source_name": "Moody's RMS — solar farm flood exposure disaggregation case",
+    "source_type": "engineered_pml_aal_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "AAL_DELTA",
+      "FLOOD_DEPTH",
+      "SOURCE_DISCOVERY"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "CASE_STUDY_ONLY"
+    ],
+    "solar_flood_use": "Only open modeled statement of how much flood AAL moves for a solar farm when exposure is properly disaggregated.",
+    "has_open_numbers": "Flood AAL +230% vs windstorm +2% after exposure disaggregation on a 2,700-acre reservoir-adjacent site.",
+    "does_not_have_open": "Absolute AAL dollars; $/MW; TIV; site identity; capacity.",
+    "url": "https://www.rms.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Relative delta only; strong evidence that flood AAL is highly geolocation-sensitive for solar. Absolute values gated."
+  },
+  {
+    "source_id": "MOODYS_RMS_US_INLAND_FLOOD_HD",
+    "source_name": "Moody's RMS — U.S. Inland Flood HD model (industry-wide figures)",
+    "source_type": "renewable_cat_model_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "PML",
+      "RETURN_PERIOD",
+      "PROTECTION_GAP"
+    ],
+    "evidence_use_tags": [
+      "SOURCE_DISCOVERY"
+    ],
+    "solar_flood_use": "Industry-scale inland-flood loss and protection-gap context; not solar-specific but sets the hazard-model backdrop.",
+    "has_open_numbers": "1-in-100 U.S. inland flood ≈ $375B with ≈ 65% protection gap; +RCP4.5 2050 ≈ $472B; 1-in-500 > $1T with > 70% gap.",
+    "does_not_have_open": "Solar-specific AAL/PML; asset-class breakouts; county solar bands.",
+    "url": "https://www.rms.com/models/flood",
+    "retrieved": "2026-07-09",
+    "notes": "All-industry hazard model; provides scale, not a solar benchmark."
+  },
+  {
+    "source_id": "VDE_NATCAT_INLAND_FLOOD",
+    "source_name": "VDE Americas — All-NatCat risk & insurability report (inland flood component)",
+    "source_type": "engineered_pml_aal_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "PML",
+      "FLOOD_DEPTH",
+      "TECHNOLOGY_SPECIFIC"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE"
+    ],
+    "solar_flood_use": "Cleanest gated path to site- and technology-specific solar flood AAL/PML alongside other perils.",
+    "has_open_numbers": "Open pages confirm inland flood is included in the site-specific, lat/long, technology-specific NatCat product.",
+    "does_not_have_open": "Actual flood AAL/PML values; requires commercial report.",
+    "url": "https://www.vde.com/en/vde-americas/hail-risk/natural-catastrophe-risk-and-insurability-report",
+    "retrieved": "2026-07-09",
+    "notes": "Best acquisition pathway for comparison-ready solar flood AAL/PML; not open-data."
+  },
+  {
+    "source_id": "FATHOM_FLOOD_HAZARD",
+    "source_name": "Fathom — global flood hazard maps (used in solar site screening)",
+    "source_type": "flood_hazard_data_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "FLOOD_DEPTH",
+      "HAZARD_SCREENING",
+      "RETURN_PERIOD"
+    ],
+    "evidence_use_tags": [
+      "SOURCE_DISCOVERY",
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Hazard-depth layer used by developers/EDF-style screens to flag flood-unsuitable solar parcels.",
+    "has_open_numbers": "Screening rule of thumb cited in solar siting: >3 ft modeled depth commonly treated as unsuitable / high-risk.",
+    "does_not_have_open": "Dollar losses; AAL/PML; solar depth-damage functions.",
+    "url": "https://www.fathom.global/",
+    "retrieved": "2026-07-09",
+    "notes": "Hazard, not loss; feeds the depth axis of any damage function."
+  },
+  {
+    "source_id": "JBA_FLOOD_MODEL",
+    "source_name": "JBA Risk Management — flood model and depth-damage methodology",
+    "source_type": "renewable_cat_model_product",
+    "availability_tag": "HAS_GATED_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "FLOOD_DEPTH",
+      "DEPTH_DAMAGE_FUNCTION"
+    ],
+    "evidence_use_tags": [
+      "SOURCE_DISCOVERY",
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Documents the canonical flood-loss formula L = EV × DR(FD) and absolute-damage %sum-insured curves.",
+    "has_open_numbers": "L = EV × DR(FD); absolute damage ratio expressed as % of sum insured; ≈ 38.6M of ≈ 130M U.S. buildings at flood risk (generic exposure).",
+    "does_not_have_open": "Solar-specific DR curve; solar AAL/PML values.",
+    "url": "https://www.jbarisk.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Provides the methodology (formula + curve shape), not solar numbers."
+  },
+  {
+    "source_id": "FIRST_STREET_FLOOD_MODEL",
+    "source_name": "First Street Foundation — Cost of Climate / flood AAL model",
+    "source_type": "flood_hazard_data_product",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "AAL",
+      "PROTECTION_GAP",
+      "RETURN_PERIOD"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Open property-level flood AAL magnitudes and climate uplift; a generic (non-solar) reference band for AAL scale.",
+    "has_open_numbers": "5.7M properties with substantial flood risk; avg AAL $3,548/yr; $20.3B/yr aggregate; +67% by 2050 to $5,913/yr avg; ≈ 2x USACE estimates.",
+    "does_not_have_open": "Solar-specific losses; utility-scale asset curves; $/MW.",
+    "url": "https://firststreet.org/",
+    "retrieved": "2026-07-09",
+    "notes": "Residential/commercial building AAL; use only as generic magnitude context, not a solar benchmark."
+  },
+  {
+    "source_id": "FEMA_HAZUS_FLOOD_CURVES",
+    "source_name": "FEMA — Hazus Flood Technical Manual depth-damage functions",
+    "source_type": "government_engineering_guidance",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "DEPTH_DAMAGE_FUNCTION",
+      "FLOOD_DEPTH"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Generic-industrial depth-damage curve library that must proxy for the missing solar-specific curve.",
+    "has_open_numbers": "196 curves / 33 occupancy classes; haz_fl_dept coverage grid −4 to +24 ft; industrial/commercial occupancy curves usable as coarse solar-BOS proxy.",
+    "does_not_have_open": "Any solar PV / BOS / inverter-specific curve.",
+    "url": "https://www.fema.gov/flood-maps/tools-resources/flood-map-products/hazus",
+    "retrieved": "2026-07-09",
+    "notes": "Generic curves only; label as generic-industrial proxy wherever used for solar."
+  },
+  {
+    "source_id": "USACE_FREEBOARD_DEPTH_DAMAGE",
+    "source_name": "USACE — depth-damage curves and freeboard AAL reduction guidance",
+    "source_type": "government_engineering_guidance",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "DEPTH_DAMAGE_FUNCTION",
+      "AAL_REDUCTION",
+      "FREEBOARD"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Quantifies how elevation/freeboard cuts AAL — a mitigation-knob analog to hail stow for the flood pair.",
+    "has_open_numbers": "No-freeboard max AAL 11.21% → +1 ft 2.002% (≈ 82% reduction); design inundation point −0.5→0 ft = 86.3% reduction; −2 ft → first-floor = 92% reduction.",
+    "does_not_have_open": "Solar-specific curves; $/MW; solar AAL.",
+    "url": "https://www.iwr.usace.army.mil/",
+    "retrieved": "2026-07-09",
+    "notes": "Generic building curves; the freeboard reduction ratios are the transferable mitigation signal."
+  },
+  {
+    "source_id": "JRC_GLOBAL_FLOOD_DEPTH_DAMAGE",
+    "source_name": "European Commission JRC — Global flood depth-damage functions (2017)",
+    "source_type": "government_engineering_guidance",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "DEPTH_DAMAGE_FUNCTION",
+      "FLOOD_DEPTH"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Provides the provisional depth-damage curve (North America Industrial) used on the crosswalk hazard axis as a generic proxy.",
+    "has_open_numbers": "North America Industrial factors by flood_depth_m: 0=0.03, 0.5=0.32, 1.0=0.51, 1.5=0.64, 2.0=0.74, 3.0=0.86, 4.0=0.94, 5.0=0.98, 6.0=1.00; Residential 0=0.20/0.5=0.44/1.0=0.58; Commercial 0=0.02/0.5=0.24/1.0=0.37.",
+    "does_not_have_open": "Any solar PV / BOS-specific curve; damage-to-value calibration for solar.",
+    "url": "https://publications.jrc.ec.europa.eu/repository/bitstream/JRC105688/global_flood_depth-damage_functions__10042017.pdf",
+    "retrieved": "2026-07-09",
+    "notes": "Chosen as the provisional crosswalk curve because it is open, global, and industrial; explicitly generic, not solar-calibrated."
+  },
+  {
+    "source_id": "FM_GLOBAL_DS_7106_FLOOD",
+    "source_name": "FM Global — Data Sheets 7-106 / 1-40 (solar & flood property protection)",
+    "source_type": "engineering_standard",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "ELECTRICAL_BOS_DAMAGE",
+      "FLOOD_DEPTH",
+      "MITIGATION_STATE",
+      "FOUNDATION_SCOUR"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Solar-specific engineering guidance identifying the flood failure unit (electrical/BOS) and elevation thresholds.",
+    "has_open_numbers": "Elevate critical equipment 1–2 ft above the 500-yr flood MRI; erosion/scour risk noted above ≈ 7 ft/s flow velocity.",
+    "does_not_have_open": "Dollar losses; AAL/PML; depth-damage percentages.",
+    "url": "https://www.fmglobal.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Key source for the flood failure-unit argument (inverters/BOS/foundations, not module glass)."
+  },
+  {
+    "source_id": "RENEW_RISK_NO_FLOOD_PRODUCT",
+    "source_name": "Renew Risk — solar cat-model (no dedicated flood peril)",
+    "source_type": "renewable_cat_model_product",
+    "availability_tag": "NO_PRODUCT_FOUND",
+    "metric_tags": [
+      "SOURCE_DISCOVERY"
+    ],
+    "evidence_use_tags": [
+      "SOURCE_DISCOVERY"
+    ],
+    "solar_flood_use": "Documents a gap: the leading dedicated solar SCS cat-model does not currently offer an inland-flood peril.",
+    "has_open_numbers": "None for flood; product covers hail/tornado/wind for solar, flood not offered as of retrieval.",
+    "does_not_have_open": "Any solar flood AAL/PML; a flood peril at all.",
+    "url": "https://pv-magazine-usa.com/2026/05/07/renew-risk-launches-first-of-its-kind-model-to-assess-thunderstorm-risk-for-us-solar/",
+    "retrieved": "2026-07-09",
+    "notes": "Negative finding; reinforces scarcity of purpose-built solar flood modeling."
+  },
+  {
+    "source_id": "FIRSTSOLAR_ZURICH_LITIGATION_2023",
+    "source_name": "First Solar Electric v. Zurich American — flood coverage litigation",
+    "source_type": "forensic_adjuster_engineering_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "EVENT_LOSS",
+      "DEDUCTIBLE_SUBLIMIT",
+      "FLOOD_DEPTH",
+      "CLAIM_SEVERITY"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "CASE_STUDY_ONLY"
+    ],
+    "solar_flood_use": "Most reliable open-dollar solar flood loss: asserted claim, per-event deductibles, amount paid, and depth are all in the record.",
+    "has_open_numbers": "Asserted loss $10,146,341.29 (press: > $13M); per-event amounts $1,477,618 / $418,746 / $1,947,934 / $496,850 / $576,155 (≈ $4.92M); $600,000 paid ($200,000 × 3 events) under a $2.5M per-event flood deductible; > $141.9M value in place; ≈ 13 ft flood depth.",
+    "does_not_have_open": "Project MW capacity; TIV as a clean denominator; ground-up vs net reconciliation.",
+    "url": "https://www.courtlistener.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Deductible structure is the key lesson: large gross flood loss, small net recovery. No MW to normalize."
+  },
+  {
+    "source_id": "SOUTH_ALEXANDER_MARKEL_2023",
+    "source_name": "South Alexander Solar v. Markel — Hurricane Ida flood/BI claim",
+    "source_type": "forensic_adjuster_engineering_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "EVENT_LOSS",
+      "BI_DOWNTIME",
+      "DEDUCTIBLE_SUBLIMIT"
+    ],
+    "evidence_use_tags": [
+      "CASE_STUDY_ONLY",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Second open-dollar solar flood loss with an explicit BI sublimit, from Hurricane Ida.",
+    "has_open_numbers": "$1,099,614.02 physical damage claim plus a $210,000 business-interruption limit (Hurricane Ida).",
+    "does_not_have_open": "Project MW capacity; TIV; ground-up distribution.",
+    "url": "https://www.courtlistener.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Corroborates litigation as the most reliable open solar flood dollar source; still no MW denominator."
+  },
+  {
+    "source_id": "DEPCOM_FLOOD_RESPONSE_CASE",
+    "source_name": "DEPCOM Power — 92-MW solar flood response case study",
+    "source_type": "forensic_adjuster_engineering_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "EVENT_LOSS",
+      "FLOOD_DEPTH",
+      "BI_DOWNTIME",
+      "MITIGATION_STATE",
+      "COMPONENT_COST"
+    ],
+    "evidence_use_tags": [
+      "CASE_STUDY_ONLY"
+    ],
+    "solar_flood_use": "Rare capacity-tagged (92 MW) solar flood event with avoided-loss and downtime figures.",
+    "has_open_numbers": "92-MW site; 10 of 40 PCS units affected; 12–18 in standing water; $2.5M–$6.5M cited as saved (source-internal inconsistency); $1.8M salvage; $4M avoided loss; $400K–$700K revenue exposure; pads raised +3 ft; 6-week vs 22-week recovery.",
+    "does_not_have_open": "Clean gross loss; TIV; reconciled saved-figure; net-of-deductible loss.",
+    "url": "https://depcompower.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Has MW, but the headline dollar figures are self-inconsistent; use as directional avoided-loss/downtime evidence only."
+  },
+  {
+    "source_id": "NEW_ENGLAND_SOLAR_BI_2022",
+    "source_name": "New England Solar (Australia) — flood-related BI / delay disclosure",
+    "source_type": "forensic_adjuster_engineering_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "BI_DOWNTIME",
+      "EVENT_LOSS",
+      "DOLLARS_PER_MW"
+    ],
+    "evidence_use_tags": [
+      "CASE_STUDY_ONLY",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "One of the few solar flood datapoints that yields a derived $/MW after dividing disclosed BI by capacity.",
+    "has_open_numbers": "A$30M lost earnings over a 400-MW project → derived A$75,000/MW (business-interruption / delay basis, not physical damage).",
+    "does_not_have_open": "Physical-damage $/MW; TIV; currency-normalized USD; gross vs net.",
+    "url": "https://www.acciona.com.au/",
+    "retrieved": "2026-07-09",
+    "notes": "Derived $/MW is BI/delay, not physical damage; flag basis clearly and keep in AUD."
+  },
+  {
+    "source_id": "VALDORA_SOLAR_ZERO_LOSS_2022",
+    "source_name": "Valdora Solar (15 MW) — zero-damage flood outcome with freeboard",
+    "source_type": "forensic_adjuster_engineering_case_study",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "EVENT_LOSS",
+      "FLOOD_DEPTH",
+      "MITIGATION_STATE",
+      "BI_DOWNTIME"
+    ],
+    "evidence_use_tags": [
+      "CASE_STUDY_ONLY"
+    ],
+    "solar_flood_use": "Zero-loss lower anchor: a well-elevated solar site took a major flood with no physical damage.",
+    "has_open_numbers": "15-MW site; $0 physical damage; ≈ 1.2 m freeboard design; ≈ 13-day precautionary outage.",
+    "does_not_have_open": "Any positive loss figure (by design); TIV.",
+    "url": "https://www.pv-magazine-australia.com/",
+    "retrieved": "2026-07-09",
+    "notes": "Critical lower-bound anchor: elevation/freeboard can drive physical flood loss to zero even in a large event."
+  },
+  {
+    "source_id": "VDE_AXIS_PERIL_MIX_2025",
+    "source_name": "VDE Americas / AXIS — portfolio peril-mix ground-up loss breakdown",
+    "source_type": "engineered_pml_aal_product",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SHARE",
+      "EVENT_LOSS_AGGREGATE",
+      "AAL"
+    ],
+    "evidence_use_tags": [
+      "PRIMARY_BENCHMARK_CANDIDATE",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Only open source giving flood a share of a quantified solar ground-up loss pool, enabling a derived aggregate flood dollar figure.",
+    "has_open_numbers": "Flood = 0.197% of ≈ $1.5B ground-up solar losses ≈ $3M derived; portfolio 13,000+ asset-years / 92 GW DC / ≈ $100B TIV / all 50 states / 2012–2025.",
+    "does_not_have_open": "Per-project flood severity; $/MW; flood loss distribution; affected capacity.",
+    "url": "https://www.vde.com/en/vde-americas/",
+    "retrieved": "2026-07-09",
+    "notes": "Derived ≈ $3M is a portfolio aggregate over 13 years, not a per-event or per-project severity."
+  },
+  {
+    "source_id": "NREL_PV_FLOOD_RESILIENCE",
+    "source_name": "NREL — PV plant flood resilience / hardening guidance",
+    "source_type": "government_engineering_guidance",
+    "availability_tag": "NO_DIRECT_RENEWABLE_NUMBERS_FOUND",
+    "metric_tags": [
+      "ELECTRICAL_BOS_DAMAGE",
+      "MITIGATION_STATE",
+      "FOUNDATION_SCOUR"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Mechanism guidance on which PV subsystems fail under inundation and how elevation mitigates.",
+    "has_open_numbers": "Qualitative: inverters, combiner boxes, and DC cabling are the flood-vulnerable failure units; foundation scour and washout are secondary mechanisms.",
+    "does_not_have_open": "AAL, PML, $/MW, depth-damage percentages.",
+    "url": "https://www.nrel.gov/",
+    "retrieved": "2026-07-09",
+    "notes": "Supports the electrical/BOS failure-unit argument; not financial."
+  },
+  {
+    "source_id": "IEC_60529_INGRESS_PROTECTION",
+    "source_name": "IEC 60529 — ingress protection (IP) ratings for PV equipment",
+    "source_type": "engineering_standard",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "ELECTRICAL_BOS_DAMAGE",
+      "INUNDATION_DURATION",
+      "FLOOD_DEPTH"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Defines the submersion thresholds (IPX7/IPX8) that determine whether inundated PV equipment survives.",
+    "has_open_numbers": "IPX7 = 1 m / 30 min immersion; IPX8 = continuous immersion at negotiated depth; junction boxes commonly IP68 (e.g., 1.5 m / 30 min).",
+    "does_not_have_open": "Dollar losses; damage ratios; solar AAL.",
+    "url": "https://webstore.iec.ch/publication/2452",
+    "retrieved": "2026-07-09",
+    "notes": "Sets the depth/duration ingress thresholds behind any solar flood depth-damage assumption."
+  },
+  {
+    "source_id": "DOE_FEMP_FLOOD_ELEVATION",
+    "source_name": "DOE / FEMP — flood elevation guidance for critical energy equipment",
+    "source_type": "government_engineering_guidance",
+    "availability_tag": "NO_DIRECT_RENEWABLE_NUMBERS_FOUND",
+    "metric_tags": [
+      "MITIGATION_STATE",
+      "FLOOD_DEPTH",
+      "FREEBOARD"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "Elevation-standard context (100-/500-yr) for siting solar electrical equipment above flood levels.",
+    "has_open_numbers": "Guidance to elevate critical equipment above the 100-yr and preferably 500-yr flood elevation.",
+    "does_not_have_open": "AAL, PML, $/MW, claims.",
+    "url": "https://www.energy.gov/femp/",
+    "retrieved": "2026-07-09",
+    "notes": "Mechanism/standard; reinforces freeboard as the primary flood mitigation knob."
+  },
+  {
+    "source_id": "NFIP_CLAIMS_STATISTICS",
+    "source_name": "FEMA NFIP — national flood insurance claims statistics (generic)",
+    "source_type": "government_public_dataset",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "CLAIM_SEVERITY",
+      "DEDUCTIBLE_SUBLIMIT"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY",
+      "SECONDARY_BENCHMARK"
+    ],
+    "solar_flood_use": "Generic (non-solar) flood claim severity and coverage-cap context, downgraded for solar use.",
+    "has_open_numbers": "Avg claim ≈ $68,000 (2016–21), ≈ $44,401 (2021); caps $250K/$100K residential, $500K/$500K commercial; 2024 ≈ 101,494 claims / $7.96B.",
+    "does_not_have_open": "Any solar/utility-scale asset; $/MW; solar AAL.",
+    "url": "https://www.fema.gov/about/reports-and-data/data-visualization/national-flood-insurance-program-nfip",
+    "retrieved": "2026-07-09",
+    "notes": "Building/contents flood claims only; generic magnitude context, not a solar benchmark."
+  },
+  {
+    "source_id": "NOAA_BILLION_DOLLAR_FLOOD",
+    "source_name": "NOAA NCEI — billion-dollar flooding disasters (generic)",
+    "source_type": "government_public_dataset",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "EVENT_LOSS_AGGREGATE"
+    ],
+    "evidence_use_tags": [
+      "MECHANISM_ONLY"
+    ],
+    "solar_flood_use": "National flood-event loss scale for macro context; not asset-specific.",
+    "has_open_numbers": "≈ 45 billion-dollar flood events totaling ≈ $203.3B (≈ $4.5B average per event).",
+    "does_not_have_open": "Solar breakouts; $/MW; asset-class losses.",
+    "url": "https://www.ncei.noaa.gov/access/billions/",
+    "retrieved": "2026-07-09",
+    "notes": "Macro scale only; establishes flood as a major national peril, no solar attribution."
+  },
+  {
+    "source_id": "USPVDB_V4_0_2026",
+    "source_name": "U.S. Large-Scale Solar Photovoltaic Database",
+    "source_type": "public_exposure_denominator",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "DENOMINATOR",
+      "LOCATION",
+      "BOUNDARY",
+      "CAPACITY"
+    ],
+    "evidence_use_tags": [
+      "DENOMINATOR_ONLY"
+    ],
+    "solar_flood_use": "Exposure denominator and geolocation for joining solar assets to flood-hazard layers (floodplain overlay).",
+    "has_open_numbers": "v4.0 / April 2026; 6,611 facilities; ≈ 131,573 MW AC; array boundaries/locations enable floodplain intersection.",
+    "does_not_have_open": "Losses, claims, insured values, flood elevation per asset.",
+    "url": "https://energy.usgs.gov/uspvdb/",
+    "retrieved": "2026-07-09",
+    "notes": "Required to normalize external flood claims/models and to compute floodplain-exposed capacity."
+  },
+  {
+    "source_id": "EIA_860_2025_EARLY_RELEASE",
+    "source_name": "EIA-860 annual generator data",
+    "source_type": "public_exposure_denominator",
+    "availability_tag": "HAS_OPEN_NUMBERS",
+    "metric_tags": [
+      "DENOMINATOR",
+      "CAPACITY",
+      "GENERATOR",
+      "STATUS"
+    ],
+    "evidence_use_tags": [
+      "DENOMINATOR_ONLY"
+    ],
+    "solar_flood_use": "Generator-level capacity/status crosswalk for flood-exposure reconciliation alongside USPVDB.",
+    "has_open_numbers": "Generator-level data for plants ≥ 1 MW; 2025 early release posted June 9, 2026.",
+    "does_not_have_open": "Insurance claims, AAL/PML, flood losses.",
+    "url": "https://www.eia.gov/electricity/data/eia860/",
+    "retrieved": "2026-07-09",
+    "notes": "Capacity/vintage/owner status; no direct loss numbers."
+  }
+]

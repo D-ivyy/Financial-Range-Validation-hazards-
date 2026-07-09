@@ -1,7 +1,8 @@
 # Crosswalks
 
-**Version:** v0.2  
-**Created:** 2026-06-26
+**Version:** v0.3  
+**Created:** 2026-06-26  
+**Last updated:** 2026-07-09
 
 This folder holds denominator / grain crosswalks between external renewable-loss reference numbers, the project value ledger, and the canonical damage-model artifacts.
 
@@ -19,3 +20,4 @@ Current crosswalks:
 | Pair | File | Status |
 |---|---|---|
 | `solar_hail` | [`solar_hail_value_damage_crosswalk.md`](solar_hail_value_damage_crosswalk.md) | built in v0.2 |
+| `solar_flood` | [`solar_flood_value_damage_crosswalk.md`](solar_flood_value_damage_crosswalk.md) | built in v0.3 — `PENDING_UPSTREAM_ARTIFACTS` (no solar flood depth-damage curve exists; flood failure unit is electrical/BOS, not module glass; depth→DR is a generic industrial proxy) |

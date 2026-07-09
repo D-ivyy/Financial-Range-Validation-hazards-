@@ -1,0 +1,47 @@
+[
+  {
+    "benchmark_id": "DEPCOM_AVOIDED_LOSS_PER_MW_SENSITIVITY",
+    "source_id": "DEPCOM_FLOOD_RESPONSE_CASE",
+    "label": "Derived avoided-loss per MW (DEPCOM 92 MW)",
+    "metric_family": "DOLLARS_PER_MW_SENSITIVITY",
+    "reported_value": "$43,478/MW",
+    "normalized_usd_per_MWdc": 43478.260869565216,
+    "pct_installed_TIV": 3.881987577639752,
+    "pct_physical_replaceable_value": 4.953118448010115,
+    "pct_FLOOD_ELECTRICAL_BOS_bucket": 20.010364228283763,
+    "pct_FLOOD_ELECTRICAL_BOS_plus_substation": 13.42819446576595,
+    "pct_FLOOD_ELECTRICAL_BOS_plus_fieldwork": 13.413111068501888,
+    "direct_damage_grain_comparability": "capacity-denominator-sensitive-and-avoided-loss",
+    "interpretation": "Avoided loss (not incurred damage) divided by nameplate MW; sits inside the electrical/BOS failure-unit bucket, consistent with flood damaging PCS/inverters rather than modules. Source dollars are self-inconsistent."
+  },
+  {
+    "benchmark_id": "VDE_AXIS_FLOOD_PER_MW_SENSITIVITY",
+    "source_id": "VDE_AXIS_PERIL_MIX_2025",
+    "label": "Derived flood loss per MW DC across portfolio (13-yr aggregate)",
+    "metric_family": "DOLLARS_PER_MW_SENSITIVITY",
+    "reported_value": "$32.61/MW",
+    "normalized_usd_per_MWdc": 32.608695652173914,
+    "pct_installed_TIV": 0.0029114906832298144,
+    "pct_physical_replaceable_value": 0.0037148388360075868,
+    "pct_FLOOD_ELECTRICAL_BOS_bucket": 0.015007773171212824,
+    "pct_FLOOD_ELECTRICAL_BOS_plus_substation": 0.010071145849324462,
+    "pct_FLOOD_ELECTRICAL_BOS_plus_fieldwork": 0.010059833301376416,
+    "direct_damage_grain_comparability": "portfolio-aggregate-only",
+    "interpretation": "13-year portfolio aggregate spread over 92 GW DC; near-zero per MW. Confirms flood is a rare, small-share peril for solar in aggregate, not a per-event severity."
+  },
+  {
+    "benchmark_id": "VALDORA_ZERO_LOSS_PER_MW",
+    "source_id": "VALDORA_SOLAR_ZERO_LOSS_2022",
+    "label": "Valdora 15-MW flood physical damage per MW (zero-loss anchor)",
+    "metric_family": "EVENT_LOSS",
+    "reported_value": "$0/MW",
+    "normalized_usd_per_MWdc": 0.0,
+    "pct_installed_TIV": 0.0,
+    "pct_physical_replaceable_value": 0.0,
+    "pct_FLOOD_ELECTRICAL_BOS_bucket": 0.0,
+    "pct_FLOOD_ELECTRICAL_BOS_plus_substation": 0.0,
+    "pct_FLOOD_ELECTRICAL_BOS_plus_fieldwork": 0.0,
+    "direct_damage_grain_comparability": "measured-zero-lower-bound",
+    "interpretation": "Genuine measured zero (not N/A): a well-elevated site took a major flood with no physical damage. Anchors the lower bound of the flood damage range."
+  }
+]

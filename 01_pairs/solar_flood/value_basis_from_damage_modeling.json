@@ -1,0 +1,129 @@
+{
+  "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+  "created": "2026-07-09",
+  "status": "PENDING_UPSTREAM_ARTIFACTS",
+  "source_value_workbook": "solar_wind_value_breakdown.xlsx / Summary + Solar_Map (reused from solar_hail; value ladder is peril-agnostic)",
+  "source_damage_artifact": "NONE AVAILABLE — no solar-specific flood depth-damage artifact exists; provisional hazard axis uses generic industrial curves (JRC / HAZUS / USACE).",
+  "important_rule": "This crosswalk normalizes and reconciles denominator/grain only; it is not external validation evidence. The flood failure unit and depth-damage function are provisional and NOT solar-calibrated.",
+  "pending_artifacts": [
+    "Solar value workbook is reusable (peril-agnostic value ladder), but a solar-specific FLOOD depth-damage curve artifact does not yet exist.",
+    "Until a solar flood damage artifact is authored, the depth-damage function is proxied by a generic industrial curve (JRC North America Industrial) and must be labeled generic."
+  ],
+  "solar_default_basis_usd_per_MWdc": {
+    "installed_TIV": 1119999.9999999998,
+    "physical_replaceable_value": 877795.7023626668,
+    "excluded_sunk_soft_nonphysical": 242204.29763733296,
+    "physical_as_pct_installed": 78.37461628238098,
+    "excluded_as_pct_installed": 21.625383717619016
+  },
+  "flood_damage_grain": {
+    "cell_id": "flood_solar_PROVISIONAL",
+    "hazard_axis": {
+      "id": "FLOOD_DEPTH_ABOVE_GRADE",
+      "input_field": "flood_depth_m",
+      "unit": "m",
+      "source_units_allowed": [
+        "m",
+        "ft"
+      ],
+      "valid_range": [
+        0,
+        6
+      ],
+      "extrapolation_policy": "clamp_or_warn"
+    },
+    "failure_unit": {
+      "id": "ELECTRICAL_BOS_INUNDATION",
+      "subsystems": [
+        "INVERTER_SYSTEM",
+        "ELECTRICAL_COLLECTION",
+        "FOUNDATION"
+      ],
+      "treatment": "primary_nonzero",
+      "y_axis": "electrical/BOS replacement damage ratio approximated by generic industrial depth-damage factor",
+      "value_bucket": "FLOOD_ELECTRICAL_BOS",
+      "f_kind": "generic_industrial_proxy",
+      "note": "Flood failure unit is electrical / balance-of-system (inverters, combiner/collection, cabling) and foundation scour — NOT PV module glass. This is the key difference from the hail pair, whose failure unit is PV_MODULE_GLASS_CELL."
+    },
+    "canonical_runtime_value_bucket": "FLOOD_ELECTRICAL_BOS",
+    "provisional_curve_ids": [
+      "JRC_NORTH_AMERICA_INDUSTRIAL_generic",
+      "FEMA_HAZUS_industrial_generic",
+      "USACE_generic_freeboard"
+    ],
+    "max_DR_runtime_failure_unit": 1.0,
+    "flood_electrical_BOS_bucket_usd_per_MWdc_before_exposure": 217278.70804125903,
+    "flood_electrical_BOS_bucket_pct_installed_TIV": 19.39988464654099,
+    "flood_electrical_BOS_bucket_pct_physical_value": 24.75276507465617,
+    "warning": "The generic industrial curve is coarse and NOT solar-calibrated; it must not be used to tune a solar flood curve. It only bounds the plausible electrical/BOS failure-unit denominator."
+  },
+  "normalization_buckets_usd_per_MWdc": {
+    "installed_TIV": 1119999.9999999998,
+    "physical_replaceable_value": 877795.7023626668,
+    "INVERTER_SYSTEM": 39132.616410372386,
+    "ELECTRICAL_COLLECTION": 147021.60447761192,
+    "FOUNDATION": 31124.48715327472,
+    "SUBSTATION": 106504.66417910448,
+    "REPLACEMENT_FIELDWORK_unallocated": 106868.76712328767,
+    "FLOOD_ELECTRICAL_BOS": 217278.70804125903,
+    "FLOOD_ELECTRICAL_BOS_plus_SUBSTATION": 323783.3722203635,
+    "FLOOD_ELECTRICAL_BOS_plus_REPLACEMENT_FIELDWORK": 324147.4751645467
+  },
+  "subsystem_rollup_from_value_workbook": {
+    "INVERTER_SYSTEM": {
+      "subsystem": "INVERTER_SYSTEM",
+      "installed_usd_per_kWdc": 39.132616410372385,
+      "physical_usd_per_kWdc": 39.132616410372385,
+      "installed_share": 0.03493983608068964,
+      "physical_share": 0.044580551380057336,
+      "flood_vulnerability": "high — power electronics fail on inundation unless elevated above design flood level"
+    },
+    "ELECTRICAL_COLLECTION": {
+      "subsystem": "ELECTRICAL_COLLECTION",
+      "installed_usd_per_kWdc": 147.02160447761193,
+      "physical_usd_per_kWdc": 108.76787313432834,
+      "installed_share": 0.13126928971215354,
+      "physical_share": 0.12391023656366708,
+      "flood_vulnerability": "high — combiner boxes, DC/AC cabling and connections not designed for sustained submersion (IEC 60529 ingress limits)"
+    },
+    "FOUNDATION": {
+      "subsystem": "FOUNDATION",
+      "installed_usd_per_kWdc": 31.12448715327472,
+      "physical_usd_per_kWdc": 31.12448715327472,
+      "installed_share": 0.02778972067256672,
+      "physical_share": 0.03545755244585994,
+      "flood_vulnerability": "medium — scour and washout above ~7 ft/s flow velocity (FM Global DS 7-106)"
+    },
+    "SUBSTATION": {
+      "subsystem": "SUBSTATION",
+      "installed_usd_per_kWdc": 106.50466417910448,
+      "physical_usd_per_kWdc": 106.50466417910448,
+      "installed_share": 0.09509345015991473,
+      "physical_share": 0.12133194989726824,
+      "flood_vulnerability": "high if not elevated — transformer/switchgear damage is a large-loss driver"
+    },
+    "PV_ARRAY": {
+      "subsystem": "PV_ARRAY",
+      "installed_usd_per_kWdc": 291.21485143992487,
+      "physical_usd_per_kWdc": 291.21485143992487,
+      "installed_share": 0.26001326021421867,
+      "physical_share": 0.3317569801903719,
+      "flood_vulnerability": "low for standing modules — modules above flood depth are generally not the flood failure unit; contrast with hail where PV_ARRAY IS the failure unit"
+    },
+    "REPLACEMENT_FIELDWORK": {
+      "subsystem": "REPLACEMENT_FIELDWORK",
+      "installed_usd_per_kWdc": 106.86876712328767,
+      "physical_usd_per_kWdc": 106.86876712328767,
+      "installed_share": 0.09541854207436401,
+      "physical_share": 0.12174674224952421,
+      "flood_vulnerability": "n/a — claim-time allocation bucket (cleanup, drying, re-termination, re-commissioning)"
+    }
+  },
+  "comparison_guidance": [
+    "Flood direct damage should be compared to the FLOOD_ELECTRICAL_BOS bucket (inverters + electrical collection + foundation), NOT to PV_ARRAY module hardware.",
+    "Include SUBSTATION only when the loss narrative confirms transformer/switchgear inundation.",
+    "Include REPLACEMENT_FIELDWORK when the source includes cleanup / drying / re-termination / re-commissioning labor.",
+    "Do not compare BI/downtime, deductible/net-of-insurance, or premium effects to physical flood damage without a separate financial layer; most open solar flood dollars (First Solar/Zurich, South Alexander/Markel) are dominated by deductible and BI structure.",
+    "The depth-damage function is a generic industrial proxy and is NOT solar-calibrated; treat all depth→DR mappings as provisional until a solar flood damage artifact exists."
+  ]
+}

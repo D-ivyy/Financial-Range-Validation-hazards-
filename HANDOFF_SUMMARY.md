@@ -47,3 +47,49 @@ AXIS fixed-tilt and failed-stow gross claim severities exceed module hardware va
 ```
 
 Use this crosswalk to classify comparability. Do not use it as independent evidence that a curve parameter is correct.
+
+## v0.3 — solar_flood pair
+
+Solar × flood is now the second deep-dive pair. See `01_pairs/solar_flood/README.md`.
+
+### The only open numbers that normalize to $/MW
+
+| Source | Open number | On the value ladder |
+|---|---|---|
+| DEPCOM flood response case | avoided loss `~$43,478/MW` (92 MW) | 3.88% installed TIV; 20.0% of FLOOD_ELECTRICAL_BOS |
+| VDE/AXIS peril-mix | `~$32.61/MW` (13-yr portfolio aggregate) | 0.003% installed TIV — near zero per MW |
+| Valdora 15 MW | `$0/MW` measured physical damage | genuine measured zero; well-elevated site, major flood, no damage |
+
+### Main gap / scarcity finding
+
+```text
+Isolated solar-flood $/MW physical severity is genuinely scarce. There is NO clean
+per-event physical-damage $/MW in open sources. The most reliable open dollars are
+litigation totals (First Solar/Zurich ~$10.1M asserted; South Alexander ~$1.1M) that
+lack a MW denominator and are dominated by deductible/BI structure. We say this plainly
+rather than manufacturing a severity.
+```
+
+### Crosswalk is PENDING
+
+```text
+02_crosswalks/solar_flood_value_damage_crosswalk.md is PENDING_UPSTREAM_ARTIFACTS.
+- The value ladder is reusable (peril-agnostic), so denominators are known.
+- But no solar-specific flood depth-damage function exists publicly.
+- The flood failure unit is electrical/BOS/foundation (FLOOD_ELECTRICAL_BOS ~$217,279/MWdc,
+  19.4% of installed TIV), NOT PV module glass.
+- The depth->DR table is a generic industrial proxy (JRC North America Industrial), NOT
+  solar-calibrated, and must not be used to tune a solar flood curve.
+- Elevation / freeboard is the dominant mitigation knob (USACE: +1 ft freeboard cuts AAL ~82%).
+```
+
+### Output files
+
+```text
+01_pairs/solar_flood/README.md — deep-dive dossier
+01_pairs/solar_flood/benchmark_number_matrix.csv — 34-row numeric table (3 rows normalize to $/MW)
+01_pairs/solar_flood/source_matrix.csv — 32-source coverage matrix
+01_pairs/solar_flood/source_registry.json — 32-source registry
+02_crosswalks/solar_flood_value_damage_crosswalk.md — PENDING crosswalk
+data/*_solar_flood.* — package-level copies
+```

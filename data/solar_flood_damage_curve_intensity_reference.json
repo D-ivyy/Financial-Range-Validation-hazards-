@@ -1,0 +1,56 @@
+[
+  {
+    "flood_depth_m": 0.0,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.03,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": 0.02,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": 0.2
+  },
+  {
+    "flood_depth_m": 0.5,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.32,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": 0.24,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": 0.44
+  },
+  {
+    "flood_depth_m": 1.0,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.51,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": 0.37,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": 0.58
+  },
+  {
+    "flood_depth_m": 1.5,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.64,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+  },
+  {
+    "flood_depth_m": 2.0,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.74,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+  },
+  {
+    "flood_depth_m": 3.0,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.86,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+  },
+  {
+    "flood_depth_m": 4.0,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.94,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+  },
+  {
+    "flood_depth_m": 5.0,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 0.98,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+  },
+  {
+    "flood_depth_m": 6.0,
+    "JRC_NORTH_AMERICA_INDUSTRIAL_generic_DR": 1.0,
+    "JRC_NORTH_AMERICA_COMMERCIAL_generic_DR": null,
+    "JRC_NORTH_AMERICA_RESIDENTIAL_generic_DR": null
+  }
+]

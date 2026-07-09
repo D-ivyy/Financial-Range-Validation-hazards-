@@ -4,7 +4,7 @@
 
 **Scope:** solar PV and wind first; other energy assets later. Current emphasis is not on how to compare model outputs, but on how to obtain credible reference numbers that could later be compared against M4 annual loss distributions or M3/M4 event losses.
 
-**Last researched:** 2026-06-26  
+**Last researched:** 2026-07-09  
 **Prepared for:** Damage Modeling / Hazard Modeling interface  
 **Recommended home:** `docs/validation/renewable_loss_reference_source_pathways.md`
 
@@ -155,7 +155,7 @@ GRAY   = generic-only public context exists; not enough for renewable validation
 | Hazard × asset cell | Renewable-specific claims publications | Engineered / cat-model PML-AAL path | Event / case-study path | Parametric / trigger path | Engineering / component path | Current status |
 |---|---|---|---|---|---|---|
 | `solar_hail` | **GREEN** — kWh, AXIS, GCube/TMHCC, Marsh, J.S. Held | **GREEN/YELLOW** — VDE Hail Risk, VDE/Cirrus, Renew Risk | **GREEN** — Midway, Fighting Jays, VDE stow case | **YELLOW** — Descartes, VDE PREP, weather-trigger products | **GREEN** — DOE/FEMP, RETC/PVEL/Kiwa/GroundWork | **Strongest V1 candidate** |
-| `solar_flood` | **RED/YELLOW** — no broad open solar flood claims database found; broker/insurer loss runs likely | **YELLOW** — VDE/Cirrus all-cat reports; Moody's solar-farm flood/wind case; Fathom renewable flood assessments | **ORANGE** — storm / hurricane / flooded-equipment cases exist but sparse | **YELLOW** — parametric flood could be sourced but not solar-specific by default | **GREEN** — DOE/FEMP flood PV guidance; component replacement logic | **Usable path, financially gated** |
+| `solar_flood` | **RED/YELLOW** — no broad open solar flood claims database found; broker/insurer loss runs likely | **YELLOW** — VDE/Cirrus all-cat reports; Moody's solar-farm flood/wind case; Fathom renewable flood assessments | **ORANGE** — storm / hurricane / flooded-equipment cases exist but sparse | **YELLOW** — parametric flood could be sourced but not solar-specific by default | **GREEN** — DOE/FEMP flood PV guidance; component replacement logic | **Dossier built in v0.3 (`01_pairs/solar_flood`); isolated flood-only $/MW severity confirmed scarce; crosswalk `PENDING_UPSTREAM_ARTIFACTS`** |
 | `solar_strong_wind` | **YELLOW** — AXIS notes strong wind ranking; RETC says high wind is frequent for fielded solar; Alpine/adjuster sources | **YELLOW** — Renew Risk U.S. SCS model, VDE/Cirrus severe convective / named windstorm, Verisk SCS if exposure coding is renewable-aware | **ORANGE** — hurricane / straight-line-wind case material, but financial values sparse | **YELLOW** — wind/hail co-probability and storm-response triggers | **GREEN** — FEMP / NREL storm-resilience engineering, tracker/racking studies | **Partial; source path credible but not as strong as hail** |
 | `solar_tornado` | **RED/ORANGE** — scattered mentions of rows damaged, no robust open loss series | **YELLOW** — Renew Risk SCS and Verisk SCS can model tornado, but direct solar tornado numbers likely gated | **ORANGE** — individual event news / adjuster files possible | **YELLOW** — parametric SCS products may include tornado | **YELLOW** — debris / wind engineering exists, but not financial | **Weak; pathway exists mostly through SCS models and private claims** |
 | `solar_hurricane` | **YELLOW** — GCube/PF summaries say hurricanes are material in U.S. renewables; solar ranking available but aggregate values limited | **YELLOW** — VDE/Cirrus named windstorm; Moody's/RMS windstorm; Renew Risk hurricane products | **ORANGE** — Hurricane Maria / Caribbean solar resilience cases | **YELLOW** — parametric wind/rain products possible | **GREEN** — DOE/FEMP storm-resilience and wind-driven-rain mechanisms | **Moderate, but peril splitting required** |
@@ -1386,6 +1386,28 @@ how repeated losses are represented
 ## 5.2 Solar × flood
 
 **Status:** credible but financially gated. Public solar-specific claims are sparse.
+
+> **v0.3 update (2026-07-09):** the solar × flood pair dossier has been built at
+> [`../01_pairs/solar_flood/README.md`](../01_pairs/solar_flood/README.md) with a companion
+> crosswalk at [`../02_crosswalks/solar_flood_value_damage_crosswalk.md`](../02_crosswalks/solar_flood_value_damage_crosswalk.md).
+> Key findings from that build, to carry back into this anchor:
+>
+> ```text
+> - Isolated solar-flood $/MW physical severity is genuinely scarce. Of ~34 benchmark rows, only three
+>   normalize to $/MW at all, and all three are derived/sensitivity/zero:
+>     DEPCOM avoided-loss   ~$43,478/MW (avoided, not incurred; inside the electrical/BOS bucket)
+>     VDE/AXIS portfolio    ~$32.61/MW (13-yr aggregate over 92 GW DC)
+>     Valdora               $0/MW      (genuine measured zero; elevated site, ~1.2 m freeboard)
+> - The most reliable open dollars are litigation totals (First Solar/Zurich asserted ~$10.1M;
+>   South Alexander/Markel ~$1.1M) that LACK a MW denominator and are dominated by per-event
+>   flood deductibles and BI structure.
+> - The flood failure unit is electrical / balance-of-system (inverter/PCS, collection/cabling,
+>   foundation), NOT PV module glass. Standing modules above the waterline are generally not the loss.
+> - No solar-specific flood depth-damage function exists publicly. The crosswalk is therefore
+>   PENDING_UPSTREAM_ARTIFACTS and uses generic industrial curves (JRC/HAZUS/USACE) as a labeled proxy.
+> - Elevation/freeboard is the dominant mitigation knob (flood analog of hail stow): USACE generic
+>   curves show +1 ft freeboard cuts AAL ~82%, and Valdora is a real zero-loss confirmation.
+> ```
 
 ### Source types that have numbers
 

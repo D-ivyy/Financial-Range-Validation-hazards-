@@ -1,6 +1,6 @@
-# Manifest — Range Validation Hazard Modeling v0.2
+# Manifest — Range Validation Hazard Modeling v0.3
 
-Generated: 2026-06-26
+Generated: 2026-07-09
 
 ## Files
 
@@ -44,3 +44,29 @@ data/solar_hail_damage_curve_intensity_reference.json
 01_pairs/solar_hail/damage_curve_intensity_reference.csv
 01_pairs/solar_hail/value_basis_from_damage_modeling_v2_5.json
 ```
+
+## v0.3 added files — solar_flood pair
+
+```text
+01_pairs/solar_flood/README.md
+01_pairs/solar_flood/benchmark_number_matrix.csv
+01_pairs/solar_flood/source_matrix.csv
+01_pairs/solar_flood/source_registry.json
+01_pairs/solar_flood/benchmark_value_damage_crosswalk.csv
+01_pairs/solar_flood/damage_curve_intensity_reference.csv
+01_pairs/solar_flood/value_basis_from_damage_modeling.json
+02_crosswalks/solar_flood_value_damage_crosswalk.md
+data/benchmark_number_matrix_solar_flood.csv
+data/benchmark_number_matrix_solar_flood.json
+data/source_registry_solar_flood.csv
+data/source_registry_solar_flood.json
+data/solar_flood_value_damage_crosswalk.csv
+data/solar_flood_value_damage_crosswalk.json
+data/solar_flood_damage_curve_intensity_reference.csv
+data/solar_flood_damage_curve_intensity_reference.json
+data/solar_flood_value_basis_from_damage_modeling.json
+99_metadata/validation_v0_3.json
+VALIDATION_REPORT_v0_3.md
+```
+
+The solar_flood crosswalk is `PENDING_UPSTREAM_ARTIFACTS` — no solar-specific flood depth-damage artifact exists; the depth→DR reference is a generic-industrial proxy and the flood failure unit is electrical/BOS/foundation, not PV module glass.

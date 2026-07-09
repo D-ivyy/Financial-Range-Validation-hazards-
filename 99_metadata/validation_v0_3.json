@@ -1,0 +1,37 @@
+{
+  "package": "range-validation-hazard-modeling",
+  "created": "2026-07-09",
+  "pair": "solar_flood",
+  "crosswalk_status": "PENDING_UPSTREAM_ARTIFACTS",
+  "checks": {
+    "source_dir_exists": true,
+    "value_workbook_loaded_with_artifact_tool": true,
+    "solar_flood_damage_json_loaded": false,
+    "solar_flood_damage_artifact_available": false,
+    "benchmark_number_matrix_rows": 34,
+    "source_matrix_rows": 32,
+    "source_registry_entries": 32,
+    "benchmark_value_damage_crosswalk_rows": 3,
+    "intensity_reference_rows": 9,
+    "benchmark_rows_normalized_to_usd_per_MW": 3,
+    "required_files_exist": true,
+    "data_copies_match_pair_folder": true,
+    "key_numbers": {
+      "installed_usd_per_MWdc": 1119999.9999999998,
+      "physical_usd_per_MWdc": 877795.7023626668,
+      "FLOOD_ELECTRICAL_BOS_usd_per_MWdc": 217278.70804125903,
+      "FLOOD_ELECTRICAL_BOS_pct_installed_TIV": 19.39988464654099,
+      "FLOOD_ELECTRICAL_BOS_plus_SUBSTATION_usd_per_MWdc": 323783.3722203635,
+      "FLOOD_ELECTRICAL_BOS_plus_REPLACEMENT_FIELDWORK_usd_per_MWdc": 324147.4751645467,
+      "DEPCOM_avoided_loss_usd_per_MWdc": 43478.260869565216,
+      "VDE_AXIS_portfolio_usd_per_MWdc": 32.608695652173914,
+      "VALDORA_zero_loss_usd_per_MWdc": 0.0
+    }
+  },
+  "notes": [
+    "solar_flood crosswalk is PENDING_UPSTREAM_ARTIFACTS: no solar-specific flood depth-damage artifact exists; depth->DR is a generic industrial proxy (JRC North America Industrial).",
+    "Only 3 of 34 benchmark rows normalize to a $/MW basis (DEPCOM avoided-loss, VDE/AXIS portfolio aggregate, Valdora measured zero). Isolated solar-flood $/MW physical severity is genuinely scarce.",
+    "Flood failure unit is electrical/BOS/foundation (FLOOD_ELECTRICAL_BOS), NOT PV module glass; value ladder is reused from solar_hail because it is peril-agnostic.",
+    "Row counts above equal the actual data-row counts of the corresponding CSVs and the source_registry.json length."
+  ]
+}
