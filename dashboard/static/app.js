@@ -197,12 +197,20 @@ VIEWS.overview = async (view) => {
 };
 
 VIEWS.coverage = async (view) => {
-  const data = await api(`/api/pairs/${state.pair}/coverage`);
+  const [data, sources] = await Promise.all([
+    api(`/api/pairs/${state.pair}/coverage`),
+    api(`/api/pairs/${state.pair}/sources`).catch(() => null),
+  ]);
+  const srcIndex = {};
+  if (sources && sources.rows) {
+    for (const s of sources.rows) if (s.source_id) srcIndex[s.source_id] = s.url || null;
+  }
   view.innerHTML = "";
   const panel = el("div", { class: "panel" },
     el("h2", {}, `Coverage matrix — ${state.pair}`),
     el("p", { class: "sub" }, "Sources (rows) × metric columns from source_matrix.csv. " +
-      "Y = source carries that metric. The availability_tag column shows where the open-number holes are."));
+      "Y = source carries that metric. The availability_tag column shows where the open-number holes are. " +
+      "source_id links to its registry URL."));
   const cols = data.columns;
   const table = el("table");
   const thead = el("tr");
@@ -213,7 +221,9 @@ VIEWS.coverage = async (view) => {
     const tr = el("tr");
     for (const c of cols) {
       const v = row[c];
-      if (c === "availability_tag" && v) {
+      if (c === "source_id" && !isBlank(v) && srcIndex[v]) {
+        tr.append(el("td", { class: "mono" }, el("a", { class: "src-link", href: srcIndex[v], target: "_blank", rel: "noopener" }, v)));
+      } else if (c === "availability_tag" && v) {
         tr.append(el("td", {}, el("span", { class: "tag tag-" + v }, v)));
       } else if (v === "Y" || v === "y") {
         tr.append(el("td", { class: "mark-y" }, "Y"));
