@@ -97,3 +97,41 @@ rather than manufacturing a severity.
 02_crosswalks/solar_flood_value_damage_crosswalk.md — RESOLVED crosswalk (canonical flood_solar grain)
 data/*_solar_flood.* — package-level copies
 ```
+
+
+---
+
+## v0.4 handoff — solar_wildfire pair (EXOGENOUS-only scope)
+
+`solar_wildfire` is the third deep-dive pair. It is scoped to the **EXOGENOUS (landscape-originated)** wildfire physical-damage slice only. Endogenous/asset-originated fire (inverter, connector, combiner, module, transformer, BESS), smoke/soiling generation loss, PSPS, and BI are named-and-deferred distinct perils.
+
+### Headline
+
+The dominant finding is a scope-and-origin problem, not a number: **0 of 100 benchmark rows normalize to a $/MW basis.** No isolated, properly-scoped exogenous-wildfire solar $/MW physical severity exists in the open literature.
+
+### What each fire-origin family gives us
+
+| Fire origin family | Sources | Verdict |
+|---|---:|---|
+| `EXOGENOUS_WILDFIRE_DIRECT` (in scope) | 6 | Real events (DEPCOM Kern, Wellington North, Beryl, Canyon Fire 2, Kings County, Energy Safe Vic) but only unit-counts / avoided-cost — no $/MW severity |
+| `ALL_CAUSE_PV_FIRE_BLENDED` (context only) | 12 | kWh 44% inverter / "84% equipment"; GCube 16% count/20% cost — blends origins, `CONTEXT_NOT_BENCHMARK` |
+| `SMOKE_SOILING_GENERATION` (separate peril) | 9 | CAISO ~13-30%, NREL 7.7%/19%, FEMP/OSTI 9.4-37.8% — generation/revenue, never physical damage |
+| `ENDOGENOUS_ASSET_ORIGINATED_FIRE` (out of scope) | 3 | CVSR 2019 (avian/arc), Mannum & Raywood (inverter) — excluded from exogenous count |
+| `HAZARD_INTENSITY_ENGINEERING` | 20 | FSim/FARSITE intensity + material CHF thresholds — curve shape only |
+| `EXPOSURE_DENOMINATOR` | 13 | USPVDB, EIA-860, USFS FSim/WHP, NIFC — denominators only |
+
+### Damage grain
+
+Crosswalk status `RESOLVED_GRAIN_DR_WITHHELD`: the canonical `wildfire_solar` cell exists (11 WS_* failure units + value shares used verbatim; direct-hardware envelope $656,981/MWdc = 58.66% TIV, PV module cap $291,215/MWdc = 26.00%) but the DR ordinates are WITHHELD upstream (NO_RUNTIME_CURVE). No damage ratio is provided.
+
+### Main gap / next acquisition
+
+A solar-only cat-model wildfire AAL/PML run (RMS/Verisk) is the only realistic path to an open, properly-scoped exogenous-wildfire severity. Second priority: an insurer loss database split by ignition ORIGIN with exposure denominators, to turn the all-cause kWh/GCube numbers into a usable external-landscape subset.
+
+### Output files
+
+- `01_pairs/solar_wildfire/README.md` — deep-dive dossier
+- `01_pairs/solar_wildfire/{benchmark_number_matrix.csv, source_matrix.csv, source_registry.json}` — 100/63/63 rows
+- `02_crosswalks/solar_wildfire_value_damage_crosswalk.md` — `RESOLVED_GRAIN_DR_WITHHELD`
+- `99_metadata/validation_v0_4.json`, `VALIDATION_REPORT_v0_4.md`
+- `data/*_solar_wildfire.{csv,json}` flat copies

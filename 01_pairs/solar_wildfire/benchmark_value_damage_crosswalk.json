@@ -1,0 +1,52 @@
+{
+  "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+  "created": "2026-07-10",
+  "pair": "solar_wildfire",
+  "status": "RESOLVED_GRAIN_DR_WITHHELD",
+  "purpose": "Recast $/MW-normalizable EXOGENOUS-wildfire benchmarks onto the canonical wildfire_solar failure-unit value buckets. It IS a grain/denominator reconciliation. It IS NOT a calibration verdict. Headline: no properly-scoped exogenous-wildfire $/MW severity exists to recast, and the DR ordinates that would place one are withheld upstream (NO_RUNTIME_CURVE).",
+  "headline": "Across all 63 catalogued sources / 100 benchmark rows, ZERO isolated exogenous-wildfire solar $/MW physical-severity figures exist. All normalized_usd_per_MW cells are blank (never zero). The value grain is resolved from the canonical cell; DR ordinates are withheld (NO_RUNTIME_CURVE). Nothing valid to recast.",
+  "value_buckets_usd_per_MWdc": {
+    "installed_TIV": 1120000.0,
+    "physical_replaceable_value": 877795.7023626668,
+    "DIRECT_HARDWARE_envelope_rows_2_to_10": 656981.4571503722,
+    "WS_MODULE_THERMAL": 291214.85143992487
+  },
+  "rows": [
+    {
+      "benchmark_id": "NO_OPEN_EXOGENOUS_WILDFIRE_SEVERITY_USD_PER_MW",
+      "source_id": "ALL_63_SOURCES",
+      "fire_origin_family": "EXOGENOUS_WILDFIRE_DIRECT",
+      "normalized_usd_per_MWdc": null,
+      "mapped_failure_units": "ALL_11_WS_UNITS",
+      "dr_ordinate_status": "WITHHELD_NO_RUNTIME_CURVE",
+      "direct_damage_grain_comparability": "not-comparable-no-open-number",
+      "interpretation": "No open, properly-scoped exogenous-wildfire solar $/MW severity benchmark exists. Value grain resolved; DR withheld; nothing to recast."
+    },
+    {
+      "benchmark_id": "DEPCOM_KERN_MODULE_COUNT_PHYSICAL_ANCHOR",
+      "source_id": "DEPCOM_KERN_COUNTY_2020",
+      "fire_origin_family": "EXOGENOUS_WILDFIRE_DIRECT",
+      "normalized_usd_per_MWdc": null,
+      "mapped_failure_units": "WS_MODULE_THERMAL",
+      "dr_ordinate_status": "WITHHELD_NO_RUNTIME_CURVE",
+      "direct_damage_grain_comparability": "physical-unit-count-only-not-dollar",
+      "interpretation": "ILLUSTRATIVE ONLY. ~1,000 of ~80,000 modules destroyed (~1% module-population burned fraction at this event) - a unit-count anchor for WS_MODULE_THERMAL, NOT a $/MW severity and NOT a DR ordinate. Fire + firefighting-water pathways blended."
+    },
+    {
+      "benchmark_id": "DEPCOM_KERN_AVOIDED_COST_CONTEXT",
+      "source_id": "DEPCOM_KERN_COUNTY_2020",
+      "fire_origin_family": "EXOGENOUS_WILDFIRE_DIRECT",
+      "normalized_usd_per_MWdc": null,
+      "mapped_failure_units": "WS_SUPPORT_COST_ALLOCATION",
+      "dr_ordinate_status": "WITHHELD_NO_RUNTIME_CURVE",
+      "direct_damage_grain_comparability": "avoided-cost-not-gross-loss",
+      "interpretation": "Vendor-reported avoided-cost/restoration-savings (PORTFOLIO_BIAS), not gross incurred damage. Not normalizable; context only."
+    }
+  ],
+  "guardrails": [
+    "Blanks not zeros: a missing $/MW is left null, never 0.",
+    "A value share (bucket) is a denominator, not a damage ratio. DR ordinates are withheld (NO_RUNTIME_CURVE).",
+    "Keep endogenous, all-cause-blended, and smoke/soiling numbers OUT of this crosswalk - they are not exogenous-wildfire physical severity.",
+    "This crosswalk organizes and normalizes; it does not validate or calibrate anything."
+  ]
+}

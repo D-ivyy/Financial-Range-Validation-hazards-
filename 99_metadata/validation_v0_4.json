@@ -1,0 +1,88 @@
+{
+  "package": "range-validation-hazard-modeling",
+  "created": "2026-07-10",
+  "pair": "solar_wildfire",
+  "crosswalk_status": "RESOLVED_GRAIN_DR_WITHHELD",
+  "scope_note": "This pair covers ONLY the EXOGENOUS (landscape-originated) wildfire physical-damage slice: fire ignites outside the site in vegetation, spreads, reaches the asset, and damages it via flame/radiant/ember/convective heat. Magnitude axis is FSim conditional flame-length -> fireline intensity, NOT ecological burn severity (dNBR/MTBS = geography check only). Explicitly OUT OF SCOPE (named-and-deferred distinct perils): endogenous/asset-originated fire (inverter, connector/wiring, combiner, module/junction-box, transformer, BESS thermal runaway), smoke/soiling optical generation loss, PSPS, business interruption.",
+  "golden_rule_on_origin": "A source with a fire number is NOT an exogenous-wildfire benchmark until its ignition-origin frame (external landscape vs equipment-origin vs blended), denominator, coverage, asset class, geography, and loss basis are understood. Every fire number carries a fire_origin_family tag so wrong-origin numbers are quarantined, not silently averaged.",
+  "related_repos": {
+    "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+    "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+  },
+  "upstream_cell_governance": {
+    "cell": "docs/cells/wildfire_solar/proposed/",
+    "curve_artifact": "wildfire_solar__model_v0_1__docs_r1__curve_artifact.json",
+    "lifecycle_state": "scaffold",
+    "promotion_status": "proposed",
+    "canonical_runtime_artifact": false,
+    "ordinate_status": "withheld",
+    "withheld_reason_codes": ["NO_RUNTIME_CURVE"],
+    "hazard_axis": "FSIM_CONDITIONAL_FLAME_LENGTH_PROBABILITY (USFS FSim, 270 m; 6 conditional flame-length bins)"
+  },
+  "checks": {
+    "source_dir_exists": true,
+    "value_workbook_loaded_with_artifact_tool": true,
+    "wildfire_solar_damage_json_loaded": true,
+    "wildfire_solar_damage_artifact_available": true,
+    "wildfire_solar_dr_ordinates_available": false,
+    "damage_artifact_path": "Damage_Modeling/docs/cells/wildfire_solar/proposed/wildfire_solar__model_v0_1__docs_r1__curve_artifact.json",
+    "benchmark_number_matrix_rows": 100,
+    "source_matrix_rows": 63,
+    "source_registry_entries": 63,
+    "benchmark_value_damage_crosswalk_rows": 3,
+    "intensity_reference_rows": 6,
+    "canonical_failure_units": 11,
+    "benchmark_rows_normalized_to_usd_per_MW": 0,
+    "all_normalized_usd_per_MW_cells_blank": true,
+    "required_files_exist": true,
+    "data_copies_match_pair_folder": true,
+    "fire_origin_family_census_benchmark_rows": {
+      "HAZARD_INTENSITY_ENGINEERING": 30,
+      "EXPOSURE_DENOMINATOR": 24,
+      "SMOKE_SOILING_GENERATION": 20,
+      "ALL_CAUSE_PV_FIRE_BLENDED": 12,
+      "EXOGENOUS_WILDFIRE_DIRECT": 8,
+      "ENDOGENOUS_ASSET_ORIGINATED_FIRE": 6
+    },
+    "fire_origin_family_census_sources": {
+      "HAZARD_INTENSITY_ENGINEERING": 20,
+      "EXPOSURE_DENOMINATOR": 13,
+      "ALL_CAUSE_PV_FIRE_BLENDED": 12,
+      "SMOKE_SOILING_GENERATION": 9,
+      "EXOGENOUS_WILDFIRE_DIRECT": 6,
+      "ENDOGENOUS_ASSET_ORIGINATED_FIRE": 3
+    },
+    "key_numbers": {
+      "installed_usd_per_MWdc": 1120000.0,
+      "physical_usd_per_MWdc": 877795.7023626668,
+      "WS_MODULE_THERMAL_usd_per_MWdc": 291214.85143992485,
+      "WS_RACKING_THERMAL_usd_per_MWdc": 109989.72602739726,
+      "WS_MV_EQUIPMENT_SPLIT_REQUIRED_usd_per_MWdc": 106504.66417910448,
+      "WS_DC_CABLE_EXPOSED_usd_per_MWdc": 69320.1119402985,
+      "WS_INVERTER_CONTROL_DIRECT_usd_per_MWdc": 32306.366410372382,
+      "WS_CIVIL_INFRA_SPLIT_REQUIRED_usd_per_MWdc": 31223.744292237447,
+      "WS_FOUNDATION_REVIEW_usd_per_MWdc": 31124.48715327472,
+      "WS_GROUNDING_LIGHTNING_REVIEW_usd_per_MWdc": 8385.0,
+      "WS_COMBINER_CONNECTOR_usd_per_MWdc": 6826.25,
+      "WS_SCADA_CONTROL_DIRECT_usd_per_MWdc": 1310.0,
+      "WS_SUPPORT_COST_ALLOCATION_usd_per_MWdc": 106868.76712328767,
+      "DIRECT_HARDWARE_ROWS_2_TO_10_usd_per_MWdc": 656981.4571503722,
+      "DIRECT_HARDWARE_ROWS_2_TO_10_pct_installed_TIV": 58.65905867414037,
+      "PV_ARRAY_MODULE_HARDWARE_CAP_usd_per_MWdc": 291214.85143992485,
+      "PV_ARRAY_MODULE_HARDWARE_CAP_pct_installed_TIV": 26.001326014279,
+      "open_exogenous_wildfire_usd_per_MW_severity": null,
+      "DEPCOM_Kern_modules_destroyed": 1000,
+      "DEPCOM_Kern_module_population": 80000,
+      "DEPCOM_Kern_burned_fraction_this_event": 0.0125
+    }
+  },
+  "notes": [
+    "solar_wildfire crosswalk is RESOLVED_GRAIN_DR_WITHHELD: the canonical wildfire_solar cell exists so the 11 named WS_* failure units and their value shares are used verbatim, but the cell is a v0.1 scaffold with ordinate_status=withheld / withheld_reason_codes=[NO_RUNTIME_CURVE], so NO damage ratio is available and every DR ordinate cell is blank/WITHHELD. This is neither PENDING (the cell exists) nor curve-resolved (DR withheld).",
+    "The wildfire DIRECT failure grain spans nearly every subsystem via thermal attack (11 WS_* units), unlike hail (one module-glass unit) or flood (~8 mostly-electrical units). DIRECT-hardware envelope (rows 2-10) = $656,981/MWdc = 58.66% installed TIV; PV module hardware cap = $291,215/MWdc = 26.00%. Value ladder reused from solar_hail/solar_flood because it is peril-agnostic.",
+    "0 of 100 benchmark rows normalize to a $/MW basis. Every normalized_usd_per_MW cell is blank (never zero). Isolated, properly-scoped EXOGENOUS-wildfire solar $/MW physical severity is genuinely absent from the open literature.",
+    "The largest open fire families are the WRONG origin/peril for this cell: ALL_CAUSE_PV_FIRE_BLENDED (kWh/GCube/AXIS/Marsh) blends endogenous+exogenous ignition and is tagged CONTEXT_NOT_BENCHMARK; SMOKE_SOILING_GENERATION is a separate revenue peril. kWh's '84% equipment-driven' headline is unsupported by its own chart (84% = 100% - 16% wildfire, sweeping 27% unknown + 3% other into 'equipment').",
+    "Named 'solar fire' events were origin-checked: DEPCOM Kern, Wellington North, Beryl, Canyon Fire 2, Kings County, Energy Safe Vic = EXOGENOUS; CVSR 2019 (avian/electrical arc), Mannum & Raywood (inverter) = ENDOGENOUS and excluded from the exogenous count.",
+    "The wildfire_solar curve (once promoted) will be a public-source-anchored engineering parameterization on an FSim conditional flame-length axis; the cell owns severity curves only (EAL/PML/VaR/TVaR are downstream in the hazard catalog / financial model).",
+    "Row counts above equal the actual data-row counts of the corresponding CSVs (benchmark=100, source_matrix=63, crosswalk=3, intensity=6) and the source_registry.json length (63)."
+  ]
+}

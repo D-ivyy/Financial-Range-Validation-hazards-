@@ -1,7 +1,7 @@
 # Range Validation Hazard Modeling — anchor README
 
-**Version:** v0.3.1  
-**Last researched:** 2026-07-09  
+**Version:** v0.4  
+**Last researched:** 2026-07-10  
 **Project:** Damage Modeling / Hazard Modeling validation interface  
 **Related repos:** [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) — canonical subsystem breakdown, value ladder, and per-hazard failure-unit damage curves (the source of truth this package cross-maps onto) · [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling) — the M0→M4 modeling engine + compare dashboard (RangeCompare view) that consumes these validation ranges  
 
@@ -122,6 +122,16 @@ The flood crosswalk is `RESOLVED_FROM_DAMAGE_MODELING` (Case A): it is cross-map
 
 Key finding: isolated solar-flood $/MW physical severity is genuinely scarce. Only three open benchmarks normalize to $/MW (a DEPCOM avoided-loss figure, a VDE/AXIS portfolio aggregate, and a measured Valdora zero); the most reliable open dollars are litigation totals that lack MW denominators and are dominated by deductible/BI structure. This is stated plainly in the pair Bottom line and Handoff rather than papered over.
 
+## v0.4 addition — solar_wildfire pair dossier (EXOGENOUS-only scope)
+
+The package now includes a third hazard×asset pair dossier: [`01_pairs/solar_wildfire`](01_pairs/solar_wildfire/README.md), plus a value/damage crosswalk at [`02_crosswalks/solar_wildfire_value_damage_crosswalk.md`](02_crosswalks/solar_wildfire_value_damage_crosswalk.md).
+
+**Scope fence (load-bearing).** This pair covers ONLY the **EXOGENOUS (landscape-originated)** wildfire physical-damage slice: fire ignites outside the site in vegetation, spreads, reaches the asset, and damages it via flame/radiant/ember/convective heat. The magnitude axis is **FSim conditional flame-length → fireline intensity**, not ecological burn severity (dNBR/MTBS = geography check only). Explicitly **out of scope** (named-and-deferred, distinct perils): endogenous/asset-originated fire (inverter, connector/wiring, combiner, module/junction-box, transformer, BESS thermal runaway), smoke/soiling optical generation loss, PSPS, and business interruption. Every fire number carries a `fire_origin_family` tag so wrong-origin numbers are quarantined, not silently averaged into a "wildfire" figure.
+
+The wildfire crosswalk is `RESOLVED_GRAIN_DR_WITHHELD`: the **canonical `wildfire_solar` cell exists** in [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) (`docs/cells/wildfire_solar/proposed/`), so the **11 named WS_* failure units** and their value shares are used verbatim (direct-hardware envelope `≈$656,981/MWdc` = 58.66% TIV; PV module cap `$291,215/MWdc` = 26.00%). But the cell is a v0.1 scaffold with `ordinate_status=withheld` / `withheld_reason_codes=[NO_RUNTIME_CURVE]`, so **no damage ratio is available** and every DR ordinate is blank/`WITHHELD`. This is neither `PENDING` (the cell exists) nor curve-resolved.
+
+Key finding: **0 of 100 benchmark rows normalize to a $/MW basis** — no isolated, properly-scoped exogenous-wildfire solar $/MW physical severity exists in the open literature. The plentiful `ALL_CAUSE_PV_FIRE_BLENDED` (kWh 44% inverter / "84% equipment-driven"; GCube 16% count / 20% cost) and `SMOKE_SOILING_GENERATION` (CAISO ~13–30%, NREL 7.7%/19%, FEMP/OSTI 9.4–37.8%) numbers are the wrong origin/peril and are tagged `CONTEXT_NOT_BENCHMARK`. kWh's "84% equipment-driven" headline is flagged as unsupported by its own chart (= 100% − 16% wildfire, sweeping 27% unknown into "equipment"). Named events are origin-checked: CVSR 2019 (avian/electrical) and Mannum/Raywood (inverter) are endogenous and excluded from the exogenous count.
+
 ## Current deep-dive status
 
 | Pair | Status | Reason |
@@ -129,7 +139,7 @@ Key finding: isolated solar-flood $/MW physical severity is genuinely scarce. On
 | `solar_hail` | **built in this package** | strongest open/gated renewable-specific claims and engineered PML/AAL pathway |
 | `solar_flood` | **built in v0.3, resolved in v0.3.1** (`RESOLVED_FROM_DAMAGE_MODELING`) | good mechanisms and public flood context; isolated flood-only $/MW severity confirmed scarce; crosswalk cross-mapped onto the canonical `flood_solar` cell (8 failure units + real depth→DR curve) in Damage_Modeling |
 | `solar_strong_wind` | next after flood or parallel | some SCS / tracker / insurer pathways, weaker open event-loss numbers |
-| `solar_wildfire` | later | strong 2026 SRA material, but needs split between physical fire and smoke/revenue loss |
+| `solar_wildfire` | **built in v0.4** (`RESOLVED_GRAIN_DR_WITHHELD`) | EXOGENOUS-only physical slice; crosswalk cross-mapped onto the canonical `wildfire_solar` cell (11 WS_* failure units + value ladder) in Damage_Modeling, DR ordinates WITHHELD upstream (NO_RUNTIME_CURVE); 0 of 100 benchmark rows normalize to $/MW — isolated exogenous-wildfire $/MW severity confirmed absent; all-cause fire and smoke/revenue numbers explicitly quarantined as different origin/peril |
 
 The anchor registry follows below. The solar-hail deep dive lives at [`01_pairs/solar_hail/README.md`](01_pairs/solar_hail/README.md).
 

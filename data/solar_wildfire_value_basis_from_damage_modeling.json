@@ -1,0 +1,108 @@
+{
+  "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+  "created": "2026-07-10",
+  "status": "RESOLVED_GRAIN_DR_WITHHELD",
+  "status_explanation": "The canonical wildfire_solar cell EXISTS in Damage_Modeling (docs/cells/wildfire_solar/proposed/), so the failure-unit grain and the value ladder are RESOLVED and used verbatim below. However, the cell is a v0.1 scaffold with lifecycle_state=scaffold, promotion_status=proposed, canonical_runtime_artifact=false, ordinate_status=withheld, curve_records=[] and withheld_reason_codes=[NO_RUNTIME_CURVE]. Therefore ALL damage-ratio (DR) ordinates, and every downstream EAL/PML/VaR/TVaR, are deliberately WITHHELD by upstream governance. This crosswalk resolves the canonical value grain but flags every DR/tail number NO_RUNTIME_CURVE. It does NOT invent DR ordinates and it is NOT PENDING (the cell exists).",
+  "source_value_workbook": "Damage_Modeling/docs/method/value_basis/solar_wind_value_breakdown.xlsx / Summary + Solar_Map rows 2:17 (value ladder is peril-agnostic)",
+  "source_damage_artifact": "Damage_Modeling/docs/cells/wildfire_solar/proposed/wildfire_solar__model_v0_1__docs_r1__curve_artifact.json + VALUE_CROSSWALK_wildfire_solar__model_v0_1__docs_r1.csv",
+  "damage_code_id": "WILDFIRE_SOLAR_PROPOSED_V0_1",
+  "upstream_cell_governance": {
+    "cell_id": "wildfire_solar",
+    "lifecycle_state": "scaffold",
+    "promotion_status": "proposed",
+    "review_status": "pressure_tested",
+    "canonical_runtime_artifact": false,
+    "ordinate_status": "withheld",
+    "withheld_reason_codes": ["NO_RUNTIME_CURVE"],
+    "runtime_damage_mapping_status": "withheld_no_validated_site_local_transfer_and_no_runtime_curve"
+  },
+  "related_repos": {
+    "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+    "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+  },
+  "important_rule": "This crosswalk normalizes and reconciles denominator/grain only; it is not external validation evidence and it is not a calibration harness. Failure-unit IDs and value shares are taken verbatim from the canonical wildfire_solar cell. DR ordinates are WITHHELD upstream (NO_RUNTIME_CURVE) and are NOT reconstructed here.",
+  "scope": {
+    "included": ["exogenous_wildfire_direct_physical_damage"],
+    "excluded": ["battery_energy_storage_system", "smoke_or_aerosol_optical_generation_loss", "ash_cleaning", "public_safety_power_shutoff", "business_interruption", "equipment_origin_fire"],
+    "scope_note": "The canonical cell covers ONLY EXOGENOUS (landscape-originated) wildfire DIRECT physical (radiant/convective/direct-flame/ember) damage: fire that ignites OUTSIDE the site in vegetation, spreads, reaches the asset, and damages it. Ignition MECHANISM is embedded in FSim's calibration to the historical fire record (we obtain occurrence LEVEL, not the 'how'); it is not separately modeled.",
+    "fire_origin_families": {
+      "EXOGENOUS_WILDFIRE_DIRECT": "External landscape wildfire reaches the asset -> physical damage. The ONLY in-scope family for this cell.",
+      "ENDOGENOUS_ASSET_ORIGINATED_FIRE": "Fire starts in project equipment (inverter, connector/wiring, combiner, module/junction box, transformer) or BESS. OUT OF SCOPE (excluded: equipment_origin_fire, BESS). May become an inside-out asset-originated wildland fire, but its ignition probability + liability need a SEPARATE asset-originated fire model, not this cell.",
+      "ALL_CAUSE_PV_FIRE_BLENDED": "Source reports PV fire losses that blend exogenous + endogenous ignition WITHOUT separating them (e.g. kWh Analytics 'equipment-driven'/'inverter-caused' shares, GCube 'fires = X% of claims'). NOT an exogenous-wildfire benchmark; recorded as context only.",
+      "SMOKE_SOILING_GENERATION": "Smoke/aerosol optical GENERATION/revenue loss. OUT OF SCOPE of the physical cell; kept strictly separate, never blended with physical damage."
+    },
+    "golden_rule_on_origin": "A number about 'fire' is NOT an exogenous-wildfire benchmark until its ignition-origin frame (external landscape vs equipment-origin vs blended) is understood. This is the Golden Rule applied to ignition origin.",
+    "taxonomy_note": "Fire risk for solar/wind is best recorded on three independent axes: (1) IGNITION SOURCE, (2) FIRE MEDIUM/STATE, (3) DIRECTION OF RISK (outside-in / inside-contained / inside-out). 'Brushfire' names the FUEL; 'equipment-driven' names the CAUSE; they are different axes, not alternatives. An inverter that ignites site grass = ignition:inverter, state:brush, direction:inside-out = an asset-originated wildland fire (ENDOGENOUS, out of scope here)."
+  },
+  "solar_default_basis_usd_per_MWdc": {
+    "installed_TIV": 1120000.0,
+    "physical_replaceable_value": 877795.7023626668,
+    "excluded_sunk_soft_nonphysical": 242204.29763733293,
+    "physical_as_pct_installed": 78.37461628238098,
+    "excluded_as_pct_installed": 21.625383717619016,
+    "direct_hardware_subtotal_rows_2_to_10": 656981.4571503722,
+    "direct_hardware_subtotal_as_pct_installed": 58.65905867414037
+  },
+  "wildfire_damage_grain": {
+    "cell_id": "wildfire_solar",
+    "curve_form": "withheld (no runtime curve; proposed future y-axis = conditional_direct_replacement_cost_ratio, status withheld)",
+    "hazard_axis": {
+      "id": "FSIM_CONDITIONAL_FLAME_LENGTH_PROBABILITY",
+      "source_product": "USFS_FSIM_RDS_2023",
+      "native_spatial_resolution_m": 270,
+      "native_probability_object": "six conditional flame-length probabilities given burning (must sum to 1 conditional on burning)",
+      "native_bins": ["<2 ft", "2 to <4 ft", "4 to <6 ft", "6 to <8 ft", "8 to <12 ft", ">=12 ft"],
+      "frequency_separation": "Burn probability belongs to the downstream FREQUENCY layer (hazard catalog), NOT a damage ordinate.",
+      "unit_guardrail": "Flame-length class and fireline intensity (kW/m) are NOT incident heat flux (kW/m^2). Do not equate FSim flame-length bins with the material-ignition critical-heat-flux thresholds (e.g. PV glass ~26 kW/m^2) reported in the engineering literature.",
+      "runtime_damage_mapping_status": "withheld_no_validated_site_local_transfer_and_no_runtime_curve"
+    },
+    "f_kind": "thermal attack (radiant/convective/direct-flame/ember) with component setback+elevation geometry and local wind/slope/fuel state; NOT a depth or material-BOM-share axis",
+    "owns": "severity curves only (and those are WITHHELD here) - EAL / PML / VaR / TVaR are downstream (hazard catalog + financial model), NOT in this cell",
+    "dr_ordinate_status": "WITHHELD_NO_RUNTIME_CURVE",
+    "failure_units": [
+      {"value_id": "WS_MODULE_THERMAL", "failure_unit": "PV module thermal attack (glass/laminate/frame/junction box)", "subsystem": "PV_ARRAY", "component": "PV_MODULE_GLASS_LAMINATE_FRAME_JUNCTION_BOX", "role": "candidate_primary", "value_lineage": "Solar_Map row 2", "usd_per_MWdc_installed": 291214.85143992487, "installed_share": 0.2600132601428, "treatment": "candidate_failure_unit_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_RACKING_THERMAL", "failure_unit": "steel/aluminum racking + tracker thermal deformation/connection damage", "subsystem": "MOUNTING", "component": "STEEL_OR_ALUMINUM_RACKING_AND_TRACKER", "role": "candidate", "value_lineage": "Solar_Map rows 3 and 12 require support-cost separation", "usd_per_MWdc_installed": 109989.72602739727, "installed_share": 0.09820511252, "treatment": "candidate_failure_unit_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_FOUNDATION_REVIEW", "failure_unit": "pile/concrete-pad direct-thermal or consequential support damage", "subsystem": "FOUNDATION", "component": "PILE_OR_CONCRETE_PAD", "role": "conditional_review", "value_lineage": "Solar_Map row 4", "usd_per_MWdc_installed": 31124.48715327472, "installed_share": 0.02778972067, "treatment": "deferred_exception_review_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_INVERTER_CONTROL_DIRECT", "failure_unit": "inverter + control enclosure direct thermal attack", "subsystem": "INVERTER_SYSTEM", "component": "INVERTER_AND_ASSOCIATED_CONTROL_ENCLOSURE", "role": "candidate_primary", "value_lineage": "Solar_Map row 5", "usd_per_MWdc_installed": 32306.366410372384, "installed_share": 0.02884497001, "treatment": "candidate_failure_unit_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_COMBINER_CONNECTOR", "failure_unit": "combiner/connector/junction-box enclosure thermal attack", "subsystem": "ELECTRICAL_COLLECTION", "component": "COMBINER_CONNECTOR_JUNCTION_BOX", "role": "candidate", "value_lineage": "Solar_Map row 6 plus unresolved shares", "usd_per_MWdc_installed": 6826.25, "installed_share": 0.006094866071, "treatment": "candidate_failure_unit_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_DC_CABLE_EXPOSED", "failure_unit": "exposed DC cable segment thermal attack (buried/conduit/AC/MV/termination splits required)", "subsystem": "ELECTRICAL_COLLECTION", "component": "EXPOSED_DC_CABLE_SEGMENT", "role": "candidate", "value_lineage": "Solar_Map row 7 requires site allocation", "usd_per_MWdc_installed": 69320.1119402985, "installed_share": 0.06189295709, "treatment": "candidate_failure_unit_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_MV_EQUIPMENT_SPLIT_REQUIRED", "failure_unit": "MV transformer/switchgear/breaker direct external thermal attack (split required)", "subsystem": "SUBSTATION_AND_MV", "component": "TRANSFORMER_SWITCHGEAR_BREAKER", "role": "candidate_gate", "value_lineage": "Solar_Map row 8", "usd_per_MWdc_installed": 106504.66417910448, "installed_share": 0.09509345016, "treatment": "decomposition_gate_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_GROUNDING_LIGHTNING_REVIEW", "failure_unit": "grounding grid + lightning protection direct/consequential electrical damage", "subsystem": "GROUNDING_LIGHTNING", "component": "GROUNDING_GRID_AND_LIGHTNING_PROTECTION", "role": "conditional_review", "value_lineage": "Solar_Map row 9", "usd_per_MWdc_installed": 8385.0, "installed_share": 0.00748660714, "treatment": "deferred_exception_review_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_SCADA_CONTROL_DIRECT", "failure_unit": "SCADA monitoring/communication enclosure direct thermal attack", "subsystem": "SCADA", "component": "MONITORING_AND_COMMUNICATION_SYSTEM", "role": "secondary", "value_lineage": "Solar_Map row 10", "usd_per_MWdc_installed": 1310.0, "installed_share": 0.001169642857, "treatment": "candidate_failure_unit_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_CIVIL_INFRA_SPLIT_REQUIRED", "failure_unit": "roads/fencing/buildings/site-prep direct-fire or post-fire geotechnical consequence (split required)", "subsystem": "CIVIL_INFRA", "component": "ROADS_FENCING_BUILDINGS_AND_SITE_PREP", "role": "candidate_gate", "value_lineage": "Solar_Map row 14 (mixed civil replacement bucket)", "usd_per_MWdc_installed": 31223.744292237445, "installed_share": 0.02787834312, "treatment": "decomposition_and_consequence_gate_no_curve", "ordinate_status": "withheld"},
+      {"value_id": "WS_SUPPORT_COST_ALLOCATION", "failure_unit": "field labor / site management / equipment rental / inspection (allocation rule, NOT a failure-unit curve)", "subsystem": "REPLACEMENT_FIELDWORK", "component": "FIELD_LABOR_SITE_MANAGEMENT_EQUIPMENT_AND_INSPECTION", "role": "allocation_rule", "value_lineage": "Solar_Map rows 12, 13 and 15", "usd_per_MWdc_installed": 106868.76712328767, "installed_share": 0.09541854207, "treatment": "allocation_rule_not_a_failure_unit_curve", "ordinate_status": "withheld"}
+    ],
+    "max_DR_runtime_failure_unit": null,
+    "max_DR_runtime_failure_unit_note": "WITHHELD - no runtime curve exists (NO_RUNTIME_CURVE). No maximum damage ratio can be quoted from this cell."
+  },
+  "normalization_buckets_usd_per_MWdc": {
+    "installed_TIV": 1120000.0,
+    "physical_replaceable_value": 877795.7023626668,
+    "WS_MODULE_THERMAL": 291214.85143992487,
+    "WS_RACKING_THERMAL": 109989.72602739727,
+    "WS_FOUNDATION_REVIEW": 31124.48715327472,
+    "WS_INVERTER_CONTROL_DIRECT": 32306.366410372384,
+    "WS_COMBINER_CONNECTOR": 6826.25,
+    "WS_DC_CABLE_EXPOSED": 69320.1119402985,
+    "WS_MV_EQUIPMENT_SPLIT_REQUIRED": 106504.66417910448,
+    "WS_GROUNDING_LIGHTNING_REVIEW": 8385.0,
+    "WS_SCADA_CONTROL_DIRECT": 1310.0,
+    "WS_CIVIL_INFRA_SPLIT_REQUIRED": 31223.744292237445,
+    "WS_SUPPORT_COST_ALLOCATION": 106868.76712328767,
+    "DIRECT_HARDWARE_ROWS_2_TO_10": 656981.4571503722,
+    "PV_ARRAY_MODULE_HARDWARE_CAP": 291214.85143992487
+  },
+  "derived_bucket_shares": {
+    "DIRECT_HARDWARE_ROWS_2_TO_10_pct_installed_TIV": 58.65905867414037,
+    "PV_ARRAY_MODULE_HARDWARE_CAP_pct_installed_TIV": 26.001326014279,
+    "note": "These are VALUE shares (denominators), NOT damage ratios. Because DR ordinates are withheld (NO_RUNTIME_CURVE), a value share is the maximum conceivable loss for that unit at DR=1.0; the ACTUAL expected loss requires the withheld severity curve plus exposed/burned fraction and cannot be produced from this cell."
+  },
+  "comparison_guidance": [
+    "Wildfire DIRECT physical damage maps onto the 11 named canonical WS_* failure units (module, racking, foundation, inverter, combiner, cable, MV equipment, grounding, SCADA, civil, plus a support-cost allocation rule). Do NOT collapse them into a single bucket.",
+    "The wildfire DIRECT-hardware envelope (rows 2-10 = $656,981/MWdc, 58.66% installed TIV) is the value denominator, not a loss. A full-burnover total loss of all direct hardware would sit at this envelope only at DR=1.0 across every unit.",
+    "Unlike hail (single PV_ARRAY module-glass unit dominates) or flood (electrical/BOS units, elevation-driven), wildfire DIRECT damage spans the module, mounting, electrical AND civil subsystems via thermal attack, gated by component setback/elevation geometry and local fuel/wind/slope.",
+    "DR ordinates are WITHHELD (NO_RUNTIME_CURVE). Any benchmark $/MW recast onto these buckets is a VALUE-SHARE comparison (what fraction of which unit's replacement value the number could represent), NOT a curve calibration. Never quote a DR from this cell.",
+    "Keep SMOKE/AEROSOL optical GENERATION loss (a revenue/production metric) entirely separate from DIRECT physical damage: the canonical cell explicitly EXCLUDES smoke optical loss, ash cleaning, PSPS, BI and equipment-origin fire.",
+    "A $/MW that exceeds a failure-unit's value share is a grain warning (more units were involved), NOT evidence of DR>1."
+  ]
+}

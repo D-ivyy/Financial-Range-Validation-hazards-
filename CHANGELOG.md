@@ -1,5 +1,35 @@
 # Changelog
 
+## v0.4 — solar_wildfire pair (EXOGENOUS-only scope)
+
+Created: 2026-07-10
+
+Added a third hazard×asset deep-dive pair dossier, `solar_wildfire`, mirroring the `solar_hail` / `solar_flood` structure. This pair is deliberately scoped to the **EXOGENOUS (landscape-originated) wildfire physical-damage slice only**: fire ignites outside the site in vegetation, spreads, reaches the asset, and damages it via flame/radiant/ember/convective heat. The magnitude axis is **FSim conditional flame-length → fireline intensity**, not ecological burn severity (dNBR/MTBS = geography check only). Explicitly out of scope (named-and-deferred, distinct perils): endogenous/asset-originated fire (inverter, connector/wiring, combiner, module/junction-box, transformer, BESS thermal runaway), smoke/soiling optical generation loss, PSPS, and business interruption.
+
+```text
+01_pairs/solar_wildfire/README.md
+01_pairs/solar_wildfire/benchmark_number_matrix.csv          (100 rows, incl. fire_origin_family)
+01_pairs/solar_wildfire/source_matrix.csv                     (63 rows)
+01_pairs/solar_wildfire/source_registry.json                 (63 sources, incl. fire_origin_family)
+01_pairs/solar_wildfire/benchmark_value_damage_crosswalk.csv/json
+01_pairs/solar_wildfire/damage_curve_intensity_reference.csv/json
+01_pairs/solar_wildfire/value_basis_from_damage_modeling.json
+02_crosswalks/solar_wildfire_value_damage_crosswalk.md
+data/benchmark_number_matrix_solar_wildfire.csv/json
+data/source_registry_solar_wildfire.csv/json
+data/solar_wildfire_value_damage_crosswalk.csv/json
+data/solar_wildfire_damage_curve_intensity_reference.csv/json
+data/solar_wildfire_value_basis_from_damage_modeling.json
+99_metadata/validation_v0_4.json
+VALIDATION_REPORT_v0_4.md
+```
+
+Crosswalk status is **`RESOLVED_GRAIN_DR_WITHHELD`**: the canonical `wildfire_solar` cell exists in [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) (`docs/cells/wildfire_solar/proposed/`), so the **11 named WS_* failure units** (`WS_MODULE_THERMAL`, `WS_RACKING_THERMAL`, `WS_MV_EQUIPMENT_SPLIT_REQUIRED`, `WS_DC_CABLE_EXPOSED`, `WS_INVERTER_CONTROL_DIRECT`, `WS_CIVIL_INFRA_SPLIT_REQUIRED`, `WS_FOUNDATION_REVIEW`, `WS_GROUNDING_LIGHTNING_REVIEW`, `WS_COMBINER_CONNECTOR`, `WS_SCADA_CONTROL_DIRECT`, `WS_SUPPORT_COST_ALLOCATION`) and their value shares are used verbatim (direct-hardware envelope ≈`$656,981/MWdc` = 58.66% TIV; PV module cap `$291,215/MWdc` = 26.00%). BUT the cell is a v0.1 scaffold with `ordinate_status=withheld` / `withheld_reason_codes=[NO_RUNTIME_CURVE]`, so **no damage ratio is available** and every DR ordinate cell is blank/`WITHHELD`. This is neither `PENDING` (the cell exists) nor curve-resolved.
+
+Key finding: **0 of 100 benchmark rows normalize to a $/MW basis** — no isolated, properly-scoped exogenous-wildfire solar $/MW physical severity exists in the open literature. Every fire number carries a `fire_origin_family` tag so wrong-origin numbers are quarantined: the plentiful `ALL_CAUSE_PV_FIRE_BLENDED` (kWh/GCube) and `SMOKE_SOILING_GENERATION` numbers are tagged `CONTEXT_NOT_BENCHMARK` and never averaged into a wildfire figure. kWh's "84% equipment-driven" headline is flagged as unsupported by its own chart (= 100% − 16% wildfire, sweeping 27% unknown into "equipment"). Named events are origin-checked: CVSR 2019 (avian/electrical) and Mannum/Raywood (inverter) are `ENDOGENOUS_ASSET_ORIGINATED_FIRE` and excluded from the exogenous count.
+
+This release does not change any existing benchmark source numbers, does not fabricate values, and does not define calibration pass/fail rules. Damage cells own severity curves only; EAL/PML/VaR/TVaR remain downstream.
+
 ## v0.3.1 — Resolve solar_flood crosswalk against canonical Damage_Modeling flood_solar cell
 
 Created: 2026-07-09

@@ -1,0 +1,33 @@
+{
+  "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+  "created": "2026-07-10",
+  "pair": "solar_wildfire",
+  "status": "RESOLVED_GRAIN_DR_WITHHELD",
+  "purpose": "Records the canonical wildfire hazard x-axis (FSim conditional flame-length bins) and the 10 curve-bearing WS_* failure units, so a downstream damage model can be checked against the SAME axis. It IS a hazard-axis + grain reference. It IS NOT a set of damage ordinates: every DR cell is WITHHELD upstream (NO_RUNTIME_CURVE) and is left blank, never fabricated.",
+  "source_damage_artifact": "Damage_Modeling/docs/cells/wildfire_solar/proposed/wildfire_solar__model_v0_1__docs_r1__curve_artifact.json",
+  "hazard_axis": {
+    "id": "FSIM_CONDITIONAL_FLAME_LENGTH_PROBABILITY",
+    "source_product": "USFS_FSIM_RDS_2023",
+    "native_spatial_resolution_m": 270,
+    "unit_note": "Conditional flame-length CLASS (ft), a probability object given burning; NOT incident heat flux (kW/m^2) and NOT fireline intensity (kW/m).",
+    "bins": [
+      {"bin_id": "lt_2_ft", "label": "<2 ft"},
+      {"bin_id": "gte_2_lt_4_ft", "label": "2 to <4 ft"},
+      {"bin_id": "gte_4_lt_6_ft", "label": "4 to <6 ft"},
+      {"bin_id": "gte_6_lt_8_ft", "label": "6 to <8 ft"},
+      {"bin_id": "gte_8_lt_12_ft", "label": "8 to <12 ft"},
+      {"bin_id": "gte_12_ft", "label": ">=12 ft"}
+    ],
+    "frequency_separation": "Burn probability is a downstream FREQUENCY-layer field, not a damage ordinate.",
+    "runtime_damage_mapping_status": "withheld_no_validated_site_local_transfer_and_no_runtime_curve"
+  },
+  "curve_bearing_failure_units": [
+    "WS_MODULE_THERMAL", "WS_RACKING_THERMAL", "WS_FOUNDATION_REVIEW", "WS_INVERTER_CONTROL_DIRECT",
+    "WS_COMBINER_CONNECTOR", "WS_DC_CABLE_EXPOSED", "WS_MV_EQUIPMENT_SPLIT_REQUIRED",
+    "WS_GROUNDING_LIGHTNING_REVIEW", "WS_SCADA_CONTROL_DIRECT", "WS_CIVIL_INFRA_SPLIT_REQUIRED"
+  ],
+  "excluded_from_curve": {
+    "WS_SUPPORT_COST_ALLOCATION": "allocation rule, not a failure-unit DR curve"
+  },
+  "dr_ordinates": "WITHHELD_NO_RUNTIME_CURVE - every (bin x failure_unit) DR value is deliberately withheld upstream and is left blank in the companion CSV. No ordinate has been reconstructed."
+}
