@@ -1,0 +1,89 @@
+{
+  "package": "range-validation-hazard-modeling",
+  "created": "2026-07-11",
+  "pair": "wind_convective_wind",
+  "crosswalk_status": "RESOLVED_FROM_DAMAGE_MODELING",
+  "scope_note": "This pair covers ONLY onshore wind turbines under CONVECTIVE wind sub-perils: tornado [T] and straight-line/derecho wind [W]. The hazard axis is X_SPEED_RATIO_TO_IEC (r = V_3s_hub / Ve50_class, default IEC class II Ve50=59.5 m/s). Straight-line/derecho is the SLW (D50-baseline) pathway of the canonical logistic curves; tornado is the same curves shifted left by the per-unit tornado_D50_shift with a 0.10 core-exposure fraction. Explicitly OUT OF SCOPE (named-and-quarantined distinct perils): HURRICANE/TROPICAL-CYCLONE wind, and HAIL-dominant SCS. Offshore wind is out of scope.",
+  "golden_rule_on_grain": "A source with a wind loss number is NOT a convective-wind benchmark until its sub-peril frame (tornado vs straight-line/derecho vs hurricane vs hail-SCS), denominator (nameplate MW AND struck-turbine count for tornado corridors), coverage, asset class, geography, and loss basis are understood. Every number carries a sub_peril_family tag so hurricane/hail-contaminated numbers are quarantined, not silently averaged. A farm-average $/MW is NOT grain-comparable to a per-struck-turbine tornado corridor loss.",
+  "related_repos": {
+    "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+    "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+  },
+  "upstream_cell_governance": {
+    "cell": "docs/cells/wind_tornado_wind/current/",
+    "curve_artifact": "wind_tornado_wind__model_v1_0__docs_r4__curve_artifact.json",
+    "lifecycle_state": "promoted",
+    "promotion_status": "promoted",
+    "canonical_runtime_artifact": true,
+    "ordinate_status": "available",
+    "hazard_axis": "X_SPEED_RATIO_TO_IEC (r = V_3s_hub / Ve50_class; IEC I 70 / II 59.5 / III 52.5 m/s)",
+    "curve_form": "wind_tornado_logistic_ratio (DR = max_DR / (1 + exp(-k*(r - (D50 + tornado_shift)))))"
+  },
+  "checks": {
+    "source_dir_exists": true,
+    "value_workbook_loaded_with_artifact_tool": true,
+    "wind_tornado_wind_damage_json_loaded": true,
+    "wind_tornado_wind_damage_artifact_available": true,
+    "wind_tornado_wind_dr_ordinates_available": true,
+    "damage_artifact_path": "Damage_Modeling/docs/cells/wind_tornado_wind/current/wind_tornado_wind__model_v1_0__docs_r4__curve_artifact.json",
+    "benchmark_number_matrix_rows": 27,
+    "source_matrix_rows": 77,
+    "source_registry_entries": 77,
+    "benchmark_value_damage_crosswalk_rows": 27,
+    "intensity_reference_rows": 20,
+    "canonical_failure_units": 5,
+    "benchmark_rows_normalized_to_usd_per_MW": 2,
+    "all_normalized_usd_per_MW_cells_blank_except_value_ladder_denominators": true,
+    "required_files_exist": true,
+    "data_copies_match_pair_folder": true,
+    "sub_peril_family_census_benchmark_rows": {
+      "TORNADO": 14,
+      "STRAIGHT_LINE_WIND": 3,
+      "CONVECTIVE_BLENDED": 1,
+      "HURRICANE_TC": 1,
+      "HAIL_CONTAMINATED_SCS": 1,
+      "N/A": 7
+    },
+    "sub_peril_family_census_sources": {
+      "CONVECTIVE_BLENDED": 19,
+      "N/A": 19,
+      "HAIL_CONTAMINATED_SCS": 2,
+      "TORNADO": 21,
+      "STRAIGHT_LINE_WIND": 13,
+      "HURRICANE_TC": 3
+    },
+    "key_numbers": {
+      "installed_usd_per_MW": 1968000.0,
+      "physical_usd_per_MW": 1623000.0,
+      "excluded_sunk_soft_usd_per_MW": 345000.0,
+      "reference_farm_MW": 200,
+      "iec_class_default_Ve50_mps": 59.5,
+      "iec_class_default_Ve50_mph": 133.1,
+      "WT_BLADE_STRUCT_usd_per_MW": 280779.0,
+      "WT_TOWER_STRUCT_usd_per_MW": 274287.0,
+      "WT_NACELLE_CONSEQ_usd_per_MW": 559935.0,
+      "WT_FOUNDATION_OT_usd_per_MW": 100626.0,
+      "WT_POWER_ELEC_ACCEL_usd_per_MW": 60051.0,
+      "PRIMARY_STRUCT_AGG_usd_per_MW": 1215627.0,
+      "PRIMARY_STRUCT_AGG_pct_installed_TIV": 61.7697,
+      "ALL_5_FAILURE_UNITS_usd_per_MW": 1275678.0,
+      "ALL_5_FAILURE_UNITS_pct_installed_TIV": 64.821,
+      "tornado_core_exposure_fraction": 0.1,
+      "open_convective_wind_per_turbine_usd_per_MW_severity": null,
+      "flat_ridge_2_net_paid_usd": 7250000,
+      "flat_ridge_2_adjuster_estimate_usd": 12000000,
+      "flat_ridge_2_MW_denominator": null,
+      "midwest_derecho_2020_measured_turbine_damage": "near_zero_at_126mph_gust"
+    }
+  },
+  "notes": [
+    "wind_convective_wind crosswalk is RESOLVED_FROM_DAMAGE_MODELING: the canonical wind_tornado_wind cell is PROMOTED (canonical_runtime_artifact=true) so the 5 named WT_* failure units, their value shares, the speed-ratio hazard axis, the logistic curve form, and the speed-ratio->DR ordinates are all used verbatim / computed from the canonical logistic parameters. This is a full Case A resolution, not PENDING and not DR-withheld.",
+    "The convective-wind failure grain is 5 STRUCTURAL/consequential units (blade, tower, nacelle, foundation; plus secondary power-electronics open-seam), unlike flood (~8 electrical units) or hail (one PV-module unit). NACELLE dominates the value ladder at 28.45% installed TIV (drivetrain is the costliest subsystem). Primary structural aggregate (4 default-agg units) = $1,215,627/MW = 61.77% installed TIV; all-5 = $1,275,678/MW = 64.82%. Value ladder is NREL CWER 2024 (2023 USD), peril-agnostic.",
+    "0 of 27 benchmark rows (other than the 2 value-ladder denominator anchors) normalize to a $/MW basis; every normalized_usd_per_MW cell is blank (never zero). Isolated per-turbine convective-wind $/MW physical severity is genuinely absent from the open literature.",
+    "The strongest open dollar figure, Flat Ridge 2 v. Underwriters at Lloyd's (2012 KS tornado): premium $1.8M, claim submitted $9,728,755.38, adjuster estimate >$12M, paid $7.25M net of $250K deductible. It is WITHHELD from the $/MW axis because the primary court filing contains NO MW capacity and NO struck-turbine count; a tornado damages a narrow corridor, so a farm-average $/MW would understate per-struck-turbine severity.",
+    "The single best straight-line/derecho anchor is a MEASURED NULL: in the 2020 Midwest derecho, MidAmerican reported no significant wind-farm damage at ~126 mph gust (r well below the SLW D50); the Sept/Oct blade failures were LIGHTNING, not wind. This is the empirical low end of the SLW pathway and is recorded as a real zero (blank, not 0).",
+    "Bouchard & Romanic (2023) provides a peer-reviewed tornado fragility (logistic v_m=49.1 m/s, k=0.504) that corroborates the curve FORM but is German and NOT a US plug-in (CURVE_FORM_ANALOG). FEMA NRI keeps Tornado EAL ($146.6M Atlanta 11-county) and Strong-Wind EAL ($5.35M) separate, mirroring the [T]/[W] split, but is an annualized EAL (downstream, DIFFERENT_METRIC_FAMILY). Moody's +58% 'US wind PML' is hurricane-contaminated and QUARANTINED.",
+    "The wind_tornado_wind curve is a public-source-anchored engineering parameterization on a speed-ratio axis; the cell owns SEVERITY curves only (EAL/PML/VaR/TVaR are downstream in the hazard catalog / financial model).",
+    "Row counts above equal the actual data-row counts of the corresponding CSVs (benchmark=27, source_matrix=77, crosswalk=27, intensity=20) and the source_registry.json length (77)."
+  ]
+}

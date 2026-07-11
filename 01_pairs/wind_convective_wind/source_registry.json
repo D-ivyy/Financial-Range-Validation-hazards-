@@ -1,0 +1,1482 @@
+[
+ {
+  "source_id": "GCUBE_HAIL_HIGH_WATER_2021",
+  "source_name": "GCube Insurance \u2014 \"Hail or High Water\" report (via PES Media)",
+  "source_type": "renewable_claims_publication",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "PCT_TIV",
+   "CLAIM_FREQUENCY_SHARE"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "2019 weather-related solar loss ~2400% higher than non-weather; >70% of solar losses in last 10 yrs since 2017; wind projects flood>blade (qualitative).",
+  "does_not_have_open": "Isolated wind-turbine convective-wind $/MW severity; TIV denominators.",
+  "url": "https://pes.eu.com/press-releases/gcube-report-unmodelled-extreme-weather-driving-rising-severity-and-frequency-of-renewables-insurance-claims",
+  "retrieved": "2026-07-10",
+  "notes": "Blended solar-heavy framing; report body gated to insureds/brokers. CONTEXT only."
+ },
+ {
+  "source_id": "GCUBE_KNOWN_UNKNOWNS_2025",
+  "source_name": "GCube Insurance \u2014 \"Known Unknowns\" report (2025, via PES/Artemis)",
+  "source_type": "renewable_claims_publication",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "SUBLIMIT"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT",
+   "MARKET_SIGNAL"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "US Nat Cat events >$300M insured damages; sub-limits now $75M-$50M or lower.",
+  "does_not_have_open": "Wind-turbine-specific convective-wind loss; per-MW normalization.",
+  "url": "https://pes.eu.com/press-releases/nat-cat-and-extreme-weather-now-a-global-threat-to-insurability-and-bankability-of-renewables-gcube-insurance-report",
+  "retrieved": "2026-07-10",
+  "notes": "Sub-limit figures are market tail-risk signals, not observed per-event losses. Report gated."
+ },
+ {
+  "source_id": "GCUBE_NA_NATCAT_2022",
+  "source_name": "GCube Insurance \u2014 North American Nat Cat Update (Oct 2022, via POWER Magazine)",
+  "source_type": "renewable_claims_publication",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_FREQUENCY_SHARE",
+   "EVENT_LOSS"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "40 severe storms (wind/hail/tornado/derecho) vs 13 traditional windstorm events over 3 yrs; tornado losses match anticipated damages from Hurricane Hanna.",
+  "does_not_have_open": "Underlying per-event loss data; wind-only isolation.",
+  "url": "https://www.powermag.com/evolving-extreme-weather-risks-posing-unprecedented-insurance-woes-for-renewables/",
+  "retrieved": "2026-07-10",
+  "notes": "Tornado-heavy qualitative framing; useful frequency-shift context. Underlying data gated."
+ },
+ {
+  "source_id": "GCUBE_ONSHORE_THREATS_2017",
+  "source_name": "GCube Insurance \u2014 \"Risky Business: Assessing Future Threats in Onshore Wind\" (2017)",
+  "source_type": "renewable_claims_publication",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_SEVERITY",
+   "CLAIM_FREQUENCY_SHARE",
+   "COMPONENT_CAUSE"
+  ],
+  "evidence_use_tags": [
+   "ATTRITIONAL_BASELINE"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "~3,800 blade-failure incidents/yr up to $1M each; ~1,200 gearbox failures/yr $200K-$300K each; ~50 turbine fires/yr avg $4.5M claim.",
+  "does_not_have_open": "Convective-wind cat losses (these are mechanical/attritional).",
+  "url": "https://www.windtech-international.com/industry-news/gcube-ranks-threats-to-global-onshore-wind",
+  "retrieved": "2026-07-10",
+  "notes": "Attritional mechanical baseline; lets the reader separate ordinary blade/gearbox losses from convective-wind cat losses. NOT a convective-wind benchmark."
+ },
+ {
+  "source_id": "GCUBE_CONSTRUCTION_2024",
+  "source_name": "GCube Insurance \u2014 \"Arrested Development\" construction claims (2024)",
+  "source_type": "renewable_claims_publication",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_FREQUENCY_SHARE",
+   "EVENT_LOSS"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "$1B CAR/DSU claims analyzed; onshore wind+solar construction losses 48% Nat Cat/extreme weather; flooding 18% frequency / 46% cost.",
+  "does_not_have_open": "Operations-phase convective-wind severity; wind-only split.",
+  "url": "https://electricalreview.co.uk/2024/09/17/gcube-warns-of-rising-insurance-claims-as-renewables-construction-ramps-up/",
+  "retrieved": "2026-07-10",
+  "notes": "Construction-phase (not operations); adjacent context only."
+ },
+ {
+  "source_id": "GCUBE_US_CLAIMS_2012",
+  "source_name": "GCube Insurance \u2014 Most Common Wind Insurance Claims (2012 US data, via NAW)",
+  "source_type": "renewable_claims_publication",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_SEVERITY",
+   "COMPONENT_CAUSE",
+   "CLAIM_FREQUENCY_SHARE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "ATTRITIONAL_BASELINE",
+   "DENOMINATOR_CONTEXT"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Blade dmg 41.4%, gearbox 35.1%, generators 10.2%, transformers 5.1% of loss; causes: poor maint 24.5%, lightning 23.4%, design 11.5%; avg claim: gearbox $380K, blade $240K, foundation $1.3M (up to $2.5M); GCube >$200M paid since 2008; insures ~60% of operating US wind.",
+  "does_not_have_open": "Convective-wind isolation (lightning explicitly separated at 23.4%).",
+  "url": "https://nawindpower.com/gcube-lists-most-common-wind-insurance-claims",
+  "retrieved": "2026-07-10",
+  "notes": "Best open attritional cause-of-loss + component avg-claim baseline; ~60% US market denominator. Lightning (23.4%) separated from wind."
+ },
+ {
+  "source_id": "INSJ_HAIL_2023",
+  "source_name": "Insurance Journal \u2014 \"Baseball-Size Hail Makes Insuring Solar and Wind Farms Pricier\"",
+  "source_type": "trade_press",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "PCT_TIV"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT",
+   "MARKET_SIGNAL"
+  ],
+  "sub_peril_family": "HAIL_CONTAMINATED_SCS",
+  "has_open_numbers": "Hail ~$300M losses in TX (~2x combined severe-storm+wildfire+flood at notable US wind & solar since 2020, implying ~$150M combined non-hail); TX/SE premiums up as much as 50%/yr.",
+  "does_not_have_open": "Wind-only convective severity; the ~$150M is blended wind+solar+multi-peril.",
+  "url": "https://www.insurancejournal.com/news/national/2023/08/02/733273.htm",
+  "retrieved": "2026-07-10",
+  "notes": "Hail-dominant; the implied ~$150M non-hail is blended across wind+solar & 3 perils. CONTEXT."
+ },
+ {
+  "source_id": "AIC_ECOFIN_WHIRLWIND_2023",
+  "source_name": "AIC \u2014 Ecofin US Renewables hit by unprecedented tornado in Texas (Whirlwind Energy)",
+  "source_type": "investor_disclosure",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "PRIMARY_BENCHMARK_CANDIDATE",
+   "NAMED_EVENT"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Whirlwind Energy wind farm, Floydada TX, 59.8 MW, over a third of $102M portfolio; 5 transmission poles damaged; force majeure with Austin Energy.",
+  "does_not_have_open": "$ repair/claim amount (gated in Ecofin/RNEW filings).",
+  "url": "https://www.theaic.co.uk/aic/news/industry-news/ecofin-us-renewables-hit-by-unprecedented-tornado-in-texas",
+  "retrieved": "2026-07-10",
+  "notes": "Named US tornado-on-wind-farm event with MW; $ loss gated. Pathway: Ecofin/RNEW annual report."
+ },
+ {
+  "source_id": "JUSTIA_FLAT_RIDGE_2_2014",
+  "source_name": "Flat Ridge 2 Wind Energy LLC v. Underwriters at Lloyd's (2014 NY Slip Op 31804(U))",
+  "source_type": "court_filing",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_SEVERITY",
+   "EVENT_LOSS",
+   "ASSET_FACTS",
+   "DEDUCTIBLE"
+  ],
+  "evidence_use_tags": [
+   "PRIMARY_BENCHMARK_CANDIDATE",
+   "NAMED_EVENT"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "66,000-acre farm, 204 GE WTGs, Kansas, tornado 2012-05-19; premium $1.8M; claim submitted $9,728,755.38; adjuster est >$12M; partial pmts $3.5M + $3.75M = $7.25M paid net of $250K deductible; unallocated proofs of loss $7.5M.",
+  "does_not_have_open": "Nameplate MW of the damaged subset (project ~419.6MW total not in filing); per-turbine allocation.",
+  "url": "https://cases.justia.com/new-york/other-courts/2014-2014-ny-slip-op-31804-u.pdf?ts=1405462210",
+  "retrieved": "2026-07-10",
+  "notes": "BEST clean open single-event tornado-on-US-wind-farm claim. $/MW normalization requires an external MW denominator (project nameplate) NOT in the filing \u2014 leave $/MW blank or derived-sensitivity only."
+ },
+ {
+  "source_id": "GALLAGHER_RE_TRANSITION_2024",
+  "source_name": "Gallagher Re \u2014 \"Insuring the Transition\" (Nov 2024)",
+  "source_type": "broker_publication",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "CLAIM_FREQUENCY_SHARE"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Subsea cable 75-80% of UK offshore claims (non-CW); IEC 61400 Class T ref wind 57 m/s ~ Cat3; turbines auto-stop ~55 mph; solar SCS losses upward of $50M/event (Midwest, solar); Typhoon Yagi $920M (fenced).",
+  "does_not_have_open": "Onshore convective-wind turbine severity; loss-ratio chart values gated.",
+  "url": "https://www.ajg.com/gallagherre/-/media/files/gallagher/gallagherre/news-and-insights/2024/november/gallagherre-insuring-the-transition-risks-and-opportunities-in-renewable-energy.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "Offshore/cable & hurricane figures fenced or non-CW; retained for auto-stop and Class-T design context."
+ },
+ {
+  "source_id": "RENEW_RISK_2025",
+  "source_name": "Renew Risk \u2014 \"From hailstorms to human error\"",
+  "source_type": "modeler_blog",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "US 2018-2025: tornadoes+earthquakes combined losses $45M vs hail+storms ~$415M; offshore cable ~80% of claims (non-CW).",
+  "does_not_have_open": "Wind-only tornado isolation ($45M blends tornado+earthquake).",
+  "url": "https://www.renew-risk.com/resources/blog/hailstorms-to-human-error",
+  "retrieved": "2026-07-10",
+  "notes": "$45M blends tornado WITH earthquake \u2014 cannot isolate tornado. Downgrade to CONTEXT."
+ },
+ {
+  "source_id": "REVIEW_ENERGY_IOWA_2024",
+  "source_name": "Review-Energy.com \u2014 US onshore wind farms suffer impacts by Iowa twisters",
+  "source_type": "trade_press",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "TURBINE_COUNT"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "PATHWAY"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "17 Iowa tornadoes; 10 turbines destroyed near Greenfield; MidAmerican lost 6; 4 Vestas down; ~200,000 without power.",
+  "does_not_have_open": "$ figures \u2014 pathway to MidAmerican.",
+  "url": "https://www.review-energy.com/eolico/us-onshore-wind-farms-suffer-impacts-by-powerful-twisters-in-iowa",
+  "retrieved": "2026-07-10",
+  "notes": "Turbine-count-only; Greenfield 2024 event. $ gated."
+ },
+ {
+  "source_id": "WINDWATCH_VESTAS_2024",
+  "source_name": "National Wind Watch \u2014 Ten Vestas turbines destroyed as tornadoes hit US wind farms",
+  "source_type": "news_aggregator",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "TURBINE_COUNT"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "PATHWAY"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Orient (MidAmerican) 5 turbines destroyed; Arbor Hill 1; Prescott (RPM Access) 4; model 2MW Vestas V110.",
+  "does_not_have_open": "$ figures \u2014 pathway to MidAmerican/RPM Access.",
+  "url": "https://www.wind-watch.org/news/2024/05/23/ten-vestas-turbines-destroyed-as-deadly-tornadoes-hit-us-wind-farms/",
+  "retrieved": "2026-07-10",
+  "notes": "Turbine model + count for Greenfield 2024; $ gated."
+ },
+ {
+  "source_id": "RISKINS_MUNICHRE_AKERSON_2025",
+  "source_name": "Risk & Insurance \u2014 RiskWorld Q&A with Doug Akerson, Munich Re",
+  "source_type": "trade_press_interview",
+  "availability_tag": "HAS_PATHWAY_ONLY",
+  "metric_tags": [],
+  "evidence_use_tags": [
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "None (quote): straight line wind in the form of derechos is a concern for wind farms.",
+  "does_not_have_open": "Any number; full Munich Re wind-farm report not located.",
+  "url": "https://riskandinsurance.com/riskworld-q-and-a-with-doug-akerson-munich-re/",
+  "retrieved": "2026-07-10",
+  "notes": "Qualitative derecho-on-wind-farm pathway; Munich Re report gated."
+ },
+ {
+  "source_id": "SWISSRE_WINDS_OF_CHANGE",
+  "source_name": "Swiss Re Institute \u2014 Climate Change and Wind Power",
+  "source_type": "reinsurer_research",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_QUALITATIVE",
+   "DESIGN_ANCHOR"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Turbines designed to withstand ~112 mph (~Cat3); Iowa/Scotland storms caused rotor detachments/collapses (qualitative); Japan typhoons fenced.",
+  "does_not_have_open": "US convective-wind $/MW; full report PDF not fetched.",
+  "url": "https://www.swissre.com/institute/research/topics-and-risk-dialogues/climate-and-natural-catastrophe-risk/climate-change-wind-power.html",
+  "retrieved": "2026-07-10",
+  "notes": "Design-speed anchor + qualitative SLW/tornado mentions; typhoon fenced."
+ },
+ {
+  "source_id": "FOXWX_TRAVERSE_2022",
+  "source_name": "Fox Weather \u2014 Oklahoma wind turbine fire (Traverse Wind Energy Center)",
+  "source_type": "news_on_record",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "TURBINE_COUNT"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "CONTEXT_NOT_BENCHMARK"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Traverse WEC (Custer Co OK), 356 GE turbines, one turbine down/on fire after severe thunderstorm; PSO/AEP said no other damage.",
+  "does_not_have_open": "$ loss; cause (lightning vs wind) unconfirmed.",
+  "url": "https://www.foxweather.com/weather-news/oklahoma-wind-turbine-fire",
+  "retrieved": "2026-07-10",
+  "notes": "Cause undetermined (lightning suspected); matches Traverse ~999MW TIV $1.3986B anchor. Downgrade \u2014 not a clean wind benchmark."
+ },
+ {
+  "source_id": "WINDWATCH_PANHANDLE_2022",
+  "source_name": "National Wind Watch \u2014 Regulator ends safety case against Panhandle wind farm (Olympia/RES OK)",
+  "source_type": "news_aggregator",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "TURBINE_COUNT"
+  ],
+  "evidence_use_tags": [
+   "CONTEXT_NOT_BENCHMARK"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Nine towers catastrophically failed (blades missing/nacelles burned); 120MW project, 60 towers; remediation fine $348,750.",
+  "does_not_have_open": "Root cause not confirmed as convective wind (may be mechanical); $ loss.",
+  "url": "https://www.wind-watch.org/news/2022/01/17/regulator-ends-safety-case-against-panhandle-wind-farm-operator/",
+  "retrieved": "2026-07-10",
+  "notes": "9-tower failure cause NOT confirmed wind-driven \u2014 CONTEXT, not a clean benchmark."
+ },
+ {
+  "source_id": "WINDPOWERMONTHLY_INSURANCE",
+  "source_name": "Windpower Monthly \u2014 Insurance: It pays to prepare for the worst",
+  "source_type": "trade_press",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "DEDUCTIBLE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "MARKET_SIGNAL",
+   "DENOMINATOR_CONTEXT"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Storm damaged majority of blades at 50MW Kumeyaay plant (CA); wind-insurance ~low single-digit % of annual costs; avg insurance $0.34->$0.07 per $100 property value; example deductible ~$500K; GCube ~60% US market; warranty $30K-$100K/yr.",
+  "does_not_have_open": "$ loss for Kumeyaay event.",
+  "url": "https://www.windpowermonthly.com/article/1032367/insurance-pays-prepare-worst",
+  "retrieved": "2026-07-10",
+  "notes": "Kumeyaay SLW blade-damage pathway; insurance-cost denominators. Event $ gated."
+ },
+ {
+  "source_id": "PVTECH_HAIL_58M_2023",
+  "source_name": "PV-Tech \u2014 GCube: Hail claims now average ~US$58.4M per claim",
+  "source_type": "trade_press",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_SEVERITY",
+   "CLAIM_FREQUENCY_SHARE"
+  ],
+  "evidence_use_tags": [
+   "CONTEXT_NOT_BENCHMARK"
+  ],
+  "sub_peril_family": "HAIL_CONTAMINATED_SCS",
+  "has_open_numbers": "Avg hail claim $58.4M; hail = 54% of incurred solar loss claim costs (5-yr).",
+  "does_not_have_open": "Wind data (solar-only).",
+  "url": "https://www.pv-tech.org/hail-claims-now-average-around-us58-4-million-per-claim-says-gcube-insurance/",
+  "retrieved": "2026-07-10",
+  "notes": "Solar-only hail; retained as cross-check context, NOT a wind benchmark."
+ },
+ {
+  "source_id": "NEXTRACKER_WEATHER_WP",
+  "source_name": "Nextracker whitepaper \u2014 Mitigating Extreme Weather Risk (citing GCube)",
+  "source_type": "vendor_whitepaper",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_SEVERITY",
+   "CLAIM_FREQUENCY_SHARE",
+   "EVENT_LOSS"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "GCube avg claim ~$1M (~500 claims/yr); weather (esp hail+wind) >80% of claims values; Midway Solar (182MW TX) $70M-$80M (solar).",
+  "does_not_have_open": "Wind-specific isolation; only aggregate hail+wind 80% touches wind.",
+  "url": "https://info.nextracker.com/hubfs/Updated_Collateral/NX%20Horizon_Risk%20Mitigation%20Whitepaper_Part%201.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "Solar-focused; wind only in aggregate 80% figure. CONTEXT."
+ },
+ {
+  "source_id": "XWEATHER_LIGHTNING_2025",
+  "source_name": "Xweather (Vaisala) \u2014 32% more US wind turbines hit by 4+ lightning strokes in 2025",
+  "source_type": "vendor_data",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_FREQUENCY_SHARE",
+   "COMPONENT_CAUSE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "ATTRITIONAL_BASELINE",
+   "DENOMINATOR_CONTEXT"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "4+-stroke turbines +32.1% YoY; struck turbines +18.4%; 31.4% of >70,000 turbines struck in 2025; blade damage >$100M/yr, lightning ~60% of blade losses.",
+  "does_not_have_open": "Convective-wind losses (this is lightning).",
+  "url": "https://www.xweather.com/blog/wind-turbines-hit-by-lightning-2025",
+  "retrieved": "2026-07-10",
+  "notes": "Lightning baseline: sharpens how much of the blade-loss $ pool is NON-convective-wind (~60% lightning). Denominator/context."
+ },
+ {
+  "source_id": "AXIS_OFFSHORE_2026",
+  "source_name": "AXIS Capital \u2014 Global Offshore Wind report (claims by cause)",
+  "source_type": "insurer_publication",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_FREQUENCY_SHARE",
+   "CLAIM_SEVERITY"
+  ],
+  "evidence_use_tags": [
+   "ATTRITIONAL_BASELINE"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Wind turbines 57% of incidents / 37% of incurred loss (offshore); drivetrain >2/3 of turbine damages; export cables 6% frequency but avg $18.8M/event.",
+  "does_not_have_open": "Onshore convective-wind; this is offshore mechanical breakdown.",
+  "url": "https://www.claimsjournal.com/news/national/2026/03/10/336131.htm",
+  "retrieved": "2026-07-10",
+  "notes": "Offshore, mechanical \u2014 adjacent-asset baseline only. Full PDF pathway to axiscapital.com."
+ },
+ {
+  "source_id": "ARTEMIS_DESCARTES_PARAM_2026",
+  "source_name": "Artemis.bm \u2014 Descartes/Nextpower parametric wind coverage for solar plants",
+  "source_type": "trade_press",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "SUBLIMIT"
+  ],
+  "evidence_use_tags": [
+   "MARKET_SIGNAL"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "New SLW parametric product limits up to $80M globally / $100M US per policy.",
+  "does_not_have_open": "Any observed loss (product-design signal).",
+  "url": "https://www.artemis.bm/news/descartes-partners-with-nextpower-to-launch-parametric-wind-coverage-for-solar-plants/",
+  "retrieved": "2026-07-10",
+  "notes": "Market-priced max exposure signal, not an observed loss. MARKET_SIGNAL."
+ },
+ {
+  "source_id": "CRESTON_MIDAM_DERECHO_2020",
+  "source_name": "Creston News Advertiser \u2014 Cause of fallen turbine blade near Stuart (MidAmerican, 2020 derecho)",
+  "source_type": "news_on_record",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "EVENT_LOSS"
+  ],
+  "evidence_use_tags": [
+   "NEGATIVE_FINDING",
+   "NAMED_EVENT"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Operator quote: \"did not sustain any significant wind farm damage from the recent derecho\" (peak gust 126mph measured/140 est). Unrelated Sept/Oct 2020 blade failures attributed to LIGHTNING, not wind; 46 turbines paused for inspection.",
+  "does_not_have_open": "A positive convective-wind loss (this is a MEASURED near-zero).",
+  "url": "https://www.crestonnews.com/2020/09/21/cause-of-fallen-wind-turbine-blade-near-stuart-under-investigation/anzel9q/",
+  "retrieved": "2026-07-10",
+  "notes": "CRITICAL NEGATIVE BENCHMARK: a major derecho (126mph gust) produced no significant wind-farm damage \u2014 anchors the low end of the straight-line-wind range and confirms design robustness below Ve50."
+ },
+ {
+  "source_id": "SRC_RMS_SCS_NA",
+  "source_name": "Moody's RMS \u2014 North America Severe Convective Storm Model (legacy)",
+  "source_type": "cat_model_vendor",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "AAL"
+  ],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY",
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Product page AAL headline (hail-dominant industry AAL); sub-peril split gated.",
+  "does_not_have_open": "Wind-turbine-specific SCS vulnerability curve; open sub-peril AAL split.",
+  "url": "https://www.rms.com/models/severe-convective-storm/north-america/tbd",
+  "retrieved": "2026-07-10",
+  "notes": "Hail-dominant blended SCS product; wind-turbine occupancy gated. Pathway."
+ },
+ {
+  "source_id": "SRC_MOODYS_RMS_SCS_HD",
+  "source_name": "Moody's RMS \u2014 North America SCS HD Models (Dec 2025)",
+  "source_type": "cat_model_vendor",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Methodology description only (claims-calibrated vulnerability); no AAL/PML disclosed.",
+  "does_not_have_open": "Any AAL/PML; wind-turbine curve.",
+  "url": "https://www.moodys.com/web/en/us/insights/insurance/introducing-moodys-rms-north-america-severe-convective-storm-hd-models.html",
+  "retrieved": "2026-07-10",
+  "notes": "Fully gated licensed model. Methodology open. Pathway."
+ },
+ {
+  "source_id": "SRC_MOODYS_RMS_HD_ARTICLE",
+  "source_name": "actuary.info \u2014 Moody's RMS HD Models Redraw the SCS Cat Budget",
+  "source_type": "trade_press",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Model architecture description (secondary-peril cat-budget framing).",
+  "does_not_have_open": "Quantified wind-turbine SCS loss.",
+  "url": "https://actuary.info/insights/moodys-rms-scs-hd-models-secondary-peril-cat-budget",
+  "retrieved": "2026-07-10",
+  "notes": "Trade-press secondary source describing the HD model. Context."
+ },
+ {
+  "source_id": "SRC_VERISK_AIR_STM",
+  "source_name": "Verisk (AIR) \u2014 Severe Thunderstorm Model for the US (2025 brochure)",
+  "source_type": "cat_model_vendor",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "CLAIM_SEVERITY"
+  ],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Claims-validation totals + specialty-risk scope; hail/tornado/SLW internal split not open.",
+  "does_not_have_open": "Open AAL sub-peril split; wind-turbine curve.",
+  "url": "https://www.verisk.com/49bc40/siteassets/media/downloads/catastrophe-and-risk-solutions/verisk-severe-thunderstorm-model-for-the-united-states.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "Financial module gated; brochure open. Pathway."
+ },
+ {
+  "source_id": "SRC_VERISK_BLOG_2026",
+  "source_name": "Verisk \u2014 Severe Thunderstorms: A Frequency, Accumulation, and Volatility Peril (2026)",
+  "source_type": "cat_model_vendor",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "CLAIM_SEVERITY"
+  ],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY",
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Claims-validation totals; catalog description; SCS framed as frequency/accumulation peril.",
+  "does_not_have_open": "Wind-turbine occupancy vulnerability.",
+  "url": "https://www.verisk.com/blog/severe-thunderstorms-a-frequency-accumulation-and-volatility-peril/",
+  "retrieved": "2026-07-10",
+  "notes": "Blog; open framing of SCS as attritional-accumulation peril. Context."
+ },
+ {
+  "source_id": "SRC_COREL_SCS_DATASHEET",
+  "source_name": "CoreLogic (Cotality) \u2014 U.S. SCS Model Datasheet 2025",
+  "source_type": "cat_model_vendor",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Model design description only.",
+  "does_not_have_open": "AAL/PML; wind-turbine curve.",
+  "url": "https://pages.corelogic.com/hubfs/CoreLogic%20NA/Website%20PDF%20Files/INS/SCS%20Model%20Datasheet%202025%20-%20RAA%20Update.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "Datasheet open, no loss numbers. Pathway."
+ },
+ {
+  "source_id": "SRC_KATRISK_SCS",
+  "source_name": "KatRisk \u2014 Severe Convective Storm Risk Modeling",
+  "source_type": "cat_model_vendor",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "RETURN_PERIOD_HAZARD"
+  ],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY",
+   "HAZARD_ANCHOR"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Return-period wind-speed validation methodology + one worked tornado/SLW example (hazard, not loss).",
+  "does_not_have_open": "Loss AAL/PML; wind-turbine damage function.",
+  "url": "https://www.katrisk.com/severe-convective-storm-risk-modeling/",
+  "retrieved": "2026-07-10",
+  "notes": "Hazard-side return-period validation; no loss. Pathway/hazard anchor."
+ },
+ {
+  "source_id": "SRC_SWISSRE_SIGMA_NATCAT",
+  "source_name": "Swiss Re Institute \u2014 sigma Natural Catastrophes (No 1/2025)",
+  "source_type": "reinsurer_research",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "ANNUAL_AGGREGATE"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT",
+   "INDUSTRY_AGGREGATE"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "SCS annual aggregate insured losses (hail-dominant per Swiss Re); realized single-year totals.",
+  "does_not_have_open": "Wind-turbine share; AAL/EP curve; per-MW.",
+  "url": "https://www.swissre.com/dam/jcr:46617c8b-98a4-4d54-b259-f4bdcbaab0b8/sri-sigma-natural-catastrophes-1-2025.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "Realized annual industry aggregate (NOT AAL). Hail-dominant SCS group. Context macro-denominator."
+ },
+ {
+  "source_id": "SRC_MUNICHRE_NATCATSERVICE",
+  "source_name": "Munich Re \u2014 NatCatSERVICE (Hail/Tornadoes/Flash Floods + 2025 factsheet)",
+  "source_type": "reinsurer_research",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "ANNUAL_AGGREGATE"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT",
+   "INDUSTRY_AGGREGATE"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Realized SCS event + annual totals; Mar 2025 US outbreak >100 tornadoes (few EF4).",
+  "does_not_have_open": "Wind-turbine isolation; modeled EP curve.",
+  "url": "https://www.munichre.com/en/risks/natural-disasters/thunderstorms-hail-tornados.html",
+  "retrieved": "2026-07-10",
+  "notes": "Realized industry totals (overall + insured). One tornado-heavy named outbreak. Macro-denominator context."
+ },
+ {
+  "source_id": "SRC_AON_CATINSIGHT_2026",
+  "source_name": "Aon \u2014 2026 Climate and Catastrophe Insight (covering 2025)",
+  "source_type": "broker_publication",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "ANNUAL_AGGREGATE"
+  ],
+  "evidence_use_tags": [
+   "PERIL_SHARE_CONTEXT",
+   "INDUSTRY_AGGREGATE"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Realized annual SCS insured/economic loss; SCS framed as costliest insured peril of the 21st century.",
+  "does_not_have_open": "Wind-turbine share; per-MW.",
+  "url": "https://www.aon.com/en/insights/reports/climate-and-catastrophe-report",
+  "retrieved": "2026-07-10",
+  "notes": "Realized industry aggregate. Macro-denominator context; NOT a wind-asset benchmark."
+ },
+ {
+  "source_id": "SRC_ASCE7_22_WIND_MAPS",
+  "source_name": "ASCE/SEI 7-22 Ch.26 Basic Wind Speed maps + ASCE 7 Hazard Tool",
+  "source_type": "engineering_standard",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "HAZARD_ANCHOR"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Basic wind speed (3-s gust mph) by MRI (300/700/1700/3000-yr) via free hazard tool.",
+  "does_not_have_open": "Any loss/DR; this is a hazard-intensity surface only.",
+  "url": "https://asce7hazardtool.online/",
+  "retrieved": "2026-07-10",
+  "notes": "ENGINEERED_HAZARD_ANCHOR: supplies the [W] x-axis intensity, NOT a loss metric. Aligns with the cell's V_3s_hub axis."
+ },
+ {
+  "source_id": "SRC_ASCE7_22_TORNADO_MAPS",
+  "source_name": "ASCE/SEI 7-22 Ch.32 tornado hazard maps + NIST TN 2214",
+  "source_type": "engineering_standard",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "HAZARD_ANCHOR"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Design tornado speed (3-s gust mph) by MRI x effective plan area Ae.",
+  "does_not_have_open": "Any loss/DR; hazard-intensity only.",
+  "url": "https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2214.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "ENGINEERED_HAZARD_ANCHOR [T]: tornado design-speed surface, area-dependent. Not a loss metric."
+ },
+ {
+  "source_id": "SRC_FEMA_NRI_TORNADO_WIND",
+  "source_name": "FEMA National Risk Index v1.20 \u2014 Tornado & Strong Wind hazards",
+  "source_type": "government_dataset",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "AAL"
+  ],
+  "evidence_use_tags": [
+   "AAL_PATHWAY",
+   "PERIL_SHARE_CONTEXT"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Separate Tornado & Strong Wind Expected Annual Loss (county/tract); e.g. Atlanta 11-county: Tornado EAL $146.6M vs Strong Wind EAL $5.35M.",
+  "does_not_have_open": "Wind-turbine occupancy (building/pop/ag exposure only); insured claims.",
+  "url": "https://hazards.fema.gov/nri/determining-risk",
+  "retrieved": "2026-07-10",
+  "notes": "CRITICAL: FEMA NRI keeps Tornado and Strong Wind as SEPARATE hazard layers \u2014 the same [T]/[W] split this pair uses. Building/pop/ag denominators, NOT turbine TIV. AAL family."
+ },
+ {
+  "source_id": "SRC_MOODYS_RMS_RENEWABLES_IFM",
+  "source_name": "Moody's RMS \u2014 Managing risk/cat modeling for renewables (Industrial Facilities Model)",
+  "source_type": "cat_model_vendor",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [],
+  "evidence_use_tags": [
+   "CAT_MODEL_PATHWAY",
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Component-based vulnerability-curve construction methodology (qualitative); hurricane-specific quote fenced.",
+  "does_not_have_open": "AAL/PML; open wind-turbine DR curve.",
+  "url": "https://www.moodys.com/web/en/us/insights/insurance/managing-risk-and-catastrophe-modeling-for-the-growing-renewables-sector.html",
+  "retrieved": "2026-07-10",
+  "notes": "Confirms cat modelers use component/failure-unit vulnerability grain for turbines (methodology parallel to the canonical cell). Gated."
+ },
+ {
+  "source_id": "SRC_BOUCHARD_ROMANIC_2023",
+  "source_name": "Bouchard & Romanic (2023) \u2014 Monte Carlo modeling of tornado hazard to wind turbines in Germany",
+  "source_type": "peer_reviewed",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "AAL",
+   "RETURN_PERIOD_LOSS",
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_ANALOG",
+   "FRAGILITY_ANALOG"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Logistic vulnerability curve v_m=49.1 m/s, k=0.504; DOD collapse threshold ~58 m/s; replacement 1,250 EUR/kW; AGG/OCC annual-loss stats flatten ~EUR25M; per-turbine direct-hit prob by F-cat.",
+  "does_not_have_open": "A US-specific number; claims calibration (engineering model, German turbines).",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9910775/",
+  "retrieved": "2026-07-10",
+  "notes": "BEST peer-reviewed tornado-on-turbine fragility analog. Curve SHAPE/methodology + EUR/kW replacement basis; NOT a US plug-in number. German geography."
+ },
+ {
+  "source_id": "SRC_MOODYS_PML_USWIND_TREND",
+  "source_name": "Moody's \u2014 PML dollar exposure for US wind increased 58% (Jun 2025)",
+  "source_type": "rating_agency_research",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "PML"
+  ],
+  "evidence_use_tags": [
+   "CONTEXT_NOT_BENCHMARK",
+   "QUARANTINE"
+  ],
+  "sub_peril_family": "HURRICANE_TC",
+  "has_open_numbers": "US wind PML (1-in-250-yr industry aggregate) up 58% over hard market (trend/CAGR).",
+  "does_not_have_open": "Ground-up wind-turbine asset loss; SCS isolation.",
+  "url": "https://www.tradingview.com/news/reuters.com,2025:newsml_L6N3S70JS:0-pml-dollar-exposure-for-us-wind-increased-58-over-hard-market-moody-s/",
+  "retrieved": "2026-07-10",
+  "notes": "QUARANTINE: \"US wind PML\" is the reinsurance property-cat wind PML, HURRICANE_TC-dominated \u2014 NOT onshore-turbine convective-wind. CONTEXT_NOT_BENCHMARK."
+ },
+ {
+  "source_id": "R3_NASA_GREENFIELD_EO",
+  "source_name": "NASA Earth Observatory \u2014 Tornado Damage in Greenfield",
+  "source_type": "government_forensic",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Greenfield IA EF4 2024-05-21; turbine collapses; satellite-confirmed damage swath.",
+  "does_not_have_open": "Turbine-specific $ loss.",
+  "url": "https://science.nasa.gov/earth/earth-observatory/tornado-damage-in-greenfield-152870/",
+  "retrieved": "2026-07-10",
+  "notes": "Greenfield primary tornado anchor; forensic imagery. $ gated (whole-event $31.8M is residential-dominated)."
+ },
+ {
+  "source_id": "R3_NWS_DMX_EVENTSUM",
+  "source_name": "NOAA/NWS Des Moines \u2014 Event Summary May 21 2024",
+  "source_type": "government_forensic",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "HAZARD_ANCHOR"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Greenfield EF4 185mph official 3-s gust; storm survey.",
+  "does_not_have_open": "Turbine-specific $; hub-height wind reconstruction.",
+  "url": "https://www.weather.gov/dmx/2024-May-21-Iowa-TornadoesWindsFlooding",
+  "retrieved": "2026-07-10",
+  "notes": "Official EF/gust for Greenfield. Hazard anchor for [T]."
+ },
+ {
+  "source_id": "R3_WIKI_GREENFIELD",
+  "source_name": "Wikipedia (NWS/NCEI-sourced) \u2014 Greenfield tornado",
+  "source_type": "encyclopedic",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "CONTEXT_NOT_BENCHMARK"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Greenfield EF4; DOW radar 309-318 mph; whole-event damage $31.8M.",
+  "does_not_have_open": "Turbine-only $ ( $31.8M is residential-dominated).",
+  "url": "https://en.wikipedia.org/wiki/Greenfield_tornado",
+  "retrieved": "2026-07-10",
+  "notes": "DOW radar peak + whole-event $ (residential-dominated). Turbine $ not isolable. CONTEXT."
+ },
+ {
+  "source_id": "R3_WELLNEWS_IAWIND",
+  "source_name": "The Well News \u2014 Tornado Outbreak Takes Down Wind Turbines in Iowa",
+  "source_type": "news",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "TURBINE_COUNT",
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "PATHWAY"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Turbine-count reporting for Greenfield/Orient.",
+  "does_not_have_open": "$ loss.",
+  "url": "https://www.thewellnews.com/in-the-news/tornado-outbreak-takes-down-massive-wind-turbines-in-iowa/",
+  "retrieved": "2026-07-10",
+  "notes": "Corroborating turbine-count source for Greenfield. $ gated."
+ },
+ {
+  "source_id": "R3_KFOX_MIDAM6",
+  "source_name": "KFOX/KGAN (AP) \u2014 PHOTOS: Wind turbine damage from Greenfield/Orient",
+  "source_type": "news",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "TURBINE_COUNT",
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "PATHWAY"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "MidAmerican Orient wind farm turbine damage; operator called it unprecedented.",
+  "does_not_have_open": "$ loss.",
+  "url": "https://kfoxtv.com/news/nation-world/photos-wind-turbine-damage-from-powerful-tornado-unprecedented-greenfield-iowa-midamerican-energy-company-orient-wind-farm-southwest-iowa-incredible-tornado-video-ever-captured",
+  "retrieved": "2026-07-10",
+  "notes": "Photo forensic + operator quote. $ gated."
+ },
+ {
+  "source_id": "R3_EENEWS_TWISTERS",
+  "source_name": "E&E News (POLITICO) \u2014 Can tornadoes topple wind turbines? Fact-checking 'Twisters'",
+  "source_type": "news_analysis",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_QUALITATIVE",
+   "DENOMINATOR_CONTEXT"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Rarity framing: direct tornado hits on turbines are low-probability given small turbine footprint vs tornado path.",
+  "does_not_have_open": "$ loss; exposure fraction number.",
+  "url": "https://www.eenews.net/articles/can-tornadoes-topple-wind-turbines-fact-checking-twisters/",
+  "retrieved": "2026-07-10",
+  "notes": "Supports the cell's low tornado exposure fraction (0.1 core) narrative. Context."
+ },
+ {
+  "source_id": "R3_EPRI_TCTORNADO",
+  "source_name": "EPRI \u2014 Tropical Cyclone and Tornado Risks to Wind Turbines",
+  "source_type": "industry_research",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "FRAGILITY_CURVE",
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_ANALOG",
+   "NAMED_EVENT",
+   "HAZARD_ANCHOR"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Harper Co KS 2012 EF3: blades removed from several turbines; IEC Ve50 table (matches canonical cell). TC section quarantined.",
+  "does_not_have_open": "Turbine-specific $; full methodology gated.",
+  "url": "https://restservice.epri.com/publicdownload/000000003002004460/0/Product",
+  "retrieved": "2026-07-10",
+  "notes": "EPRI IEC Ve50 table matches the canonical cell EXACTLY. Harper Co KS tornado case (blades removed). TC portion quarantined to wind_hurricane."
+ },
+ {
+  "source_id": "R3_NOAA_NCEI_BENTON",
+  "source_name": "NOAA NCEI Storm Events \u2014 Benton/Fowler IN 2023-03-31 EF2",
+  "source_type": "government_forensic",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Turbine snapped ~halfway up (TOWER); blades thrown 600 yd; EF2 (111-135 mph band).",
+  "does_not_have_open": "Turbine $ loss.",
+  "url": "https://www.ncei.noaa.gov/stormevents/eventdetails.jsp?id=1085924",
+  "retrieved": "2026-07-10",
+  "notes": "Clean tower-failure-at-EF2 forensic \u2014 informs D50 shape (tower failure well below Ve50 under tornado). $ gated."
+ },
+ {
+  "source_id": "R3_FOXWX_TRAVERSE",
+  "source_name": "Fox Weather \u2014 Oklahoma turbine fire (Traverse WEC, forensic angle)",
+  "source_type": "news",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "CONTEXT_NOT_BENCHMARK"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "One Traverse turbine down/fire after thunderstorm; cause undetermined.",
+  "does_not_have_open": "$ loss; confirmed convective-wind cause.",
+  "url": "https://www.foxweather.com/weather-news/oklahoma-wind-turbine-fire",
+  "retrieved": "2026-07-10",
+  "notes": "Duplicate-angle of Traverse; cause unresolved (lightning suspected). Downgrade."
+ },
+ {
+  "source_id": "R3_BHAM_TOWERCOLLAPSE",
+  "source_name": "Univ. of Birmingham \u2014 Wind Turbine Tower Collapse Cases: A Historical Overview",
+  "source_type": "peer_reviewed",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_ANALOG"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Catalog of tower-collapse cases (storm-tagged); typhoon cases quarantined.",
+  "does_not_have_open": "US per-MW $; claims data.",
+  "url": "https://pure-oai.bham.ac.uk/ws/files/48895024/6._Cases_review_paper_06_Rev_3.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "Tower-collapse mechanism catalog; supports WT_TOWER_STRUCT failure mode. Typhoon cases fenced."
+ },
+ {
+  "source_id": "R3_COPERNICUS_KYRILL",
+  "source_name": "Copernicus (ADGEO) \u2014 Storm Kyrill and mid-Jan 2007 storms",
+  "source_type": "peer_reviewed",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS",
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_ANALOG",
+   "CONTEXT_NOT_BENCHMARK"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "European windstorm (synoptic) loss context; gust fields.",
+  "does_not_have_open": "US onshore turbine $; convective (vs synoptic) isolation.",
+  "url": "https://adgeo.copernicus.org/articles/58/135/2023/adgeo-58-135-2023.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "European SYNOPTIC windstorm (not convective/derecho); geography+peril mismatch. Context for straight-line wind mechanism only."
+ },
+ {
+  "source_id": "R3_PSE_NATHAZREVIEW",
+  "source_name": "PSE Community \u2014 Review of Natural Hazard Risks for Wind Farms",
+  "source_type": "peer_reviewed_preprint",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS",
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_ANALOG"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Wyoming/PA/Sweden SLW cases; typhoon cases quarantined.",
+  "does_not_have_open": "US per-MW $.",
+  "url": "https://psecommunity.org/wp-content/plugins/wpor/includes/file/2302/LAPSE-2023.3475-1v1.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "Mostly typhoon (fenced) + some SLW cases. Mechanism review. Typhoon cases quarantined."
+ },
+ {
+  "source_id": "R3_WIKISOURCE_NWSFINAL",
+  "source_name": "Wikisource \u2014 2024 Greenfield Tornado Finalized Report (NWS DMX)",
+  "source_type": "government_forensic",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY",
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "NAMED_EVENT",
+   "HAZARD_ANCHOR"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Finalized NWS survey: Greenfield EF4 185mph.",
+  "does_not_have_open": "Turbine $.",
+  "url": "https://en.wikisource.org/wiki/Page:2024_Greenfield_Tornado_Finalized_Report.pdf/4",
+  "retrieved": "2026-07-10",
+  "notes": "Primary NWS finalized survey (hosted). Hazard anchor."
+ },
+ {
+  "source_id": "R3_YT_FORENSIC_GREENFIELD",
+  "source_name": "Independent forensic YouTube \u2014 Greenfield IA EF4 damage analysis",
+  "source_type": "independent_forensic",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Engineering-estimated turbine failure threshold ~170 mph (FEA-video narration).",
+  "does_not_have_open": "Peer-reviewed number; $ loss.",
+  "url": "https://www.youtube.com/watch?v=sPUOFn8IYP8",
+  "retrieved": "2026-07-10",
+  "notes": "Independent FEA-style estimate (~170mph failure); narration-gated, not primary. Low confidence."
+ },
+ {
+  "source_id": "R3_FOXWX_EFCLUE",
+  "source_name": "Fox Weather \u2014 Damaged turbines as EF clue (Tim Marshall interview)",
+  "source_type": "news_interview",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Marshall estimate: Greenfield turbine failure at 120-140 mph.",
+  "does_not_have_open": "$ loss.",
+  "url": "https://www.foxweather.com/weather-news/wind-turbine-tornado-damage-enhanced-fujita-scale-measurements",
+  "retrieved": "2026-07-10",
+  "notes": "Expert (Tim Marshall) estimated turbine failure threshold 120-140mph \u2014 informs tornado D50 shift plausibility. Not a $ benchmark."
+ },
+ {
+  "source_id": "R3_ENGFAILANAL_ASLAM",
+  "source_name": "Engineering Failure Analysis (Aslam) \u2014 Tornado-Induced Wind Turbine Failure (Greenfield FEA)",
+  "source_type": "peer_reviewed",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE",
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_ANALOG",
+   "FRAGILITY_ANALOG"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Abstract: localized inelastic buckling failure mode confirmed by FEA (Greenfield).",
+  "does_not_have_open": "Full paper paywalled; $ loss; full fragility ordinates.",
+  "url": "https://www.linkedin.com/posts/usamaaslam98_phdresearch-windenergy-structuralengineering-activity-7407242669132804097-47eJ",
+  "retrieved": "2026-07-10",
+  "notes": "Peer-reviewed FEA confirming tower buckling mechanism for Greenfield \u2014 directly supports WT_TOWER_STRUCT. Full paper GATED (pathway: journal)."
+ },
+ {
+  "source_id": "R3_MIDAM_DERECHO2020",
+  "source_name": "MidAmerican Energy \u2014 Derecho 2020, a storm like no other",
+  "source_type": "operator_disclosure",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EVENT_LOSS"
+  ],
+  "evidence_use_tags": [
+   "NEGATIVE_FINDING"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Operator narrative confirming no significant wind-farm damage from the 2020 derecho.",
+  "does_not_have_open": "Turbine-specific $/count.",
+  "url": "https://www.midamericanenergy.com/articles/customer-news-derecho2020-stormresponse",
+  "retrieved": "2026-07-10",
+  "notes": "Corroborates the near-zero derecho damage negative finding. Low-end anchor context."
+ },
+ {
+  "source_id": "R3_CRESTON_ARBORHILLS",
+  "source_name": "Creston News \u2014 Fallen turbine blade near Stuart (Arbor Hills, forensic angle)",
+  "source_type": "news_on_record",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "ASSET_FACTS"
+  ],
+  "evidence_use_tags": [
+   "CONTEXT_NOT_BENCHMARK",
+   "NEGATIVE_FINDING"
+  ],
+  "sub_peril_family": "STRAIGHT_LINE_WIND",
+  "has_open_numbers": "Blade failures attributed to LIGHTNING (not wind) despite temporal proximity to the derecho.",
+  "does_not_have_open": "A wind-caused loss.",
+  "url": "https://www.crestonnews.com/2020/09/21/cause-of-fallen-wind-turbine-blade-near-stuart-under-investigation/anzel9q/",
+  "retrieved": "2026-07-10",
+  "notes": "Forensic-angle duplicate: attributes the blade loss to lightning, reinforcing that the 2020 derecho did NOT cause the failures. Negative finding / attribution guard."
+ },
+ {
+  "source_id": "SRC_IEC_61400_1",
+  "source_name": "IEC 61400-1 \u2014 Wind turbine design requirements (Part 1)",
+  "source_type": "engineering_standard",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY",
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "DESIGN_ANCHOR",
+   "HAZARD_ANCHOR"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "IEC class table: Class I Vref 50 m/s, II 42.5, III 37.5; Ve50=1.4*Vref extreme 50-yr gust.",
+  "does_not_have_open": "Loss/DR; $ severity.",
+  "url": "https://www.iec.ch/",
+  "retrieved": "2026-07-10",
+  "notes": "THE design anchor for the cell's V/Ve50 x-axis. Ve50 class table matches the canonical artifact iec_speed_table. Mechanism/axis only."
+ },
+ {
+  "source_id": "SRC_DTU_WASP_IEC",
+  "source_name": "DTU Wind Energy (WAsP) \u2014 IEC 61400-1 turbine safety standard explainer",
+  "source_type": "academic_explainer",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "DESIGN_ANCHOR"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Class/load-case framing, extreme wind model, gusts, turbulence, site assessment.",
+  "does_not_have_open": "Loss/DR.",
+  "url": "https://wasp.dtu.dk/software/windfarm-assessment-tool/iec-61400-1",
+  "retrieved": "2026-07-10",
+  "notes": "Cell source SRC_DTU_IEC. Axis-bridge anchor. Mechanism only."
+ },
+ {
+  "source_id": "SRC_NIST_FRAGILITY_MATRIX",
+  "source_name": "NIST \u2014 Fragility curves, damage matrices & wind-induced loss estimation",
+  "source_type": "government_engineering",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "FRAGILITY_ANALOG",
+   "DESIGN_ANCHOR"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Ellingwood/Rosowsky fragility-curve + damage-matrix methodology (illustrative $ not turbine-specific).",
+  "does_not_have_open": "Turbine-specific ordinates; $ severity.",
+  "url": "https://www.nist.gov/",
+  "retrieved": "2026-07-10",
+  "notes": "Cell source NIST_FRAGILITY_METHOD \u2014 the methodological basis for the logistic fragility form and max_DR caps. Method only."
+ },
+ {
+  "source_id": "SRC_RICE_DUENAS_OSORIO_ACCEL",
+  "source_name": "Rice University (Due\u00f1as-Osorio) \u2014 Long-term unavailability of wind turbines from wind-induced accelerations",
+  "source_type": "academic",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "FRAGILITY_ANALOG",
+   "MECHANISM_ANALOG"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Acceleration thresholds 10/15/20 m/s2; cut-out 25 m/s; P(exceed) 64/48/37%; annual unavailability W.Texas 47%, N.Ireland 49%.",
+  "does_not_have_open": "Structural $ severity (this is availability/acceleration, the secondary open-seam pathway).",
+  "url": "https://www.rice.edu/",
+  "retrieved": "2026-07-10",
+  "notes": "Cell source SRC_RICE_ACCEL \u2014 basis for WT_POWER_ELEC_ACCEL secondary acceleration-sensitive open-seam curve. Availability, not $ loss."
+ },
+ {
+  "source_id": "SRC_DUENAS_OSORIO_BASU_2008",
+  "source_name": "Due\u00f1as-Osorio & Basu (2008, Engineering Structures) \u2014 Unavailability from wind-induced accelerations",
+  "source_type": "peer_reviewed",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "FRAGILITY_ANALOG"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Abstract-level acceleration/unavailability numbers (via Rice page).",
+  "does_not_have_open": "Full paper paywalled; $ severity.",
+  "url": "https://doi.org/10.1016/j.engstruct.2007.09.005",
+  "retrieved": "2026-07-10",
+  "notes": "Primary source behind the Rice acceleration curve. Full paper gated."
+ },
+ {
+  "source_id": "SRC_STEEL_CONCRETE_TOWER_FRAGILITY",
+  "source_name": "Fragility analysis of steel and concrete wind turbine towers (open-access preprint)",
+  "source_type": "peer_reviewed_preprint",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "FRAGILITY_ANALOG",
+   "MECHANISM_ANALOG"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Tower fragility curves (steel vs concrete) vs wind demand.",
+  "does_not_have_open": "US claims; $ severity per MW.",
+  "url": "https://scispace.com/",
+  "retrieved": "2026-07-10",
+  "notes": "Tower fragility form support for WT_TOWER_STRUCT. Curve shape analog only."
+ },
+ {
+  "source_id": "SRC_ROUECHE_2017_TORNADO_FRAGILITY",
+  "source_name": "Roueche, Lombardo, Prevatt (2017) \u2014 Empirical Tornado Fragility of Residential Structures",
+  "source_type": "peer_reviewed",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE",
+   "DESIGN_HAZARD_INTENSITY"
+  ],
+  "evidence_use_tags": [
+   "FRAGILITY_ANALOG"
+  ],
+  "sub_peril_family": "TORNADO",
+  "has_open_numbers": "Abstract: EF/DOD-to-speed mapping method (residential).",
+  "does_not_have_open": "Turbine fragility; full DOD1-DOD9 table (ASCE paywall).",
+  "url": "https://ascelibrary.org/doi/10.1061/%28ASCE%29ST.1943-541X.0001854",
+  "retrieved": "2026-07-10",
+  "notes": "Residential (not turbine); imported only for the EF/DOD->speed mapping that underlies tornado hazard bridging. Full table gated."
+ },
+ {
+  "source_id": "SRC_WINDPOWERENGINEERING_BLADE_FAILURE",
+  "source_name": "Windpower Engineering & Development \u2014 What researchers learned from fractured blades",
+  "source_type": "trade_press",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "COMPONENT_CAUSE"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Qualitative blade failure-mode taxonomy.",
+  "does_not_have_open": "Loss/DR; $ severity.",
+  "url": "https://www.windpowerengineering.com/",
+  "retrieved": "2026-07-10",
+  "notes": "Blade failure-mode taxonomy for WT_BLADE_STRUCT. Mechanism only."
+ },
+ {
+  "source_id": "SRC_DTU_BLADE_FAILURE_REVIEW",
+  "source_name": "DTU Wind Energy \u2014 Root Causes and Mechanisms of Failure of Wind Turbine Blades",
+  "source_type": "academic",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "COMPONENT_CAUSE"
+  ],
+  "evidence_use_tags": [
+   "MECHANISM_QUALITATIVE"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Abstract-level blade failure mechanisms.",
+  "does_not_have_open": "Full paper gated; $ severity.",
+  "url": "https://orbit.dtu.dk/",
+  "retrieved": "2026-07-10",
+  "notes": "Blade mechanism review. Abstract open; full paper gated."
+ },
+ {
+  "source_id": "SRC_HAZUS_WIND_PHYSRISK",
+  "source_name": "FEMA HAZUS \u2014 Hurricane Model wind damage functions (via physrisk/Oasis-LMF)",
+  "source_type": "government_model",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "DOWNGRADED_GENERIC"
+  ],
+  "sub_peril_family": "HURRICANE_TC",
+  "has_open_numbers": "Hazus 6.1 hurricane damage functions (generic building occupancies).",
+  "does_not_have_open": "Wind-turbine occupancy; convective-wind (hurricane-coded).",
+  "url": "https://github.com/os-climate/physrisk",
+  "retrieved": "2026-07-10",
+  "notes": "DOWNGRADED: generic BUILDING damage functions, hurricane-coded \u2014 NOT a turbine curve and hurricane-fenced. Method context only."
+ },
+ {
+  "source_id": "SRC_HAZUS_TECH_MANUAL",
+  "source_name": "FEMA/NIBS \u2014 Hazus Hurricane Model Technical Manual",
+  "source_type": "government_model",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "DOWNGRADED_GENERIC"
+  ],
+  "sub_peril_family": "HURRICANE_TC",
+  "has_open_numbers": "Structure of the hurricane damage functions described.",
+  "does_not_have_open": "Full manual gated (large PDF); turbine occupancy.",
+  "url": "https://www.fema.gov/flood-maps/products-tools/hazus",
+  "retrieved": "2026-07-10",
+  "notes": "DOWNGRADED generic building; hurricane-coded and fenced. Context."
+ },
+ {
+  "source_id": "SRC_GAR13_WIND_VULN",
+  "source_name": "GAR13 (Yamin et al. 2014) \u2014 Seismic & wind vulnerability for GAR-13 global exposure",
+  "source_type": "government_model",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "FRAGILITY_CURVE"
+  ],
+  "evidence_use_tags": [
+   "DOWNGRADED_GENERIC"
+  ],
+  "sub_peril_family": "CONVECTIVE_BLENDED",
+  "has_open_numbers": "Wind vulnerability methodology formulas (generic building classes).",
+  "does_not_have_open": "Turbine curve; building-class tables gated.",
+  "url": "https://www.preventionweb.net/english/hyogo/gar/2013/en/home/",
+  "retrieved": "2026-07-10",
+  "notes": "DOWNGRADED generic global building vulnerability. Method context; not a turbine benchmark."
+ },
+ {
+  "source_id": "SRC_USGS_USWTDB_VIEWER",
+  "source_name": "USGS/ACP/LBNL \u2014 U.S. Wind Turbine Database (USWTDB) Viewer",
+  "source_type": "government_dataset",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EXPOSURE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "DENOMINATOR_CONTEXT",
+   "EXPOSURE_BASIS"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Per-turbine location, capacity (MW), model, hub height, rotor diameter for ~all US turbines.",
+  "does_not_have_open": "Loss/$; TIV per turbine.",
+  "url": "https://eerscmap.usgs.gov/uswtdb/viewer/",
+  "retrieved": "2026-07-10",
+  "notes": "THE exposure denominator: turbine locations + nameplate MW nationwide. Enables exposure-fraction and per-MW normalization denominators."
+ },
+ {
+  "source_id": "SRC_LBNL_USWTDB_V8_MEMO",
+  "source_name": "LBNL \u2014 US Wind Turbine Database V8.0 update memo",
+  "source_type": "government_dataset",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EXPOSURE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "DENOMINATOR_CONTEXT",
+   "EXPOSURE_BASIS"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "USWTDB v8.0 turbine counts/capacity update.",
+  "does_not_have_open": "Loss/$.",
+  "url": "https://emp.lbl.gov/",
+  "retrieved": "2026-07-10",
+  "notes": "USWTDB versioning/denominator update. Exposure basis."
+ },
+ {
+  "source_id": "SRC_NREL_CWER_2024",
+  "source_name": "NREL \u2014 Cost of Wind Energy Review: 2024 Edition",
+  "source_type": "government_dataset",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EXPOSURE",
+   "VALUE_LADDER",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "VALUE_BASIS",
+   "DENOMINATOR_CONTEXT"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Land-based wind CapEx $1,091/kW turbine + $582/kW BOS = ~$1,673/kW installed; module splits (rotor $337, nacelle $477, tower $276). Underlies value ladder installed $1,968,000/MW, physical $1,623,000/MW.",
+  "does_not_have_open": "Loss/$ severity.",
+  "url": "https://www.nrel.gov/docs/fy25osti/91775.pdf",
+  "retrieved": "2026-07-10",
+  "notes": "THE VALUE LADDER source. NREL CWER 2024 CapEx breakdown underlies the canonical $/MW value bases and per-failure-unit shares. Denominator/value basis, NOT a loss benchmark."
+ },
+ {
+  "source_id": "SRC_LBNL_LANDBASED_WIND_2023",
+  "source_name": "DOE/LBNL \u2014 Land-Based Wind Market Report: 2023 Edition",
+  "source_type": "government_dataset",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EXPOSURE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "DENOMINATOR_CONTEXT",
+   "EXPOSURE_BASIS"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "US fleet capacity, turbine size trends, capacity factors.",
+  "does_not_have_open": "Loss/$.",
+  "url": "https://emp.lbl.gov/wind-technologies-market-report",
+  "retrieved": "2026-07-10",
+  "notes": "Fleet exposure denominators (capacity, turbine size). Exposure basis."
+ },
+ {
+  "source_id": "SRC_LBNL_LANDBASED_WIND_2024",
+  "source_name": "DOE/LBNL \u2014 Land-Based Wind Market Report: 2024 Edition",
+  "source_type": "government_dataset",
+  "availability_tag": "HAS_GATED_NUMBERS",
+  "metric_tags": [
+   "EXPOSURE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "DENOMINATOR_CONTEXT",
+   "EXPOSURE_BASIS"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "2024-vintage capacity/turbine-size figures (via NREL ATB/secondary).",
+  "does_not_have_open": "Full 2024 PDF not directly opened; loss/$.",
+  "url": "https://emp.lbl.gov/wind-technologies-market-report",
+  "retrieved": "2026-07-10",
+  "notes": "2024 fleet update; captured via secondary. Exposure basis. Full PDF pathway."
+ },
+ {
+  "source_id": "SRC_ACP_MARKET_REPORT",
+  "source_name": "American Clean Power (ACP) \u2014 Clean Power Quarterly Market Report",
+  "source_type": "industry_dataset",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "EXPOSURE",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "DENOMINATOR_CONTEXT",
+   "EXPOSURE_BASIS"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "Operating US wind capacity, project pipeline (Q2 2025-Q1 2026).",
+  "does_not_have_open": "Loss/$.",
+  "url": "https://cleanpower.org/resources/",
+  "retrieved": "2026-07-10",
+  "notes": "Current fleet capacity denominator. Exposure basis."
+ },
+ {
+  "source_id": "SRC_NREL_ATB_LANDBASED",
+  "source_name": "NREL Annual Technology Baseline \u2014 Land-Based Wind (ATB 2024)",
+  "source_type": "government_dataset",
+  "availability_tag": "HAS_OPEN_NUMBERS",
+  "metric_tags": [
+   "VALUE_LADDER",
+   "DENOMINATOR"
+  ],
+  "evidence_use_tags": [
+   "VALUE_BASIS",
+   "DENOMINATOR_CONTEXT"
+  ],
+  "sub_peril_family": "N/A",
+  "has_open_numbers": "CapEx/OpEx baseline by year; corroborates CWER value ladder.",
+  "does_not_have_open": "Loss/$.",
+  "url": "https://atb.nrel.gov/electricity/2024/land-based_wind",
+  "retrieved": "2026-07-10",
+  "notes": "Corroborating value-basis source for the $/MW ladder. Denominator/value basis."
+ }
+]

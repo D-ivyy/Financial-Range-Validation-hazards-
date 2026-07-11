@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.5 — wind_convective_wind pair (first wind-asset pair; CONVECTIVE-only scope)
+
+Created: 2026-07-11
+
+Added the fourth hazard×asset deep-dive pair dossier and the **first wind-asset pair**, `wind_convective_wind`, mirroring the `solar_hail` / `solar_flood` / `solar_wildfire` structure. This pair covers onshore wind turbines under **CONVECTIVE wind only**: tornado [T] and straight-line/derecho [W]. The magnitude axis is the dimensionless speed ratio `X_SPEED_RATIO_TO_IEC` (`r = V_3s_hub / Ve50_class`, IEC class II default `Ve50 = 59.5 m/s = 133.1 mph`). Tornado = D50-shifted pathway + `0.10` core-exposure fraction; straight-line/derecho = SLW (D50-baseline) pathway of the **same** canonical curves (no separate strong-wind-for-wind cell exists upstream). **Hurricane/TC and hail-dominant SCS are named-and-quarantined** (`HURRICANE_TC`, `HAIL_CONTAMINATED_SCS`) so wrong-peril numbers are never averaged into a convective-wind figure.
+
+```text
+01_pairs/wind_convective_wind/README.md
+01_pairs/wind_convective_wind/benchmark_number_matrix.csv/json     (27 rows, incl. sub_peril_family)
+01_pairs/wind_convective_wind/source_matrix.csv                    (77 rows, wind-specific attribute cols)
+01_pairs/wind_convective_wind/source_registry.csv/json             (77 sources, incl. sub_peril_family)
+01_pairs/wind_convective_wind/value_basis_from_damage_modeling.json
+01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk.csv/json
+01_pairs/wind_convective_wind/damage_curve_intensity_reference.csv/json   (20 speed-ratio rows)
+02_crosswalks/wind_convective_wind_value_damage_crosswalk.md
+data/benchmark_number_matrix_wind_convective_wind.csv/json
+data/source_registry_wind_convective_wind.csv/json
+data/wind_convective_wind_value_basis_from_damage_modeling.json
+data/wind_convective_wind_value_damage_crosswalk.csv/json
+data/wind_convective_wind_damage_curve_intensity_reference.csv/json
+99_metadata/validation_v0_5.json
+VALIDATION_REPORT_v0_5.md
+```
+
+Crosswalk status is **`RESOLVED_FROM_DAMAGE_MODELING`**: the canonical, PROMOTED `wind_tornado_wind` cell exists in [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) (`docs/cells/wind_tornado_wind/current/`, `canonical_runtime_artifact=true`, `damage_code_id=WIND_TORNADO_WIND_V1`), so the **5 named WT_* structural failure units** (`WT_BLADE_STRUCT`, `WT_TOWER_STRUCT`, `WT_NACELLE_CONSEQ`, `WT_FOUNDATION_OT`, `WT_POWER_ELEC_ACCEL`), their per-unit value shares, AND the real speed-ratio→DR logistic ordinates (`DR = max_DR / (1 + exp(-k*(r - (D50 + tornado_shift))))`) are used verbatim. Value ladder = NREL CWER 2024 (installed TIV `$1,968,000/MW`; physical replaceable `$1,623,000/MW`). Primary structural aggregate `$1,215,627/MW` (61.77% TIV); all-5 envelope `$1,275,678/MW` (64.82% TIV); WT_NACELLE_CONSEQ alone `$559,935/MW` (28.45% TIV).
+
+Key finding: **only 2 of 27 benchmark rows normalize to $/MW** (the two value-ladder denominators; every other `normalized_usd_per_MW` cell is blank, never zero). The strongest open dollars — Flat Ridge 2 v. Underwriters at Lloyd's (tornado, KS 2012-05-19: `$7.25M` net of a `$250K` deductible, adjuster `>$12M`, on a 204-turbine/66,000-acre farm) — are farm-level with no MW denominator or struck-turbine count and are WITHHELD from the $/MW axis. The best straight-line/derecho anchor is a **measured null** (2020 Midwest derecho: no significant turbine damage at ~126 mph gust because machines feathered/cut out) carried as a blank-$/MW empirical lower bound. Moody's hurricane-contaminated "US wind PML +58%" is tagged `QUARANTINED_OUT_OF_SCOPE`.
+
+**Non-scope disclaimer (unchanged).** This package is a source-pathway / normalization layer, NOT a calibration harness. It defines no pass/fail bands, tunes no curve, and treats no raw number as a benchmark until its sub-peril frame, denominator, coverage, asset class, geography, and loss basis are understood. A $/MW exceeding a failure-unit hardware cap is a grain warning, not evidence that DR > 1.
+
+
 ## v0.4 — solar_wildfire pair (EXOGENOUS-only scope)
 
 Created: 2026-07-10

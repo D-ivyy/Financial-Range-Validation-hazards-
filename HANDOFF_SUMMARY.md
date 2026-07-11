@@ -135,3 +135,41 @@ A solar-only cat-model wildfire AAL/PML run (RMS/Verisk) is the only realistic p
 - `02_crosswalks/solar_wildfire_value_damage_crosswalk.md` — `RESOLVED_GRAIN_DR_WITHHELD`
 - `99_metadata/validation_v0_4.json`, `VALIDATION_REPORT_v0_4.md`
 - `data/*_solar_wildfire.{csv,json}` flat copies
+
+---
+
+## v0.5 handoff — wind_convective_wind pair (first wind-asset pair; CONVECTIVE-only scope)
+
+`wind_convective_wind` is the fourth deep-dive pair and the **first wind-asset** pair. It covers onshore wind turbines under **CONVECTIVE wind only**: tornado [T] and straight-line/derecho [W], on the dimensionless speed-ratio axis `X_SPEED_RATIO_TO_IEC` (`r = V_3s_hub / Ve50_class`). Tornado = D50-shifted + `0.10` core-exposure fraction; straight-line/derecho = SLW (D50-baseline) pathway of the same canonical curves. **Hurricane/TC and hail-dominant SCS are quarantined** (`HURRICANE_TC`, `HAIL_CONTAMINATED_SCS`).
+
+### Headline
+
+The dominant finding is a grain problem, not a number: **only 2 of 27 benchmark rows normalize to $/MW** (the two value-ladder denominators). No isolated per-turbine convective-wind $/MW physical severity exists in the open literature. A tornado hits a narrow corridor, so farm-level dollars divided by full nameplate MW understate per-struck-turbine severity by an order of magnitude.
+
+### Highest-value open evidence
+
+| Source | Open number | Verdict |
+|---|---|---|
+| Flat Ridge 2 v. Underwriters at Lloyd's (tornado, KS 2012) | claim `$9.73M`; adjuster `>$12M`; paid `$7.25M` net of `$250K` deductible; 204 turbines / 66,000 acres | strongest open dollars, but no MW denom / struck count → WITHHELD (`NOT_GRAIN_COMPARABLE`) |
+| 2020 Midwest derecho (MidAmerican) | no significant damage at `~126 mph` gust | measured NULL — empirical lower bound (`GRAIN_ANCHOR_LOWER_BOUND`) |
+| Greenfield IA EF4 (2024) | 5–10 turbines collapsed; whole-event `$31.8M`; DOW gust `309–318 mph` | residential-dominated dollars + strong intensity anchor |
+| Bouchard & Romanic 2023 (German tornado fragility) | logistic `v_m=49.1 m/s, k=0.504` | `CURVE_FORM_ANALOG` — shape only |
+| FEMA NRI (Atlanta 11-county) | Tornado EAL `$146.6M` vs Strong-Wind EAL `$5.35M` | `DIFFERENT_METRIC_FAMILY` — annualized, downstream |
+| Moody's "US wind PML" | `+58%` | `QUARANTINED_OUT_OF_SCOPE` — hurricane-contaminated |
+
+### Damage grain
+
+Crosswalk status `RESOLVED_FROM_DAMAGE_MODELING`: the canonical, PROMOTED `wind_tornado_wind` cell (`canonical_runtime_artifact=true`) gives 5 named WT_* structural failure units + real speed-ratio→DR logistic ordinates, all used verbatim. WT_NACELLE_CONSEQ `$559,935/MW` (28.45% TIV), WT_BLADE_STRUCT `$280,779/MW` (14.27%), WT_TOWER_STRUCT `$274,287/MW` (13.94%), WT_FOUNDATION_OT `$100,626/MW` (5.11%), WT_POWER_ELEC_ACCEL `$60,051/MW` (3.05%, secondary seam). Primary structural aggregate `$1,215,627/MW` (61.77% TIV); all-5 envelope `$1,275,678/MW` (64.82%). Value ladder = NREL CWER 2024 (installed TIV `$1,968,000/MW`; physical replaceable `$1,623,000/MW`).
+
+### Main gap / next acquisition
+
+The Flat Ridge 2 turbine-level loss schedule (struck count + per-unit split) is the single highest-value acquisition — it would convert the `$7.25M` net into the first clean per-struck-turbine `$/MW`. Second priority: insurer/broker per-turbine convective-wind claims coded by failure unit and IEC class.
+
+### Output files
+
+- `01_pairs/wind_convective_wind/README.md` — deep-dive dossier
+- `01_pairs/wind_convective_wind/{benchmark_number_matrix.csv/json, source_matrix.csv, source_registry.csv/json}` — 27/77/77 rows
+- `01_pairs/wind_convective_wind/{value_basis_from_damage_modeling.json, benchmark_value_damage_crosswalk.csv/json, damage_curve_intensity_reference.csv/json}`
+- `02_crosswalks/wind_convective_wind_value_damage_crosswalk.md` — `RESOLVED_FROM_DAMAGE_MODELING`
+- `99_metadata/validation_v0_5.json`, `VALIDATION_REPORT_v0_5.md`
+- `data/*_wind_convective_wind.{csv,json}` flat copies

@@ -1159,3 +1159,858 @@
 - **Has:** Palisades + Eaton fires (LA, Jan 2025): overall loss ~US$53 billion, of which ~US$40 billion insured — the most expensive wildfire disaster to date, 30 lives lost; global 2025 insured NatCat losses (all perils): US$108 billion, with the LA wildfires the single costliest event.
 - **Does not have:** Any asset-class or peril-mechanism breakout (direct flame damage vs. smoke vs. business interruption) within the $53bn/$40bn figures; any solar or energy-infrastructure-specific line item.
 - **Notes:** Munich Re's $53bn total-loss/$40bn insured-loss split for the same event as Swiss Re's $40bn insured-only figure shows close cross-reinsurer agreement, increasing confidence in that headline number as a market-consensus figure — but it remains entirely a residential/general-property loss figure with zero solar attribution.
+
+
+---
+
+# Bibliography — wind_convective_wind pair (v0.5)
+**Retrieved:** 2026-07-11
+
+Onshore wind turbines under convective wind (tornado [T] + straight-line/derecho [W]); hurricane/TC and hail-SCS fenced out. Each entry carries a `sub_peril_family` tag. A source with a number is NOT a benchmark until its sub-peril frame, denominator, coverage, asset class, geography, and loss basis are understood.
+
+## GCUBE_HAIL_HIGH_WATER_2021
+- **Name:** GCube Insurance — "Hail or High Water" report (via PES Media)
+- **Type:** `renewable_claims_publication`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://pes.eu.com/press-releases/gcube-report-unmodelled-extreme-weather-driving-rising-severity-and-frequency-of-renewables-insurance-claims
+- **Retrieved:** 2026-07-10
+- **Has:** 2019 weather-related solar loss ~2400% higher than non-weather; >70% of solar losses in last 10 yrs since 2017; wind projects flood>blade (qualitative).
+- **Does not have:** Isolated wind-turbine convective-wind $/MW severity; TIV denominators.
+- **Notes:** Blended solar-heavy framing; report body gated to insureds/brokers. CONTEXT only.
+
+## GCUBE_KNOWN_UNKNOWNS_2025
+- **Name:** GCube Insurance — "Known Unknowns" report (2025, via PES/Artemis)
+- **Type:** `renewable_claims_publication`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://pes.eu.com/press-releases/nat-cat-and-extreme-weather-now-a-global-threat-to-insurability-and-bankability-of-renewables-gcube-insurance-report
+- **Retrieved:** 2026-07-10
+- **Has:** US Nat Cat events >$300M insured damages; sub-limits now $75M-$50M or lower.
+- **Does not have:** Wind-turbine-specific convective-wind loss; per-MW normalization.
+- **Notes:** Sub-limit figures are market tail-risk signals, not observed per-event losses. Report gated.
+
+## GCUBE_NA_NATCAT_2022
+- **Name:** GCube Insurance — North American Nat Cat Update (Oct 2022, via POWER Magazine)
+- **Type:** `renewable_claims_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.powermag.com/evolving-extreme-weather-risks-posing-unprecedented-insurance-woes-for-renewables/
+- **Retrieved:** 2026-07-10
+- **Has:** 40 severe storms (wind/hail/tornado/derecho) vs 13 traditional windstorm events over 3 yrs; tornado losses match anticipated damages from Hurricane Hanna.
+- **Does not have:** Underlying per-event loss data; wind-only isolation.
+- **Notes:** Tornado-heavy qualitative framing; useful frequency-shift context. Underlying data gated.
+
+## GCUBE_ONSHORE_THREATS_2017
+- **Name:** GCube Insurance — "Risky Business: Assessing Future Threats in Onshore Wind" (2017)
+- **Type:** `renewable_claims_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.windtech-international.com/industry-news/gcube-ranks-threats-to-global-onshore-wind
+- **Retrieved:** 2026-07-10
+- **Has:** ~3,800 blade-failure incidents/yr up to $1M each; ~1,200 gearbox failures/yr $200K-$300K each; ~50 turbine fires/yr avg $4.5M claim.
+- **Does not have:** Convective-wind cat losses (these are mechanical/attritional).
+- **Notes:** Attritional mechanical baseline; lets the reader separate ordinary blade/gearbox losses from convective-wind cat losses. NOT a convective-wind benchmark.
+
+## GCUBE_CONSTRUCTION_2024
+- **Name:** GCube Insurance — "Arrested Development" construction claims (2024)
+- **Type:** `renewable_claims_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://electricalreview.co.uk/2024/09/17/gcube-warns-of-rising-insurance-claims-as-renewables-construction-ramps-up/
+- **Retrieved:** 2026-07-10
+- **Has:** $1B CAR/DSU claims analyzed; onshore wind+solar construction losses 48% Nat Cat/extreme weather; flooding 18% frequency / 46% cost.
+- **Does not have:** Operations-phase convective-wind severity; wind-only split.
+- **Notes:** Construction-phase (not operations); adjacent context only.
+
+## GCUBE_US_CLAIMS_2012
+- **Name:** GCube Insurance — Most Common Wind Insurance Claims (2012 US data, via NAW)
+- **Type:** `renewable_claims_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://nawindpower.com/gcube-lists-most-common-wind-insurance-claims
+- **Retrieved:** 2026-07-10
+- **Has:** Blade dmg 41.4%, gearbox 35.1%, generators 10.2%, transformers 5.1% of loss; causes: poor maint 24.5%, lightning 23.4%, design 11.5%; avg claim: gearbox $380K, blade $240K, foundation $1.3M (up to $2.5M); GCube >$200M paid since 2008; insures ~60% of operating US wind.
+- **Does not have:** Convective-wind isolation (lightning explicitly separated at 23.4%).
+- **Notes:** Best open attritional cause-of-loss + component avg-claim baseline; ~60% US market denominator. Lightning (23.4%) separated from wind.
+
+## INSJ_HAIL_2023
+- **Name:** Insurance Journal — "Baseball-Size Hail Makes Insuring Solar and Wind Farms Pricier"
+- **Type:** `trade_press`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `HAIL_CONTAMINATED_SCS`
+- **URL:** https://www.insurancejournal.com/news/national/2023/08/02/733273.htm
+- **Retrieved:** 2026-07-10
+- **Has:** Hail ~$300M losses in TX (~2x combined severe-storm+wildfire+flood at notable US wind & solar since 2020, implying ~$150M combined non-hail); TX/SE premiums up as much as 50%/yr.
+- **Does not have:** Wind-only convective severity; the ~$150M is blended wind+solar+multi-peril.
+- **Notes:** Hail-dominant; the implied ~$150M non-hail is blended across wind+solar & 3 perils. CONTEXT.
+
+## AIC_ECOFIN_WHIRLWIND_2023
+- **Name:** AIC — Ecofin US Renewables hit by unprecedented tornado in Texas (Whirlwind Energy)
+- **Type:** `investor_disclosure`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.theaic.co.uk/aic/news/industry-news/ecofin-us-renewables-hit-by-unprecedented-tornado-in-texas
+- **Retrieved:** 2026-07-10
+- **Has:** Whirlwind Energy wind farm, Floydada TX, 59.8 MW, over a third of $102M portfolio; 5 transmission poles damaged; force majeure with Austin Energy.
+- **Does not have:** $ repair/claim amount (gated in Ecofin/RNEW filings).
+- **Notes:** Named US tornado-on-wind-farm event with MW; $ loss gated. Pathway: Ecofin/RNEW annual report.
+
+## JUSTIA_FLAT_RIDGE_2_2014
+- **Name:** Flat Ridge 2 Wind Energy LLC v. Underwriters at Lloyd's (2014 NY Slip Op 31804(U))
+- **Type:** `court_filing`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://cases.justia.com/new-york/other-courts/2014-2014-ny-slip-op-31804-u.pdf?ts=1405462210
+- **Retrieved:** 2026-07-10
+- **Has:** 66,000-acre farm, 204 GE WTGs, Kansas, tornado 2012-05-19; premium $1.8M; claim submitted $9,728,755.38; adjuster est >$12M; partial pmts $3.5M + $3.75M = $7.25M paid net of $250K deductible; unallocated proofs of loss $7.5M.
+- **Does not have:** Nameplate MW of the damaged subset (project ~419.6MW total not in filing); per-turbine allocation.
+- **Notes:** BEST clean open single-event tornado-on-US-wind-farm claim. $/MW normalization requires an external MW denominator (project nameplate) NOT in the filing — leave $/MW blank or derived-sensitivity only.
+
+## GALLAGHER_RE_TRANSITION_2024
+- **Name:** Gallagher Re — "Insuring the Transition" (Nov 2024)
+- **Type:** `broker_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.ajg.com/gallagherre/-/media/files/gallagher/gallagherre/news-and-insights/2024/november/gallagherre-insuring-the-transition-risks-and-opportunities-in-renewable-energy.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** Subsea cable 75-80% of UK offshore claims (non-CW); IEC 61400 Class T ref wind 57 m/s ~ Cat3; turbines auto-stop ~55 mph; solar SCS losses upward of $50M/event (Midwest, solar); Typhoon Yagi $920M (fenced).
+- **Does not have:** Onshore convective-wind turbine severity; loss-ratio chart values gated.
+- **Notes:** Offshore/cable & hurricane figures fenced or non-CW; retained for auto-stop and Class-T design context.
+
+## RENEW_RISK_2025
+- **Name:** Renew Risk — "From hailstorms to human error"
+- **Type:** `modeler_blog`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.renew-risk.com/resources/blog/hailstorms-to-human-error
+- **Retrieved:** 2026-07-10
+- **Has:** US 2018-2025: tornadoes+earthquakes combined losses $45M vs hail+storms ~$415M; offshore cable ~80% of claims (non-CW).
+- **Does not have:** Wind-only tornado isolation ($45M blends tornado+earthquake).
+- **Notes:** $45M blends tornado WITH earthquake — cannot isolate tornado. Downgrade to CONTEXT.
+
+## REVIEW_ENERGY_IOWA_2024
+- **Name:** Review-Energy.com — US onshore wind farms suffer impacts by Iowa twisters
+- **Type:** `trade_press`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.review-energy.com/eolico/us-onshore-wind-farms-suffer-impacts-by-powerful-twisters-in-iowa
+- **Retrieved:** 2026-07-10
+- **Has:** 17 Iowa tornadoes; 10 turbines destroyed near Greenfield; MidAmerican lost 6; 4 Vestas down; ~200,000 without power.
+- **Does not have:** $ figures — pathway to MidAmerican.
+- **Notes:** Turbine-count-only; Greenfield 2024 event. $ gated.
+
+## WINDWATCH_VESTAS_2024
+- **Name:** National Wind Watch — Ten Vestas turbines destroyed as tornadoes hit US wind farms
+- **Type:** `news_aggregator`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.wind-watch.org/news/2024/05/23/ten-vestas-turbines-destroyed-as-deadly-tornadoes-hit-us-wind-farms/
+- **Retrieved:** 2026-07-10
+- **Has:** Orient (MidAmerican) 5 turbines destroyed; Arbor Hill 1; Prescott (RPM Access) 4; model 2MW Vestas V110.
+- **Does not have:** $ figures — pathway to MidAmerican/RPM Access.
+- **Notes:** Turbine model + count for Greenfield 2024; $ gated.
+
+## RISKINS_MUNICHRE_AKERSON_2025
+- **Name:** Risk & Insurance — RiskWorld Q&A with Doug Akerson, Munich Re
+- **Type:** `trade_press_interview`
+- **Availability:** `HAS_PATHWAY_ONLY`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://riskandinsurance.com/riskworld-q-and-a-with-doug-akerson-munich-re/
+- **Retrieved:** 2026-07-10
+- **Has:** None (quote): straight line wind in the form of derechos is a concern for wind farms.
+- **Does not have:** Any number; full Munich Re wind-farm report not located.
+- **Notes:** Qualitative derecho-on-wind-farm pathway; Munich Re report gated.
+
+## SWISSRE_WINDS_OF_CHANGE
+- **Name:** Swiss Re Institute — Climate Change and Wind Power
+- **Type:** `reinsurer_research`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.swissre.com/institute/research/topics-and-risk-dialogues/climate-and-natural-catastrophe-risk/climate-change-wind-power.html
+- **Retrieved:** 2026-07-10
+- **Has:** Turbines designed to withstand ~112 mph (~Cat3); Iowa/Scotland storms caused rotor detachments/collapses (qualitative); Japan typhoons fenced.
+- **Does not have:** US convective-wind $/MW; full report PDF not fetched.
+- **Notes:** Design-speed anchor + qualitative SLW/tornado mentions; typhoon fenced.
+
+## FOXWX_TRAVERSE_2022
+- **Name:** Fox Weather — Oklahoma wind turbine fire (Traverse Wind Energy Center)
+- **Type:** `news_on_record`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.foxweather.com/weather-news/oklahoma-wind-turbine-fire
+- **Retrieved:** 2026-07-10
+- **Has:** Traverse WEC (Custer Co OK), 356 GE turbines, one turbine down/on fire after severe thunderstorm; PSO/AEP said no other damage.
+- **Does not have:** $ loss; cause (lightning vs wind) unconfirmed.
+- **Notes:** Cause undetermined (lightning suspected); matches Traverse ~999MW TIV $1.3986B anchor. Downgrade — not a clean wind benchmark.
+
+## WINDWATCH_PANHANDLE_2022
+- **Name:** National Wind Watch — Regulator ends safety case against Panhandle wind farm (Olympia/RES OK)
+- **Type:** `news_aggregator`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.wind-watch.org/news/2022/01/17/regulator-ends-safety-case-against-panhandle-wind-farm-operator/
+- **Retrieved:** 2026-07-10
+- **Has:** Nine towers catastrophically failed (blades missing/nacelles burned); 120MW project, 60 towers; remediation fine $348,750.
+- **Does not have:** Root cause not confirmed as convective wind (may be mechanical); $ loss.
+- **Notes:** 9-tower failure cause NOT confirmed wind-driven — CONTEXT, not a clean benchmark.
+
+## WINDPOWERMONTHLY_INSURANCE
+- **Name:** Windpower Monthly — Insurance: It pays to prepare for the worst
+- **Type:** `trade_press`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.windpowermonthly.com/article/1032367/insurance-pays-prepare-worst
+- **Retrieved:** 2026-07-10
+- **Has:** Storm damaged majority of blades at 50MW Kumeyaay plant (CA); wind-insurance ~low single-digit % of annual costs; avg insurance $0.34->$0.07 per $100 property value; example deductible ~$500K; GCube ~60% US market; warranty $30K-$100K/yr.
+- **Does not have:** $ loss for Kumeyaay event.
+- **Notes:** Kumeyaay SLW blade-damage pathway; insurance-cost denominators. Event $ gated.
+
+## PVTECH_HAIL_58M_2023
+- **Name:** PV-Tech — GCube: Hail claims now average ~US$58.4M per claim
+- **Type:** `trade_press`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `HAIL_CONTAMINATED_SCS`
+- **URL:** https://www.pv-tech.org/hail-claims-now-average-around-us58-4-million-per-claim-says-gcube-insurance/
+- **Retrieved:** 2026-07-10
+- **Has:** Avg hail claim $58.4M; hail = 54% of incurred solar loss claim costs (5-yr).
+- **Does not have:** Wind data (solar-only).
+- **Notes:** Solar-only hail; retained as cross-check context, NOT a wind benchmark.
+
+## NEXTRACKER_WEATHER_WP
+- **Name:** Nextracker whitepaper — Mitigating Extreme Weather Risk (citing GCube)
+- **Type:** `vendor_whitepaper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://info.nextracker.com/hubfs/Updated_Collateral/NX%20Horizon_Risk%20Mitigation%20Whitepaper_Part%201.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** GCube avg claim ~$1M (~500 claims/yr); weather (esp hail+wind) >80% of claims values; Midway Solar (182MW TX) $70M-$80M (solar).
+- **Does not have:** Wind-specific isolation; only aggregate hail+wind 80% touches wind.
+- **Notes:** Solar-focused; wind only in aggregate 80% figure. CONTEXT.
+
+## XWEATHER_LIGHTNING_2025
+- **Name:** Xweather (Vaisala) — 32% more US wind turbines hit by 4+ lightning strokes in 2025
+- **Type:** `vendor_data`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.xweather.com/blog/wind-turbines-hit-by-lightning-2025
+- **Retrieved:** 2026-07-10
+- **Has:** 4+-stroke turbines +32.1% YoY; struck turbines +18.4%; 31.4% of >70,000 turbines struck in 2025; blade damage >$100M/yr, lightning ~60% of blade losses.
+- **Does not have:** Convective-wind losses (this is lightning).
+- **Notes:** Lightning baseline: sharpens how much of the blade-loss $ pool is NON-convective-wind (~60% lightning). Denominator/context.
+
+## AXIS_OFFSHORE_2026
+- **Name:** AXIS Capital — Global Offshore Wind report (claims by cause)
+- **Type:** `insurer_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.claimsjournal.com/news/national/2026/03/10/336131.htm
+- **Retrieved:** 2026-07-10
+- **Has:** Wind turbines 57% of incidents / 37% of incurred loss (offshore); drivetrain >2/3 of turbine damages; export cables 6% frequency but avg $18.8M/event.
+- **Does not have:** Onshore convective-wind; this is offshore mechanical breakdown.
+- **Notes:** Offshore, mechanical — adjacent-asset baseline only. Full PDF pathway to axiscapital.com.
+
+## ARTEMIS_DESCARTES_PARAM_2026
+- **Name:** Artemis.bm — Descartes/Nextpower parametric wind coverage for solar plants
+- **Type:** `trade_press`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.artemis.bm/news/descartes-partners-with-nextpower-to-launch-parametric-wind-coverage-for-solar-plants/
+- **Retrieved:** 2026-07-10
+- **Has:** New SLW parametric product limits up to $80M globally / $100M US per policy.
+- **Does not have:** Any observed loss (product-design signal).
+- **Notes:** Market-priced max exposure signal, not an observed loss. MARKET_SIGNAL.
+
+## CRESTON_MIDAM_DERECHO_2020
+- **Name:** Creston News Advertiser — Cause of fallen turbine blade near Stuart (MidAmerican, 2020 derecho)
+- **Type:** `news_on_record`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.crestonnews.com/2020/09/21/cause-of-fallen-wind-turbine-blade-near-stuart-under-investigation/anzel9q/
+- **Retrieved:** 2026-07-10
+- **Has:** Operator quote: "did not sustain any significant wind farm damage from the recent derecho" (peak gust 126mph measured/140 est). Unrelated Sept/Oct 2020 blade failures attributed to LIGHTNING, not wind; 46 turbines paused for inspection.
+- **Does not have:** A positive convective-wind loss (this is a MEASURED near-zero).
+- **Notes:** CRITICAL NEGATIVE BENCHMARK: a major derecho (126mph gust) produced no significant wind-farm damage — anchors the low end of the straight-line-wind range and confirms design robustness below Ve50.
+
+## SRC_RMS_SCS_NA
+- **Name:** Moody's RMS — North America Severe Convective Storm Model (legacy)
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.rms.com/models/severe-convective-storm/north-america/tbd
+- **Retrieved:** 2026-07-10
+- **Has:** Product page AAL headline (hail-dominant industry AAL); sub-peril split gated.
+- **Does not have:** Wind-turbine-specific SCS vulnerability curve; open sub-peril AAL split.
+- **Notes:** Hail-dominant blended SCS product; wind-turbine occupancy gated. Pathway.
+
+## SRC_MOODYS_RMS_SCS_HD
+- **Name:** Moody's RMS — North America SCS HD Models (Dec 2025)
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.moodys.com/web/en/us/insights/insurance/introducing-moodys-rms-north-america-severe-convective-storm-hd-models.html
+- **Retrieved:** 2026-07-10
+- **Has:** Methodology description only (claims-calibrated vulnerability); no AAL/PML disclosed.
+- **Does not have:** Any AAL/PML; wind-turbine curve.
+- **Notes:** Fully gated licensed model. Methodology open. Pathway.
+
+## SRC_MOODYS_RMS_HD_ARTICLE
+- **Name:** actuary.info — Moody's RMS HD Models Redraw the SCS Cat Budget
+- **Type:** `trade_press`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://actuary.info/insights/moodys-rms-scs-hd-models-secondary-peril-cat-budget
+- **Retrieved:** 2026-07-10
+- **Has:** Model architecture description (secondary-peril cat-budget framing).
+- **Does not have:** Quantified wind-turbine SCS loss.
+- **Notes:** Trade-press secondary source describing the HD model. Context.
+
+## SRC_VERISK_AIR_STM
+- **Name:** Verisk (AIR) — Severe Thunderstorm Model for the US (2025 brochure)
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.verisk.com/49bc40/siteassets/media/downloads/catastrophe-and-risk-solutions/verisk-severe-thunderstorm-model-for-the-united-states.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** Claims-validation totals + specialty-risk scope; hail/tornado/SLW internal split not open.
+- **Does not have:** Open AAL sub-peril split; wind-turbine curve.
+- **Notes:** Financial module gated; brochure open. Pathway.
+
+## SRC_VERISK_BLOG_2026
+- **Name:** Verisk — Severe Thunderstorms: A Frequency, Accumulation, and Volatility Peril (2026)
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.verisk.com/blog/severe-thunderstorms-a-frequency-accumulation-and-volatility-peril/
+- **Retrieved:** 2026-07-10
+- **Has:** Claims-validation totals; catalog description; SCS framed as frequency/accumulation peril.
+- **Does not have:** Wind-turbine occupancy vulnerability.
+- **Notes:** Blog; open framing of SCS as attritional-accumulation peril. Context.
+
+## SRC_COREL_SCS_DATASHEET
+- **Name:** CoreLogic (Cotality) — U.S. SCS Model Datasheet 2025
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://pages.corelogic.com/hubfs/CoreLogic%20NA/Website%20PDF%20Files/INS/SCS%20Model%20Datasheet%202025%20-%20RAA%20Update.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** Model design description only.
+- **Does not have:** AAL/PML; wind-turbine curve.
+- **Notes:** Datasheet open, no loss numbers. Pathway.
+
+## SRC_KATRISK_SCS
+- **Name:** KatRisk — Severe Convective Storm Risk Modeling
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.katrisk.com/severe-convective-storm-risk-modeling/
+- **Retrieved:** 2026-07-10
+- **Has:** Return-period wind-speed validation methodology + one worked tornado/SLW example (hazard, not loss).
+- **Does not have:** Loss AAL/PML; wind-turbine damage function.
+- **Notes:** Hazard-side return-period validation; no loss. Pathway/hazard anchor.
+
+## SRC_SWISSRE_SIGMA_NATCAT
+- **Name:** Swiss Re Institute — sigma Natural Catastrophes (No 1/2025)
+- **Type:** `reinsurer_research`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.swissre.com/dam/jcr:46617c8b-98a4-4d54-b259-f4bdcbaab0b8/sri-sigma-natural-catastrophes-1-2025.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** SCS annual aggregate insured losses (hail-dominant per Swiss Re); realized single-year totals.
+- **Does not have:** Wind-turbine share; AAL/EP curve; per-MW.
+- **Notes:** Realized annual industry aggregate (NOT AAL). Hail-dominant SCS group. Context macro-denominator.
+
+## SRC_MUNICHRE_NATCATSERVICE
+- **Name:** Munich Re — NatCatSERVICE (Hail/Tornadoes/Flash Floods + 2025 factsheet)
+- **Type:** `reinsurer_research`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.munichre.com/en/risks/natural-disasters/thunderstorms-hail-tornados.html
+- **Retrieved:** 2026-07-10
+- **Has:** Realized SCS event + annual totals; Mar 2025 US outbreak >100 tornadoes (few EF4).
+- **Does not have:** Wind-turbine isolation; modeled EP curve.
+- **Notes:** Realized industry totals (overall + insured). One tornado-heavy named outbreak. Macro-denominator context.
+
+## SRC_AON_CATINSIGHT_2026
+- **Name:** Aon — 2026 Climate and Catastrophe Insight (covering 2025)
+- **Type:** `broker_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.aon.com/en/insights/reports/climate-and-catastrophe-report
+- **Retrieved:** 2026-07-10
+- **Has:** Realized annual SCS insured/economic loss; SCS framed as costliest insured peril of the 21st century.
+- **Does not have:** Wind-turbine share; per-MW.
+- **Notes:** Realized industry aggregate. Macro-denominator context; NOT a wind-asset benchmark.
+
+## SRC_ASCE7_22_WIND_MAPS
+- **Name:** ASCE/SEI 7-22 Ch.26 Basic Wind Speed maps + ASCE 7 Hazard Tool
+- **Type:** `engineering_standard`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://asce7hazardtool.online/
+- **Retrieved:** 2026-07-10
+- **Has:** Basic wind speed (3-s gust mph) by MRI (300/700/1700/3000-yr) via free hazard tool.
+- **Does not have:** Any loss/DR; this is a hazard-intensity surface only.
+- **Notes:** ENGINEERED_HAZARD_ANCHOR: supplies the [W] x-axis intensity, NOT a loss metric. Aligns with the cell's V_3s_hub axis.
+
+## SRC_ASCE7_22_TORNADO_MAPS
+- **Name:** ASCE/SEI 7-22 Ch.32 tornado hazard maps + NIST TN 2214
+- **Type:** `engineering_standard`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://nvlpubs.nist.gov/nistpubs/TechnicalNotes/NIST.TN.2214.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** Design tornado speed (3-s gust mph) by MRI x effective plan area Ae.
+- **Does not have:** Any loss/DR; hazard-intensity only.
+- **Notes:** ENGINEERED_HAZARD_ANCHOR [T]: tornado design-speed surface, area-dependent. Not a loss metric.
+
+## SRC_FEMA_NRI_TORNADO_WIND
+- **Name:** FEMA National Risk Index v1.20 — Tornado & Strong Wind hazards
+- **Type:** `government_dataset`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://hazards.fema.gov/nri/determining-risk
+- **Retrieved:** 2026-07-10
+- **Has:** Separate Tornado & Strong Wind Expected Annual Loss (county/tract); e.g. Atlanta 11-county: Tornado EAL $146.6M vs Strong Wind EAL $5.35M.
+- **Does not have:** Wind-turbine occupancy (building/pop/ag exposure only); insured claims.
+- **Notes:** CRITICAL: FEMA NRI keeps Tornado and Strong Wind as SEPARATE hazard layers — the same [T]/[W] split this pair uses. Building/pop/ag denominators, NOT turbine TIV. AAL family.
+
+## SRC_MOODYS_RMS_RENEWABLES_IFM
+- **Name:** Moody's RMS — Managing risk/cat modeling for renewables (Industrial Facilities Model)
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.moodys.com/web/en/us/insights/insurance/managing-risk-and-catastrophe-modeling-for-the-growing-renewables-sector.html
+- **Retrieved:** 2026-07-10
+- **Has:** Component-based vulnerability-curve construction methodology (qualitative); hurricane-specific quote fenced.
+- **Does not have:** AAL/PML; open wind-turbine DR curve.
+- **Notes:** Confirms cat modelers use component/failure-unit vulnerability grain for turbines (methodology parallel to the canonical cell). Gated.
+
+## SRC_BOUCHARD_ROMANIC_2023
+- **Name:** Bouchard & Romanic (2023) — Monte Carlo modeling of tornado hazard to wind turbines in Germany
+- **Type:** `peer_reviewed`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC9910775/
+- **Retrieved:** 2026-07-10
+- **Has:** Logistic vulnerability curve v_m=49.1 m/s, k=0.504; DOD collapse threshold ~58 m/s; replacement 1,250 EUR/kW; AGG/OCC annual-loss stats flatten ~EUR25M; per-turbine direct-hit prob by F-cat.
+- **Does not have:** A US-specific number; claims calibration (engineering model, German turbines).
+- **Notes:** BEST peer-reviewed tornado-on-turbine fragility analog. Curve SHAPE/methodology + EUR/kW replacement basis; NOT a US plug-in number. German geography.
+
+## SRC_MOODYS_PML_USWIND_TREND
+- **Name:** Moody's — PML dollar exposure for US wind increased 58% (Jun 2025)
+- **Type:** `rating_agency_research`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `HURRICANE_TC`
+- **URL:** https://www.tradingview.com/news/reuters.com,2025:newsml_L6N3S70JS:0-pml-dollar-exposure-for-us-wind-increased-58-over-hard-market-moody-s/
+- **Retrieved:** 2026-07-10
+- **Has:** US wind PML (1-in-250-yr industry aggregate) up 58% over hard market (trend/CAGR).
+- **Does not have:** Ground-up wind-turbine asset loss; SCS isolation.
+- **Notes:** QUARANTINE: "US wind PML" is the reinsurance property-cat wind PML, HURRICANE_TC-dominated — NOT onshore-turbine convective-wind. CONTEXT_NOT_BENCHMARK.
+
+## R3_NASA_GREENFIELD_EO
+- **Name:** NASA Earth Observatory — Tornado Damage in Greenfield
+- **Type:** `government_forensic`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://science.nasa.gov/earth/earth-observatory/tornado-damage-in-greenfield-152870/
+- **Retrieved:** 2026-07-10
+- **Has:** Greenfield IA EF4 2024-05-21; turbine collapses; satellite-confirmed damage swath.
+- **Does not have:** Turbine-specific $ loss.
+- **Notes:** Greenfield primary tornado anchor; forensic imagery. $ gated (whole-event $31.8M is residential-dominated).
+
+## R3_NWS_DMX_EVENTSUM
+- **Name:** NOAA/NWS Des Moines — Event Summary May 21 2024
+- **Type:** `government_forensic`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.weather.gov/dmx/2024-May-21-Iowa-TornadoesWindsFlooding
+- **Retrieved:** 2026-07-10
+- **Has:** Greenfield EF4 185mph official 3-s gust; storm survey.
+- **Does not have:** Turbine-specific $; hub-height wind reconstruction.
+- **Notes:** Official EF/gust for Greenfield. Hazard anchor for [T].
+
+## R3_WIKI_GREENFIELD
+- **Name:** Wikipedia (NWS/NCEI-sourced) — Greenfield tornado
+- **Type:** `encyclopedic`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://en.wikipedia.org/wiki/Greenfield_tornado
+- **Retrieved:** 2026-07-10
+- **Has:** Greenfield EF4; DOW radar 309-318 mph; whole-event damage $31.8M.
+- **Does not have:** Turbine-only $ ( $31.8M is residential-dominated).
+- **Notes:** DOW radar peak + whole-event $ (residential-dominated). Turbine $ not isolable. CONTEXT.
+
+## R3_WELLNEWS_IAWIND
+- **Name:** The Well News — Tornado Outbreak Takes Down Wind Turbines in Iowa
+- **Type:** `news`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.thewellnews.com/in-the-news/tornado-outbreak-takes-down-massive-wind-turbines-in-iowa/
+- **Retrieved:** 2026-07-10
+- **Has:** Turbine-count reporting for Greenfield/Orient.
+- **Does not have:** $ loss.
+- **Notes:** Corroborating turbine-count source for Greenfield. $ gated.
+
+## R3_KFOX_MIDAM6
+- **Name:** KFOX/KGAN (AP) — PHOTOS: Wind turbine damage from Greenfield/Orient
+- **Type:** `news`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://kfoxtv.com/news/nation-world/photos-wind-turbine-damage-from-powerful-tornado-unprecedented-greenfield-iowa-midamerican-energy-company-orient-wind-farm-southwest-iowa-incredible-tornado-video-ever-captured
+- **Retrieved:** 2026-07-10
+- **Has:** MidAmerican Orient wind farm turbine damage; operator called it unprecedented.
+- **Does not have:** $ loss.
+- **Notes:** Photo forensic + operator quote. $ gated.
+
+## R3_EENEWS_TWISTERS
+- **Name:** E&E News (POLITICO) — Can tornadoes topple wind turbines? Fact-checking 'Twisters'
+- **Type:** `news_analysis`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.eenews.net/articles/can-tornadoes-topple-wind-turbines-fact-checking-twisters/
+- **Retrieved:** 2026-07-10
+- **Has:** Rarity framing: direct tornado hits on turbines are low-probability given small turbine footprint vs tornado path.
+- **Does not have:** $ loss; exposure fraction number.
+- **Notes:** Supports the cell's low tornado exposure fraction (0.1 core) narrative. Context.
+
+## R3_EPRI_TCTORNADO
+- **Name:** EPRI — Tropical Cyclone and Tornado Risks to Wind Turbines
+- **Type:** `industry_research`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://restservice.epri.com/publicdownload/000000003002004460/0/Product
+- **Retrieved:** 2026-07-10
+- **Has:** Harper Co KS 2012 EF3: blades removed from several turbines; IEC Ve50 table (matches canonical cell). TC section quarantined.
+- **Does not have:** Turbine-specific $; full methodology gated.
+- **Notes:** EPRI IEC Ve50 table matches the canonical cell EXACTLY. Harper Co KS tornado case (blades removed). TC portion quarantined to wind_hurricane.
+
+## R3_NOAA_NCEI_BENTON
+- **Name:** NOAA NCEI Storm Events — Benton/Fowler IN 2023-03-31 EF2
+- **Type:** `government_forensic`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.ncei.noaa.gov/stormevents/eventdetails.jsp?id=1085924
+- **Retrieved:** 2026-07-10
+- **Has:** Turbine snapped ~halfway up (TOWER); blades thrown 600 yd; EF2 (111-135 mph band).
+- **Does not have:** Turbine $ loss.
+- **Notes:** Clean tower-failure-at-EF2 forensic — informs D50 shape (tower failure well below Ve50 under tornado). $ gated.
+
+## R3_FOXWX_TRAVERSE
+- **Name:** Fox Weather — Oklahoma turbine fire (Traverse WEC, forensic angle)
+- **Type:** `news`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.foxweather.com/weather-news/oklahoma-wind-turbine-fire
+- **Retrieved:** 2026-07-10
+- **Has:** One Traverse turbine down/fire after thunderstorm; cause undetermined.
+- **Does not have:** $ loss; confirmed convective-wind cause.
+- **Notes:** Duplicate-angle of Traverse; cause unresolved (lightning suspected). Downgrade.
+
+## R3_BHAM_TOWERCOLLAPSE
+- **Name:** Univ. of Birmingham — Wind Turbine Tower Collapse Cases: A Historical Overview
+- **Type:** `peer_reviewed`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://pure-oai.bham.ac.uk/ws/files/48895024/6._Cases_review_paper_06_Rev_3.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** Catalog of tower-collapse cases (storm-tagged); typhoon cases quarantined.
+- **Does not have:** US per-MW $; claims data.
+- **Notes:** Tower-collapse mechanism catalog; supports WT_TOWER_STRUCT failure mode. Typhoon cases fenced.
+
+## R3_COPERNICUS_KYRILL
+- **Name:** Copernicus (ADGEO) — Storm Kyrill and mid-Jan 2007 storms
+- **Type:** `peer_reviewed`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://adgeo.copernicus.org/articles/58/135/2023/adgeo-58-135-2023.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** European windstorm (synoptic) loss context; gust fields.
+- **Does not have:** US onshore turbine $; convective (vs synoptic) isolation.
+- **Notes:** European SYNOPTIC windstorm (not convective/derecho); geography+peril mismatch. Context for straight-line wind mechanism only.
+
+## R3_PSE_NATHAZREVIEW
+- **Name:** PSE Community — Review of Natural Hazard Risks for Wind Farms
+- **Type:** `peer_reviewed_preprint`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://psecommunity.org/wp-content/plugins/wpor/includes/file/2302/LAPSE-2023.3475-1v1.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** Wyoming/PA/Sweden SLW cases; typhoon cases quarantined.
+- **Does not have:** US per-MW $.
+- **Notes:** Mostly typhoon (fenced) + some SLW cases. Mechanism review. Typhoon cases quarantined.
+
+## R3_WIKISOURCE_NWSFINAL
+- **Name:** Wikisource — 2024 Greenfield Tornado Finalized Report (NWS DMX)
+- **Type:** `government_forensic`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://en.wikisource.org/wiki/Page:2024_Greenfield_Tornado_Finalized_Report.pdf/4
+- **Retrieved:** 2026-07-10
+- **Has:** Finalized NWS survey: Greenfield EF4 185mph.
+- **Does not have:** Turbine $.
+- **Notes:** Primary NWS finalized survey (hosted). Hazard anchor.
+
+## R3_YT_FORENSIC_GREENFIELD
+- **Name:** Independent forensic YouTube — Greenfield IA EF4 damage analysis
+- **Type:** `independent_forensic`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.youtube.com/watch?v=sPUOFn8IYP8
+- **Retrieved:** 2026-07-10
+- **Has:** Engineering-estimated turbine failure threshold ~170 mph (FEA-video narration).
+- **Does not have:** Peer-reviewed number; $ loss.
+- **Notes:** Independent FEA-style estimate (~170mph failure); narration-gated, not primary. Low confidence.
+
+## R3_FOXWX_EFCLUE
+- **Name:** Fox Weather — Damaged turbines as EF clue (Tim Marshall interview)
+- **Type:** `news_interview`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.foxweather.com/weather-news/wind-turbine-tornado-damage-enhanced-fujita-scale-measurements
+- **Retrieved:** 2026-07-10
+- **Has:** Marshall estimate: Greenfield turbine failure at 120-140 mph.
+- **Does not have:** $ loss.
+- **Notes:** Expert (Tim Marshall) estimated turbine failure threshold 120-140mph — informs tornado D50 shift plausibility. Not a $ benchmark.
+
+## R3_ENGFAILANAL_ASLAM
+- **Name:** Engineering Failure Analysis (Aslam) — Tornado-Induced Wind Turbine Failure (Greenfield FEA)
+- **Type:** `peer_reviewed`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://www.linkedin.com/posts/usamaaslam98_phdresearch-windenergy-structuralengineering-activity-7407242669132804097-47eJ
+- **Retrieved:** 2026-07-10
+- **Has:** Abstract: localized inelastic buckling failure mode confirmed by FEA (Greenfield).
+- **Does not have:** Full paper paywalled; $ loss; full fragility ordinates.
+- **Notes:** Peer-reviewed FEA confirming tower buckling mechanism for Greenfield — directly supports WT_TOWER_STRUCT. Full paper GATED (pathway: journal).
+
+## R3_MIDAM_DERECHO2020
+- **Name:** MidAmerican Energy — Derecho 2020, a storm like no other
+- **Type:** `operator_disclosure`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.midamericanenergy.com/articles/customer-news-derecho2020-stormresponse
+- **Retrieved:** 2026-07-10
+- **Has:** Operator narrative confirming no significant wind-farm damage from the 2020 derecho.
+- **Does not have:** Turbine-specific $/count.
+- **Notes:** Corroborates the near-zero derecho damage negative finding. Low-end anchor context.
+
+## R3_CRESTON_ARBORHILLS
+- **Name:** Creston News — Fallen turbine blade near Stuart (Arbor Hills, forensic angle)
+- **Type:** `news_on_record`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `STRAIGHT_LINE_WIND`
+- **URL:** https://www.crestonnews.com/2020/09/21/cause-of-fallen-wind-turbine-blade-near-stuart-under-investigation/anzel9q/
+- **Retrieved:** 2026-07-10
+- **Has:** Blade failures attributed to LIGHTNING (not wind) despite temporal proximity to the derecho.
+- **Does not have:** A wind-caused loss.
+- **Notes:** Forensic-angle duplicate: attributes the blade loss to lightning, reinforcing that the 2020 derecho did NOT cause the failures. Negative finding / attribution guard.
+
+## SRC_IEC_61400_1
+- **Name:** IEC 61400-1 — Wind turbine design requirements (Part 1)
+- **Type:** `engineering_standard`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.iec.ch/
+- **Retrieved:** 2026-07-10
+- **Has:** IEC class table: Class I Vref 50 m/s, II 42.5, III 37.5; Ve50=1.4*Vref extreme 50-yr gust.
+- **Does not have:** Loss/DR; $ severity.
+- **Notes:** THE design anchor for the cell's V/Ve50 x-axis. Ve50 class table matches the canonical artifact iec_speed_table. Mechanism/axis only.
+
+## SRC_DTU_WASP_IEC
+- **Name:** DTU Wind Energy (WAsP) — IEC 61400-1 turbine safety standard explainer
+- **Type:** `academic_explainer`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://wasp.dtu.dk/software/windfarm-assessment-tool/iec-61400-1
+- **Retrieved:** 2026-07-10
+- **Has:** Class/load-case framing, extreme wind model, gusts, turbulence, site assessment.
+- **Does not have:** Loss/DR.
+- **Notes:** Cell source SRC_DTU_IEC. Axis-bridge anchor. Mechanism only.
+
+## SRC_NIST_FRAGILITY_MATRIX
+- **Name:** NIST — Fragility curves, damage matrices & wind-induced loss estimation
+- **Type:** `government_engineering`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.nist.gov/
+- **Retrieved:** 2026-07-10
+- **Has:** Ellingwood/Rosowsky fragility-curve + damage-matrix methodology (illustrative $ not turbine-specific).
+- **Does not have:** Turbine-specific ordinates; $ severity.
+- **Notes:** Cell source NIST_FRAGILITY_METHOD — the methodological basis for the logistic fragility form and max_DR caps. Method only.
+
+## SRC_RICE_DUENAS_OSORIO_ACCEL
+- **Name:** Rice University (Dueñas-Osorio) — Long-term unavailability of wind turbines from wind-induced accelerations
+- **Type:** `academic`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.rice.edu/
+- **Retrieved:** 2026-07-10
+- **Has:** Acceleration thresholds 10/15/20 m/s2; cut-out 25 m/s; P(exceed) 64/48/37%; annual unavailability W.Texas 47%, N.Ireland 49%.
+- **Does not have:** Structural $ severity (this is availability/acceleration, the secondary open-seam pathway).
+- **Notes:** Cell source SRC_RICE_ACCEL — basis for WT_POWER_ELEC_ACCEL secondary acceleration-sensitive open-seam curve. Availability, not $ loss.
+
+## SRC_DUENAS_OSORIO_BASU_2008
+- **Name:** Dueñas-Osorio & Basu (2008, Engineering Structures) — Unavailability from wind-induced accelerations
+- **Type:** `peer_reviewed`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://doi.org/10.1016/j.engstruct.2007.09.005
+- **Retrieved:** 2026-07-10
+- **Has:** Abstract-level acceleration/unavailability numbers (via Rice page).
+- **Does not have:** Full paper paywalled; $ severity.
+- **Notes:** Primary source behind the Rice acceleration curve. Full paper gated.
+
+## SRC_STEEL_CONCRETE_TOWER_FRAGILITY
+- **Name:** Fragility analysis of steel and concrete wind turbine towers (open-access preprint)
+- **Type:** `peer_reviewed_preprint`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://scispace.com/
+- **Retrieved:** 2026-07-10
+- **Has:** Tower fragility curves (steel vs concrete) vs wind demand.
+- **Does not have:** US claims; $ severity per MW.
+- **Notes:** Tower fragility form support for WT_TOWER_STRUCT. Curve shape analog only.
+
+## SRC_ROUECHE_2017_TORNADO_FRAGILITY
+- **Name:** Roueche, Lombardo, Prevatt (2017) — Empirical Tornado Fragility of Residential Structures
+- **Type:** `peer_reviewed`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `TORNADO`
+- **URL:** https://ascelibrary.org/doi/10.1061/%28ASCE%29ST.1943-541X.0001854
+- **Retrieved:** 2026-07-10
+- **Has:** Abstract: EF/DOD-to-speed mapping method (residential).
+- **Does not have:** Turbine fragility; full DOD1-DOD9 table (ASCE paywall).
+- **Notes:** Residential (not turbine); imported only for the EF/DOD->speed mapping that underlies tornado hazard bridging. Full table gated.
+
+## SRC_WINDPOWERENGINEERING_BLADE_FAILURE
+- **Name:** Windpower Engineering & Development — What researchers learned from fractured blades
+- **Type:** `trade_press`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.windpowerengineering.com/
+- **Retrieved:** 2026-07-10
+- **Has:** Qualitative blade failure-mode taxonomy.
+- **Does not have:** Loss/DR; $ severity.
+- **Notes:** Blade failure-mode taxonomy for WT_BLADE_STRUCT. Mechanism only.
+
+## SRC_DTU_BLADE_FAILURE_REVIEW
+- **Name:** DTU Wind Energy — Root Causes and Mechanisms of Failure of Wind Turbine Blades
+- **Type:** `academic`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://orbit.dtu.dk/
+- **Retrieved:** 2026-07-10
+- **Has:** Abstract-level blade failure mechanisms.
+- **Does not have:** Full paper gated; $ severity.
+- **Notes:** Blade mechanism review. Abstract open; full paper gated.
+
+## SRC_HAZUS_WIND_PHYSRISK
+- **Name:** FEMA HAZUS — Hurricane Model wind damage functions (via physrisk/Oasis-LMF)
+- **Type:** `government_model`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `HURRICANE_TC`
+- **URL:** https://github.com/os-climate/physrisk
+- **Retrieved:** 2026-07-10
+- **Has:** Hazus 6.1 hurricane damage functions (generic building occupancies).
+- **Does not have:** Wind-turbine occupancy; convective-wind (hurricane-coded).
+- **Notes:** DOWNGRADED: generic BUILDING damage functions, hurricane-coded — NOT a turbine curve and hurricane-fenced. Method context only.
+
+## SRC_HAZUS_TECH_MANUAL
+- **Name:** FEMA/NIBS — Hazus Hurricane Model Technical Manual
+- **Type:** `government_model`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `HURRICANE_TC`
+- **URL:** https://www.fema.gov/flood-maps/products-tools/hazus
+- **Retrieved:** 2026-07-10
+- **Has:** Structure of the hurricane damage functions described.
+- **Does not have:** Full manual gated (large PDF); turbine occupancy.
+- **Notes:** DOWNGRADED generic building; hurricane-coded and fenced. Context.
+
+## SRC_GAR13_WIND_VULN
+- **Name:** GAR13 (Yamin et al. 2014) — Seismic & wind vulnerability for GAR-13 global exposure
+- **Type:** `government_model`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `CONVECTIVE_BLENDED`
+- **URL:** https://www.preventionweb.net/english/hyogo/gar/2013/en/home/
+- **Retrieved:** 2026-07-10
+- **Has:** Wind vulnerability methodology formulas (generic building classes).
+- **Does not have:** Turbine curve; building-class tables gated.
+- **Notes:** DOWNGRADED generic global building vulnerability. Method context; not a turbine benchmark.
+
+## SRC_USGS_USWTDB_VIEWER
+- **Name:** USGS/ACP/LBNL — U.S. Wind Turbine Database (USWTDB) Viewer
+- **Type:** `government_dataset`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://eerscmap.usgs.gov/uswtdb/viewer/
+- **Retrieved:** 2026-07-10
+- **Has:** Per-turbine location, capacity (MW), model, hub height, rotor diameter for ~all US turbines.
+- **Does not have:** Loss/$; TIV per turbine.
+- **Notes:** THE exposure denominator: turbine locations + nameplate MW nationwide. Enables exposure-fraction and per-MW normalization denominators.
+
+## SRC_LBNL_USWTDB_V8_MEMO
+- **Name:** LBNL — US Wind Turbine Database V8.0 update memo
+- **Type:** `government_dataset`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://emp.lbl.gov/
+- **Retrieved:** 2026-07-10
+- **Has:** USWTDB v8.0 turbine counts/capacity update.
+- **Does not have:** Loss/$.
+- **Notes:** USWTDB versioning/denominator update. Exposure basis.
+
+## SRC_NREL_CWER_2024
+- **Name:** NREL — Cost of Wind Energy Review: 2024 Edition
+- **Type:** `government_dataset`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://www.nrel.gov/docs/fy25osti/91775.pdf
+- **Retrieved:** 2026-07-10
+- **Has:** Land-based wind CapEx $1,091/kW turbine + $582/kW BOS = ~$1,673/kW installed; module splits (rotor $337, nacelle $477, tower $276). Underlies value ladder installed $1,968,000/MW, physical $1,623,000/MW.
+- **Does not have:** Loss/$ severity.
+- **Notes:** THE VALUE LADDER source. NREL CWER 2024 CapEx breakdown underlies the canonical $/MW value bases and per-failure-unit shares. Denominator/value basis, NOT a loss benchmark.
+
+## SRC_LBNL_LANDBASED_WIND_2023
+- **Name:** DOE/LBNL — Land-Based Wind Market Report: 2023 Edition
+- **Type:** `government_dataset`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://emp.lbl.gov/wind-technologies-market-report
+- **Retrieved:** 2026-07-10
+- **Has:** US fleet capacity, turbine size trends, capacity factors.
+- **Does not have:** Loss/$.
+- **Notes:** Fleet exposure denominators (capacity, turbine size). Exposure basis.
+
+## SRC_LBNL_LANDBASED_WIND_2024
+- **Name:** DOE/LBNL — Land-Based Wind Market Report: 2024 Edition
+- **Type:** `government_dataset`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://emp.lbl.gov/wind-technologies-market-report
+- **Retrieved:** 2026-07-10
+- **Has:** 2024-vintage capacity/turbine-size figures (via NREL ATB/secondary).
+- **Does not have:** Full 2024 PDF not directly opened; loss/$.
+- **Notes:** 2024 fleet update; captured via secondary. Exposure basis. Full PDF pathway.
+
+## SRC_ACP_MARKET_REPORT
+- **Name:** American Clean Power (ACP) — Clean Power Quarterly Market Report
+- **Type:** `industry_dataset`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://cleanpower.org/resources/
+- **Retrieved:** 2026-07-10
+- **Has:** Operating US wind capacity, project pipeline (Q2 2025-Q1 2026).
+- **Does not have:** Loss/$.
+- **Notes:** Current fleet capacity denominator. Exposure basis.
+
+## SRC_NREL_ATB_LANDBASED
+- **Name:** NREL Annual Technology Baseline — Land-Based Wind (ATB 2024)
+- **Type:** `government_dataset`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril family:** `N/A`
+- **URL:** https://atb.nrel.gov/electricity/2024/land-based_wind
+- **Retrieved:** 2026-07-10
+- **Has:** CapEx/OpEx baseline by year; corroborates CWER value ladder.
+- **Does not have:** Loss/$.
+- **Notes:** Corroborating value-basis source for the $/MW ladder. Denominator/value basis.

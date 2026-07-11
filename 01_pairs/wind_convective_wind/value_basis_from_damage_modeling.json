@@ -1,0 +1,134 @@
+{
+ "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+ "created": "2026-07-11",
+ "status": "RESOLVED_FROM_DAMAGE_MODELING",
+ "source_value_workbook": "Damage_Modeling/docs/method/value_basis/solar_wind_value_breakdown.xlsx / Summary + Wind_Map (value ladder is peril-agnostic)",
+ "source_damage_artifact": "Damage_Modeling/docs/cells/wind_tornado_wind/current/wind_tornado_wind__model_v1_0__docs_r4__curve_artifact.json + damage_curve_records_v1_0_wind_tornado_wind.xlsx",
+ "damage_code_id": "WIND_TORNADO_WIND_V1",
+ "related_repos": {
+  "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+  "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+ },
+ "important_rule": "This crosswalk normalizes and reconciles denominator/grain only; it is NOT external validation evidence and defines NO pass/fail bands. Failure-unit IDs, value shares, hazard axis, curve form, and speed-ratio->DR ordinates are taken verbatim from the canonical wind_tornado_wind cell. It is a source-pathway / normalization layer, NOT a calibration harness.",
+ "scope_note": "This pair (wind_convective_wind) covers onshore wind turbines under CONVECTIVE wind sub-perils: tornado [T] and straight-line/derecho wind [W]. HURRICANE/TC is fenced OUT (quarantined). The canonical cell is named wind_tornado_wind but its curve family already spans the full speed-ratio axis: the straight-line-wind (SLW) pathway IS the D50 baseline, and tornado is a leftward D50 shift of the SAME curves. There is NO separate strong-wind-for-wind cell upstream, so straight-line convective wind is represented as the SLW (unshifted) pathway of these curves, and tornado as the D50-shifted pathway.",
+ "wind_default_basis_usd_per_MW": {
+  "installed_TIV": 1968000.0,
+  "physical_replaceable_value": 1623000.0,
+  "excluded_sunk_soft_nonphysical": 345000.0,
+  "physical_as_pct_installed": 82.4695,
+  "excluded_as_pct_installed": 17.5305,
+  "reference_farm_MW": 200.0,
+  "source": "https://www.nrel.gov/docs/fy25osti/91775.pdf"
+ },
+ "hazard_axis": {
+  "id": "X_SPEED_RATIO_TO_IEC",
+  "preferred_input_field": "hub_height_3s_gust_mps",
+  "formula": "r = V_3s_hub / Ve50_class",
+  "unit": "dimensionless",
+  "iec_class_default": "II",
+  "iec_class_table_ve50_mps": {
+   "I": 70.0,
+   "II": 59.5,
+   "III": 52.5
+  },
+  "iec_class_default_ve50_mph": 133.1
+ },
+ "wind_damage_grain": {
+  "cell_id": "wind_tornado_wind",
+  "curve_form": "wind_tornado_logistic_ratio  (DR = max_DR / (1 + exp(-k*(r - (D50 + tornado_shift)))))",
+  "f_kind": "material/structural capacity vs speed ratio (NOT geometry/elevation)",
+  "owns": "severity curves only \u2014 EAL / PML / VaR / TVaR are downstream (hazard catalog + financial model), NOT in this cell",
+  "tornado_core_exposure_fraction": 0.1,
+  "failure_units": [
+   {
+    "value_id": "WT_BLADE_STRUCT",
+    "failure_unit": "Blade structural / debris / blade strike",
+    "subsystem": "ROTOR_ASSEMBLY",
+    "component": "BLADE",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.173,
+    "usd_per_MW_physical_base": 280779.0,
+    "max_DR": 1.0,
+    "D50_ratio_straight_line": 1.38,
+    "k_ratio": 12.0,
+    "tornado_D50_shift": -0.1,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "X_SPEED_RATIO_TO_IEC"
+   },
+   {
+    "value_id": "WT_TOWER_STRUCT",
+    "failure_unit": "Tower buckling / collapse",
+    "subsystem": "TOWER",
+    "component": "TOWER_SECTION",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.169,
+    "usd_per_MW_physical_base": 274287.0,
+    "max_DR": 1.0,
+    "D50_ratio_straight_line": 1.48,
+    "k_ratio": 11.0,
+    "tornado_D50_shift": -0.12,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "X_SPEED_RATIO_TO_IEC"
+   },
+   {
+    "value_id": "WT_NACELLE_CONSEQ",
+    "failure_unit": "Nacelle direct / consequential damage",
+    "subsystem": "NACELLE",
+    "component": "GEARBOX | GENERATOR_INTERNAL | YAW_SYSTEM",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.345,
+    "usd_per_MW_physical_base": 559935.0,
+    "max_DR": 0.85,
+    "D50_ratio_straight_line": 1.44,
+    "k_ratio": 10.0,
+    "tornado_D50_shift": -0.1,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "X_SPEED_RATIO_TO_IEC"
+   },
+   {
+    "value_id": "WT_FOUNDATION_OT",
+    "failure_unit": "Foundation overturning / support failure",
+    "subsystem": "FOUNDATION",
+    "component": "FOUNDATION_BASE",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.062,
+    "usd_per_MW_physical_base": 100626.0,
+    "max_DR": 0.65,
+    "D50_ratio_straight_line": 1.62,
+    "k_ratio": 9.0,
+    "tornado_D50_shift": -0.08,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "X_SPEED_RATIO_TO_IEC"
+   },
+   {
+    "value_id": "WT_POWER_ELEC_ACCEL",
+    "failure_unit": "Acceleration-sensitive power electronics",
+    "subsystem": "POWER_ELECTRONICS",
+    "component": "POWER_CONVERTER",
+    "treatment": "secondary_conditional_open_seam",
+    "default_value_share_physical_base": 0.037,
+    "usd_per_MW_physical_base": 60051.0,
+    "max_DR": 0.3,
+    "D50_ratio_straight_line": 1.2,
+    "k_ratio": 8.0,
+    "tornado_D50_shift": -0.05,
+    "include_in_default_structural_aggregate": false,
+    "hazard_axis": "X_SPEED_RATIO_TO_IEC"
+   }
+  ]
+ },
+ "normalization_buckets_usd_per_MW_physical_base": {
+  "WT_BLADE_STRUCT": 280779.0,
+  "WT_TOWER_STRUCT": 274287.0,
+  "WT_NACELLE_CONSEQ": 559935.0,
+  "WT_FOUNDATION_OT": 100626.0,
+  "WT_POWER_ELEC_ACCEL": 60051.0
+ },
+ "derived_bucket_shares": {
+  "primary_structural_aggregate_share_physical": 0.749,
+  "primary_structural_aggregate_usd_per_MW_physical": 1215627.0,
+  "rotor_plus_tower_share_physical": 0.342,
+  "note": "primary_structural_aggregate = BLADE + TOWER + NACELLE + FOUNDATION (the four include_in_default_structural_aggregate=true units). POWER_ELEC is a secondary open-seam and is EXCLUDED from the default aggregate."
+ },
+ "comparison_guidance": "A whole-farm event loss (e.g. Flat Ridge 2 $7.25M net) CANNOT be placed on a per-MW failure-unit DR axis without (a) a confirmed MW denominator and (b) the struck-turbine count, because a tornado damages a narrow corridor, not the whole farm. Farm-average $/MW radically understates per-struck-turbine severity. Only per-turbine or per-struck-subsystem figures are grain-comparable to these DR curves. A $/MW exceeding a failure-unit hardware cap is a GRAIN WARNING, not evidence DR>1."
+}
