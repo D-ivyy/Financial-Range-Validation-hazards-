@@ -2014,3 +2014,569 @@ Onshore wind turbines under convective wind (tornado [T] + straight-line/derecho
 - **Has:** CapEx/OpEx baseline by year; corroborates CWER value ladder.
 - **Does not have:** Loss/$.
 - **Notes:** Corroborating value-basis source for the $/MW ladder. Denominator/value basis.
+## wind_convective_wind v2 proposed pathway sources (staged SOURCE_REGISTER, added v0.6)
+
+
+_The following 33 entries are copied from the staged `SOURCE_REGISTER_wind_tornado_wind__model_v2_0__docs_r1.csv` for the **PROPOSED / NON-CANONICAL** v2.0 (docs r1) two-pathway candidate. They document the source pathways behind the `straight_line_convective` (`SLC-*`) and `tornado_direct_hit` (`TOR-*`) pathways plus supporting value (`VAL-*`), adjacent/deferred (`ADJ-*`), and legacy-audit (`LEG-*`) sources. **None of these entries alter or supersede the v0.5 wind_convective_wind sources above** — v1.0 docs r4 remains the canonical `Damage_Modeling` runtime._
+
+
+## SLC-S001
+- **Name:** Hawbecker, P.; Basu, S.; Manuel, L. Real-world extreme wind events: lessons from Buffalo Ridge for wind turbines. Wind Energy (2017). DOI 10.1002/we.2122.
+- **Type:** `peer-reviewed_field/case_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T1_claims_or_field_calibrated`
+- **Source role:** `case_study_severity`
+- **URL:** https://doi.org/10.1002/we.2122
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Abstract; event and turbine-description sections
+- **Target asset match:** partial
+- **Target failure-unit match:** direct blade/tower; legacy turbines
+- **Has:** observed blade losses and one tower buckling; 30-50 m/s near-surface downburst estimate
+- **Permitted inference:** Convective wind can fail blade/tower systems and operational/configuration context matters.
+- **Prohibited inference:** Pure downburst attribution; modern multi-MW turbine fragility; hub/rotor wind; repair-cost DR.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Event also included tornadoes; 360-750 kW turbines with 24.4-55 m hub heights.
+
+## SLC-S002
+- **Name:** Nguyen, H.H.; Manuel, L. A Monte Carlo simulation study of wind turbine loads in thunderstorm downbursts. Energies 7 (2014) 6527-6553. DOI 10.3390/en7106527.
+- **Type:** `peer-reviewed_numerical_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://doi.org/10.3390/en7106527
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Sections 4.2-4.4 and conclusions
+- **Target asset match:** direct reference-turbine physics
+- **Target failure-unit match:** blade/tower demand
+- **Has:** simulated aerodynamic/structural loads under downburst, pitch, yaw and track states
+- **Permitted inference:** Require operational/yaw/pitch state and reject a universal healthy-control shift.
+- **Prohibited inference:** Failure probability, repair cost, or direct DR ordinate.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Load may peak during control transition rather than at event maximum speed.
+
+## SLC-S003
+- **Name:** Lu, Y.; Sarkar, P.P.; Hu, H.; et al. Investigation of wind turbine performance under thunderstorm downburst winds. Energies 12 (2019) 2773. DOI 10.3390/en12142773.
+- **Type:** `peer-reviewed_LES/OpenFAST_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://doi.org/10.3390/en12142773
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Table 3 p.26; Figure 21; conclusions
+- **Target asset match:** direct reference-turbine physics
+- **Target failure-unit match:** blade-root and yaw demand
+- **Has:** 28.8-55 m/s cases; 1.0-1.6 m/s2 ramp; 21.3-110 degree direction change; 2-7x pre-event load range
+- **Permitted inference:** Carry ramp, direction change and state; constrain screening valid range.
+- **Prohibited inference:** Treat 2-7x load as 2-7x DR or infer capacity/replacement.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Quantitative load anchor without damage/cost endpoint.
+
+## SLC-S004
+- **Name:** Zhang, Y.; Sarkar, P.P.; Hu, H. An experimental study on wind turbine loads in a microburst-like wind. Journal of Fluids and Structures 57 (2015). DOI 10.1016/j.jfluidstructs.2015.06.016.
+- **Type:** `peer-reviewed_wind-tunnel_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://doi.org/10.1016/j.jfluidstructs.2015.06.016
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Abstract and reported comparative load results
+- **Target asset match:** partial scaled model
+- **Target failure-unit match:** rotor/tower demand
+- **Has:** mean loads up to about 4x ABL and fluctuations up to about 10x in tested setup
+- **Permitted inference:** Validate distinct convective demand and location/orientation/state sensitivity.
+- **Prohibited inference:** Full-scale fragility, universal amplification, or economic DR.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Reduced-scale impinging-jet experiment.
+
+## SLC-S005
+- **Name:** Ahmed, S.; El Damatty, A.; Dai, K. Design load provisions for wind turbines under downbursts. Engineering Structures 2023, 116779. DOI 10.1016/j.engstruct.2023.116779.
+- **Type:** `peer-reviewed_parametric_numerical_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `axis_bridge`
+- **URL:** https://doi.org/10.1016/j.engstruct.2023.116779
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Abstract, method and conclusions
+- **Target asset match:** direct reference-turbine physics
+- **Target failure-unit match:** tower/blade design demand
+- **Has:** Downburst-specific load profiles derived from more than one million parametric analyses
+- **Permitted inference:** Use reduced-order demand surrogate as future scientific target.
+- **Prohibited inference:** Damage state probability or repair-cost DR.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Downburst size/location/turbulence/turbine geometry/pitch all material.
+
+## SLC-S006
+- **Name:** Ahmed, S.; et al. Dynamic analysis of wind turbines under downburst loading. Journal of Structural Engineering (2023). DOI 10.1061/JSENDH.STENG-11923.
+- **Type:** `peer-reviewed_numerical_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://doi.org/10.1061/JSENDH.STENG-11923
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Method, validation and conclusions
+- **Target asset match:** direct reference-turbine physics
+- **Target failure-unit match:** tower/blade dynamic demand
+- **Has:** dynamic/FSI load response
+- **Permitted inference:** Support nonstationary dynamic demand formulation.
+- **Prohibited inference:** Failure probability or loss severity.
+- **Decision:** `adopt_with_limits`
+- **Notes:** No repair-cost endpoint.
+
+## SLC-S007
+- **Name:** Nguyen, H.H.; Manuel, L.; Veers, P.S. Wind turbine loads during simulated thunderstorm downbursts. AIP Conference Proceedings (2011). DOI 10.1063/1.3646764.
+- **Type:** `peer-reviewed_conference_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `validation_only`
+- **URL:** https://doi.org/10.1063/1.3646764
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Load-case comparison and conclusions
+- **Target asset match:** direct reference-turbine physics
+- **Target failure-unit match:** tower/blade demand
+- **Has:** tower/blade demand
+- **Permitted inference:** Confirm downburst loads require cases beyond ordinary IEC inflow.
+- **Prohibited inference:** Damage curve calibration.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Older modeling/control assumptions.
+
+## SLC-S008
+- **Name:** National Renewable Energy Laboratory. Extreme Inflow Conditions for Wind Turbine Design, NREL/TP-500-43521 (2008).
+- **Type:** `government_technical_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `axis_bridge`
+- **URL:** https://docs.nlr.gov/docs/fy08osti/43521.pdf
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Section 5.2, pp.31-34
+- **Target asset match:** direct
+- **Target failure-unit match:** multi-unit demand descriptors
+- **Has:** Research needs identify gust magnitude, rapid direction change, rotor-scale shear/coherence, turbine configuration and fault/operating state
+- **Permitted inference:** Require descriptor/state fields and preserve uncertainty.
+- **Prohibited inference:** Direct capacity, failure median, or DR.
+- **Decision:** `adopt`
+- **Notes:** Authoritative research-needs source.
+
+## SLC-S009
+- **Name:** IEC. IEC 61400-1:2019 Wind energy generation systems - Part 1: Design requirements.
+- **Type:** `international_standard`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `selector_archetype`
+- **URL:** https://webstore.iec.ch/en/publication/26423
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Official publication record; design-class and DLC scope
+- **Target asset match:** direct design framework
+- **Target failure-unit match:** all turbine structural units; selector only
+- **Has:** design/certification selector
+- **Permitted inference:** Use IEC class/design speed only as a selector/prior and exact lineage field.
+- **Prohibited inference:** Treat Ve50 or a design load as a failure median or damage curve.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Full standard is licensed.
+
+## SLC-S010
+- **Name:** Solari, G.; Burlando, M.; De Gaetano, P.; Repetto, M.P. Characteristics of thunderstorms relevant to the wind loading of structures. Probabilistic Engineering Mechanics 2018. DOI 10.1016/j.probengmech.2017.06.003.
+- **Type:** `peer-reviewed_observational/method_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://doi.org/10.1016/j.probengmech.2017.06.003
+- **Retrieved:** 2026-07-11
+- **Exact locator:** 277-record analysis and conclusions
+- **Target asset match:** adjacent structure-general
+- **Target failure-unit match:** none direct; structure-general demand
+- **Has:** transient wind characterization
+- **Permitted inference:** Distinguish transient thunderstorm outflow from synoptic wind.
+- **Prohibited inference:** Turbine damage or cost calibration.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Structure-general, not turbine-specific.
+
+## SLC-S011
+- **Name:** Dang, T.; et al. Downburst wind profiles and implications for wind turbines. Wind Energy (2024). DOI 10.1002/we.2895.
+- **Type:** `peer-reviewed_numerical/observational_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `axis_bridge`
+- **URL:** https://doi.org/10.1002/we.2895
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Section 2.1 and profile results
+- **Target asset match:** partial
+- **Target failure-unit match:** rotor-height wind field
+- **Has:** Downburst horizontal-speed profile is nose shaped with height of maximum often in the rotor/hub range
+- **Permitted inference:** Reject a universal monotonic ABL 10 m-to-hub bridge.
+- **Prohibited inference:** Universal 0.75/1.0/1.5 conversion or DR.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Profile depends on event/site.
+
+## SLC-S012
+- **Name:** Romanic, D.; Taszarek, M.; Brooks, H.E. Convective windstorm reporting and climatology in U.S. Storm Events. Weather and Climate Extremes 2022, 100474. DOI 10.1016/j.wace.2022.100474.
+- **Type:** `peer-reviewed_climatology_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `boundary_or_cap`
+- **URL:** https://doi.org/10.1016/j.wace.2022.100474
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Database-count and reporting-bias results
+- **Target asset match:** none for damage
+- **Target failure-unit match:** none; occurrence reporting only
+- **Has:** occurrence reporting
+- **Permitted inference:** Storm Events labels are sparse and population biased; cannot supply an unbiased fragility denominator.
+- **Prohibited inference:** Damage probability or occurrence rate without Hazard review.
+- **Decision:** `adopt_with_limits`
+- **Notes:** 927 downburst, 914 microburst and 27 macroburst labels in reported study window.
+
+## SLC-S013
+- **Name:** NOAA Storm Prediction Center. 24 June 2006 severe-weather reports.
+- **Type:** `official_event_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T1_claims_or_field_calibrated`
+- **Source role:** `case_study_severity`
+- **URL:** https://origin-west-www-spc.woc.noaa.gov/climo/reports/060624_rpts.html
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Lake Benton, Minnesota thunderstorm-wind report
+- **Target asset match:** partial
+- **Target failure-unit match:** blade
+- **Has:** turbine blade snapped during thunderstorm wind
+- **Permitted inference:** Validate blade vulnerability qualitatively.
+- **Prohibited inference:** Numeric fragility; no gust magnitude or asset state.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Independent observed case without intensity.
+
+## SLC-S014
+- **Name:** Lu, Y.; et al. Wind-farm response to thunderstorm downbursts. Energies 14 (2021) 5407. DOI 10.3390/en14175407.
+- **Type:** `peer-reviewed_numerical_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `exposure_or_value`
+- **URL:** https://doi.org/10.3390/en14175407
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Array simulations and spatial-response results
+- **Target asset match:** direct wind-farm geometry
+- **Target failure-unit match:** turbine-array demand and exposure
+- **Has:** multi-turbine demand correlation
+- **Permitted inference:** Require turbine-level intensity and event-family/spatial coupling in Hazard.
+- **Prohibited inference:** Apply one farm-average DR or infer frequency.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Mainly informs M2 exposure/correlation boundary.
+
+## SLC-S015
+- **Name:** Jonkman, J.; Butterfield, S.; Musial, W.; Scott, G. Definition of a 5-MW Reference Wind Turbine for Offshore System Development, NREL/TP-500-38060 (2009). DOI 10.2172/947422.
+- **Type:** `government_technical_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `selector_archetype`
+- **URL:** https://doi.org/10.2172/947422
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Turbine geometry and control definition
+- **Target asset match:** partial reference model
+- **Target failure-unit match:** all turbine units; geometry/control selector
+- **Has:** turbine geometry/control
+- **Permitted inference:** Identify what a cited NREL 5-MW simulation represents.
+- **Prohibited inference:** Certified capacity or general fleet fragility.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Research reference turbine, not an OEM-certified archetype.
+
+## SLC-S016
+- **Name:** NOAA National Severe Storms Laboratory. Severe Weather 101: Damaging Winds - Types.
+- **Type:** `official_guidance`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `boundary_or_cap`
+- **URL:** https://www.nssl.noaa.gov/education/svrwx101/wind/types/
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Microburst, macroburst and derecho definitions
+- **Target asset match:** none for damage
+- **Target failure-unit match:** none; pathway taxonomy and duration
+- **Has:** hazard taxonomy/duration
+- **Permitted inference:** Microbursts generally last 2-5 minutes; macrobursts about 5-20 minutes; derecho is extended outflow family.
+- **Prohibited inference:** Use derecho lifetime as local turbine duration or calibrate DR.
+- **Decision:** `adopt`
+- **Notes:** Supports pathway scope and Hazard/Damage split.
+
+## TOR-S001
+- **Name:** Lombardo, F.; Wienhoff, Z.; Refan, M.; Wurman, J.; Kosiba, K.; Levitan, M. Properties of Tornado Wind Speed Profiles Used in the Development of the ASCE 7-22 Tornado Provisions. Journal of Structural Engineering 151(1) (2024). DOI 10.1061/JSENDH.STENG-12625.
+- **Type:** `peer-reviewed_radar/profile_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `axis_bridge`
+- **URL:** https://doi.org/10.1061/JSENDH.STENG-12625
+- **Retrieved:** 2026-07-11
+- **Exact locator:** NIST abstract/results; 36 profiles; median nose height; ASCE nominal profile
+- **Target asset match:** partial
+- **Target failure-unit match:** rotor/tower wind-demand axis
+- **Has:** rotor-height tornado wind
+- **Permitted inference:** Tornado profiles are nose shaped; median peak height about 50 m; nominal pressure coefficient changes above 61 m.
+- **Prohibited inference:** Use ordinary ABL power law; claim one profile represents every tornado/turbine.
+- **Decision:** `adopt`
+- **Notes:** NIST public copy at https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=935900.
+
+## TOR-S002
+- **Name:** NOAA/National Weather Service. The Enhanced Fujita Scale.
+- **Type:** `official_guidance`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `axis_bridge`
+- **URL:** https://www.weather.gov/oun/efscale
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Important note about EF-scale winds
+- **Target asset match:** none for turbine
+- **Target failure-unit match:** none; EF context only
+- **Has:** damage-estimated wind proxy
+- **Permitted inference:** EF uses estimated 3-second gusts at damage points and varies with height/exposure.
+- **Prohibited inference:** Treat EF class or midpoint as a measured rotor/hub wind.
+- **Decision:** `adopt`
+- **Notes:** NWS is official U.S. EF rating authority.
+
+## TOR-S003
+- **Name:** Wurman, J.; Kosiba, K. Tornadoes Cross Greenfield / Tornado Topples Wind Turbines. Bulletin of the American Meteorological Society digital edition, December 2025, pp.776-777.
+- **Type:** `primary_radar/video_research_note`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T1_claims_or_field_calibrated`
+- **Source role:** `claims_or_field_calibration`
+- **URL:** https://headlines.ametsoc.org/wp-content/uploads/2026/01/20251201_BAMSDigitalEdition_Dec25.pdf
+- **Retrieved:** 2026-07-11
+- **Exact locator:** pp.776-777; turbine threshold paragraph and map
+- **Target asset match:** direct for affected turbines
+- **Target failure-unit match:** tower collapse / terminal turbine equipment
+- **Has:** terminal turbine collapse
+- **Permitted inference:** All turbines with peak wind below 65 m/s survived; all at or above 69 m/s toppled; mixed outcomes at 65-69 m/s.
+- **Prohibited inference:** Universal fleet fragility, exact hub-height conversion, or statistical dispersion from unreported counts.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Research described as ongoing; reported wind methods carry about +/-20% uncertainty.
+
+## TOR-S004
+- **Name:** NOAA/National Weather Service Des Moines. Event Summary: 21 May 2024 Iowa Tornadoes, Winds and Flooding.
+- **Type:** `official_event_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T1_claims_or_field_calibrated`
+- **Source role:** `validation_only`
+- **URL:** https://www.weather.gov/dmx/2024-May-21-Iowa-TornadoesWindsFlooding
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Greenfield Tornado event table
+- **Target asset match:** adjacent event
+- **Target failure-unit match:** none; event context only
+- **Has:** event rating/path
+- **Permitted inference:** Greenfield tornado rated EF4 with estimated peak 175-185 mph; provides official event context.
+- **Prohibited inference:** Assign that peak to every turbine or calibrate a turbine curve.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Damage-based event maximum, not turbine-local measurement.
+
+## TOR-S005
+- **Name:** Aslam, M.U.; Alipour, A. Structural failure analysis of wind turbines in 2024 Greenfield tornado. Engineering Failure Analysis 186 Part A (2026) 110387. DOI 10.1016/j.engfailanal.2025.110387.
+- **Type:** `peer-reviewed_forensic/FEA_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `case_study_severity`
+- **URL:** https://doi.org/10.1016/j.engfailanal.2025.110387
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Abstract; forensic observations; model and conclusions
+- **Target asset match:** direct Vestas V110-2.0 MW
+- **Target failure-unit match:** tower/blade failure mechanism
+- **Has:** tower/blade failure mechanism
+- **Permitted inference:** Local inelastic buckling near geometric discontinuities was the primary modeled/observed tower-collapse mechanism.
+- **Prohibited inference:** Population fragility, exact capacity median, or repair-cost curve.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Uses real Greenfield wind field and a 95 m tower model.
+
+## TOR-S006
+- **Name:** Marshall, T.P.; Dunn, J. Damage Survey of the Jacksboro, TX Tornado: 21 March 2022.
+- **Type:** `conference_damage-survey_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T1_claims_or_field_calibrated`
+- **Source role:** `claims_or_field_calibration`
+- **URL:** https://www.researchgate.net/publication/390065792_Damage_Survey_of_the_Jacksboro_TX_Tornado_21_March_2022
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Section 3.6; Figures 16-17; Table 7
+- **Target asset match:** direct affected commercial turbines
+- **Target failure-unit match:** rotor/blade damage state
+- **Has:** rotor/blade damage state
+- **Permitted inference:** Four turbines had shredded blades with intact tapered steel towers; typical resistance estimated about 51 m/s using nearby damage.
+- **Prohibited inference:** Exact rotor wind, repair cost, probability, or tower capacity.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Primary field survey; author-uploaded access copy.
+
+## TOR-S007
+- **Name:** Bouchard, R.; Romanic, D. Monte Carlo modeling of tornado hazard to wind turbines in Germany. Natural Hazards 116 (2023) 3899-3923. DOI 10.1007/s11069-023-05843-z.
+- **Type:** `peer-reviewed_risk/vulnerability_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T3_engineering_proxy_or_adjacent_empirical`
+- **Source role:** `curve_form`
+- **URL:** https://doi.org/10.1007/s11069-023-05843-z
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Vulnerability section; Figure 7; Table 3
+- **Target asset match:** direct asset but European value context
+- **Target failure-unit match:** ordered commercial-turbine damage states
+- **Has:** screening DOD/vulnerability
+- **Permitted inference:** Provides ordered 36/45/49/58 m/s turbine DOD resistance anchors and a precedent for cumulative component consequences.
+- **Prohibited inference:** Treat curve as field-fitted, copy cost shares, or import its Hazard frequency/exposure model.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Authors describe first proposed vulnerability curve; based on proposed DODs and cost mapping.
+
+## TOR-S008
+- **Name:** Marshall, T.P.; Brown-Giammanco, T.; Krautwurst, S.N.; de Toledo, N.L. On the Current Revision of the Enhanced Fujita Scale. 30th AMS Conference on Severe Local Storms (2022), 11.1A.
+- **Type:** `conference_standards-development_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T3_engineering_proxy_or_adjacent_empirical`
+- **Source role:** `boundary_or_cap`
+- **URL:** https://ams.confex.com/ams/30SLS/mediafile/Manuscript/Paper407207/AMS-EFscale-FINAL%20%284%29.pdf
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Proposed DI/DOD process and wind-turbine material
+- **Target asset match:** direct DI proposal
+- **Target failure-unit match:** ordered commercial-turbine DOD taxonomy
+- **Has:** damage-state resistance taxonomy
+- **Permitted inference:** Use proposed commercial-turbine DODs as an engineering prior and update trigger.
+- **Prohibited inference:** Claim final ASCE/EF adoption or population calibration.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Forthcoming standard remained under development at cutoff.
+
+## TOR-S009
+- **Name:** AbuGazia, M.; El Damatty, A.A.; Dai, K.; Lu, W.; Ibrahim, A. Numerical model for analysis of wind turbines under tornadoes. Engineering Structures 223 (2020) 111157. DOI 10.1016/j.engstruct.2020.111157.
+- **Type:** `peer-reviewed_numerical_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://doi.org/10.1016/j.engstruct.2020.111157
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Abstract, model, case study and conclusions
+- **Target asset match:** direct 1.5 MW reference turbine
+- **Target failure-unit match:** blade/tower demand
+- **Has:** blade/tower demand
+- **Permitted inference:** F2-tornado blade actions exceeded cited IEC extreme case; tornado position and pitch materially changed loads.
+- **Prohibited inference:** Failure probability, cost DR, or universal pitch protection factor.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Minimum blade actions at 60-degree pitch and tower-base actions at 15 degrees for studied case; not a general control rule.
+
+## TOR-S010
+- **Name:** Lopez Ortiz, J.P. Effects of wind turbine rotor positioning on tornado induced loads. Western University Electronic Thesis and Dissertation Repository (2023).
+- **Type:** `doctoral_thesis_/_large-scale_experiment`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://ir.lib.uwo.ca/etd/9120/
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Abstract and experimental results
+- **Target asset match:** direct scaled HAWT
+- **Target failure-unit match:** tower/rotor demand
+- **Has:** tower/rotor demand
+- **Permitted inference:** Bending moment dominated and varied materially with turbine position, yaw, pitch and parked/idling state.
+- **Prohibited inference:** Fragility or repair-cost calibration.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Experimental validation of HIW-TUR.
+
+## TOR-S011
+- **Name:** Baker, C.; Sterling, M. A conceptual model for wind and debris impact loading of structures due to tornadoes. Journal of Wind Engineering and Industrial Aerodynamics 175 (2018) 283-291. DOI 10.1016/j.jweia.2017.11.029.
+- **Type:** `peer-reviewed_analytical_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `mechanism_only`
+- **URL:** https://doi.org/10.1016/j.jweia.2017.11.029
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Abstract and framework
+- **Target asset match:** adjacent structure-general
+- **Target failure-unit match:** none direct; general wind/pressure/debris
+- **Has:** wind/pressure/debris demand
+- **Permitted inference:** Keep direct wind, pressure and debris as distinct mechanisms; flag debris as unresolved in speed-only turbine proxy.
+- **Prohibited inference:** Turbine debris multiplier or DR.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Not turbine-specific.
+
+## TOR-S012
+- **Name:** Perfetto, E.; Taylor, J.; Osburn, K.; O'Connor, B.; Levitan, M.; Mitchell, J. Design Guide for New Tornado Load Requirements in ASCE 7-22. FEMA/NIST (2023).
+- **Type:** `government_design_guide`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `axis_bridge`
+- **URL:** https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=935883
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Tornado profile, pressure and debris provisions
+- **Target asset match:** adjacent building/structure
+- **Target failure-unit match:** none direct; tornado design demand
+- **Has:** tornado design demand
+- **Permitted inference:** Use official tornado load/profile concepts and debris distinction as boundary constraints.
+- **Prohibited inference:** Apply building coefficients directly to turbines or calibrate DR.
+- **Decision:** `adopt_with_limits`
+- **Notes:** Guide addresses ASCE building/other-structure provisions.
+
+## VAL-S001
+- **Name:** National Renewable Energy Laboratory. Cost of Wind Energy Review: 2024 Edition, NREL/TP-5000-91775 (2025).
+- **Type:** `government_cost_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T2_public_lab_standard_or_physics`
+- **Source role:** `exposure_or_value`
+- **URL:** https://www.nrel.gov/docs/fy25osti/91775.pdf
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Land-based project breakdown and turbine component appendix
+- **Target asset match:** direct land-based reference plant
+- **Target failure-unit match:** all governed wind-turbine value rows
+- **Has:** component and project cost
+- **Permitted inference:** Define the 1,090 USD/kW turbine-equipment denominator and reconcile 1,623 physical / 1,968 installed bases.
+- **Prohibited inference:** Damage ratio, at-risk fraction, site appraisal, or linear support-cost scaling.
+- **Decision:** `adopt`
+- **Notes:** 2023 USD; 200 MW reference in local value workbook.
+
+## ADJ-S001
+- **Name:** Rose, S.; Jaramillo, P.; Small, M.J.; Grossmann, I.; Apt, J. Quantifying the hurricane risk to offshore wind turbines. PNAS 109(9) (2012) 3247-3252. DOI 10.1073/pnas.1111769109.
+- **Type:** `peer-reviewed_adjacent-hazard_fragility_paper`
+- **Availability:** `HAS_PATHWAY_ONLY`
+- **Evidence tier:** `T3_engineering_proxy_or_adjacent_empirical`
+- **Source role:** `validation_only`
+- **URL:** https://doi.org/10.1073/pnas.1111769109
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Table 1 and supplementary damage-function method
+- **Target asset match:** adjacent TC/offshore model
+- **Target failure-unit match:** tower buckling; adjacent TC/offshore
+- **Has:** tower buckling capacity/control sensitivity
+- **Permitted inference:** Use only as an adjacent check that yaw/grid state shifts tower demand materially.
+- **Prohibited inference:** Calibrate convective/tornado curve or import TC duration/frequency.
+- **Decision:** `defer_neighboring_cell`
+- **Notes:** Ten-minute hurricane wind and NREL 5-MW tower; not direct pathway evidence.
+
+## ADJ-S002
+- **Name:** National Renewable Energy Laboratory. Hurricane Resilient Wind Plant Design, NREL/TP-5000-88195 (2024).
+- **Type:** `government_technical_report`
+- **Availability:** `HAS_PATHWAY_ONLY`
+- **Evidence tier:** `T3_engineering_proxy_or_adjacent_empirical`
+- **Source role:** `validation_only`
+- **URL:** https://www.nrel.gov/docs/fy24osti/88195.pdf
+- **Retrieved:** 2026-07-11
+- **Exact locator:** Extreme load cases, yaw/grid-loss discussion and recommendations
+- **Target asset match:** adjacent tropical cyclone
+- **Target failure-unit match:** turbine demand/control; adjacent TC
+- **Has:** turbine demand/control
+- **Permitted inference:** Define why tropical-cyclone duration, yaw, grid loss and gust conditions require a separate workstream.
+- **Prohibited inference:** Reuse either convective curve for hurricanes.
+- **Decision:** `defer_neighboring_cell`
+- **Notes:** Boundary source, not calibration.
+
+## LEG-S001
+- **Name:** InfraSure Damage Modeling. wind_tornado_wind current model v1.0 docs r4 artifact.
+- **Type:** `repository_runtime_artifact`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T4_placeholder_or_expert_judgment`
+- **Source role:** `rejected`
+- **URL:** docs/cells/wind_tornado_wind/current/wind_tornado_wind__model_v1_0__docs_r4__curve_artifact.json
+- **Retrieved:** 2026-07-11
+- **Exact locator:** hazard_axis, curve_records, conditioner_logic, parameter_tier_table
+- **Target asset match:** direct legacy model
+- **Target failure-unit match:** legacy blade/tower/nacelle/foundation/electrical
+- **Has:** legacy DR output
+- **Permitted inference:** Reproduce and compare the shift-only model exactly.
+- **Prohibited inference:** Use its Tier-4 D50/k/tornado shifts as v2 evidence.
+- **Decision:** `archive_on_future_promotion`
+- **Notes:** Remains canonical during proposal work.
+
+## LEG-S002
+- **Name:** InfraSure Hazard Modeling. Convective wind/wind farm M3 and M4 notebooks.
+- **Type:** `downstream_repository_implementation`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Evidence tier:** `T4_placeholder_or_expert_judgment`
+- **Source role:** `rejected`
+- **URL:** https://github.com/aamani-ai/Hazard_Modeling/tree/main/Notebooks/convective_wind/wind_farm/
+- **Retrieved:** 2026-07-11
+- **Exact locator:** m3_damage/01_damage.py and m4_loss_metrics/01_loss_metrics.py
+- **Target asset match:** direct consumer
+- **Target failure-unit match:** mixed downstream turbine and plant units
+- **Has:** legacy whole-asset DR and annual outputs
+- **Permitted inference:** Audit hardcoded curves, values, exposure and frequency seams; generate migration tests.
+- **Prohibited inference:** Treat consumer parameters or headlines as Damage Modeling calibration targets.
+- **Decision:** `replace_on_consumer_migration`
+- **Notes:** Stable repository identity is audit provenance only; the machine artifact has no downstream dependency.

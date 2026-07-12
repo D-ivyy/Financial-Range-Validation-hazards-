@@ -1,5 +1,32 @@
 # Changelog
 
+## v0.6 — wind_convective_wind PROPOSED / NON-CANONICAL v2 two-pathway preview (additive; does not alter v0.5)
+
+Created: 2026-07-11
+
+Added a staged, **PROPOSED / NON-CANONICAL** preview of a v2.0 (docs r1) two-pathway candidate for the `wind_tornado_wind` cell, alongside the existing v0.5 `wind_convective_wind` dossier. **v1.0 docs r4 remains the canonical `Damage_Modeling` runtime** (`current_pin = wind_tornado_wind@model_v1_0__docs_r4`); the v2 candidate is `canonical_runtime_artifact: false`, `promotion_status: proposed`, `lifecycle_state: candidate`, `promotion: not_performed`, and is deliberately absent from the artifact index and portable library v2.5. This addition is strictly additive — no v0.5 file's content was altered.
+
+v2 replaces the single shared D50-shift curve family with **two independently governed pathways** on a shared cell ("common spine"): `straight_line_convective` (downburst/microburst/macroburst/gust-front/local derecho outflow) and `tornado_direct_hit` (conditional severity after Hazard resolves turbine intersection). Both are evaluated with mutually-exclusive **ordered damage states** (`ordered_damage_state_lognormal`: `Q_j(x)=Phi(ln(x/theta_j)/beta_ln)`; `DR = P1*c1 + P2*c2 + P3*c3`) on a single `WT_TURBINE_EQUIPMENT_ASSEMBLY` atom (`$1,090/kW` = rotor/pitch `337` + nacelle/drivetrain/power/yaw `477` + tower `276`), instead of v1.0's independent 5-unit structural sum on the `$1,623,000/MW` physical base.
+
+```text
+01_pairs/wind_convective_wind/value_basis_from_damage_modeling_v2_PROPOSED.json
+01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk_v2_proposed.csv/json     (27 rows, same IDs as v1.0)
+01_pairs/wind_convective_wind/damage_curve_intensity_reference_v2_proposed.csv/json     (24 rows: 12 speeds x 2 pathways)
+02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md
+data/wind_convective_wind_value_basis_from_damage_modeling_v2_PROPOSED.json
+data/wind_convective_wind_benchmark_value_damage_crosswalk_v2_proposed.csv/json
+data/wind_convective_wind_damage_curve_intensity_reference_v2_proposed.csv/json
+99_metadata/validation_v0_6.json
+VALIDATION_REPORT_v0_6.md
+```
+
+Value ladder is UNCHANGED and peril-agnostic — it reconciles identically under v1.0 and v2: withheld direct-other units `WT_FOUNDATION` `$120/kW` + `WT_EXTERNAL_ELECTRICAL` `$72/kW` + `WT_CIVIL_INFRA` `$47/kW` = `$239/kW`; support (`support_once`, outside DR) `WT_REPLACEMENT_SUPPORT` `$294/kW` (fieldwork `100` + transport/logistics `194`); physical reference `1090+239+294 = $1,623/kW`; excluded sunk/soft `$345/kW`; installed reference `1623+345 = $1,968/kW`. Equipment share of physical base `1090/1623 = 0.671595810227973`; of installed capex `1090/1968 = 0.553861788617886` (labels only, never a DR cap).
+
+Key finding: no new open convective-wind `$/MW` severity data exists under v2 either — the same 27 benchmark rows are recast with a `v2_direct_damage_grain_comparability` verdict and a `denominator_note`; 25 of 27 `usd_per_MW` cells remain blank (never zero), same as v1.0. Every DR intensity-reference row and every recast benchmark row is tagged `different_denominators_do_not_treat_as_regression_target`, copied verbatim from the staged `OLD_VS_NEW_COMPARISON_wind_tornado_wind__model_v2_0__docs_r1.csv`. 33 new source-register entries (`SLC-S001..SLC-S016`, `TOR-S001..TOR-S012`, `VAL-S001`, `ADJ-S001..ADJ-S002`, `LEG-S001..LEG-S002`) were added to `99_metadata/bibliography.md`.
+
+**Non-scope disclaimer (unchanged).** This package is a source-pathway / normalization layer, NOT a calibration harness. It defines no pass/fail bands, tunes no curve, and treats no raw number as a benchmark until its sub-peril frame, denominator, coverage, asset class, geography, and loss basis are understood. The v2 preview does not change this: it previews a candidate denominator/grain, it does not validate, calibrate, or promote it. `promotion_gate.status: blocked`.
+
+
 ## v0.5 — wind_convective_wind pair (first wind-asset pair; CONVECTIVE-only scope)
 
 Created: 2026-07-11

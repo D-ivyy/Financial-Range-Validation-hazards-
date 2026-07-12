@@ -1,7 +1,7 @@
 # Range Validation Hazard Modeling — anchor README
 
-**Version:** v0.5  
-**Last researched:** 2026-07-10  
+**Version:** v0.6  
+**Last researched:** 2026-07-11  
 **Project:** Damage Modeling / Hazard Modeling validation interface  
 **Related repos:** [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) — canonical subsystem breakdown, value ladder, and per-hazard failure-unit damage curves (the source of truth this package cross-maps onto) · [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling) — the M0→M4 modeling engine + compare dashboard (RangeCompare view) that consumes these validation ranges  
 
@@ -142,6 +142,14 @@ The wind crosswalk is `RESOLVED_FROM_DAMAGE_MODELING`: the **canonical, PROMOTED
 
 Key finding: **only 2 of 27 benchmark rows normalize to $/MW** (the value-ladder denominators). The strongest open dollars (Flat Ridge 2 tornado: `$7.25M` net / `>$12M` adjuster) are farm-level with **no MW denominator or struck-turbine count** and are WITHHELD; the best straight-line/derecho anchor is a **measured null** (2020 Midwest derecho: no significant turbine damage at ~126 mph gust, because machines feathered/cut out). Grain matters more here than in any other pair: a tornado hits a narrow corridor, so a farm-average $/MW mixes struck and untouched turbines.
 
+## v0.6 addition — wind_convective_wind v2 PROPOSED / NON-CANONICAL preview (does not alter v0.5)
+
+A staged, **PROPOSED / NON-CANONICAL** preview of a v2.0 (docs r1) two-pathway candidate for the `wind_tornado_wind` cell has been added alongside the v0.5 dossier, at [`02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md`](02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md). **This does not alter or supersede the v0.5 section above** — `wind_tornado_wind@model_v1_0__docs_r4` remains the canonical [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) runtime artifact.
+
+The v2 candidate is `canonical_runtime_artifact: false`, `promotion_status: proposed`, `lifecycle_state: candidate`, `promotion: not_performed`, and is deliberately absent from the artifact index and portable library v2.5. It replaces the single shared D50-shift curve family with **two independently governed pathways** — `straight_line_convective` and `tornado_direct_hit` — both evaluated as mutually-exclusive ordered damage states on a single `$1,090,000/MW` turbine-equipment-assembly atom, instead of v1.0's independent 5-unit structural sum on the `$1,623,000/MW` physical base. The value ladder itself is unchanged and reconciles identically under both models (`1090+239+294=1623`; `1623+345=1968`).
+
+Key finding: no new open convective-wind $/MW severity data exists under v2 either. The same 27 benchmark rows are recast with a `v2_direct_damage_grain_comparability` verdict; 25 of 27 `usd_per_MW` cells remain blank (never zero), same as v1.0. Every DR row and recast benchmark row is tagged `different_denominators_do_not_treat_as_regression_target`, copied verbatim from the staged `OLD_VS_NEW_COMPARISON_wind_tornado_wind__model_v2_0__docs_r1.csv`.
+
 ## Current deep-dive status
 
 | Pair | Status | Reason |
@@ -151,6 +159,7 @@ Key finding: **only 2 of 27 benchmark rows normalize to $/MW** (the value-ladder
 | `solar_strong_wind` | next after flood or parallel | some SCS / tracker / insurer pathways, weaker open event-loss numbers |
 | `solar_wildfire` | **built in v0.4** (`RESOLVED_GRAIN_DR_WITHHELD`) | EXOGENOUS-only physical slice; crosswalk cross-mapped onto the canonical `wildfire_solar` cell (11 WS_* failure units + value ladder) in Damage_Modeling, DR ordinates WITHHELD upstream (NO_RUNTIME_CURVE); 0 of 100 benchmark rows normalize to $/MW — isolated exogenous-wildfire $/MW severity confirmed absent; all-cause fire and smoke/revenue numbers explicitly quarantined as different origin/peril |
 | `wind_convective_wind` | **built in v0.5** (`RESOLVED_FROM_DAMAGE_MODELING`) | first wind-asset pair; onshore turbines under convective wind (tornado + straight-line/derecho), hurricane/TC and hail-SCS quarantined; crosswalk cross-mapped onto the canonical, PROMOTED `wind_tornado_wind` cell (5 WT_* structural failure units + real speed-ratio→DR logistic curve) in Damage_Modeling; only 2 of 27 benchmark rows normalize to $/MW — strongest open dollars are farm-level without a struck-turbine count (withheld) and the best straight-line anchor is a measured null (2020 derecho) |
+| `wind_convective_wind` — v2 preview | **added in v0.6** (`PROPOSED_NONCANONICAL_FROM_DAMAGE_MODELING_V2`, non-canonical) | staged, non-promoted v2.0 (docs r1) two-pathway candidate previewed alongside v0.5, without altering it; splits the shared curve into `straight_line_convective` + `tornado_direct_hit`, both ordered damage states on one `$1,090,000/MW` turbine-equipment atom; `canonical_runtime_artifact=false`, `promotion: not_performed`; **v1.0 docs r4 remains the canonical `Damage_Modeling` runtime** |
 
 The anchor registry follows below. The solar-hail deep dive lives at [`01_pairs/solar_hail/README.md`](01_pairs/solar_hail/README.md).
 

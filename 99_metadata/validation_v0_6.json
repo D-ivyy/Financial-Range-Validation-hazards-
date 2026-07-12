@@ -1,0 +1,150 @@
+{
+  "package": "range-validation-hazard-modeling",
+  "created": "2026-07-11",
+  "pair": "wind_convective_wind",
+  "addition_type": "v2_two_pathway_proposed_noncanonical_preview",
+  "crosswalk_status_v0_5_unchanged": "RESOLVED_FROM_DAMAGE_MODELING",
+  "crosswalk_status_v2_preview": "PROPOSED_NONCANONICAL_FROM_DAMAGE_MODELING_V2",
+  "scope_note": "This v0.6 addition previews a staged, PROPOSED / NON-CANONICAL v2.0 (docs r1) two-pathway candidate for the wind_tornado_wind cell -- straight_line_convective and tornado_direct_hit -- evaluated as mutually-exclusive ordered damage states on a single WT_TURBINE_EQUIPMENT_ASSEMBLY atom ($1,090,000/MW). It does NOT alter, supersede, or downgrade the v0.5 RESOLVED_FROM_DAMAGE_MODELING crosswalk, which remains built against the canonical, PROMOTED wind_tornado_wind@model_v1_0__docs_r4 cell.",
+  "golden_rule_on_grain": "A source with a wind loss number is NOT a benchmark until its sub-peril frame, denominator, coverage, asset class, geography, and loss basis are understood. v2's turbine-equipment atom is a DIFFERENT denominator than v1.0's five-unit physical base; every OLD_VS_NEW row is flagged different_denominators_do_not_treat_as_regression_target and must never be treated as a regression target for v1.0.",
+  "related_repos": {
+    "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+    "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+  },
+  "upstream_cell_governance": {
+    "current_canonical_pin": "wind_tornado_wind@model_v1_0__docs_r4",
+    "v1_0_status": "promoted; canonical_runtime_artifact=true; UNCHANGED by this addition",
+    "v2_0_docs_r1_candidate": {
+      "canonical_runtime_artifact": false,
+      "promotion_status": "proposed",
+      "lifecycle_state": "candidate",
+      "package_inclusion_status": "not_included",
+      "promotion": "not_performed",
+      "promotion_gate_status": "blocked",
+      "note": "Deliberately absent from the artifact index and portable library v2.5"
+    },
+    "pathways": ["straight_line_convective", "tornado_direct_hit"],
+    "curve_form_v2": "ordered_damage_state_lognormal: Q_j(x)=Phi(ln(x/theta_j)/beta_ln); DR = P1*c1 + P2*c2 + P3*c3",
+    "hazard_axes_v2": {
+      "straight_line_convective": "X_CONVECTIVE_ROTOR_EFFECTIVE_GUST_RATIO_TO_VE50 (dimensionless)",
+      "tornado_direct_hit": "X_TORNADO_ROTOR_EFFECTIVE_PEAK_HORIZONTAL_SPEED (m/s)"
+    }
+  },
+  "checks": {
+    "source_dir_exists": true,
+    "staged_v2_source_dir": "/home/user/workspace/v2_proposed_source/",
+    "staged_v2_source_files_read": [
+      "OLD_VS_NEW_COMPARISON_wind_tornado_wind__model_v2_0__docs_r1.csv",
+      "README_wind_tornado_wind__model_v2_0__docs_r1.md",
+      "cell_CHANGELOG.json",
+      "VALUE_CROSSWALK_wind_tornado_wind__model_v2_0__docs_r1.csv",
+      "wind_tornado_wind__model_v2_0__docs_r1__curve_artifact.json",
+      "wind_tornado_wind__model_v2_0__docs_r1__capability.json",
+      "SOURCE_REGISTER_wind_tornado_wind__model_v2_0__docs_r1.csv"
+    ],
+    "v1_0_files_byte_unchanged": true,
+    "v1_0_files_checked": [
+      "01_pairs/wind_convective_wind/value_basis_from_damage_modeling.json",
+      "01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk.csv",
+      "01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk.json",
+      "01_pairs/wind_convective_wind/damage_curve_intensity_reference.csv",
+      "01_pairs/wind_convective_wind/damage_curve_intensity_reference.json",
+      "02_crosswalks/wind_convective_wind_value_damage_crosswalk.md"
+    ],
+    "new_v2_files_created": 6,
+    "new_v2_files_list": [
+      "01_pairs/wind_convective_wind/value_basis_from_damage_modeling_v2_PROPOSED.json",
+      "01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk_v2_proposed.csv",
+      "01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk_v2_proposed.json",
+      "01_pairs/wind_convective_wind/damage_curve_intensity_reference_v2_proposed.csv",
+      "01_pairs/wind_convective_wind/damage_curve_intensity_reference_v2_proposed.json",
+      "02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md"
+    ],
+    "data_flat_copies_created": 5,
+    "benchmark_value_damage_crosswalk_v2_proposed_rows": 27,
+    "benchmark_value_damage_crosswalk_v2_proposed_rows_matches_v1_0_row_count": true,
+    "damage_curve_intensity_reference_v2_proposed_rows": 24,
+    "damage_curve_intensity_reference_v2_proposed_rows_breakdown": {
+      "straight_line_convective": 12,
+      "tornado_direct_hit": 12
+    },
+    "v2_failure_units_in_value_basis": 5,
+    "v2_failure_units_list": [
+      "WT_TURBINE_EQUIPMENT_ASSEMBLY",
+      "WT_FOUNDATION",
+      "WT_EXTERNAL_ELECTRICAL",
+      "WT_CIVIL_INFRA",
+      "WT_REPLACEMENT_SUPPORT"
+    ],
+    "v2_curve_bearing_failure_units": 1,
+    "v2_withheld_or_support_failure_units": 4,
+    "blank_cells_not_zeros_verified": true,
+    "blank_cell_examples": [
+      "damage_curve_intensity_reference_v2_proposed.csv row straight_line_convective @ 80 mps: v2_lower/central/upper_dr_turbine_equipment and both contribution columns are blank (extrapolation_flag=withheld_above_70_mps)",
+      "benchmark_value_damage_crosswalk_v2_proposed.csv: 25 of 27 usd_per_MW_physical_if_normalizable / pct_installed_TIV_if_normalizable cells remain blank (only the 2 value-ladder denominator rows normalize)"
+    ],
+    "value_ladder_reconciliation": {
+      "turbine_equipment_usd_per_kW": 1090,
+      "withheld_direct_other_usd_per_kW": 239,
+      "withheld_direct_other_composition": "120 (foundation) + 72 (external_electrical) + 47 (civil_infra) = 239",
+      "support_usd_per_kW": 294,
+      "support_composition": "100 (fieldwork) + 194 (transport/logistics) = 294",
+      "physical_reference_total_usd_per_kW": 1623,
+      "physical_check_1090_plus_239_plus_294": 1623,
+      "physical_check_passes": true,
+      "excluded_sunk_soft_usd_per_kW": 345,
+      "installed_reference_total_usd_per_kW": 1968,
+      "installed_check_1623_plus_345": 1968,
+      "installed_check_passes": true
+    },
+    "equipment_shares": {
+      "equipment_share_of_physical_base": 0.671595810227973,
+      "equipment_share_of_physical_base_calc": "1090/1623",
+      "equipment_share_of_installed_capex": 0.553861788617886,
+      "equipment_share_of_installed_capex_calc": "1090/1968"
+    },
+    "state_cost_ratios_shared_both_pathways": {
+      "DS0": 0,
+      "DS1": 0.0119266055045872,
+      "DS1_fraction": "13/1090",
+      "DS2": 0.309174311926606,
+      "DS2_fraction": "337/1090",
+      "DS3": 1
+    },
+    "all_new_v2_json_files_parse": true,
+    "all_new_v2_json_files_checked": [
+      "01_pairs/wind_convective_wind/value_basis_from_damage_modeling_v2_PROPOSED.json",
+      "01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk_v2_proposed.json",
+      "01_pairs/wind_convective_wind/damage_curve_intensity_reference_v2_proposed.json",
+      "data/wind_convective_wind_value_basis_from_damage_modeling_v2_PROPOSED.json",
+      "data/wind_convective_wind_benchmark_value_damage_crosswalk_v2_proposed.json",
+      "data/wind_convective_wind_damage_curve_intensity_reference_v2_proposed.json"
+    ],
+    "source_register_rows_added_to_bibliography": 33,
+    "source_register_id_breakdown": {
+      "SLC": 16,
+      "TOR": 12,
+      "VAL": 1,
+      "ADJ": 2,
+      "LEG": 2
+    },
+    "no_git_commit_or_push_performed": true,
+    "no_writes_outside_tmp_frv": true
+  },
+  "assertions": {
+    "status_is_proposed_noncanonical": true,
+    "v1_0_still_canonical_runtime": true,
+    "no_pass_fail_bands_defined": true,
+    "no_curve_tuned": true,
+    "no_numbers_invented_all_copied_verbatim_from_staged_source": true,
+    "package_remains_source_pathway_normalization_layer_not_calibration_harness": true
+  },
+  "notes": [
+    "This v0.6 addition is strictly ADDITIVE: it previews a staged, non-promoted v2.0 (docs r1) two-pathway candidate for wind_tornado_wind alongside the existing, unmodified v0.5 RESOLVED_FROM_DAMAGE_MODELING crosswalk. The v0.5 files listed under v1_0_files_checked are byte-unchanged.",
+    "v2 replaces the single shared D50-shift curve family (v1.0) with two independently governed pathways -- straight_line_convective and tornado_direct_hit -- sharing one turbine-equipment-assembly atom evaluated with mutually-exclusive ordered damage states, instead of v1.0's independent five-unit structural sum.",
+    "The value ladder itself (installed $1,968,000/MW; physical $1,623,000/MW; excluded $345,000/MW) is UNCHANGED and peril-agnostic -- it reconciles identically under both v1.0 and v2: 1090+239+294=1623; 1623+345=1968.",
+    "Every DR intensity-reference row and every recast benchmark row is tagged different_denominators_do_not_treat_as_regression_target where applicable, copied verbatim from the staged OLD_VS_NEW_COMPARISON source; withheld/inapplicable cells are blank, never zero.",
+    "The v2 candidate's promotion_gate.status is blocked: canonical use requires independent formula verification, bundle v3/emit v2/capability v3 schema review, all pathway KATs passing, Hazard-adapter migration to load a single pinned artifact, exposure/frequency/event-overlap seam corrections, and an explicit repository promotion decision. None of these gates have been passed; promotion: not_performed.",
+    "Row counts above equal the actual data-row counts of the new v2 CSVs (benchmark=27 matching the v1.0 benchmark row count exactly, intensity=24 = 12 speeds x 2 pathways) and the corresponding JSON array lengths."
+  ]
+}

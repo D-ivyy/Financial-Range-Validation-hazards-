@@ -1,0 +1,181 @@
+{
+ "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+ "created": "2026-07-11",
+ "status": "PROPOSED_NONCANONICAL_FROM_DAMAGE_MODELING_V2",
+ "canonical_runtime_note": "v1.0 docs r4 is STILL the canonical Damage_Modeling runtime for the wind_tornado_wind cell (cell_CHANGELOG current_pin = wind_tornado_wind@model_v1_0__docs_r4, runtime_behavior_changed=false at v1.0). This file maps onto the PROPOSED, NON-PROMOTED v2.0 docs r1 candidate artifact only (canonical_runtime_artifact=false, promotion_status=proposed, lifecycle_state=candidate, review_status=pressure_tested_screening_proxy, package_inclusion_status=not_included, promotion=not_performed). The existing v1.0-resolved value_basis_from_damage_modeling.json in this same folder is UNCHANGED and remains the canonical mapping. This file is an ADDITIVE, PARALLEL preview and must never be treated as a replacement.",
+ "source_value_workbook": "docs/method/value_basis/solar_wind_value_breakdown.xlsx::Wind_Map (rows 2-19; value ladder is peril-agnostic, SAME as v1.0) -- staged locally as VALUE_CROSSWALK_wind_tornado_wind__model_v2_0__docs_r1.csv",
+ "source_damage_artifact": "docs/cells/wind_tornado_wind/proposed/wind_tornado_wind__model_v2_0__docs_r1__curve_artifact.json (PROPOSED, schema_status=proposed_draft, package_baseline=library v2.5, package_inclusion_status=not_included)",
+ "damage_code_id": "WIND_TORNADO_WIND_PATHWAY_V2_PROPOSED",
+ "related_repos": {
+  "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+  "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+ },
+ "important_rule": "This crosswalk normalizes and reconciles denominator/grain only; it is NOT external validation evidence and defines NO pass/fail bands. It is a source-pathway / normalization layer, NOT a calibration harness. Never tune a curve from this file. Failure-unit IDs, value shares, hazard axes, curve form, and damage-state ordinates are copied VERBATIM from the staged v2 proposed source artifacts -- nothing here is invented.",
+ "scope_note": "This pair (wind_convective_wind) covers onshore wind turbines under CONVECTIVE wind sub-perils: tornado [T] and straight-line/derecho wind [W]. HURRICANE/TC is fenced OUT (quarantined), same as v1.0. UNLIKE v1.0 (one shared curve family with a D50 shift for tornado), v2 PROPOSES two independently governed pathways on a shared cell ('common spine'): straight_line_convective (downburst/microburst/macroburst/gust-front/local-derecho-outflow) and tornado_direct_hit (conditional severity after Hazard resolves turbine intersection). Both remain screening engineering proxies (model_grade=screening_engineering_proxy, all parameters tier T4_placeholder_or_expert_judgment).",
+ "two_pathway_architecture": {
+  "note": "ASCII tree copied from the staged v2 README verbatim.",
+  "tree": "wind_tornado_wind\n\u251c\u2500 straight_line_convective\n\u2502  \u2514\u2500 downburst / microburst / macroburst / gust-front / local derecho outflow\n\u2514\u2500 tornado_direct_hit\n   \u2514\u2500 conditional severity after Hazard has resolved turbine intersection and local demand",
+  "out_of_both_pathways": ["tropical_cyclone_wind", "synoptic_nonconvective_wind", "downslope_windstorm", "hail", "lightning"]
+ },
+ "wind_default_basis_usd_per_MW": {
+  "installed_TIV": 1968000.0,
+  "physical_replaceable_value": 1623000.0,
+  "excluded_sunk_soft_nonphysical": 345000.0,
+  "physical_as_pct_installed": 82.4695,
+  "excluded_as_pct_installed": 17.5305,
+  "reference_farm_MW": 200.0,
+  "source": "https://www.nrel.gov/docs/fy25osti/91775.pdf",
+  "note": "SAME value ladder as v1.0 -- it is peril-agnostic and UNCHANGED by the v2 proposal. Reconciliation: 1090 (turbine equipment) + 239 (withheld direct other) + 294 (support) = 1623 (physical); 1623 + 345 (excluded) = 1968 (installed)."
+ },
+ "hazard_axes": {
+  "straight_line_convective": {
+   "id": "X_CONVECTIVE_ROTOR_EFFECTIVE_GUST_RATIO_TO_VE50",
+   "preferred_input_field": "rotor_effective_3s_gust_mps",
+   "permitted_proxy_fields": ["hub_height_3s_gust_mps"],
+   "unit": "dimensionless",
+   "formula": "x = delivered_rotor_or_hub_3s_gust_mps / iec_ve50_mps",
+   "valid_range": [0, 2],
+   "delivered_wind_valid_range_mps": [0, 70],
+   "evidence_load_anchor_range_mps": [28, 55],
+   "extrapolation_policy": "flag below 28 mps; flag above 55 mps; withhold above 70 mps"
+  },
+  "tornado_direct_hit": {
+   "id": "X_TORNADO_ROTOR_EFFECTIVE_PEAK_HORIZONTAL_SPEED",
+   "preferred_input_field": "tornado_rotor_effective_peak_horizontal_speed_mps",
+   "permitted_proxy_fields": ["tornado_hub_height_peak_3s_gust_mps"],
+   "unit": "m/s",
+   "formula": "x = delivered tornado rotor-effective peak horizontal speed",
+   "valid_range": [0, 100],
+   "extrapolation_policy": "zero below 25 mps; flag above 80 mps as terminal-saturation extrapolation; reject EF class without a qualified wind proxy",
+   "field_anchors_mps": {"DS2_jacksboro_rotor_damage": 51, "DS3_greenfield_collapse_bracket": [65, 69]}
+  }
+ },
+ "wind_damage_grain": {
+  "cell_id": "wind_tornado_wind",
+  "curve_form": "ordered_damage_state_lognormal: Q_j(x) = Phi(ln(x/theta_j)/beta_ln); P0 = 1 - Q1; P1 = Q1 - Q2; P2 = Q2 - Q3; P3 = Q3; DR = P1*c1 + P2*c2 + P3*c3",
+  "f_kind": "material/structural capacity vs speed (NOT geometry/elevation, NOT material-BOM-share)",
+  "owns": "severity curves only -- EAL / PML / VaR / TVaR are downstream (hazard catalog + financial model), NOT in this cell",
+  "mutual_exclusivity_note": "v2 damage states are MUTUALLY EXCLUSIVE ordered states (no independent component summation), UNLIKE v1.0's independent blade/tower/nacelle/foundation sum. Terminal collapse (DS3) makes independent component sums invalid.",
+  "state_cost_ratios_shared_by_both_pathways": {
+   "DS0_NO_DIRECT_DAMAGE": 0,
+   "DS1_CONTROL_PITCH_REPAIR_PROXY": 0.0119266055045872,
+   "DS1_fraction_note": "13/1090",
+   "DS2_ROTOR_ASSEMBLY_REPLACEMENT": 0.309174311926606,
+   "DS2_fraction_note": "337/1090",
+   "DS3_TERMINAL_TURBINE_EQUIPMENT_REPLACEMENT": 1,
+   "denominator_usd_per_kw": 1090,
+   "denominator_usd_per_MW": 1090000
+  },
+  "failure_units": [
+   {
+    "value_id": "WT_TURBINE_EQUIPMENT_ASSEMBLY",
+    "failure_unit": "Rotor/pitch + nacelle/drivetrain/power/yaw + tower -- the ONLY unit with a curve",
+    "subsystem": "ROTOR_ASSEMBLY | PITCH_SYSTEM | NACELLE | POWER_ELECTRONICS | TOWER",
+    "component": "BLADE | HUB | PITCH_DRIVE | NACELLE_STRUCTURE | GEARBOX_GENERATOR | POWER_CONVERTER | YAW_SYSTEM | TOWER_SECTION",
+    "treatment": "mapped (primary_nonzero)",
+    "usd_per_kW": 1090,
+    "usd_per_MW": 1090000,
+    "composition_usd_per_kW": "rotor/pitch 337 + nacelle/drivetrain/power/yaw 477 + tower 276 = 1090",
+    "curve_id": {
+     "straight_line_convective": "WTW2_SLC_TURBINE_EQUIPMENT_ORDERED_STATES",
+     "tornado_direct_hit": "WTW2_TOR_TURBINE_EQUIPMENT_ORDERED_STATES"
+    },
+    "beta_ln": {"straight_line_convective": 0.10, "tornado_direct_hit": 0.08},
+    "zero_below": {"straight_line_convective": "ratio 0.35", "tornado_direct_hit": "25 mps"},
+    "capacity_scenario_state_medians": {
+     "straight_line_convective_ratio": {
+      "lower_resistance": [0.75, 0.90, 1.15],
+      "central_screening": [0.90, 1.05, 1.30],
+      "upper_resistance": [1.05, 1.20, 1.45]
+     },
+     "tornado_direct_hit_mps": {
+      "lower_resistance": [32, 45, 58],
+      "central_screening": [36, 51, 67],
+      "upper_resistance": [40, 56, 80]
+     }
+    }
+   },
+   {
+    "value_id": "WT_FOUNDATION",
+    "failure_unit": "Foundation",
+    "subsystem": "FOUNDATION",
+    "component": "FOUNDATION_BASE",
+    "treatment": "withheld",
+    "usd_per_kW": 120,
+    "usd_per_MW": 120000,
+    "withheld_reason_codes": ["NO_UNIT_SPECIFIC_DAMAGE_CALIBRATION", "POST_COLLAPSE_DISPOSITION_UNRESOLVED"],
+    "numeric_dr": "withheld"
+   },
+   {
+    "value_id": "WT_EXTERNAL_ELECTRICAL",
+    "failure_unit": "Electrical infrastructure (collection + substation)",
+    "subsystem": "ELECTRICAL_COLLECTION | SUBSTATION",
+    "component": "CABLE_AC | TRANSFORMER_MAIN | SWITCHGEAR",
+    "treatment": "withheld",
+    "usd_per_kW": 72,
+    "usd_per_MW": 72000,
+    "withheld_reason_codes": ["COLLECTION_SUBSTATION_VALUE_SPLIT_REQUIRED", "LINE_POINT_EXPOSURE_SPLIT_REQUIRED", "NO_UNIT_SPECIFIC_DAMAGE_CALIBRATION"],
+    "numeric_dr": "withheld",
+    "split_note": "must split line (collection) vs point (substation) exposure before any damage modeling"
+   },
+   {
+    "value_id": "WT_CIVIL_INFRA",
+    "failure_unit": "Site access, staging, and facilities",
+    "subsystem": "CIVIL_INFRA",
+    "component": "SITE_ACCESS_STAGING_FACILITIES",
+    "treatment": "withheld",
+    "usd_per_kW": 47,
+    "usd_per_MW": 47000,
+    "withheld_reason_codes": ["MIXED_CIVIL_BUCKET_REQUIRES_SPLIT", "NO_UNIT_SPECIFIC_DAMAGE_CALIBRATION"],
+    "numeric_dr": "withheld",
+    "split_note": "must split road/staging/facility assets before any damage modeling"
+   },
+   {
+    "value_id": "WT_REPLACEMENT_SUPPORT",
+    "failure_unit": "Fieldwork (assembly/installation) + transport/logistics",
+    "subsystem": "REPLACEMENT_FIELDWORK | REPLACEMENT_LOGISTICS",
+    "component": "ASSEMBLY_INSTALLATION | WIND_TURBINE_TRANSPORT",
+    "treatment": "support_once (exposure_modifier; allocate-once outside DR)",
+    "usd_per_kW": 294,
+    "usd_per_MW": 294000,
+    "composition_usd_per_kW": "fieldwork 100 + transport/logistics 194 = 294",
+    "withheld_reason_codes": ["ALLOCATE_ONCE_AFTER_DIRECT_DAMAGE", "CLAIMS_OR_SITE_ALLOCATION_RULE_REQUIRED"],
+    "numeric_dr": "not_an_intrinsic_damage_ratio -- allocate once after damaged units known"
+   }
+  ]
+ },
+ "value_ladder_reconciliation": {
+  "turbine_equipment_usd_per_kW": 1090,
+  "withheld_direct_other_usd_per_kW": 239,
+  "withheld_direct_other_composition": "foundation 120 + external_electrical 72 + civil_infra 47 = 239",
+  "support_usd_per_kW": 294,
+  "physical_reference_total_usd_per_kW": 1623,
+  "physical_reconciliation_check": "1090 + 239 + 294 = 1623",
+  "excluded_sunk_soft_usd_per_kW": 345,
+  "installed_reference_total_usd_per_kW": 1968,
+  "installed_reconciliation_check": "1623 + 345 = 1968"
+ },
+ "equipment_shares": {
+  "note": "These are VALUE-LADDER LABELS for reporting/normalization ONLY. They are NOT DR caps and must never be interpreted as an intrinsic ceiling on the damage ratio -- the DS3 terminal state already reaches cost_ratio=1.0 (100% of the 1,090 USD/kW turbine-equipment denominator), independent of these share labels.",
+  "equipment_share_of_physical_base": 0.671595810227973,
+  "equipment_share_of_physical_base_calc": "1090 / 1623",
+  "equipment_share_of_installed_capex": 0.553861788617886,
+  "equipment_share_of_installed_capex_calc": "1090 / 1968",
+  "withheld_other_direct_share_physical_base": 0.147258163894023,
+  "withheld_other_direct_share_installed_capex": 0.121443089430894,
+  "support_share_physical_base": 0.181146025878004,
+  "support_share_installed_capex": 0.149390243902439
+ },
+ "comparability_caveat": "v2 uses a DIFFERENT denominator (the 1,090 USD/kW turbine-equipment atom, evaluated with MUTUALLY EXCLUSIVE ordered damage states) than v1.0 (which summed 5 independent structural failure units on the 1,623,000 USD/MW physical base). The staged OLD_VS_NEW_COMPARISON file flags EVERY row 'different_denominators_do_not_treat_as_regression_target'. Never treat a v2 DR as a drop-in replacement for, or a regression test against, a v1.0 DR -- the grains are not the same.",
+ "comparison_guidance": "As in v1.0: a whole-farm event loss (e.g. Flat Ridge 2 $7.25M net) CANNOT be placed on a per-MW failure-unit DR axis without (a) a confirmed MW denominator and (b) the struck-turbine count. Only per-turbine or per-struck-subsystem figures are grain-comparable to the v2 turbine-equipment curve. A $/MW exceeding the 1,090,000 USD/MW turbine-equipment cap is a GRAIN WARNING, not evidence DR>1.",
+ "promotion_status": {
+  "lifecycle_state": "candidate",
+  "promotion_status": "proposed",
+  "canonical_runtime_artifact": false,
+  "package_inclusion_status": "not_included",
+  "promotion": "not_performed",
+  "current_canonical_pin": "wind_tornado_wind@model_v1_0__docs_r4",
+  "promotion_gate_status": "blocked",
+  "note": "This proposal is deliberately absent from the artifact index and portable library v2.5. Consumers must continue to pin and use the v1.0 docs r4 artifact for any canonical calculation."
+ }
+}

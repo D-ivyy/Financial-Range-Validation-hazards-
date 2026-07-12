@@ -128,3 +128,23 @@ VALIDATION_REPORT_v0_5.md
 ```
 
 The wind_convective_wind crosswalk is `RESOLVED_FROM_DAMAGE_MODELING` (v0.5) — it uses the canonical, PROMOTED `wind_tornado_wind` cell from `Damage_Modeling` (`docs/cells/wind_tornado_wind/current/`, `canonical_runtime_artifact=true`): 5 named WT_* failure units (WT_BLADE_STRUCT, WT_TOWER_STRUCT, WT_NACELLE_CONSEQ, WT_FOUNDATION_OT, WT_POWER_ELEC_ACCEL) with per-unit value shares AND the real speed-ratio→DR logistic ordinates (hazard axis `X_SPEED_RATIO_TO_IEC`, r = V_3s_hub / Ve50_class). Scope is onshore wind turbines under CONVECTIVE wind: tornado [T] = D50-shifted pathway + 0.10 core-exposure fraction; straight-line/derecho [W] = SLW (D50-baseline) pathway of the same curves. HURRICANE/TC and HAIL-dominant SCS are named-and-quarantined. 2 of 27 benchmark rows normalize to $/MW (the value-ladder denominators only); the strongest open dollars (Flat Ridge 2 $7.25M net) are farm-level without an MW denominator and are withheld; the best straight-line anchor is a measured null (2020 Midwest derecho). Value ladder = NREL CWER 2024 (installed TIV $1,968,000/MW; physical replaceable $1,623,000/MW). Related repos: [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling), [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling).
+
+## v0.6 added files — wind_convective_wind v2 PROPOSED / NON-CANONICAL preview (two-pathway candidate; does not alter v0.5)
+
+```text
+01_pairs/wind_convective_wind/value_basis_from_damage_modeling_v2_PROPOSED.json
+01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk_v2_proposed.csv
+01_pairs/wind_convective_wind/benchmark_value_damage_crosswalk_v2_proposed.json
+01_pairs/wind_convective_wind/damage_curve_intensity_reference_v2_proposed.csv
+01_pairs/wind_convective_wind/damage_curve_intensity_reference_v2_proposed.json
+02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md
+data/wind_convective_wind_value_basis_from_damage_modeling_v2_PROPOSED.json
+data/wind_convective_wind_benchmark_value_damage_crosswalk_v2_proposed.csv
+data/wind_convective_wind_benchmark_value_damage_crosswalk_v2_proposed.json
+data/wind_convective_wind_damage_curve_intensity_reference_v2_proposed.csv
+data/wind_convective_wind_damage_curve_intensity_reference_v2_proposed.json
+99_metadata/validation_v0_6.json
+VALIDATION_REPORT_v0_6.md
+```
+
+The v0.6 addition previews a staged, **PROPOSED / NON-CANONICAL** v2.0 (docs r1) candidate for the `wind_tornado_wind` cell (`canonical_runtime_artifact=false`, `promotion_status=proposed`, `lifecycle_state=candidate`, `promotion=not_performed`, deliberately absent from the artifact index and portable library v2.5). It splits the single shared D50-shift curve into **two independently governed pathways** — `straight_line_convective` and `tornado_direct_hit` — both evaluated as mutually-exclusive ordered damage states (`ordered_damage_state_lognormal`) on a single `$1,090,000/MW` turbine-equipment-assembly atom, rather than v1.0's independent 5-unit structural sum on the `$1,623,000/MW` physical base. The same 27 benchmark rows are recast with a `v2_direct_damage_grain_comparability` verdict; the intensity reference has 24 rows (12 speed points × 2 pathways), built directly from the staged `OLD_VS_NEW_COMPARISON_wind_tornado_wind__model_v2_0__docs_r1.csv`. **The v0.5 `RESOLVED_FROM_DAMAGE_MODELING` files above are UNCHANGED and remain canonical** — the cell's `current_pin` is still `wind_tornado_wind@model_v1_0__docs_r4`.

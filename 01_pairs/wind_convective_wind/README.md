@@ -262,3 +262,28 @@ damage_curve_intensity_reference.csv / .json   canonical wind_tornado_wind speed
 ```
 
 Flat copies of the machine-readable files are distributed to `../../data/` with pair-name prefixes.
+
+---
+
+## v2 two-pathway PROPOSED preview (non-canonical) — added v0.6
+
+A staged, **PROPOSED / NON-CANONICAL** v2.0 (docs r1) candidate for the `wind_tornado_wind` cell has been previewed alongside this dossier. It replaces the single shared D50-shift curve family with **two independently governed pathways** on a shared cell ("common spine"):
+
+```text
+wind_tornado_wind
+├─ straight_line_convective  (downburst / microburst / macroburst / gust-front / local derecho outflow)
+└─ tornado_direct_hit        (conditional severity after Hazard resolves turbine intersection)
+```
+
+Both pathways evaluate mutually-exclusive **ordered damage states** (`ordered_damage_state_lognormal`) on a single `$1,090,000/MW` turbine-equipment-assembly atom, rather than v1.0's independent 5-unit structural sum on the `$1,623,000/MW` physical base. **This is a preview only** — `canonical_runtime_artifact: false`, `promotion_status: proposed`, `lifecycle_state: candidate`, `promotion: not_performed`. The cell's `current_pin` remains `wind_tornado_wind@model_v1_0__docs_r4`, and **v1.0 is still the canonical `Damage_Modeling` runtime** used everywhere else in this dossier. No content above this section has been altered.
+
+See the full preview narrative at [`../../02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md`](../../02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md) and the parallel machine-readable files:
+
+```text
+value_basis_from_damage_modeling_v2_PROPOSED.json          PROPOSED value ladder + two-pathway failure-unit mapping
+benchmark_value_damage_crosswalk_v2_proposed.csv / .json    same 27 benchmark rows recast onto the v2 atom
+damage_curve_intensity_reference_v2_proposed.csv / .json    24-row (12 speeds x 2 pathways) DR lookup, built directly
+                                                             from the staged OLD_VS_NEW_COMPARISON source
+```
+
+Flat copies are distributed to `../../data/` with pair-name prefixes, same as the canonical files.

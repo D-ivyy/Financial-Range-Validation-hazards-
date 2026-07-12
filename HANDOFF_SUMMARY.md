@@ -173,3 +173,31 @@ The Flat Ridge 2 turbine-level loss schedule (struck count + per-unit split) is 
 - `02_crosswalks/wind_convective_wind_value_damage_crosswalk.md` — `RESOLVED_FROM_DAMAGE_MODELING`
 - `99_metadata/validation_v0_5.json`, `VALIDATION_REPORT_v0_5.md`
 - `data/*_wind_convective_wind.{csv,json}` flat copies
+
+## v0.6 handoff — wind_convective_wind v2 PROPOSED / NON-CANONICAL preview (two-pathway candidate; does not alter v0.5)
+
+A staged, **PROPOSED / NON-CANONICAL** v2.0 (docs r1) candidate for the `wind_tornado_wind` cell has been previewed alongside the v0.5 dossier, without touching it. v2 replaces the single shared D50-shift curve with **two independently governed pathways** — `straight_line_convective` and `tornado_direct_hit` — both evaluated as mutually-exclusive ordered damage states on a single `$1,090,000/MW` turbine-equipment-assembly atom, instead of v1.0's independent 5-unit structural sum on the `$1,623,000/MW` physical base. **`canonical_runtime_artifact: false`, `promotion_status: proposed`, `lifecycle_state: candidate`, `promotion: not_performed`** — the cell's `current_pin` remains `wind_tornado_wind@model_v1_0__docs_r4`, and v1.0 is still the canonical `Damage_Modeling` runtime.
+
+### Headline
+
+The value ladder is unchanged and reconciles identically under v2 (`1090+239+294=1623`; `1623+345=1968`). What changes is the grain: v2 evaluates ONE curve-bearing failure unit (`WT_TURBINE_EQUIPMENT_ASSEMBLY`, `$1,090,000/MW`) with ordered damage states, versus v1.0's five independently-summed structural units. Every DR row and every recast benchmark row is tagged `different_denominators_do_not_treat_as_regression_target`, copied verbatim from the staged `OLD_VS_NEW_COMPARISON` source.
+
+### Damage grain (v2 proposed)
+
+`WT_TURBINE_EQUIPMENT_ASSEMBLY` (curve-bearing) `$1,090/kW` = rotor/pitch `337` + nacelle/drivetrain/power/yaw `477` + tower `276`. Withheld direct-other: `WT_FOUNDATION` `$120/kW`, `WT_EXTERNAL_ELECTRICAL` `$72/kW`, `WT_CIVIL_INFRA` `$47/kW` (sum `239`). Support (`support_once`, outside DR): `WT_REPLACEMENT_SUPPORT` `$294/kW` (fieldwork `100` + transport/logistics `194`). State cost ratios shared by both pathways: DS0 `0`, DS1 `0.0119266` (`13/1090`), DS2 `0.3091743` (`337/1090`), DS3 `1.0`.
+
+### Main gap / next steps (unchanged from v1.0's perspective)
+
+No new open convective-wind `$/MW` severity data exists under v2 either — the same Flat Ridge 2 farm-level figure and the same 2020 derecho measured null remain the strongest anchors. The v2 candidate's `promotion_gate.status` is `blocked`: canonical use would require independent formula verification, schema review (bundle v3/emit v2/capability v3), all pathway KATs passing, Hazard-adapter migration to a single pinned artifact, and an explicit repository promotion decision. None of these gates have been passed.
+
+### Output files (v0.6, additive)
+
+- `01_pairs/wind_convective_wind/value_basis_from_damage_modeling_v2_PROPOSED.json`
+- `01_pairs/wind_convective_wind/{benchmark_value_damage_crosswalk_v2_proposed.csv/json}` — 27 rows
+- `01_pairs/wind_convective_wind/{damage_curve_intensity_reference_v2_proposed.csv/json}` — 24 rows (12 speeds × 2 pathways)
+- `02_crosswalks/wind_convective_wind_v2_proposed_value_damage_crosswalk.md` — `PROPOSED_NONCANONICAL_FROM_DAMAGE_MODELING_V2`
+- `99_metadata/validation_v0_6.json`, `VALIDATION_REPORT_v0_6.md`
+- `data/wind_convective_wind_{value_basis_from_damage_modeling_v2_PROPOSED.json, benchmark_value_damage_crosswalk_v2_proposed.csv/json, damage_curve_intensity_reference_v2_proposed.csv/json}` flat copies
+- 33 new source-register entries added to `99_metadata/bibliography.md` under a new "wind_convective_wind v2 proposed pathway sources" heading
+
+**The v0.5 files listed above remain byte-unchanged and canonical.**
