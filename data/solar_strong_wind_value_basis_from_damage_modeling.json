@@ -1,0 +1,130 @@
+{
+ "schema_version": "renewable_loss_value_damage_crosswalk.v1",
+ "created": "2026-07-13",
+ "status": "RESOLVED_FROM_DAMAGE_MODELING",
+ "source_value_workbook": "Damage_Modeling/docs/method/value_basis/solar_wind_value_breakdown.xlsx / Summary + Solar_Map (value ladder is peril-agnostic)",
+ "source_damage_artifact": "Damage_Modeling/docs/cells/strong_wind_solar/current/strong_wind_solar__model_v1_0__docs_r3__curve_artifact.json + damage_curve_records_v1_0_strong_wind_solar.xlsx",
+ "damage_code_id": "STRONG_WIND_SOLAR_V1",
+ "related_repos": {
+  "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+  "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+ },
+ "important_rule": "This crosswalk normalizes and reconciles denominator/grain only; it is NOT external validation evidence and defines NO pass/fail bands. Failure-unit IDs, value shares, hazard axis, curve form, and gust-demand->DR ordinates are taken verbatim from the canonical strong_wind_solar cell (model_v1_0). It is a source-pathway / normalization layer, NOT a calibration harness.",
+ "scope_note": "This pair (solar_strong_wind) covers utility-scale ground-mount PV under STRONG / STRAIGHT-LINE CONVECTIVE wind (synoptic gusts, derecho, microburst, gust-front outflow). TORNADO and HURRICANE/TC are fenced OUT (quarantined) \u2014 the canonical strong_wind_solar cell is a straight-line-wind demand curve and does not carry tornado vortex or TC-duration loading. The v1.0 cell uses a single thresholded-logistic demand curve per failure unit on a 3-second-gust-at-array-height axis.",
+ "solar_default_basis_usd_per_MWdc": {
+  "installed_TIV": 1120000.0,
+  "physical_replaceable_value": 877796.0,
+  "excluded_sunk_soft_nonphysical": 242204.0,
+  "physical_as_pct_installed": 78.375,
+  "excluded_as_pct_installed": 21.625,
+  "reference_system_MWdc": 100.0,
+  "source": "https://www.energy.gov/cmei/systems/solar-photovoltaic-system-cost-benchmarks (NREL/DOE Q1-2024 $1.12/W-dc, exact match)"
+ },
+ "hazard_axis": {
+  "id": "SWS_GUST_3S_ARRAY_HEIGHT",
+  "preferred_input_field": "gust_3s_mph",
+  "formula": "R_eff = (V_3s / V_design)^2 * mult",
+  "unit": "dimensionless effective demand ratio (input gust in mph)",
+  "valid_range": "0 - 200",
+  "out_of_range_policy": "warn_or_clamp",
+  "design_note": "V_design is the ASCE 7-22 \u00a729.4.5 site design 3s gust for the ground-mount array; mult carries directionality/gust-front amplification."
+ },
+ "strong_wind_damage_grain": {
+  "cell_id": "strong_wind_solar",
+  "curve_form": "thresholded_logistic_demand  (DR = max_DR / (1 + exp(-k*(R_eff - R50))) for R_eff >= R0, else 0)",
+  "f_kind": "material/structural capacity vs effective gust-demand ratio (NOT geometry/elevation, NOT BOM/material share)",
+  "owns": "severity curves only \u2014 EAL / PML / VaR / TVaR are downstream (hazard catalog + financial model), NOT in this cell",
+  "failure_units": [
+   {
+    "value_id": "SWS_TRACKER_STRUCT",
+    "failure_unit": "Single-axis tracker structural failure (torque tube / bearing / drive)",
+    "subsystem": "MOUNTING",
+    "component": "TRACKER_STRUCTURE",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.08,
+    "usd_per_MW_physical_base": 70224.0,
+    "max_DR": 0.8,
+    "R0_threshold": 0.75,
+    "R50_ratio": 1.15,
+    "k_ratio": 9.0,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "SWS_GUST_3S_ARRAY_HEIGHT"
+   },
+   {
+    "value_id": "SWS_RACKING_STRUCT",
+    "failure_unit": "Fixed-tilt racking structural failure",
+    "subsystem": "MOUNTING",
+    "component": "RACKING_STRUCTURE",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.06,
+    "usd_per_MW_physical_base": 52668.0,
+    "max_DR": 0.75,
+    "R0_threshold": 0.8,
+    "R50_ratio": 1.25,
+    "k_ratio": 8.0,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "SWS_GUST_3S_ARRAY_HEIGHT"
+   },
+   {
+    "value_id": "SWS_MODULE_ATTACH",
+    "failure_unit": "Module detachment / clamp / frame failure",
+    "subsystem": "PV_ARRAY",
+    "component": "MODULE_ATTACHMENT",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.4,
+    "usd_per_MW_physical_base": 351118.0,
+    "max_DR": 0.65,
+    "R0_threshold": 0.7,
+    "R50_ratio": 1.05,
+    "k_ratio": 10.0,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "SWS_GUST_3S_ARRAY_HEIGHT"
+   },
+   {
+    "value_id": "SWS_FOUNDATION_UPLIFT",
+    "failure_unit": "Foundation uplift / pier withdrawal",
+    "subsystem": "FOUNDATION",
+    "component": "PILE_FOUNDATION",
+    "treatment": "primary_nonzero",
+    "default_value_share_physical_base": 0.08,
+    "usd_per_MW_physical_base": 70224.0,
+    "max_DR": 0.45,
+    "R0_threshold": 0.9,
+    "R50_ratio": 1.35,
+    "k_ratio": 7.0,
+    "include_in_default_structural_aggregate": true,
+    "hazard_axis": "SWS_GUST_3S_ARRAY_HEIGHT"
+   },
+   {
+    "value_id": "SWS_SCADA_EXPOSED",
+    "failure_unit": "Exposed SCADA / met-station / comms hardware",
+    "subsystem": "SCADA",
+    "component": "EXPOSED_SENSORS",
+    "treatment": "secondary_conditional_open_seam",
+    "default_value_share_physical_base": 0.02,
+    "usd_per_MW_physical_base": 17556.0,
+    "max_DR": 0.15,
+    "R0_threshold": 0.7,
+    "R50_ratio": 0.95,
+    "k_ratio": 6.0,
+    "include_in_default_structural_aggregate": false,
+    "hazard_axis": "SWS_GUST_3S_ARRAY_HEIGHT"
+   }
+  ]
+ },
+ "normalization_buckets_usd_per_MWdc": {
+  "SWS_TRACKER_STRUCT": 70224.0,
+  "SWS_RACKING_STRUCT": 52668.0,
+  "SWS_MODULE_ATTACH": 351118.0,
+  "SWS_FOUNDATION_UPLIFT": 70224.0,
+  "SWS_SCADA_EXPOSED": 17556.0
+ },
+ "derived_bucket_shares": {
+  "primary_structural_aggregate_share_physical": 0.62,
+  "primary_structural_aggregate_usd_per_MWdc_physical": 544234.0,
+  "mounting_tracker_plus_racking_usd_per_MWdc_physical": 122892.0,
+  "module_attach_share_physical": 0.4,
+  "note": "primary_structural_aggregate = TRACKER_STRUCT + RACKING_STRUCT + MODULE_ATTACH + FOUNDATION_UPLIFT (the four include_in_default_structural_aggregate=true units). SCADA_EXPOSED is a secondary open-seam and is EXCLUDED from the default aggregate. NOTE the two mounting FUs (tracker vs racking) are ALTERNATIVE architectures on a given site, not additive \u2014 a plant is either tracker OR fixed-tilt; summing both overstates a single-architecture plant."
+ },
+ "comparison_guidance": "A whole-plant modeled event loss (e.g. AXIS failed-stow $380,000/MW) CANNOT be placed cleanly on a per-failure-unit DR axis, because (a) it is HAIL-stow framed rather than isolated straight-line wind, and (b) it blends module + mounting + downtime. Only per-subsystem or clearly module-attach / mounting-isolated figures are grain-comparable to these DR curves. A $/MW exceeding a failure-unit hardware cap (e.g. FEMP $1.5M/MW top tier > installed TIV) is a GRAIN WARNING that repair+debris+replace can exceed asset TIV, NOT evidence DR>1. Straight-line convective wind $ is not cleanly isolated in ANY public source, so every crosswalk verdict here is grain-qualified."
+}

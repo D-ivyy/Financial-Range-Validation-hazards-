@@ -148,3 +148,44 @@ VALIDATION_REPORT_v0_6.md
 ```
 
 The v0.6 addition previews a staged, **PROPOSED / NON-CANONICAL** v2.0 (docs r1) candidate for the `wind_tornado_wind` cell (`canonical_runtime_artifact=false`, `promotion_status=proposed`, `lifecycle_state=candidate`, `promotion=not_performed`, deliberately absent from the artifact index and portable library v2.5). It splits the single shared D50-shift curve into **two independently governed pathways** — `straight_line_convective` and `tornado_direct_hit` — both evaluated as mutually-exclusive ordered damage states (`ordered_damage_state_lognormal`) on a single `$1,090,000/MW` turbine-equipment-assembly atom, rather than v1.0's independent 5-unit structural sum on the `$1,623,000/MW` physical base. The same 27 benchmark rows are recast with a `v2_direct_damage_grain_comparability` verdict; the intensity reference has 24 rows (12 speed points × 2 pathways), built directly from the staged `OLD_VS_NEW_COMPARISON_wind_tornado_wind__model_v2_0__docs_r1.csv`. **The v0.5 `RESOLVED_FROM_DAMAGE_MODELING` files above are UNCHANGED and remain canonical** — the cell's `current_pin` is still `wind_tornado_wind@model_v1_0__docs_r4`.
+
+## v0.7 added files — solar_strong_wind NEW pair dossier + canonical crosswalk + PROPOSED / NON-CANONICAL v2 preview
+
+```text
+01_pairs/solar_strong_wind/README.md
+01_pairs/solar_strong_wind/source_registry.json
+01_pairs/solar_strong_wind/source_registry.csv
+01_pairs/solar_strong_wind/source_matrix.csv
+01_pairs/solar_strong_wind/benchmark_number_matrix.csv
+01_pairs/solar_strong_wind/benchmark_number_matrix.json
+01_pairs/solar_strong_wind/value_basis_from_damage_modeling.json
+01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk.csv
+01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk.json
+01_pairs/solar_strong_wind/damage_curve_intensity_reference.csv
+01_pairs/solar_strong_wind/damage_curve_intensity_reference.json
+01_pairs/solar_strong_wind/value_basis_from_damage_modeling_v2_PROPOSED.json
+01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk_v2_proposed.csv
+01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk_v2_proposed.json
+01_pairs/solar_strong_wind/damage_curve_intensity_reference_v2_proposed.csv
+01_pairs/solar_strong_wind/damage_curve_intensity_reference_v2_proposed.json
+02_crosswalks/solar_strong_wind_value_damage_crosswalk.md
+02_crosswalks/solar_strong_wind_v2_proposed_value_damage_crosswalk.md
+data/benchmark_number_matrix_solar_strong_wind.csv
+data/benchmark_number_matrix_solar_strong_wind.json
+data/source_registry_solar_strong_wind.csv
+data/source_registry_solar_strong_wind.json
+data/solar_strong_wind_value_basis_from_damage_modeling.json
+data/solar_strong_wind_value_basis_from_damage_modeling_v2_PROPOSED.json
+data/solar_strong_wind_value_damage_crosswalk.csv
+data/solar_strong_wind_value_damage_crosswalk.json
+data/solar_strong_wind_benchmark_value_damage_crosswalk_v2_proposed.csv
+data/solar_strong_wind_benchmark_value_damage_crosswalk_v2_proposed.json
+data/solar_strong_wind_damage_curve_intensity_reference.csv
+data/solar_strong_wind_damage_curve_intensity_reference.json
+data/solar_strong_wind_damage_curve_intensity_reference_v2_proposed.csv
+data/solar_strong_wind_damage_curve_intensity_reference_v2_proposed.json
+99_metadata/validation_v0_7.json
+VALIDATION_REPORT_v0_7.md
+```
+
+The `solar_strong_wind` crosswalk is `RESOLVED_FROM_DAMAGE_MODELING` (v0.7) — it uses the canonical, PROMOTED `strong_wind_solar` v1.0 cell from `Damage_Modeling` (`docs/cells/strong_wind_solar/current/`, commit `f8b5ec3`, `canonical_runtime_artifact=true`): 5 named SWS_* failure units (SWS_TRACKER_STRUCT, SWS_RACKING_STRUCT, SWS_MODULE_ATTACH, SWS_FOUNDATION_UPLIFT, SWS_SCADA_EXPOSED) with per-unit value shares AND the thresholded-logistic demand→DR ordinates (hazard axis `SWS_GUST_3S_ARRAY_HEIGHT`, R_eff = (V_3s/V_design)^2). Scope is utility-scale ground-mount PV under straight-line / severe-convective wind (derecho, microburst, gust-front); tornado and hurricane/TC are named-and-quarantined. 6 of 30 benchmark rows normalize to $/MW and all are blended — no open source isolates pure straight-line-wind $ severity for solar. Solar value ladder = installed TIV `$1,120,000/MWdc` (exact-confirmed by NREL/DOE Q1-2024 `$1.12/W-dc`); physical replaceable `$877,796/MWdc` (78.4%). A staged, non-canonical two-architecture v2.0 screening preview (`fixed_tilt_ground_mount` net-pressure pathway + `single_axis_tracker_qualified` gust/Ucrit pathway) accompanies it (`canonical_runtime_artifact=false`, `promotion=not_performed`) and does not alter the canonical crosswalk. Related repos: [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling), [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling).

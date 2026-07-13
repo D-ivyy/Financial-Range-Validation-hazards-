@@ -1,0 +1,305 @@
+{
+ "note": "PROPOSED v2.0 preview. Two array-architecture pathways with DIFFERENT demand denominators; lower/central/upper = epistemic envelope, NOT percentiles. Illustrative ordinates; NOT a calibration target. This is an anchor plot, not a distribution.",
+ "rows": [
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 0.2,
+   "v2_lower_dr": 0.0,
+   "v2_central_dr": 0.0,
+   "v2_upper_dr": 0.0,
+   "v2_central_contribution_pct_installed": 0.0,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 0.4,
+   "v2_lower_dr": 0.0,
+   "v2_central_dr": 0.001,
+   "v2_upper_dr": 0.0089,
+   "v2_central_contribution_pct_installed": 0.036,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 0.6,
+   "v2_lower_dr": 0.0042,
+   "v2_central_dr": 0.0377,
+   "v2_upper_dr": 0.1435,
+   "v2_central_contribution_pct_installed": 1.35,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 0.8,
+   "v2_lower_dr": 0.0449,
+   "v2_central_dr": 0.1942,
+   "v2_upper_dr": 0.425,
+   "v2_central_contribution_pct_installed": 6.956,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 1.0,
+   "v2_lower_dr": 0.1623,
+   "v2_central_dr": 0.425,
+   "v2_upper_dr": 0.6558,
+   "v2_central_contribution_pct_installed": 15.224,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 1.2,
+   "v2_lower_dr": 0.3356,
+   "v2_central_dr": 0.6191,
+   "v2_upper_dr": 0.775,
+   "v2_central_contribution_pct_installed": 22.176,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 1.4,
+   "v2_lower_dr": 0.5079,
+   "v2_central_dr": 0.7386,
+   "v2_upper_dr": 0.8236,
+   "v2_central_contribution_pct_installed": 26.457,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 1.6,
+   "v2_lower_dr": 0.6422,
+   "v2_central_dr": 0.8002,
+   "v2_upper_dr": 0.8411,
+   "v2_central_contribution_pct_installed": 28.663,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 1.8,
+   "v2_lower_dr": 0.7318,
+   "v2_central_dr": 0.8287,
+   "v2_upper_dr": 0.8471,
+   "v2_central_contribution_pct_installed": 29.684,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 2.0,
+   "v2_lower_dr": 0.7858,
+   "v2_central_dr": 0.8411,
+   "v2_upper_dr": 0.849,
+   "v2_central_contribution_pct_installed": 30.128,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 2.2,
+   "v2_lower_dr": 0.8162,
+   "v2_central_dr": 0.8464,
+   "v2_upper_dr": 0.8497,
+   "v2_central_contribution_pct_installed": 30.318,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 2.4,
+   "v2_lower_dr": 0.8326,
+   "v2_central_dr": 0.8485,
+   "v2_upper_dr": 0.8499,
+   "v2_central_contribution_pct_installed": 30.393,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 2.6,
+   "v2_lower_dr": 0.8411,
+   "v2_central_dr": 0.8494,
+   "v2_upper_dr": 0.85,
+   "v2_central_contribution_pct_installed": 30.426,
+   "extrapolation_flag": "high_extrap",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 2.8,
+   "v2_lower_dr": 0.8455,
+   "v2_central_dr": 0.8497,
+   "v2_upper_dr": 0.85,
+   "v2_central_contribution_pct_installed": 30.436,
+   "extrapolation_flag": "high_extrap",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "fixed_tilt_ground_mount",
+   "demand_x": 3.0,
+   "v2_lower_dr": 0.8477,
+   "v2_central_dr": 0.8499,
+   "v2_upper_dr": 0.85,
+   "v2_central_contribution_pct_installed": 30.443,
+   "extrapolation_flag": "high_extrap",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 0.2,
+   "v2_lower_dr": 0.0,
+   "v2_central_dr": 0.0,
+   "v2_upper_dr": 0.0,
+   "v2_central_contribution_pct_installed": 0.0,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 0.4,
+   "v2_lower_dr": 0.0,
+   "v2_central_dr": 0.0002,
+   "v2_upper_dr": 0.0029,
+   "v2_central_contribution_pct_installed": 0.007,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 0.6,
+   "v2_lower_dr": 0.001,
+   "v2_central_dr": 0.0128,
+   "v2_upper_dr": 0.075,
+   "v2_central_contribution_pct_installed": 0.458,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 0.8,
+   "v2_lower_dr": 0.0154,
+   "v2_central_dr": 0.0962,
+   "v2_upper_dr": 0.2952,
+   "v2_central_contribution_pct_installed": 3.446,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 1.0,
+   "v2_lower_dr": 0.075,
+   "v2_central_dr": 0.2726,
+   "v2_upper_dr": 0.5417,
+   "v2_central_contribution_pct_installed": 9.765,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 1.2,
+   "v2_lower_dr": 0.1942,
+   "v2_central_dr": 0.4729,
+   "v2_upper_dr": 0.7065,
+   "v2_central_contribution_pct_installed": 16.939,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 1.4,
+   "v2_lower_dr": 0.3477,
+   "v2_central_dr": 0.6324,
+   "v2_upper_dr": 0.7902,
+   "v2_central_contribution_pct_installed": 22.653,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 1.6,
+   "v2_lower_dr": 0.4974,
+   "v2_central_dr": 0.7348,
+   "v2_upper_dr": 0.8266,
+   "v2_central_contribution_pct_installed": 26.321,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 1.8,
+   "v2_lower_dr": 0.6191,
+   "v2_central_dr": 0.7925,
+   "v2_upper_dr": 0.8411,
+   "v2_central_contribution_pct_installed": 28.387,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 2.0,
+   "v2_lower_dr": 0.7065,
+   "v2_central_dr": 0.8223,
+   "v2_upper_dr": 0.8467,
+   "v2_central_contribution_pct_installed": 29.455,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 2.2,
+   "v2_lower_dr": 0.7643,
+   "v2_central_dr": 0.837,
+   "v2_upper_dr": 0.8488,
+   "v2_central_contribution_pct_installed": 29.981,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 2.4,
+   "v2_lower_dr": 0.8002,
+   "v2_central_dr": 0.844,
+   "v2_upper_dr": 0.8495,
+   "v2_central_contribution_pct_installed": 30.232,
+   "extrapolation_flag": "in_range",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 2.6,
+   "v2_lower_dr": 0.8216,
+   "v2_central_dr": 0.8472,
+   "v2_upper_dr": 0.8498,
+   "v2_central_contribution_pct_installed": 30.347,
+   "extrapolation_flag": "high_extrap",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 2.8,
+   "v2_lower_dr": 0.8341,
+   "v2_central_dr": 0.8487,
+   "v2_upper_dr": 0.8499,
+   "v2_central_contribution_pct_installed": 30.4,
+   "extrapolation_flag": "high_extrap",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  },
+  {
+   "pathway_id": "single_axis_tracker",
+   "demand_x": 3.0,
+   "v2_lower_dr": 0.8411,
+   "v2_central_dr": 0.8494,
+   "v2_upper_dr": 0.85,
+   "v2_central_contribution_pct_installed": 30.426,
+   "extrapolation_flag": "high_extrap",
+   "comparability_note": "different_denominators_do_not_treat_as_regression_target"
+  }
+ ]
+}

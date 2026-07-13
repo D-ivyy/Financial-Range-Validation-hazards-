@@ -1,0 +1,30 @@
+source_id,source_name,availability_tag,EVENT_LOSS_USD,PCT_TIV,AAL_PML,DAMAGE_FUNCTION,GUST_WIND_SPEED,DESIGN_LOAD,TRACKER_VS_FIXED,STOW_BEHAVIOR,MODULE_ATTACH,FOUNDATION_UPLIFT,FAILURE_FRACTION,PERIL_SHARE,BI_DOWNTIME,EXPOSURE_MW,TIV_CROSSCHECK,CASE_STUDY,MECHANISM
+AXIS_RENEWABLE_2024,AXIS Capital — Renewable Energy stow-scenario loss modeling (via industry press / broker briefings),HAS_OPEN_NUMBERS,Y,Y,,,,,Y,Y,Y,,,Y,Y,,,,
+GCUBE_SOLAR_HAIL_2024,GCube Insurance — solar hail/NatCat claims analysis (via PES Media / Artemis),HAS_GATED_NUMBERS,Y,,,,,,,,,,,Y,,,,,
+KWH_ANALYTICS_SOLAR_RISK_2024,kWh Analytics — Solar Risk Assessment (annual),HAS_OPEN_NUMBERS,,,,,,,,Y,,,,Y,,,,,
+DESCARTES_TORNADO_PARAMETRIC_2024,Descartes Underwriting — tornado parametric structure for solar (worked example),HAS_OPEN_NUMBERS,Y,,,,,,,,,,,,,,,,
+GALLAGHER_RE_SCS_2025,Gallagher Re — US Severe Convective Storm loss analysis (2025),HAS_OPEN_NUMBERS,Y,,,,,,,,,,,Y,,,,,
+VERISK_AIR_SCS_SOLAR,Verisk (AIR) — Severe Thunderstorm / SCS model with solar damage functions,HAS_GATED_NUMBERS,,,Y,Y,Y,,,,,,,,,,,,Y
+MOODYS_RMS_SCS_RENEWABLE,"Moody's RMS — North America Severe Convective Storm model, renewable curves",HAS_GATED_NUMBERS,,,Y,Y,Y,,,,,,,,,,,,Y
+VDE_CIRRUS_NAMED_WINDSTORM,VDE Americas / Cirrus — solar PML/AAL advisory (named-windstorm peril line),HAS_GATED_NUMBERS,,,Y,,,,,,,,,Y,,,,,Y
+RENEW_RISK_SCS_SOLAR,Renew Risk — SCS solar catastrophe model,HAS_GATED_NUMBERS,,,Y,Y,,,,,,,,,,,,,Y
+SETO_SEVERE_WEATHER_2023,"DOE SETO — Severe Weather & Solar report (Cedar Rapids derecho, Prescott AZ)",HAS_OPEN_NUMBERS,,,,,Y,,,,Y,Y,,,,,,Y,Y
+DOE_FEMP_PV_WEATHER_GUIDE,DOE FEMP — PV System Owner's Guide to Weather Vulnerabilities,HAS_OPEN_NUMBERS,,,,,,,,,Y,Y,,,,,Y,,Y
+OAKEY_2019_PVMAG,"pv magazine — 'What broke at Oakey' (Oakey solar farm wind damage, AU)",HAS_OPEN_NUMBERS,,,,,,,,,Y,,Y,,,,,Y,
+SOLTEC_2019_PVMAG,Soltec — tracker wind performance presentation (perimeter-row failure pattern),HAS_OPEN_NUMBERS,,,,,,,Y,,,,Y,,,,,Y,Y
+NEXTRACKER_STOW_WHITEPAPER_2018,NEXTracker — tracker stow reliability white paper (Table 1 failure-probability by stow),HAS_OPEN_NUMBERS,,,,,,,Y,Y,,,Y,,,,,,Y
+CPP_TORSIONAL_GALLOPING_2015,"CPP Wind (Rohr, Bourke, Banks 2015) — torsional instability of single-axis trackers",HAS_OPEN_NUMBERS,,,,,Y,,Y,Y,,,,,,,,,Y
+NREL_PLR_WIND_2024,NREL — PV performance-loss-rate vs wind exposure study,HAS_OPEN_NUMBERS,,,,,Y,,,,,,,,,,,,Y
+PVEL_MSS_SCORECARD_2025,PVEL — Module Mechanical Stress Sequence (MSS) scorecard,HAS_OPEN_NUMBERS,,,,,,Y,Y,,Y,,Y,,,,,,Y
+ASCE_7_22_WIND,ASCE 7-22 — wind load provisions (§29.4.5 ground-mount solar; Ch.32 tornado),HAS_OPEN_NUMBERS,,,,,Y,Y,,,,,,,,,,,Y
+NREL_STORM_HARDENING_2020,NREL — PV storm-hardening cost study (¢/W hardening measures),HAS_OPEN_NUMBERS,,,,,,,,,,,,,,,Y,,Y
+NOAA_STORM_EVENTS_WIND,NOAA/NCEI Storm Events Database — Thunderstorm Wind / High Wind,GENERIC_ONLY,Y,,,,Y,,,,,,,,,,,,
+SPC_SEVERE_WIND_CLIMO,NOAA/NWS Storm Prediction Center — severe wind climatology & report archive,GENERIC_ONLY,,,,,Y,,,,,,,,,,,,
+SHELDUS_V23,SHELDUS v23 — Spatial Hazard Events and Losses Database (ASU CEMHS),HAS_GATED_NUMBERS,Y,,,,,,,,,,,,,,,,
+AON_CCI_2026_SCS,Aon — 2026 Climate and Catastrophe Insight (FY2025),HAS_OPEN_NUMBERS,Y,,,,,,,,,,,,,,,,
+SWISS_RE_SIGMA_2025_01,Swiss Re Institute — sigma 1/2025 Natural catastrophes,HAS_OPEN_NUMBERS,Y,,,,,,,,,,,,,,,,
+USPVDB_2026_V4,US Large-Scale Solar Photovoltaic Database (USGS/LBNL) v4.0,HAS_OPEN_NUMBERS,,,,,,,,,,,,,,Y,,,
+EIA_860_2025,EIA Form 860 / Electric Power Monthly — utility-scale solar capacity,HAS_OPEN_NUMBERS,,,,,,,,,,,,,,Y,,,
+NREL_DOE_PV_COST_BENCHMARK_Q1_2024,DOE/NREL/LBNL/Sandia — U.S. Solar PV System Cost Benchmark Q1 2024,HAS_OPEN_NUMBERS,,,,,,,,,,,,,,,Y,,
+NREL_ATB_2024_UTILITY_PV,NREL 2024 Annual Technology Baseline — Utility-Scale PV,HAS_OPEN_NUMBERS,,,,,,,,,,,,,,,Y,,
+LBNL_UTILITY_SCALE_SOLAR_2025ED,"LBNL — Utility-Scale Solar, 2025 Edition (empirical EIA-860 project costs)",HAS_OPEN_NUMBERS,,,,,,,,,,,,,,Y,Y,,

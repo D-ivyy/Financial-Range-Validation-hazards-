@@ -1,0 +1,145 @@
+{
+  "package": "range-validation-hazard-modeling",
+  "created": "2026-07-13",
+  "pair": "solar_strong_wind",
+  "addition_type": "new_pair_dossier_plus_canonical_v1_crosswalk_plus_v2_proposed_preview",
+  "crosswalk_status": "RESOLVED_FROM_DAMAGE_MODELING",
+  "crosswalk_status_v2_preview": "PROPOSED_NONCANONICAL_FROM_DAMAGE_MODELING_V2",
+  "scope_note": "This v0.7 addition builds a NEW gold-standard deep-dive pair dossier for solar_strong_wind (utility-scale ground-mount PV under straight-line / severe-convective wind: derecho, microburst, gust-front outflow). Tornado and hurricane/TC are named-and-quarantined. The canonical crosswalk is RESOLVED against the PROMOTED strong_wind_solar v1.0 cell in Damage_Modeling; a separate, clearly-labeled PROPOSED / NON-CANONICAL two-architecture v2.0 preview accompanies it and does NOT alter or supersede the canonical crosswalk.",
+  "golden_rule_on_grain": "A source with a wind loss number is NOT a benchmark until its sub-peril frame (straight-line vs hail vs tornado vs hurricane), denominator, coverage, asset class, geography, and loss basis are understood. Central finding: NO open public source isolates pure straight-line / convective-wind $ severity for utility-scale solar -- every open dollar figure is hail-stow-framed (AXIS), hail-dominant (GCube), tornado-parametric (Descartes), generic all-property SCS (Gallagher Re/Aon/Swiss Re), or gated (Verisk/AIR, Moody's RMS, VDE/Cirrus, Renew Risk).",
+  "related_repos": {
+    "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+    "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+  },
+  "upstream_cell_governance": {
+    "damage_modeling_commit": "f8b5ec3",
+    "current_canonical_pin": "strong_wind_solar@model_v1_0__docs_r3",
+    "v1_0_status": "promoted; canonical_runtime_artifact=true",
+    "v1_0_curve_artifact": "docs/cells/strong_wind_solar/current/strong_wind_solar__model_v1_0__docs_r3__curve_artifact.json",
+    "hazard_axis_v1": "SWS_GUST_3S_ARRAY_HEIGHT (R_eff = (V_3s/V_design)^2 * mult; valid 0-200)",
+    "curve_form_v1": "thresholded_logistic_demand: DR = max_DR/(1+exp(-k*(R_eff-R50))) for R_eff>=R0 else 0",
+    "v1_0_failure_units": [
+      "SWS_TRACKER_STRUCT",
+      "SWS_RACKING_STRUCT",
+      "SWS_MODULE_ATTACH",
+      "SWS_FOUNDATION_UPLIFT",
+      "SWS_SCADA_EXPOSED"
+    ],
+    "v2_0_candidate": {
+      "location": "docs/cells/strong_wind_solar/proposed/",
+      "canonical_runtime_artifact": false,
+      "promotion": "not_performed",
+      "grade": "SCREENING_ENGINEERING_PROXY",
+      "architecture": "single straight_line_convective input routed by array_architecture into two pathways",
+      "pathways": ["fixed_tilt_ground_mount_screening_v1", "single_axis_tracker_qualified_screening_v1"],
+      "curve_form_v2": "ordered_damage_state_lognormal (beta_ln~0.3, zero_below~0.1); lower/central/upper state medians are an EPISTEMIC ENVELOPE, NOT percentiles",
+      "hazard_axes_v2": {
+        "fixed_tilt_ground_mount_screening_v1": "x_fixed = event net-pressure demand / qualified design net-pressure (proxy (gust/design_gust)^2)",
+        "single_axis_tracker_qualified_screening_v1": "x_tracker = tracker-normal 3s gust / exact-system Ucrit"
+      },
+      "note": "fixed_tilt and single_axis_tracker use DIFFERENT denominators; never cross-regress the two pathways or either against the v1.0 R_eff axis"
+    }
+  },
+  "solar_value_ladder_usd_per_MWdc": {
+    "installed_TIV": 1120000,
+    "installed_TIV_pct": 1.0,
+    "installed_TIV_exact_cross_check": "NREL/DOE Q1-2024 utility-scale MMP $1.12/W-dc",
+    "physical_replaceable_value": 877796,
+    "physical_replaceable_pct": 0.78375,
+    "excluded_sunk_soft": 242204,
+    "excluded_sunk_soft_pct": 0.21625,
+    "source_value_workbook": "Damage_Modeling/docs/method/value_basis/solar_wind_value_breakdown.xlsx (Summary / Solar_Map)"
+  },
+  "checks": {
+    "pair_dir_exists": true,
+    "new_pair_files_created": 17,
+    "source_registry_rows": 29,
+    "source_registry_json_length": 29,
+    "source_matrix_rows": 29,
+    "source_matrix_attribute_columns": 17,
+    "benchmark_number_matrix_rows": 30,
+    "benchmark_number_matrix_json_length": 30,
+    "benchmark_value_damage_crosswalk_rows": 13,
+    "damage_curve_intensity_reference_rows": 29,
+    "benchmark_value_damage_crosswalk_v2_proposed_rows": 8,
+    "damage_curve_intensity_reference_v2_proposed_rows": 30,
+    "damage_curve_intensity_reference_v2_proposed_rows_breakdown": {
+      "fixed_tilt_ground_mount_screening_v1": 15,
+      "single_axis_tracker_qualified_screening_v1": 15
+    },
+    "availability_tag_breakdown": {
+      "HAS_OPEN_NUMBERS": 21,
+      "HAS_GATED_NUMBERS": 6,
+      "GENERIC_ONLY": 2
+    },
+    "benchmark_rows_normalizing_to_usd_per_MW": 6,
+    "benchmark_rows_blank_not_zero_where_no_denominator": 24,
+    "blank_cells_not_zeros_verified": true,
+    "blank_cell_examples": [
+      "benchmark_number_matrix.csv: AXIS $342M gross-claim row has usd_per_MWdc BLANK (no MW denominator), not zero",
+      "benchmark_number_matrix.csv: Oakey (~2000 modules @ 55 MW) and Soltec (~1-2% collapse) fraction rows have usd_per_MWdc BLANK (no $)",
+      "damage_curve_intensity_reference.csv: SWS_SCADA_EXPOSED excluded from the primary structural aggregate (secondary unit)",
+      "damage_curve_intensity_reference_v2_proposed.csv: rows above the tracker Ucrit / fixed design net-pressure valid range carry extrapolation_flag and blank DR"
+    ],
+    "v1_failure_units_in_value_basis": 5,
+    "v1_failure_unit_shares_physical": {
+      "SWS_TRACKER_STRUCT": 0.08,
+      "SWS_RACKING_STRUCT": 0.06,
+      "SWS_MODULE_ATTACH": 0.40,
+      "SWS_FOUNDATION_UPLIFT": 0.08,
+      "SWS_SCADA_EXPOSED": 0.02
+    },
+    "mounting_alternatives_not_additive_note": "SWS_TRACKER_STRUCT and SWS_RACKING_STRUCT are ALTERNATIVE architectures; a single-architecture plant is tracker OR fixed-tilt, never the sum. Module-attach (0.40) dominates wind-exposed value on both.",
+    "v2_curve_bearing_failure_units": 4,
+    "v2_curve_bearing_failure_units_list": [
+      "PV_FIXED_TILT_MODULE_FIELD",
+      "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+      "PV_TRACKER_MODULE_FIELD",
+      "PV_TRACKER_SBOS_ASSEMBLY"
+    ],
+    "v2_withheld_failure_units": 5,
+    "v2_withheld_failure_units_list": [
+      "PV_FOUNDATION",
+      "PV_POWER_CONVERSION_AND_ELECTRICAL",
+      "PV_SCADA_COMMUNICATIONS",
+      "PV_CIVIL_INFRA",
+      "PV_REPLACEMENT_SUPPORT"
+    ],
+    "tiv_exact_cross_check_confirmed": true,
+    "tiv_cross_check_detail": "NREL/DOE Q1-2024 utility-scale MMP $1.12/W-dc == $1,120,000/MWdc installed TIV base (exact)",
+    "all_new_json_files_parse": true,
+    "all_new_json_files_checked": [
+      "01_pairs/solar_strong_wind/source_registry.json",
+      "01_pairs/solar_strong_wind/benchmark_number_matrix.json",
+      "01_pairs/solar_strong_wind/value_basis_from_damage_modeling.json",
+      "01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk.json",
+      "01_pairs/solar_strong_wind/damage_curve_intensity_reference.json",
+      "01_pairs/solar_strong_wind/value_basis_from_damage_modeling_v2_PROPOSED.json",
+      "01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk_v2_proposed.json",
+      "01_pairs/solar_strong_wind/damage_curve_intensity_reference_v2_proposed.json"
+    ],
+    "data_flat_copies_created": 14,
+    "wind_convective_wind_files_unchanged": true,
+    "wind_convective_wind_refresh_type": "cross-link and CHANGELOG mention only; DM wind_tornado_wind cell UNCHANGED since v0.6 so NO re-research and NO artifact changes",
+    "no_writes_outside_tmp_frv": true
+  },
+  "assertions": {
+    "crosswalk_is_resolved_case_A_cell_exists": true,
+    "canonical_v1_used_verbatim_no_invented_buckets": true,
+    "v2_status_is_proposed_noncanonical": true,
+    "v1_0_still_canonical_runtime": true,
+    "no_pass_fail_bands_defined": true,
+    "no_curve_tuned": true,
+    "no_numbers_invented_all_carry_dated_source_urls": true,
+    "package_remains_source_pathway_normalization_layer_not_calibration_harness": true,
+    "central_finding_no_open_isolated_straight_line_wind_solar_dollar_severity": true
+  },
+  "notes": [
+    "solar_strong_wind is a NEW gold-standard pair dossier matching/exceeding the solar_hail depth: 29 catalogued sources, 30 benchmark rows, a full source coverage matrix (29 x 17), a canonical RESOLVED value/damage crosswalk against the PROMOTED strong_wind_solar v1.0 cell, and a clearly-labeled PROPOSED / NON-CANONICAL two-architecture v2.0 preview.",
+    "The canonical crosswalk is Case A (RESOLVED_FROM_DAMAGE_MODELING) -- the strong_wind_solar cell exists and is promoted (canonical_runtime_artifact=true), so the 5 SWS_* failure units, their value shares, and the thresholded-logistic demand->DR ordinates are copied verbatim. It is never PENDING.",
+    "The v2.0 preview mirrors an upstream artifact whose canonical_runtime_artifact=false and promotion=not_performed. It is a two-architecture screening candidate (fixed_tilt net-pressure pathway + single_axis_tracker gust/Ucrit pathway) with lower/central/upper state medians that are an EPISTEMIC ENVELOPE, not statistical percentiles. It does NOT alter the canonical crosswalk.",
+    "Central finding: no open public source isolates pure straight-line / convective-wind $ severity for utility-scale solar. Strongest OPEN evidence is engineering/screening grade (AXIS stow $/MW swing $150k-$380k; CPP galloping onset <~40 m/s; PVEL tracker 1800 Pa vs fixed 2400 Pa; NEXTracker 25-yr failure probability; Cedar Rapids 2020 derecho forensics). The $1,120,000/MWdc TIV base is EXACT-confirmed by NREL/DOE Q1-2024 ($1.12/W-dc).",
+    "wind_convective_wind was NOT re-researched: the upstream Damage_Modeling wind_tornado_wind cell is byte-unchanged since v0.6, so this refresh is limited to version cross-links and a CHANGELOG mention. Its v0.5 RESOLVED and v0.6 v2-preview files are untouched.",
+    "Row counts above equal the actual data-row counts of the new solar_strong_wind CSVs (registry=29, source_matrix=29, benchmark=30, canonical crosswalk=13, canonical intensity=29, v2 crosswalk=8, v2 intensity=30 = 15 x 2 pathways) and the corresponding JSON array lengths."
+  ]
+}

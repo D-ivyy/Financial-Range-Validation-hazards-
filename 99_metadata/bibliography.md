@@ -2580,3 +2580,358 @@ _The following 33 entries are copied from the staged `SOURCE_REGISTER_wind_torna
 - **Prohibited inference:** Treat consumer parameters or headlines as Damage Modeling calibration targets.
 - **Decision:** `replace_on_consumer_migration`
 - **Notes:** Stable repository identity is audit provenance only; the machine artifact has no downstream dependency.
+
+
+---
+
+## v0.7 addition — solar_strong_wind source register (29 entries)
+
+**Retrieved:** 2026-07-13 · Pair: `solar_strong_wind` · scope: utility-scale ground-mount PV under straight-line / severe-convective wind. All entries carry the same IDs as `01_pairs/solar_strong_wind/source_registry.json`.
+
+### AXIS_RENEWABLE_2024
+- **Name:** AXIS Capital — Renewable Energy stow-scenario loss modeling (via industry press / broker briefings)
+- **Type:** `renewable_insurer_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `PRIMARY_BENCHMARK_CANDIDATE;PERIL_SHARE_CONTEXT`
+- **URL:** https://www.axiscapital.com/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Stow-scenario tracker $/MW figures: Failed Stow $380k/MW, Fixed-Tilt $340k/MW, Successful Hail Stow $150k/MW; heat-strengthened glass upgrade +$50k/MW. Peril share of a modeled solar loss: Hail 55% / Wildfire 23% / Tornado 18%. $342M gross claim example; 240-day NatCat downtime. Qualitative: 'hail is the 2nd most costly peril after strong winds.'
+- **Does not have (open):** A clean straight-line/convective-wind-only $/MW severity isolated from hail/tornado; the underlying stow-scenario model methodology; TIV denominators behind the per-MW figures.
+- **Notes:** The stow-scenario $/MW figures are the single most useful open solar-wind-adjacent severity anchors, but they are HAIL-stow framed (tracker stow to protect against hail), not pure straight-line wind. The 'hail 2nd most costly after strong winds' line is the strongest qualitative signal that strong wind leads solar peril cost, but no isolated wind $ is given.
+
+### GCUBE_SOLAR_HAIL_2024
+- **Name:** GCube Insurance — solar hail/NatCat claims analysis (via PES Media / Artemis)
+- **Type:** `renewable_insurer_publication`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `PERIL_SHARE_CONTEXT;MARKET_SIGNAL`
+- **URL:** https://pes.eu.com/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Hail average $58.4M per claim; hail = 54% of total solar claim COST. Qualitative: 'high wind events are a leading cause of insured losses in fielded solar assets' (frequency framing).
+- **Does not have (open):** Straight-line/convective-wind-only solar $/MW severity; per-MW normalization; TIV denominators. Report body gated to insureds/brokers.
+- **Notes:** Hail-dominant cost framing (54%) with wind cited as a leading FREQUENCY driver. The wind statement is a peril-prevalence signal, not a severity number. Headline figures open; body gated.
+
+### KWH_ANALYTICS_SOLAR_RISK_2024
+- **Name:** kWh Analytics — Solar Risk Assessment (annual)
+- **Type:** `renewable_analytics_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `PERIL_SHARE_CONTEXT`
+- **URL:** https://www.kwhanalytics.com/solar-risk-assessment
+- **Retrieved:** 2026-07-13
+- **Has (open):** Weather/NatCat now dominant driver of solar physical-damage severity; hail leads severity, wind/tornado a rising sub-peril; tracker stow behavior a key modifiable risk factor.
+- **Does not have (open):** Isolated convective-wind $/MW; TIV-denominated wind severity.
+- **Notes:** Free annual industry report; useful for peril-mix and stow-behavior context. No wind-isolated $/MW.
+
+### DESCARTES_TORNADO_PARAMETRIC_2024
+- **Name:** Descartes Underwriting — tornado parametric structure for solar (worked example)
+- **Type:** `renewable_insurer_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `TORNADO`
+- **Evidence use:** `SECONDARY_BENCHMARK;MARKET_SIGNAL`
+- **URL:** https://descartesunderwriting.com/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Tornado parametric limit $70M; worked payout example $50M event x 15% payout ratio = $7.5M.
+- **Does not have (open):** Straight-line-wind parametric; ground-up asset $/MW; solar-specific denominator.
+- **Notes:** Parametric (index-triggered) structure, TORNADO-specific, not straight-line wind. The $7.5M worked example is a structure illustration, not an observed asset loss.
+
+### GALLAGHER_RE_SCS_2025
+- **Name:** Gallagher Re — US Severe Convective Storm loss analysis (2025)
+- **Type:** `reinsurance_broker_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `GENERIC_ONLY;SCREENING_ONLY`
+- **URL:** https://www.ajg.com/gallagherre/
+- **Retrieved:** 2026-07-13
+- **Has (open):** SCS 2025 = $60B / 47% of global insured losses; SCS+hail US since 2020 = 42% / $200B.
+- **Does not have (open):** Solar-asset decomposition; solar-MW denominator; wind-only isolation within SCS.
+- **Notes:** GENERIC_ONLY: all-property SCS industry totals, not solar-specific. Never divide by solar MW.
+
+### VERISK_AIR_SCS_SOLAR
+- **Name:** Verisk (AIR) — Severe Thunderstorm / SCS model with solar damage functions
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `MECHANISM_ONLY;MARKET_SIGNAL`
+- **URL:** https://www.verisk.com/
+- **Retrieved:** 2026-07-13
+- **Has (open):** >70 damage functions spanning hail / straight-line wind / tornado; solar-specific occupancy/construction codes 500-514 and 3001-3023.
+- **Does not have (open):** The damage-function ordinates themselves (DR vs gust); PML/AAL magnitudes — all licensed/gated.
+- **Notes:** Structurally CONFIRMS straight-line wind is modeled as a distinct damage function for solar (separate from hail/tornado) — the strongest evidence that the sub-peril isolation is industry-standard. Ordinates gated. PATHWAY: license or request the solar SLW damage function.
+
+### MOODYS_RMS_SCS_RENEWABLE
+- **Name:** Moody's RMS — North America Severe Convective Storm model, renewable curves
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `MECHANISM_ONLY;MARKET_SIGNAL`
+- **URL:** https://www.rms.com/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Model spans convective wind 'from microbursts to derecho'; dedicated renewable (solar) vulnerability curves.
+- **Does not have (open):** Curve ordinates; PML/AAL magnitudes — licensed/gated.
+- **Notes:** Confirms the microburst->derecho straight-line-wind continuum is explicitly modeled for renewables. Ordinates gated. PATHWAY: license RMS NA SCS + renewable vulnerability.
+
+### VDE_CIRRUS_NAMED_WINDSTORM
+- **Name:** VDE Americas / Cirrus — solar PML/AAL advisory (named-windstorm peril line)
+- **Type:** `engineering_advisory`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `MECHANISM_ONLY;MARKET_SIGNAL`
+- **URL:** https://vdeamericas.com/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Advisory framework treats named-windstorm / wind as a distinct PML & AAL peril line for solar portfolios (alongside hail).
+- **Does not have (open):** Client-specific PML/AAL magnitudes; damage-ratio ordinates — advisory/gated.
+- **Notes:** Independent engineering-advisory confirmation that wind is carried as its own peril line in solar PML/AAL work. Magnitudes gated.
+
+### RENEW_RISK_SCS_SOLAR
+- **Name:** Renew Risk — SCS solar catastrophe model
+- **Type:** `cat_model_vendor`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `MECHANISM_ONLY;MARKET_SIGNAL`
+- **URL:** https://www.renewrisk.com/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Dedicated SCS model for solar assets covering hail + convective wind sub-perils.
+- **Does not have (open):** Curve ordinates; PML/AAL magnitudes — licensed/gated.
+- **Notes:** Newer specialist renewable cat modeler; confirms solar SCS/convective-wind modeling market. Ordinates gated.
+
+### SETO_SEVERE_WEATHER_2023
+- **Name:** DOE SETO — Severe Weather & Solar report (Cedar Rapids derecho, Prescott AZ)
+- **Type:** `government_engineering_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `CASE_STUDY_ONLY;MECHANISM_ONLY`
+- **URL:** https://escholarship.org/content/qt5t8569hf/qt5t8569hf.pdf
+- **Retrieved:** 2026-07-13
+- **Has (open):** Cedar Rapids 2020 derecho: ballasted rooftop/ground array liftoff at ~140 mph vs ASCE 120 mph design. Prescott AZ ~70 mph event destroyed an array (below design). Clean straight-line-wind / derecho case documentation.
+- **Does not have (open):** Dollar-loss per event; $/MW severity.
+- **Notes:** The cleanest OPEN straight-line-wind/derecho solar CASE evidence. Damage-state + intensity, no dollars. Prescott shows sub-design failure (installation/anchorage), a key mechanism caveat.
+
+### DOE_FEMP_PV_WEATHER_GUIDE
+- **Name:** DOE FEMP — PV System Owner's Guide to Weather Vulnerabilities
+- **Type:** `government_engineering_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `MECHANISM_ONLY;CROSS_CHECK_TIV_BASIS`
+- **URL:** https://www.energy.gov/sites/default/files/2021-09/pv-system-owners-guide-to-weather-vulnerabilities.pdf
+- **Retrieved:** 2026-07-13
+- **Has (open):** Repair/replace cost tiers spanning $0.01-$1.50 per watt by damage severity; wind failure modes (module detachment, racking/tracker failure, foundation uplift).
+- **Does not have (open):** Event-level $/MW loss tied to a specific wind speed; DR-vs-gust ordinates.
+- **Notes:** Cost tiers ($/W) provide a partial-loss severity ladder; useful to bound sub-total DR states, but not tied to a gust ordinate. Mechanism-rich.
+
+### OAKEY_2019_PVMAG
+- **Name:** pv magazine — 'What broke at Oakey' (Oakey solar farm wind damage, AU)
+- **Type:** `trade_press_case_study`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `CASE_STUDY_ONLY`
+- **URL:** https://www.pv-magazine-australia.com/2019/12/07/long-read-what-broke-at-oakey/
+- **Retrieved:** 2026-07-13
+- **Has (open):** ~2,000 modules damaged at a 55 MW plant during a wind event; tracker/module-attachment failure modes documented.
+- **Does not have (open):** Dollar loss; DR at a measured gust; US applicability.
+- **Notes:** Australian case; damage-state + module count at a known MW. Module-count/MW gives a partial-loss fraction anchor (module-attach FU), but no $ and non-US climate.
+
+### SOLTEC_2019_PVMAG
+- **Name:** Soltec — tracker wind performance presentation (perimeter-row failure pattern)
+- **Type:** `manufacturer_technical`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `CASE_STUDY_ONLY;MECHANISM_ONLY`
+- **URL:** https://www.pv-magazine.com/wp-content/uploads/2019/03/Soltec-presentation.pdf
+- **Retrieved:** 2026-07-13
+- **Has (open):** ~1% of trackers collapsed + ~1% minor damage in a wind event, concentrated in PERIMETER rows.
+- **Does not have (open):** Dollar loss; gust ordinate; independent verification (vendor-authored).
+- **Notes:** Vendor-authored; perimeter-row concentration is a key spatial mechanism (aeroelastic edge loading). ~1-2% collapse fraction is a partial-loss anchor, no $.
+
+### NEXTRACKER_STOW_WHITEPAPER_2018
+- **Name:** NEXTracker — tracker stow reliability white paper (Table 1 failure-probability by stow)
+- **Type:** `manufacturer_technical`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `SCREENING_ONLY;MECHANISM_ONLY`
+- **URL:** https://cdn2.hubspot.net/hubfs/1856748/nextracker_assets/pdfs/NEXT_whitepaper_092018.pdf
+- **Retrieved:** 2026-07-13
+- **Has (open):** Table 1 modeled 25-yr cumulative failure probability by stow strategy: Central CA 1.7% (good stow) vs 7.4% (poor); Utah 2.7% vs 14.6%; Saudi 0.1% vs 1.0%.
+- **Does not have (open):** $/MW loss; single-event DR; independent verification (vendor-modeled).
+- **Notes:** Vendor-modeled 25-yr failure PROBABILITY (not single-event DR, not $). Shows stow strategy swings failure prob ~4-10x — a key modifiable-risk mechanism. SCREENING only.
+
+### CPP_TORSIONAL_GALLOPING_2015
+- **Name:** CPP Wind (Rohr, Bourke, Banks 2015) — torsional instability of single-axis trackers
+- **Type:** `peer_engineering_paper`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `MECHANISM_ONLY`
+- **URL:** https://cppwind.com/wp-content/uploads/2014/01/Torsional-Instability-of-Single-Axis-Solar-Tracking-Systems-Rohr-Bourke-Banks-2015.pdf
+- **Retrieved:** 2026-07-13
+- **Has (open):** Torsional galloping / aeroelastic instability onset below ~40 m/s (~90 mph) for un-stowed single-axis trackers; flat (0-deg) stow raises the critical speed.
+- **Does not have (open):** $/MW loss; DR ordinates; single fleet-wide critical speed (system-specific).
+- **Notes:** THE canonical mechanism paper behind the v2 single-axis-tracker 'Ucrit' axis. ~40 m/s onset is system-specific, not a fleet plug-in. Mechanism/form evidence, not a benchmark.
+
+### NREL_PLR_WIND_2024
+- **Name:** NREL — PV performance-loss-rate vs wind exposure study
+- **Type:** `government_engineering_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `MECHANISM_ONLY;SCREENING_ONLY`
+- **URL:** https://docs.nrel.gov/docs/fy24osti/86414.pdf
+- **Retrieved:** 2026-07-13
+- **Has (open):** No elevated performance-loss-rate below ~90 km/h (~56 mph); ~1% median annual performance loss overall (degradation, not catastrophic).
+- **Does not have (open):** Catastrophic $/MW; single-event DR at high gust.
+- **Notes:** Establishes a ~56 mph lower threshold below which wind does not measurably degrade PV — supports the v1 R0 threshold (DR~0 below design). Degradation metric, not catastrophic loss.
+
+### PVEL_MSS_SCORECARD_2025
+- **Name:** PVEL — Module Mechanical Stress Sequence (MSS) scorecard
+- **Type:** `testing_lab_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `MECHANISM_ONLY;SCREENING_ONLY`
+- **URL:** https://scorecard.pvel.com/mechanical-stress-sequence/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Tracker-mounted module load rating ±1800 Pa vs fixed-tilt ±2400 Pa; BOM-material failure rate rose 7% (2024) -> 20% (2025) in MSS testing.
+- **Does not have (open):** $/MW; field DR at a gust; direct pressure-to-DR mapping.
+- **Notes:** Lab load ratings (Pa) support the fixed-tilt-vs-tracker architecture split in v2 (different design pressures). Rising failure rate is a manufacturing-quality trend, not a wind loss.
+
+### ASCE_7_22_WIND
+- **Name:** ASCE 7-22 — wind load provisions (§29.4.5 ground-mount solar; Ch.32 tornado)
+- **Type:** `design_standard`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `MECHANISM_ONLY`
+- **URL:** https://www.asce.org/publications-and-news/asce-7
+- **Retrieved:** 2026-07-13
+- **Has (open):** §29.4.5 gives ground-mounted solar wind-load procedure; Chapter 32 treats tornado loads as a SEPARATE load case from synoptic/straight-line wind.
+- **Does not have (open):** Loss; DR; $/MW.
+- **Notes:** Standard basis for the design-demand denominator in v2 (event demand / qualified design demand). ASCE keeping tornado (Ch.32) separate from straight-line wind mirrors the sub-peril split. Design threshold, not a loss.
+
+### NREL_STORM_HARDENING_2020
+- **Name:** NREL — PV storm-hardening cost study (¢/W hardening measures)
+- **Type:** `government_engineering_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `MECHANISM_ONLY;CROSS_CHECK_TIV_BASIS`
+- **URL:** https://www.nrel.gov/docs/fy20osti/76045.pdf
+- **Retrieved:** 2026-07-13
+- **Has (open):** Incremental storm-hardening measures quantified in ¢/W (fractions of the ~$1.12/W TIV base).
+- **Does not have (open):** Avoided-loss $/MW; DR reduction per measure.
+- **Notes:** Hardening-cost ladder (¢/W) contextualizes the value at risk relative to the TIV base; not a loss figure.
+
+### NOAA_STORM_EVENTS_WIND
+- **Name:** NOAA/NCEI Storm Events Database — Thunderstorm Wind / High Wind
+- **Type:** `government_event_log`
+- **Availability:** `GENERIC_ONLY`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `GENERIC_ONLY;SCREENING_ONLY`
+- **URL:** https://www.ncei.noaa.gov/stormevents/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Event log Jan 1950-Mar 2026; damaging wind events from 1955; county-level all-property PrD/CrD damage estimates.
+- **Does not have (open):** Solar-asset breakdown; solar-MW denominator; adjuster-verified claims.
+- **Notes:** GENERIC_ONLY: all-property county-level estimates. Useful as a wind-frequency overlay on the exposure map, never a solar $-loss benchmark.
+
+### SPC_SEVERE_WIND_CLIMO
+- **Name:** NOAA/NWS Storm Prediction Center — severe wind climatology & report archive
+- **Type:** `government_event_log`
+- **Availability:** `GENERIC_ONLY`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `GENERIC_ONLY;SCREENING_ONLY`
+- **URL:** https://www.spc.noaa.gov/wcm/
+- **Retrieved:** 2026-07-13
+- **Has (open):** ~13,858 avg annual non-tornadic T-storm wind reports (2004-2013); 2024 had most 75+ mph wind reports on record; gridded 50-64kt / >64kt wind climatology.
+- **Does not have (open):** Any dollar-loss; any asset-class content.
+- **Notes:** GENERIC_ONLY: pure meteorological event logs, zero $-loss. Wind-hazard frequency climatology overlay only.
+
+### SHELDUS_V23
+- **Name:** SHELDUS v23 — Spatial Hazard Events and Losses Database (ASU CEMHS)
+- **Type:** `academic_loss_database`
+- **Availability:** `HAS_GATED_NUMBERS`
+- **Sub-peril:** `STRAIGHT_LINE_CONVECTIVE`
+- **Evidence use:** `GENERIC_ONLY;SCREENING_ONLY`
+- **URL:** https://cemhs.asu.edu/sheldus
+- **Retrieved:** 2026-07-13
+- **Has (open):** County-level all-property direct loss 1960-2023, 18 hazard types incl. 'Severe Storm/Thunderstorm' & 'Wind'. Pay-as-you-go pricing 1.2-3 c/record.
+- **Does not have (open):** Solar-asset decomposition; free bulk national download; specific $ (not purchased this pass).
+- **Notes:** GENERIC_ONLY + GATED. Re-packages NOAA Storm Data with economic normalization. PATHWAY (per-record cost), not a benchmark.
+
+### AON_CCI_2026_SCS
+- **Name:** Aon — 2026 Climate and Catastrophe Insight (FY2025)
+- **Type:** `reinsurance_broker_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `GENERIC_ONLY;SCREENING_ONLY`
+- **URL:** https://www.prnewswire.com/news-releases/severe-convective-storms-now-the-costliest-insured-peril-of-the-21st-century-aon-reports-302665275.html
+- **Retrieved:** 2026-07-13
+- **Has (open):** 2025 global SCS insured losses $61B (3rd-highest on record); SCS now costliest insured peril of the 21st century; US = 81% of global insured losses ($103B, all perils).
+- **Does not have (open):** Solar/utility-generation decomposition; solar-MW denominator; wind-only isolation within SCS.
+- **Notes:** GENERIC_ONLY: global all-property SCS aggregate. Macro context only.
+
+### SWISS_RE_SIGMA_2025_01
+- **Name:** Swiss Re Institute — sigma 1/2025 Natural catastrophes
+- **Type:** `reinsurance_broker_publication`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `CONVECTIVE_BLENDED`
+- **Evidence use:** `GENERIC_ONLY;SCREENING_ONLY`
+- **URL:** https://www.swissre.com/institute/research/sigma-research/sigma-2025-01-natural-catastrophes-trend.html
+- **Retrieved:** 2026-07-13
+- **Has (open):** 2024 global insured nat-cat $137B; SCS 2024 >$51B (2nd-highest after ~$70B in 2023); US ~85% of SCS losses historically; US SCS +8%/yr nominal since 2008.
+- **Does not have (open):** Solar decomposition; solar denominator; wind-only within SCS (bundles hail+tornado+SLW+lightning).
+- **Notes:** GENERIC_ONLY: bundles all SCS sub-perils. Third reinsurer voice triangulating ~$51-64B/yr US-heavy SCS. Macro context only.
+
+### USPVDB_2026_V4
+- **Name:** US Large-Scale Solar Photovoltaic Database (USGS/LBNL) v4.0
+- **Type:** `government_exposure_database`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `N/A`
+- **Evidence use:** `DENOMINATOR_ONLY`
+- **URL:** https://energy.usgs.gov/uspvdb/
+- **Retrieved:** 2026-07-13
+- **Has (open):** 6,611 utility-scale plants; 131,573 MW-AC / ~162,802 MW-DC; TX largest (23,033 MW-AC, 187 plants); CA most plants (893). DERIVED: Plains/Midwest/TX convective corridor ~38.4% of tracked capacity.
+- **Does not have (open):** Any loss/damage/wind-hazard attribution; per-plant $/MW cost; rooftop/<1MW facilities.
+- **Notes:** Best public denominator source for the geographic-concentration argument. The 38.4% corridor figure is a DERIVED task aggregate (not source-verbatim). Pure exposure, no loss.
+
+### EIA_860_2025
+- **Name:** EIA Form 860 / Electric Power Monthly — utility-scale solar capacity
+- **Type:** `government_survey`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `N/A`
+- **Evidence use:** `DENOMINATOR_ONLY`
+- **URL:** https://www.eia.gov/electricity/data/eia860/
+- **Retrieved:** 2026-07-13
+- **Has (open):** Utility-scale solar net summer capacity: 90,528 MW (2023) -> 122,060 MW (2024) -> 149,798.5 MW (2025). TX solar 24,549.1 MW (Apr-2025).
+- **Does not have (open):** Wind-loss/damage; per-plant construction cost in usable public form.
+- **Notes:** Most-current monthly-updated MW totals; feeds USPVDB (not independent). TABLE-CROSSING RISK flagged (wind vs solar columns). Denominator, not a loss.
+
+### NREL_DOE_PV_COST_BENCHMARK_Q1_2024
+- **Name:** DOE/NREL/LBNL/Sandia — U.S. Solar PV System Cost Benchmark Q1 2024
+- **Type:** `government_engineering_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `N/A`
+- **Evidence use:** `CROSS_CHECK_TIV_BASIS`
+- **URL:** https://www.energy.gov/cmei/systems/solar-photovoltaic-system-cost-benchmarks
+- **Retrieved:** 2026-07-13
+- **Has (open):** Utility-scale (100 MW-dc) MMP = $1.12/W-dc (= $1,120,000/MW-dc, EXACT match to the dossier TIV base); MSP $0.98/W-dc; O&M $19/kW-dc-yr; LCOE $47/MWh.
+- **Does not have (open):** Wind-damage/loss; geographic cost breakdown in the headline table.
+- **Notes:** The strongest external cross-check for the $1,120,000/MWdc installed-TIV basis — essentially exact. Bottom-up model, pre-ITC, excludes land. Cross-check only, not a loss.
+
+### NREL_ATB_2024_UTILITY_PV
+- **Name:** NREL 2024 Annual Technology Baseline — Utility-Scale PV
+- **Type:** `government_engineering_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `N/A`
+- **Evidence use:** `CROSS_CHECK_TIV_BASIS`
+- **URL:** https://atb.nrel.gov/electricity/2024/utility-scale_pv
+- **Retrieved:** 2026-07-13
+- **Has (open):** Overnight capital cost $1.43/W-AC (2022, ILR 1.34) ~ $1.07/W-DC; $1.56/W-AC (2023) ~ $1.16/W-DC.
+- **Does not have (open):** Hazard/loss; independent (shares NREL/LBNL survey lineage with the benchmark report).
+- **Notes:** Secondary TIV cross-check consistent with the Q1-2024 benchmark. AC/DC basis via ILR 1.34 — reconcile before combining.
+
+### LBNL_UTILITY_SCALE_SOLAR_2025ED
+- **Name:** LBNL — Utility-Scale Solar, 2025 Edition (empirical EIA-860 project costs)
+- **Type:** `government_engineering_report`
+- **Availability:** `HAS_OPEN_NUMBERS`
+- **Sub-peril:** `N/A`
+- **Evidence use:** `CROSS_CHECK_TIV_BASIS;DENOMINATOR_CONTEXT`
+- **URL:** https://emp.lbl.gov/
+- **Retrieved:** 2026-07-13
+- **Has (open):** National capacity-weighted mean $1.43/W-AC ($1.08/W-DC, 2023); ERCOT/TX ~$1.38/W-AC (~$1.06/W-DC, secondary-compiled, needs primary verification).
+- **Does not have (open):** State-level cost granularity (aggregated to ISO/RTO); wind-loss.
+- **Notes:** Empirical EIA-860-derived CAPEX cross-check. ERCOT regional figure is secondary-aggregator-sourced (PROVISIONAL). Denominator/cross-check, not a loss.

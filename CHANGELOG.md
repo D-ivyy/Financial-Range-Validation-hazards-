@@ -1,5 +1,40 @@
 # Changelog
 
+## v0.7 — solar_strong_wind NEW gold-standard pair dossier (RESOLVED canonical crosswalk) + PROPOSED / NON-CANONICAL v2 two-architecture preview; wind_convective_wind cross-link refresh
+
+Created: 2026-07-13
+
+Added the package's **fifth hazard×asset pair dossier** and **second solar-wind-family pair**: `solar_strong_wind` — utility-scale ground-mount PV under **straight-line / severe-convective wind** (derecho, microburst, gust-front outflow). **Tornado and hurricane/TC are named-and-quarantined.** Matches/exceeds the `solar_hail` depth: 29 catalogued sources, 30 benchmark rows, a 29×17 source coverage matrix, a canonical `RESOLVED_FROM_DAMAGE_MODELING` value/damage crosswalk, and a clearly-labeled PROPOSED / NON-CANONICAL v2.0 preview.
+
+The canonical crosswalk is **Case A (RESOLVED)** against the PROMOTED `strong_wind_solar` v1.0 cell in [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling) (`docs/cells/strong_wind_solar/current/`, commit `f8b5ec3`, `canonical_runtime_artifact: true`). The **5 canonical failure units** (`SWS_TRACKER_STRUCT` 8%, `SWS_RACKING_STRUCT` 6%, `SWS_MODULE_ATTACH` 40%, `SWS_FOUNDATION_UPLIFT` 8%, `SWS_SCADA_EXPOSED` 2% of physical), their value shares, and the thresholded-logistic demand→DR ordinates on the `SWS_GUST_3S_ARRAY_HEIGHT` axis (`R_eff = (V_3s/V_design)^2`) are used verbatim — no invented buckets. Solar value ladder: installed TIV `$1,120,000/MWdc` (EXACT-confirmed by NREL/DOE Q1-2024 `$1.12/W-dc`), physical replaceable `$877,796/MWdc` (78.4%). Tracker and racking are ALTERNATIVE architectures (never summed on a single-architecture plant); module-attach (40%) dominates wind-exposed value on both.
+
+**Central finding:** no open public source cleanly isolates pure straight-line / convective-wind $ severity for utility-scale solar. Every open dollar figure is hail-stow-framed (AXIS `$150k–$380k/MW` stow scenarios), hail-dominant (GCube: hail = 54% of solar claim cost), tornado-parametric (Descartes), generic all-property SCS (Gallagher Re/Aon/Swiss Re), or gated (Verisk/AIR, Moody's RMS, VDE/Cirrus, Renew Risk). Strongest OPEN evidence is engineering/screening grade: stow-behavior severity swing, CPP aeroelastic galloping onset (`<~40 m/s`), PVEL tracker `1800 Pa` vs fixed `2400 Pa` load ratings, NEXTracker 25-yr failure probability, Cedar Rapids 2020 derecho forensics. 6 of 30 benchmark rows normalize to `$/MW`, all blended; the remaining 24 are blank-not-zero where no denominator exists.
+
+A staged, **PROPOSED / NON-CANONICAL** v2.0 two-architecture screening preview accompanies the dossier (`docs/cells/strong_wind_solar/proposed/`, `canonical_runtime_artifact: false`, `promotion: not_performed`). It routes a single straight-line-convective input by `array_architecture` into `fixed_tilt_ground_mount_screening_v1` (net-pressure demand axis) and `single_axis_tracker_qualified_screening_v1` (gust/Ucrit axis), each an `ordered_damage_state_lognormal` with lower/central/upper state medians that are an **EPISTEMIC ENVELOPE, not percentiles**. The two pathways use different denominators and must never be cross-regressed, nor regressed against the v1.0 `R_eff` axis. This preview does **not** alter or supersede the canonical crosswalk; the v1.0 cell remains the canonical runtime.
+
+```text
+01_pairs/solar_strong_wind/README.md
+01_pairs/solar_strong_wind/source_registry.json/.csv                            (29 sources)
+01_pairs/solar_strong_wind/source_matrix.csv                                    (29 x 17)
+01_pairs/solar_strong_wind/benchmark_number_matrix.csv/.json                    (30 rows)
+01_pairs/solar_strong_wind/value_basis_from_damage_modeling.json                (canonical v1.0, 5 FUs, RESOLVED)
+01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk.csv/.json           (13 rows)
+01_pairs/solar_strong_wind/damage_curve_intensity_reference.csv/.json           (29 rows)
+01_pairs/solar_strong_wind/value_basis_from_damage_modeling_v2_PROPOSED.json     (non-canonical preview)
+01_pairs/solar_strong_wind/benchmark_value_damage_crosswalk_v2_proposed.csv/.json  (8 rows)
+01_pairs/solar_strong_wind/damage_curve_intensity_reference_v2_proposed.csv/.json  (30 rows: 15 x 2 pathways)
+02_crosswalks/solar_strong_wind_value_damage_crosswalk.md
+02_crosswalks/solar_strong_wind_v2_proposed_value_damage_crosswalk.md
+data/*_solar_strong_wind.* + solar_strong_wind_*.* flat copies                   (14 files)
+99_metadata/validation_v0_7.json ; VALIDATION_REPORT_v0_7.md
+99_metadata/bibliography.md (29 new entries) ; 99_metadata/manifest.md
+00_anchor/... §5.3 note + grid row ; README.md ; 02_crosswalks/README.md
+```
+
+`wind_convective_wind` was **NOT re-researched**: the upstream `Damage_Modeling` `wind_tornado_wind` cell is byte-unchanged since v0.6, so this refresh is limited to version cross-links and this CHANGELOG mention. Its v0.5 `RESOLVED` and v0.6 v2-preview files are untouched.
+
+**Non-scope disclaimer:** this package is a source-pathway / normalization layer, **not** a calibration harness. It defines no pass/fail bands, tunes no curve, and treats no raw number as a validated benchmark until its full metric frame is understood.
+
 ## v0.6 — wind_convective_wind PROPOSED / NON-CANONICAL v2 two-pathway preview (additive; does not alter v0.5)
 
 Created: 2026-07-11

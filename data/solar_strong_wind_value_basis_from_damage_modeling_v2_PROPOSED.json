@@ -1,0 +1,94 @@
+{
+ "schema_version": "renewable_loss_value_damage_crosswalk.v2_proposed",
+ "created": "2026-07-13",
+ "status": "PROPOSED_NONCANONICAL_FROM_DAMAGE_MODELING_V2",
+ "canonical_runtime_note": "This mirrors the PROPOSED (non-canonical) strong_wind_solar v2.0 artifact in Damage_Modeling/docs/cells/strong_wind_solar/proposed/. canonical_runtime_artifact=FALSE and promotion=not_performed upstream. It is a PREVIEW only and MUST NOT be used as the runtime crosswalk. The canonical crosswalk remains the v1.0 file (value_basis_from_damage_modeling.json).",
+ "source_value_workbook": "Damage_Modeling/docs/method/value_basis/solar_wind_value_breakdown.xlsx / Summary + Solar_Map",
+ "source_damage_artifact": "Damage_Modeling/docs/cells/strong_wind_solar/proposed/ (v2.0 ordered_damage_state_lognormal, two array-architecture pathways)",
+ "damage_code_id": "STRONG_WIND_SOLAR_V2_PROPOSED",
+ "related_repos": {
+  "damage_modeling": "https://github.com/aamani-ai/Damage_Modeling",
+  "hazard_modeling": "https://github.com/aamani-ai/Hazard_Modeling"
+ },
+ "important_rule": "PROPOSED preview. Normalization/grain crosswalk only; NO pass/fail bands, NO curve tuning. The lower/central/upper state medians are an EPISTEMIC ENVELOPE (screening uncertainty), NOT statistical percentiles of a loss distribution.",
+ "scope_note": "v2.0 keeps a single straight_line_convective hazard input but ROUTES it by array_architecture into two SCREENING pathways: (1) fixed_tilt_ground_mount_screening_v1 and (2) single_axis_tracker_qualified_screening_v1. Tornado and hurricane/TC remain fenced out. Grade upstream: SCREENING_ENGINEERING_PROXY.",
+ "two_pathway_architecture": {
+  "fixed_tilt_ground_mount_screening_v1": {
+   "x_axis": "x_fixed = event net-pressure demand / qualified design net-pressure",
+   "demand_proxy": "(gust_3s / design_gust_3s)^2",
+   "curve_form": "ordered_damage_state_lognormal (beta_ln~0.3, zero_below~0.1)",
+   "curve_bearing_failure_units": [
+    "PV_FIXED_TILT_MODULE_FIELD",
+    "PV_FIXED_TILT_SUPPORT_STRUCTURE"
+   ]
+  },
+  "single_axis_tracker_qualified_screening_v1": {
+   "x_axis": "x_tracker = tracker-normal 3s gust / exact-system Ucrit (critical galloping/stow speed)",
+   "demand_proxy": "tracker-normal gust vs system-specific Ucrit (CPP 2015 galloping mechanism)",
+   "curve_form": "ordered_damage_state_lognormal (beta_ln~0.3, zero_below~0.1)",
+   "curve_bearing_failure_units": [
+    "PV_TRACKER_MODULE_FIELD",
+    "PV_TRACKER_SBOS_ASSEMBLY"
+   ]
+  }
+ },
+ "solar_default_basis_usd_per_MWdc": {
+  "installed_TIV": 1120000.0,
+  "physical_replaceable_value": 877796.0,
+  "physical_as_pct_installed": 78.375
+ },
+ "hazard_axes": {
+  "fixed_tilt": "x_fixed (net-pressure demand ratio, dimensionless)",
+  "single_axis_tracker": "x_tracker (tracker-normal gust / Ucrit, dimensionless)"
+ },
+ "strong_wind_damage_grain_v2": {
+  "cell_id": "strong_wind_solar (proposed v2.0)",
+  "curve_form": "ordered_damage_state_lognormal",
+  "f_kind": "engineering demand-vs-capacity proxy per architecture (NOT geometry, NOT BOM material share)",
+  "owns": "severity screening states only \u2014 EAL/PML/VaR/TVaR downstream",
+  "value_atoms_usd_per_kWdc": {
+   "module_hardware": 291.21,
+   "mounting_hardware": 109.99,
+   "array_direct_reference": 401.2
+  },
+  "array_direct_reference_shares": {
+   "pct_physical": 45.71,
+   "pct_installed": 35.82
+  },
+  "curve_bearing_failure_units": [
+   {
+    "value_id": "PV_FIXED_TILT_MODULE_FIELD",
+    "pathway": "fixed_tilt",
+    "subsystem": "PV_ARRAY"
+   },
+   {
+    "value_id": "PV_FIXED_TILT_SUPPORT_STRUCTURE",
+    "pathway": "fixed_tilt",
+    "subsystem": "MOUNTING"
+   },
+   {
+    "value_id": "PV_TRACKER_MODULE_FIELD",
+    "pathway": "single_axis_tracker",
+    "subsystem": "PV_ARRAY"
+   },
+   {
+    "value_id": "PV_TRACKER_SBOS_ASSEMBLY",
+    "pathway": "single_axis_tracker",
+    "subsystem": "MOUNTING"
+   }
+  ],
+  "withheld_failure_units": [
+   "PV_FOUNDATION",
+   "PV_POWER_CONVERSION_AND_ELECTRICAL",
+   "PV_SCADA_COMMUNICATIONS",
+   "PV_CIVIL_INFRA",
+   "PV_REPLACEMENT_SUPPORT"
+  ]
+ },
+ "state_cost_ratios": {
+  "note": "ordered damage states carry cost_ratio + capacity_scenarios (lower/central/upper state_medians = epistemic envelope, NOT percentiles). Exact ordinates live in the upstream proposed artifact; this preview uses illustrative central/lower/upper medians for the reference table."
+ },
+ "comparability_caveat": "fixed_tilt and single_axis_tracker use DIFFERENT demand denominators (net-pressure ratio vs gust/Ucrit) and are NOT on a common x-axis. Never regress one pathway against the other or against the v1.0 R_eff axis.",
+ "comparison_guidance": "Same as v1.0: blended AXIS stow $/MW cannot be placed on a per-pathway state DR without architecture + gust + MW. A $/MW above a hardware cap is a grain warning, not DR>1.",
+ "promotion_status": "not_performed (canonical_runtime_artifact=FALSE). PREVIEW ONLY."
+}

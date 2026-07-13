@@ -1,3 +1,31 @@
+# Handoff summary — v0.7 (solar_strong_wind added)
+
+The package now holds **five hazard×asset pair dossiers**: `solar_hail` (v0.2), `solar_flood` (v0.3), `solar_wildfire` (v0.4), `wind_convective_wind` (v0.5–v0.6), and **`solar_strong_wind` (v0.7, NEW)**.
+
+## v0.7 — solar_strong_wind (utility-scale PV × straight-line / severe-convective wind)
+
+**Canonical crosswalk:** `RESOLVED_FROM_DAMAGE_MODELING` against the PROMOTED `strong_wind_solar` v1.0 cell (5 SWS_* failure units + thresholded-logistic demand→DR on the `SWS_GUST_3S_ARRAY_HEIGHT` axis). Solar value ladder: installed TIV `$1,120,000/MWdc` (exact-confirmed by NREL/DOE Q1-2024 `$1.12/W-dc`), physical replaceable `$877,796/MWdc` (78.4%). A staged, non-canonical two-architecture v2.0 screening preview accompanies it (does not alter the canonical crosswalk).
+
+**Central finding:** no open public source isolates pure straight-line / convective-wind $ severity for utility-scale solar — every open dollar is hail-stow-framed, hail-dominant, tornado-parametric, generic-SCS, or gated.
+
+### Highest-value open numbers (solar_strong_wind)
+
+| Source | Open number | Caveat |
+|---|---|---|
+| AXIS | failed-stow `$380k/MW` · fixed-tilt `$340k/MW` · successful-hail-stow `$150k/MW` (+heat-strengthened glass `+$50k/MW`); peril share Hail 55 / Wildfire 23 / Tornado 18 | hail-stow framed, blended |
+| GCube | hail avg `$58.4M/claim`; hail = `54%` of solar claim cost; wind a leading frequency driver | hail-dominant; wind is prevalence not severity |
+| PVEL | tracker module `1800 Pa` vs fixed `2400 Pa`; MSS fail `7%→20%` | design-pressure split, not a loss |
+| CPP | torsional galloping onset `<~40 m/s (~90 mph)` for un-stowed trackers | mechanism / v2 tracker axis |
+| NEXTracker | 25-yr cumulative failure prob `1.7%–14.6%` by stow/site | probability, not single-event DR |
+| Cedar Rapids 2020 derecho | ballasted liftoff `~140 mph` vs `120 mph` design | damage-state, no $ |
+| NREL/DOE | utility-scale `$1.12/W-dc` = `$1,120,000/MWdc` TIV | EXACT TIV cross-check |
+
+### Main gap (solar_strong_wind)
+
+The single figure that would convert the AXIS blended stow `$/MW` into isolated straight-line-wind `$/MWdc` is a forensic per-array loss from a NAMED derecho/microburst with a stated MWdc denominator, measured peak 3s gust, and $ split by subsystem. That, plus the gated cat-model straight-line-wind solar damage functions (Verisk/AIR solar codes `500-514`/`3001-3023`; Moody's RMS; Renew Risk) and a VDE/Cirrus PML/AAL run with the wind peril line itemized, are the top retrieval targets.
+
+---
+
 # Handoff summary — solar × hail reference-source package v0.2
 
 Solar × hail is now the first deep-dive pair under Range Validation Hazard Modeling.
