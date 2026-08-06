@@ -189,3 +189,13 @@ VALIDATION_REPORT_v0_7.md
 ```
 
 The `solar_strong_wind` crosswalk is `RESOLVED_FROM_DAMAGE_MODELING` (v0.7) — it uses the canonical, PROMOTED `strong_wind_solar` v1.0 cell from `Damage_Modeling` (`docs/cells/strong_wind_solar/current/`, commit `f8b5ec3`, `canonical_runtime_artifact=true`): 5 named SWS_* failure units (SWS_TRACKER_STRUCT, SWS_RACKING_STRUCT, SWS_MODULE_ATTACH, SWS_FOUNDATION_UPLIFT, SWS_SCADA_EXPOSED) with per-unit value shares AND the thresholded-logistic demand→DR ordinates (hazard axis `SWS_GUST_3S_ARRAY_HEIGHT`, R_eff = (V_3s/V_design)^2). Scope is utility-scale ground-mount PV under straight-line / severe-convective wind (derecho, microburst, gust-front); tornado and hurricane/TC are named-and-quarantined. 6 of 30 benchmark rows normalize to $/MW and all are blended — no open source isolates pure straight-line-wind $ severity for solar. Solar value ladder = installed TIV `$1,120,000/MWdc` (exact-confirmed by NREL/DOE Q1-2024 `$1.12/W-dc`); physical replaceable `$877,796/MWdc` (78.4%). A staged, non-canonical two-architecture v2.0 screening preview (`fixed_tilt_ground_mount` net-pressure pathway + `single_axis_tracker_qualified` gust/Ucrit pathway) accompanies it (`canonical_runtime_artifact=false`, `promotion=not_performed`) and does not alter the canonical crosswalk. Related repos: [`Damage_Modeling`](https://github.com/aamani-ai/Damage_Modeling), [`Hazard_Modeling`](https://github.com/aamani-ai/Hazard_Modeling).
+
+## v0.9 added files — Gen 1 external-evidence scope decision
+
+```text
+03_scope/GEN1_hazard_asset_pair_selection_external_evidence_v0_9.md
+data/gen1_hazard_asset_scope_ranked_v0_9.csv
+data/gen1_hazard_asset_scope_evidence_v0_9.csv
+```
+
+This is a source-evidence and scope-decision layer across all ten requested hazard × asset pairs. It supplies no calibration target, does not change benchmark numbers or the v0.8 EAL plausible-range table, and does not tune or promote any damage curve. The ranked CSV has one row per pair; the evidence CSV holds source-evidence rows and excludes cross-cutting-only context rows and pages whose body was not fetched in-session.

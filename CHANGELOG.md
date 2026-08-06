@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.9 — Gen 1 hazard × asset external-evidence scope decision
+
+Created: 2026-08-06
+
+Added a decision-oriented external-evidence layer that ranks all ten requested hazard × renewable-asset pairs and records a governed Gen 1 verdict for each: seven `IN_GEN1`, one `DEGRADATION_CANDIDATE`, two `INSUFFICIENT_EVIDENCE`, and no `OUT_GEN1`. The decision is carried in:
+
+```text
+03_scope/GEN1_hazard_asset_pair_selection_external_evidence_v0_9.md
+data/gen1_hazard_asset_scope_ranked_v0_9.csv
+data/gen1_hazard_asset_scope_evidence_v0_9.csv
+```
+
+The artifact explicitly preserves metric identity, data vintage, loss basis, denominator, loss pathway, counter-evidence, and scope-contamination warnings. In particular, it does not treat the Courtenay 35/100 damaged-turbine count as a `%TIV` result; separates landscape wildfire from equipment-driven brushfire for solar; and prevents AXIS's named-storm/SCS/sandstorm “strong wind” category from being silently mapped to a convective-only solar cell.
+
+**Non-scope disclaimer:** this is a **source-evidence / scope-decision layer**, **not a calibration rule**. It does **not** alter existing benchmark numbers, does **not** tune curves, and does **not** change the v0.8 EAL plausible-range table or any canonical Damage_Modeling artifact.
+
 ## v0.7 — solar_strong_wind NEW gold-standard pair dossier (RESOLVED canonical crosswalk) + PROPOSED / NON-CANONICAL v2 two-architecture preview; wind_convective_wind cross-link refresh
 
 Created: 2026-07-13
